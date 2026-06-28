@@ -1,0 +1,74 @@
+/* Ancient India atlas — bespoke styling (design tokens + SVG + timeline).
+   Fonts are injected as CSS variables by next/font in app/layout.tsx. */
+.ait-root{
+  --ink:#23241d; --ink-soft:#5c5d52; --stone:#d7d1c1; --stone-edge:#b3ab97;
+  --paper:#e9e5d9; --paper-2:#e3dece; --line:#c8c1ae; --border:#6b6557;
+  background:var(--paper); color:var(--ink);
+  font-family:var(--font-inter),system-ui,sans-serif; min-height:100%;
+  padding:34px clamp(16px,4vw,48px) 48px; box-sizing:border-box; max-width:880px; margin:0 auto;
+}
+*,*::before,*::after{box-sizing:border-box;}
+.ait-eyebrow{ font-family:var(--font-space-mono),monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; }
+.ait-title{ font-family:var(--font-fraunces),Georgia,serif; font-weight:500; font-size:clamp(30px,5vw,46px); line-height:1.02; letter-spacing:-.01em; margin:0 0 12px; }
+.ait-sub{ max-width:58ch; margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.55; }
+
+.ait-readout{ display:flex; align-items:stretch; gap:12px; margin:28px 0 14px; }
+.ait-readout-mid{ flex:1; min-width:0; }
+.ait-rtop{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+.ait-year{ font-family:var(--font-space-mono),monospace; font-weight:700; font-size:clamp(22px,4vw,30px); }
+.ait-era{ font-family:var(--font-fraunces),serif; font-style:italic; font-size:clamp(18px,3vw,24px); }
+.ait-soon{ font-family:var(--font-space-mono),monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:#8a6d4b; border:1px solid #c4ad8c; background:#efe7d8; padding:2px 7px; border-radius:999px; }
+.ait-ruling{ margin-top:6px; font-size:13px; color:var(--ink-soft); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.ait-ruling-k{ font-family:var(--font-space-mono),monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; margin-right:12px; opacity:.8; }
+.ait-ruling-empty{ font-style:italic; }
+.ait-step{ flex:0 0 auto; width:46px; align-self:stretch; min-height:46px; display:flex; align-items:center; justify-content:center; font-size:24px; color:var(--ink); background:var(--paper-2); border:1px solid var(--stone-edge); border-radius:6px; cursor:pointer; transition:background .2s, transform .05s; font-family:var(--font-fraunces),serif; }
+.ait-step:hover{ background:#dcd6c6; }
+.ait-step:active{ transform:translateY(1px); }
+.ait-step:focus-visible{ outline:2px solid var(--ink); outline-offset:2px; }
+
+.ait-timeline{ margin-bottom:8px; }
+.ait-track{ position:relative; height:46px; width:100%; border:1px solid var(--line); border-radius:3px; background:var(--paper-2); cursor:pointer; touch-action:none; overflow:hidden; user-select:none; }
+.ait-track:focus-visible{ outline:2px solid var(--ink); outline-offset:2px; }
+.ait-band{ position:absolute; top:0; bottom:0; border-right:1px solid var(--line); display:flex; align-items:flex-end; justify-content:center; padding-bottom:4px; }
+.ait-band.alt{ background:rgba(0,0,0,.022); }
+.ait-band.is-cur{ background:rgba(62,92,118,.16); }
+.ait-band-tick{ font-size:8px; letter-spacing:.02em; color:var(--ink-soft); writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; max-height:38px; overflow:hidden; opacity:.55; }
+.ait-band.is-cur .ait-band-tick{ opacity:1; color:var(--ink); }
+.ait-zero{ position:absolute; top:0; bottom:0; width:1px; background:var(--ink); opacity:.45; }
+.ait-handle{ position:absolute; top:0; bottom:0; transform:translateX(-50%); pointer-events:none; }
+.ait-handle-stem{ position:absolute; top:0; bottom:0; left:50%; width:2px; transform:translateX(-50%); background:var(--ink); }
+.ait-handle-knob{ position:absolute; top:-5px; left:50%; width:14px; height:14px; transform:translateX(-50%); background:var(--paper); border:2px solid var(--ink); border-radius:50%; box-shadow:0 1px 3px rgba(0,0,0,.18); }
+.ait-axis{ position:relative; height:16px; margin-top:7px; }
+.ait-tick{ position:absolute; transform:translateX(-50%); font-family:var(--font-space-mono),monospace; font-size:10px; color:var(--ink-soft); white-space:nowrap; }
+
+.ait-mapwrap{ position:relative; margin:16px 0 6px; }
+.ait-svg{ width:100%; height:auto; display:block; }
+.ait-land{ fill:var(--stone); stroke:var(--stone-edge); stroke-width:1; stroke-linejoin:round; }
+.ait-border{ fill:none; stroke:var(--border); stroke-width:.9; stroke-dasharray:2 2.5; opacity:.55; }
+.ait-region{ stroke:rgba(255,255,255,.35); stroke-width:.75; transition:opacity .35s ease; }
+.ait-lead{ stroke:var(--ink-soft); stroke-width:.8; opacity:.5; }
+.ait-label{ font-family:var(--font-fraunces),serif; font-weight:600; font-size:16px; paint-order:stroke; stroke:var(--paper); stroke-width:3.4px; stroke-linejoin:round; }
+.ait-period{ font-family:var(--font-space-mono),monospace; font-weight:400; font-size:9.5px; fill:var(--ink-soft); stroke-width:2.6px; }
+
+.ait-empty{ position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); text-align:center; display:flex; flex-direction:column; gap:3px; color:var(--ink-soft); font-size:14px; pointer-events:none; font-family:var(--font-fraunces),serif; font-style:italic; }
+.ait-empty-sub{ font-family:var(--font-space-mono),monospace; font-size:10px; letter-spacing:.08em; font-style:normal; }
+
+.ait-legend{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.ait-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-inter),sans-serif; font-size:12.5px; color:var(--ink-soft); padding:5px 11px; border:1px solid var(--line); border-radius:999px; background:transparent; cursor:pointer; opacity:.5; transition:opacity .25s, border-color .25s; }
+.ait-chip.on{ opacity:1; color:var(--ink); border-color:var(--stone-edge); }
+.ait-chip:hover{ opacity:.85; }
+.ait-swatch{ width:11px; height:11px; border-radius:3px; }
+
+.ait-foot{ margin-top:22px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.04em; color:var(--ink-soft); }
+
+@media (max-width:520px){
+  .ait-label{ font-size:14px; }
+  .ait-ruling{ font-size:12px; }
+  .ait-band-tick{ display:none; }
+  .ait-tick.minor{ display:none; }
+  .ait-tick{ font-size:9px; }
+  .ait-chip{ font-size:11.5px; padding:4px 9px; gap:6px; }
+  .ait-step{ width:42px; }
+  .ait-readout{ gap:9px; }
+}
+@media (prefers-reduced-motion:reduce){ .ait-region{ transition:none; } }

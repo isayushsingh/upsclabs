@@ -1,0 +1,355 @@
+/* UPSC Labs — site shell styling (header, hub, cards, newsletter, footer).
+   Shares the brand tokens defined in app/globals.css :root.
+   Fonts come from next/font as CSS variables. */
+
+.ul-wordmark-mark {
+  color: #3e5c76;
+}
+
+/* ── header ── */
+.ul-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(120%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.ul-header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  height: 62px;
+  padding: 0 clamp(16px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ul-wordmark {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.ul-nav {
+  display: flex;
+  gap: clamp(14px, 3vw, 28px);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+}
+.ul-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ul-nav a:hover {
+  color: var(--ink);
+}
+
+/* ── shared layout ── */
+.ul-main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+.ul-eyebrow {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+/* ── hero ── */
+.ul-hero {
+  padding: clamp(48px, 9vw, 96px) 0 clamp(36px, 6vw, 56px);
+  border-bottom: 1px solid var(--line);
+}
+.ul-hero-sm {
+  padding: clamp(40px, 7vw, 64px) 0 clamp(28px, 4vw, 40px);
+}
+.ul-hero-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(34px, 7vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+.ul-hero-sub {
+  max-width: 56ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(15px, 2.2vw, 17px);
+  line-height: 1.6;
+}
+
+/* ── tools section ── */
+.ul-tools {
+  padding: clamp(36px, 6vw, 56px) 0;
+}
+.ul-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+.ul-section-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(22px, 3.5vw, 28px);
+  margin: 0;
+}
+.ul-section-meta {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.ul-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+.ul-empty {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ── tool card ── */
+.ul-card {
+  --accent: #3e5c76;
+  display: flex;
+  flex-direction: column;
+  min-height: 184px;
+  padding: 20px 22px 18px;
+  background: var(--paper-3);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.ul-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -12px rgba(35, 36, 29, 0.25);
+  border-color: var(--accent);
+}
+.ul-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.ul-card-paper {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.ul-badge {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+.ul-badge-new {
+  color: #fff;
+  background: var(--accent);
+}
+.ul-badge-popular {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: transparent;
+}
+.ul-card-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.18;
+  margin: 0 0 8px;
+}
+.ul-card-blurb {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+.ul-card-cta {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* ── newsletter ── */
+.ul-news-wrap {
+  padding: clamp(20px, 4vw, 40px) 0 clamp(48px, 8vw, 80px);
+}
+.ul-news {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+  padding: clamp(26px, 4vw, 40px);
+  background: var(--stone);
+  border: 1px solid var(--stone-edge);
+  border-radius: 14px;
+}
+.ul-news-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(22px, 3.5vw, 30px);
+  margin: 0 0 8px;
+}
+.ul-news-sub {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.ul-news-row {
+  display: flex;
+  gap: 8px;
+}
+.ul-news-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--stone-edge);
+  border-radius: 7px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.ul-news-row input:focus {
+  border-color: var(--ink);
+}
+.ul-news-row button {
+  flex: 0 0 auto;
+  padding: 11px 18px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.ul-news-row button:hover {
+  opacity: 0.88;
+}
+.ul-news-row button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.ul-news-msg {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+}
+.ul-news-msg.ok {
+  color: #4a6b50;
+}
+.ul-news-msg.error {
+  color: #9a4a3c;
+}
+
+/* ── breadcrumb (tool pages) ── */
+.ul-breadcrumb {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 22px clamp(16px, 4vw, 48px) 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.ul-breadcrumb a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.ul-breadcrumb a:hover {
+  color: var(--ink);
+}
+.ul-breadcrumb-cur {
+  color: var(--ink);
+}
+
+/* ── footer ── */
+.ul-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+}
+.ul-footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px clamp(16px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.ul-footer-brand {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.ul-footer-tag {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.ul-footer-nav {
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+}
+.ul-footer-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.ul-footer-nav a:hover {
+  color: var(--ink);
+}
+.ul-footer-meta {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 10.5px;
+  color: var(--ink-soft);
+}
+
+/* ── responsive ── */
+@media (max-width: 680px) {
+  .ul-news {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .ul-news-row {
+    flex-direction: column;
+  }
+  .ul-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
