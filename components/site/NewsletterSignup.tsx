@@ -6,6 +6,7 @@ type State = "idle" | "loading" | "ok" | "error";
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState("");
+  const [idea, setIdea] = useState("");
   const [state, setState] = useState<State>("idle");
   const [msg, setMsg] = useState("");
 
@@ -21,13 +22,18 @@ export default function NewsletterSignup() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, message: idea }),
       });
       const data = await res.json();
       if (res.ok) {
         setState("ok");
-        setMsg(data.message || "You're on the list.");
+        setMsg(
+          idea.trim()
+            ? "Got it — noted your request. We'll be in touch."
+            : "You're on the list."
+        );
         setEmail("");
+        setIdea("");
       } else {
         setState("error");
         setMsg(data.error || "Something went wrong.");
@@ -41,13 +47,23 @@ export default function NewsletterSignup() {
   return (
     <div className="ul-news" id="newsletter">
       <div className="ul-news-text">
-        <div className="ul-eyebrow">Newsletter</div>
-        <h2 className="ul-news-title">New tools, in your inbox</h2>
+        <div className="ul-eyebrow">Newsletter · Requests</div>
+        <h2 className="ul-news-title">Want a tool that doesn&apos;t exist yet?</h2>
         <p className="ul-news-sub">
-          Occasional updates when a new tool ships. Coming Soon.
+          Tell us what&apos;s painful to revise and we&apos;ll put it on the bench. Or just leave
+          your email — one ping each time a new tile turns live. No spam, promise.
         </p>
       </div>
       <div className="ul-news-form">
+        <input
+          className="ul-news-idea"
+          type="text"
+          value={idea}
+          onChange={(e) => setIdea(e.target.value)}
+          placeholder="What should we build next? (optional)"
+          aria-label="Tool request"
+          disabled={state === "loading"}
+        />
         <div className="ul-news-row">
           <input
             type="email"
@@ -59,7 +75,7 @@ export default function NewsletterSignup() {
             disabled={state === "loading"}
           />
           <button onClick={submit} disabled={state === "loading"}>
-            {state === "loading" ? "…" : "Subscribe"}
+            {state === "loading" ? "…" : idea.trim() ? "Send" : "Subscribe"}
           </button>
         </div>
         {msg && <p className={`ul-news-msg ${state}`}>{msg}</p>}

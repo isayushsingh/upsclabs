@@ -11,6 +11,12 @@
   --paper-2: #e3dece;
   --paper-3: #efeae0;
   --line: #c8c1ae;
+  /* status + action accents */
+  --live: #3e5c76;
+  --building: #5f7e6b;
+  --planned: #b3ab97;
+  --action: #a6603f; /* muted terracotta — CTAs & live badges */
+  --action-dark: #8c4e30;
   color-scheme: light;
 }
 
