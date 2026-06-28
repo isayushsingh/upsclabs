@@ -171,9 +171,7 @@ export default function AncientIndiaTimeline() {
         <div className="ait-eyebrow">Outline of Ancient India · interactive atlas</div>
         <h1 className="ait-title">Who ruled, and where</h1>
         <p className="ait-sub">
-          Step kingdom by kingdom with the arrows, or drag the rule. The map redraws the
-          dynastic territory active in that year — built for chronological familiarity, not
-          exact borders.
+          Step kingdom by kingdom with the arrows, or drag the rule.
         </p>
       </header>
 
@@ -340,8 +338,7 @@ export default function AncientIndiaTimeline() {
       </section>
 
       <footer className="ait-foot">
-        Outline of Ancient India · approximate territory for chronological familiarity ·
-        early-medieval roster still expanding
+        Outline of Ancient India · Built for chronological familiarity, not exact borders.
       </footer>
     </div>
   );
