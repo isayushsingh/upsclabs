@@ -26,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${spaceMono.variable}`}>
       <body>
         <Header />
+        <Analytics />
         {children}
         <Footer />
       </body>
