@@ -168,7 +168,7 @@ export default function AncientIndiaTimeline() {
   return (
     <div className="ait-root">
       <header className="ait-head">
-        <div className="ait-eyebrow">Outline of Ancient India · interactive atlas</div>
+        {/* <div className="ait-eyebrow">Outline of Ancient India · interactive atlas</div> */}
         <h1 className="ait-title">Who ruled, and where</h1>
         <p className="ait-sub">
           Step kingdom by kingdom with the arrows, or drag the rule.

@@ -5,7 +5,7 @@ export default function Header() {
     <header className="ul-header">
       <div className="ul-header-inner">
         <Link href="/" className="ul-wordmark">
-          <span className="ul-wordmark-mark">UPSC</span>&nbsp;Labs
+          <span className="ul-wordmark-mark">upsc</span>.labs
         </Link>
         <nav className="ul-nav" aria-label="Primary">
           <Link href="/#featured">Tools</Link>

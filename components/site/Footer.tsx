@@ -5,8 +5,7 @@ export default function Footer() {
     <footer className="ul-footer">
       <div className="ul-footer-inner">
         <div className="ul-footer-brand">
-          <span className="ul-wordmark-mark">UPSC</span> Labs
-          <span className="ul-footer-tag">Interactive tools for civil services preparation</span>
+          <span className="ul-wordmark-mark">upsc.labs</span>
         </div>
         <nav className="ul-footer-nav" aria-label="Footer">
           <Link href="/#tools">Tools</Link>

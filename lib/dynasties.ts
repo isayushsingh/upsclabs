@@ -141,6 +141,18 @@ export const DYNASTIES: Dynasty[] = [
   { id: "pala", name: "Pala", fill: "#4E6A8A", start: 750, end: 1161,
     label: { lng: 87.5, lat: 24, anchor: "start", lead: true },
     coords: [[84,26],[87,26],[89.5,25],[90,23],[88,21.5],[85.5,22],[84,23.5],[84,26]] },
+  
+  { id: "chalukyabadami", name: "Chalukya of Badami", short: "Chalukya (Vatapi)", fill: "#B5894A", start: 543, end: 753,
+    label: { lng: 76.5, lat: 16.8, anchor: "middle", lead: false },
+    coords: [[74,18.5],[77,18.5],[79,17.5],[79,15.5],[77.5,14.5],[75.5,15],[74,16.5],[73.5,17.5],[74,18.5]] },
+
+  { id: "chalukyakalyani", name: "Western Chalukya (Kalyani)", short: "Chalukya (Kalyani)", fill: "#97703A", start: 973, end: 1189,
+    label: { lng: 76.8, lat: 17.6, anchor: "middle", lead: false },
+    coords: [[74,19.5],[77,19.5],[79.5,18.5],[79.5,16],[78,15],[75.5,15.5],[74,17],[73.5,18.5],[74,19.5]] },
+
+  { id: "chalukyavengi", name: "Eastern Chalukya (Vengi)", short: "Chalukya (Vengi)", fill: "#C7A35C", start: 624, end: 1075,
+    label: { lng: 82, lat: 16.8, anchor: "start", lead: false },
+    coords: [[79.5,17.5],[81.5,18],[83,17],[83,15],[81.5,14.5],[80,15],[79.5,16],[79.5,17.5]] },
 
   { id: "rashtrakuta", name: "Rashtrakuta", fill: "#7A5548", start: 753, end: 982,
     label: { lng: 77, lat: 18, anchor: "middle", lead: false },

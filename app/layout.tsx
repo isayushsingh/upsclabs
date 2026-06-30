@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, Space_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 import "@/components/site/site.css";
 import Header from "@/components/site/Header";
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <Analytics />
         {children}
+        <SpeedInsights />
         <Footer />
       </body>
     </html>

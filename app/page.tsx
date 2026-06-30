@@ -8,7 +8,7 @@ export default function Home() {
     <main className="ul-main">
       <section className="ul-hero">
         <div className="ul-hero-text">
-          <div className="ul-eyebrow">UPSC Labs · Coverage</div>
+          <div className="ul-eyebrow">upsc.labs · Coverage</div>
           <h1 className="ul-hero-title">
             Building UPSC syllabus,
             <br />
