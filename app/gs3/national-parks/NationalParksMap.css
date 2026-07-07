@@ -1,0 +1,287 @@
+/* National Parks & Tiger Reserves — Step 2 skeleton styles.
+   Palette: parchment base with pigment-derived accents (verdigris, madder,
+   turmeric). Uses a display-serif CSS var with graceful fallback so it inherits
+   the hub's font if one is wired, else falls back to a system serif. */
+
+.np-root {
+  --paper: #f2ece0;
+  --paper-2: #efe7d6;
+  --ink: #2a2520;
+  --ink-soft: #6b6153;
+  --line: #cbb68f;
+  --land: #e7dcc4; /* park-less states */
+  --land-data: #e0d3b6; /* park-bearing states */
+  --land-hover: #d7c6a1;
+  --forest: #3f6b4e;
+  --terra: #c2683f;
+  --saffron: #d49a3a;
+
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 20px 40px;
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ── header ── */
+.np-crumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+.np-crumb b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.np-title {
+  font-family: var(--font-display, ui-serif, Georgia, "Times New Roman", serif);
+  font-size: clamp(24px, 3.4vw, 34px);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 8px 0 4px;
+}
+.np-sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+  max-width: 60ch;
+}
+.np-wip {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  position: relative;
+  top: -3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7a4a12;
+  background: repeating-linear-gradient(
+    45deg,
+    #f4e3c1,
+    #f4e3c1 7px,
+    #ebd7a8 7px,
+    #ebd7a8 14px
+  );
+  border: 1px solid var(--saffron);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+/* ── stage ── */
+.np-stage {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.np-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+.np-back {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  background: #fbf7ee;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(42, 37, 32, 0.08);
+}
+.np-back:hover {
+  background: #fff;
+}
+
+/* ── states ── */
+.np-state {
+  fill: var(--land);
+  stroke: var(--line);
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.18s ease;
+}
+.np-has-data {
+  fill: var(--land-data);
+  cursor: pointer;
+}
+.np-has-data:hover {
+  fill: var(--land-hover);
+}
+.np-active {
+  fill: var(--land-data);
+  stroke: var(--forest);
+  stroke-width: 1.1;
+}
+
+/* ── labels ── */
+.np-statelabels {
+  pointer-events: none;
+}
+.np-statelabel {
+  fill: var(--ink-soft);
+  font-size: 8.5px;
+  font-style: italic;
+  opacity: 0.55;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+}
+.np-watermark {
+  fill: var(--ink);
+  opacity: 0.08;
+  font-family: var(--font-display, ui-serif, Georgia, serif);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+/* ── toolbar + layer chips ── */
+.np-toolbar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.np-toolbar .np-back {
+  position: static;
+  top: auto;
+  left: auto;
+}
+.np-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.np-chip {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: #fbf7ee;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.np-chip:hover {
+  background: #fff;
+}
+.np-chip-on {
+  color: #7a4a12;
+  background: #f6e6c6;
+  border-color: var(--saffron);
+}
+
+/* ── markers ── */
+.np-markers {
+  pointer-events: none;
+}
+.np-mrk {
+  stroke: #2a2520;
+  stroke-opacity: 0.3;
+  stroke-width: 0.75;
+  vector-effect: non-scaling-stroke;
+}
+.np-mrk-np {
+  fill: var(--forest);
+}
+.np-mrk-amb {
+  fill: var(--saffron);
+}
+.np-half-np {
+  fill: var(--forest);
+  stroke: none;
+}
+.np-half-amb {
+  fill: var(--saffron);
+  stroke: none;
+}
+.np-mrk-ring {
+  fill: none;
+  stroke: #2a2520;
+  stroke-opacity: 0.32;
+  stroke-width: 0.9;
+  vector-effect: non-scaling-stroke;
+}
+.np-mrklabel {
+  fill: var(--ink);
+  font-weight: 600;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2.4px;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ── faint context layers (subordinate to markers) ── */
+.np-rivers,
+.np-wetlands,
+.np-terrain {
+  pointer-events: none;
+}
+.np-river {
+  fill: none;
+  stroke: var(--river, #5e86a0);
+  stroke-width: 1;
+  stroke-opacity: 0.55;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.np-riverlabel {
+  fill: #5e86a0;
+  font-style: italic;
+  opacity: 0.85;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.np-wet {
+  fill: #5a93a0;
+  fill-opacity: 0.55;
+  stroke: #47818e;
+  stroke-opacity: 0.5;
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+.np-wetlabel {
+  fill: #47818e;
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.np-hilllabel {
+  fill: #9c7a52;
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
