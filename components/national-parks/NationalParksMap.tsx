@@ -77,10 +77,10 @@ const R_FRAC = 0.008; // marker radius
 const LFS_FRAC = 0.015; // park label font-size (enlarged for readability)
 const LGAP_FRAC = 0.005; // marker→label gap
 // Faint context layers — subordinate size hierarchy: park > river > wetland ≈ terrain.
-const RIVER_FRAC = 0.0082; // river label font-size
-const WET_FRAC = 0.0068; // wetland label font-size
-const HILL_FRAC = 0.0068; // terrain label font-size
-const DROP_FRAC = 0.0052; // wetland droplet size
+const RIVER_FRAC = 0.0118; // river label font-size (enlarged for legibility)
+const WET_FRAC = 0.0108; // wetland label font-size (enlarged for legibility)
+const HILL_FRAC = 0.0108; // terrain label font-size (enlarged for legibility)
+const DROP_FRAC = 0.006; // wetland droplet size
 // Tuned so dense sets cluster exactly as the validated prototype did
 // (Kerala's High-Range sholas → one 3-bubble; Telangana's Hyderabad trio → 3).
 const CLUSTER_FRAC = 0.04;
@@ -99,8 +99,6 @@ const IUCN_COLOR: Record<string, string> = {
 const IUCN_DARK = new Set(["VU", "NT", "LC"]);
 
 type Mode = "learn" | "recall";
-/** Which point layer is masked while testing yourself. */
-type QuizLayer = "parks" | "reserves";
 
 const easeInOut = (t: number): number =>
   t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
@@ -115,22 +113,24 @@ const dropletPath = (x: number, y: number, w: number): string =>
   `C${x + 0.76 * w},${y - 0.48 * w} ${x + 0.76 * w},${y + 0.3 * w} ${x},${y + w} Z`;
 
 interface LayerState {
+  np: boolean;
   tr: boolean;
   rivers: boolean;
   wetlands: boolean;
   terrain: boolean;
-  species: boolean;
 }
 
 function LayerChip({
   on,
   onClick,
   variant,
+  disabled = false,
   children,
 }: {
   on: boolean;
   onClick: () => void;
-  variant: "tr" | "riv" | "wet" | "hill" | "spc";
+  variant: "np" | "tr" | "riv" | "wet" | "hill";
+  disabled?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -138,6 +138,7 @@ function LayerChip({
       className={`np-chip np-chip-${variant} ${on ? "on" : ""}`}
       onClick={onClick}
       aria-pressed={on}
+      disabled={disabled}
     >
       <span className="np-sw" aria-hidden="true" />
       {children}
@@ -182,12 +183,10 @@ function SpeciesRow({ sp }: { sp: Species }) {
 
 function Card({
   sel,
-  showSpecies,
   onClose,
   panelRef,
 }: {
   sel: SelectedInfo;
-  showSpecies: boolean;
   onClose: () => void;
   panelRef: React.Ref<HTMLElement>;
 }) {
@@ -214,13 +213,16 @@ function Card({
         />
         <div className="np-card-titles">
           <h2 className="np-card-title">{sel.name}</h2>
-          <div className="np-card-sub">
-            {sel.state} ·{" "}
-            {sel.kind === "reserve"
-              ? "Tiger Reserve"
-              : isTR
-              ? "National Park · Tiger Reserve"
-              : "National Park"}
+          <div className="np-card-sub">{sel.state}</div>
+          <div className="np-card-tags">
+            {sel.kind === "reserve" ? (
+              <span className="np-tag np-tag-tr">Tiger Reserve</span>
+            ) : (
+              <>
+                <span className="np-tag np-tag-np">National Park</span>
+                {isTR && <span className="np-tag np-tag-tr">Tiger Reserve</span>}
+              </>
+            )}
           </div>
         </div>
         <button className="np-card-x" onClick={onClose} aria-label="Close">
@@ -255,7 +257,7 @@ function Card({
         </div>
       </dl>
 
-      {showSpecies && species.length > 0 && (
+      {species.length > 0 && (
         <section className="np-species">
           <h3 className="np-species-h">Key species</h3>
           <ul className="np-sp-list">
@@ -273,14 +275,13 @@ export default function NationalParksMap() {
   const [activeState, setActiveState] = useState<string | null>(null);
   const [vb, setVb] = useState<VB>(FULL_VB);
   const [layers, setLayers] = useState<LayerState>({
+    np: true,
     tr: false,
     rivers: false,
     wetlands: false,
     terrain: false,
-    species: true,
   });
   const [mode, setMode] = useState<Mode>("learn");
-  const [quizLayer, setQuizLayer] = useState<QuizLayer>("parks");
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<SelectedInfo | null>(null);
   const vbRef = useRef<VB>(FULL_VB);
@@ -368,17 +369,21 @@ export default function NationalParksMap() {
     [animateTo]
   );
 
-  /** Keep a viewBox within the active state's fit bounds and zoom range. */
+  /** Clamp a viewBox: zoom-in depth is relative to the active state, but the
+      user may zoom out all the way to the full India view and pan freely across
+      neighbouring states (so a card overlapping a marker can be scrolled off). */
   const clampVB = useCallback((v: VB): VB => {
     const fit = fitVBRef.current;
-    const minVW = fit[2] * 0.16; // max zoom-in (~6×)
-    const maxVW = fit[2]; // can't zoom out past the state fit
+    const minVW = fit[2] * 0.16; // max zoom-in (~6× the state fit)
+    const maxVW = FULL_VB[2]; // zoom-out ceiling is the whole-India view
     const w = Math.min(maxVW, Math.max(minVW, v[2]));
     const h = w / ASPECT;
-    const maxX = fit[0] + fit[2] - w;
-    const maxY = fit[1] + fit[3] - h;
-    const x = Math.min(Math.max(v[0], fit[0]), Math.max(fit[0], maxX));
-    const y = Math.min(Math.max(v[1], fit[1]), Math.max(fit[1], maxY));
+    // Pan bounds = the full India frame, so panning is not locked to one state.
+    const [bx, by, bw, bh] = FULL_VB;
+    const maxX = bx + bw - w;
+    const maxY = by + bh - h;
+    const x = Math.min(Math.max(v[0], bx), Math.max(bx, maxX));
+    const y = Math.min(Math.max(v[1], by), Math.max(by, maxY));
     return [x, y, w, h];
   }, []);
 
@@ -475,35 +480,39 @@ export default function NationalParksMap() {
     animateTo(FULL_VB);
   }, [animateTo]);
 
-  // Project the point set for the active state. Reserves only participate when
-  // the Tiger Reserves layer is on, so clustering reacts to the visible set.
+  // Project the point set for the active state. Parks appear when the National
+  // Parks layer is on; reserves when the Tiger Reserves layer is on — so
+  // clustering reacts to exactly the visible set.
   const points = useMemo<LayoutPoint[]>(() => {
     if (!activeState) return [];
-    const parks: LayoutPoint[] = (PARKS[activeState] ?? []).map((p, i) => {
-      const [x, y] = projectPoint(PROJ, p.lon, p.lat);
-      return {
-        id: `np:${activeState}:${i}`,
-        name: p.name,
-        x,
-        y,
-        priority: p.tr ? 3 : 2,
-        kind: "park",
-      };
-    });
-    if (!layers.tr) return parks;
-    const reserves: LayoutPoint[] = (RESERVES[activeState] ?? []).map((r, i) => {
-      const [x, y] = projectPoint(PROJ, r.lon, r.lat);
-      return {
-        id: `tr:${activeState}:${i}`,
-        name: r.name,
-        x,
-        y,
-        priority: 1,
-        kind: "reserve",
-      };
-    });
+    const parks: LayoutPoint[] = layers.np
+      ? (PARKS[activeState] ?? []).map((p, i) => {
+          const [x, y] = projectPoint(PROJ, p.lon, p.lat);
+          return {
+            id: `np:${activeState}:${i}`,
+            name: p.name,
+            x,
+            y,
+            priority: p.tr ? 3 : 2,
+            kind: "park",
+          };
+        })
+      : [];
+    const reserves: LayoutPoint[] = layers.tr
+      ? (RESERVES[activeState] ?? []).map((r, i) => {
+          const [x, y] = projectPoint(PROJ, r.lon, r.lat);
+          return {
+            id: `tr:${activeState}:${i}`,
+            name: r.name,
+            x,
+            y,
+            priority: 1,
+            kind: "reserve",
+          };
+        })
+      : [];
     return [...parks, ...reserves];
-  }, [activeState, layers.tr]);
+  }, [activeState, layers.np, layers.tr]);
 
   /** Lookup from LayoutPoint id back to its source record (for styling). */
   const sourceById = useMemo(() => {
@@ -526,14 +535,11 @@ export default function NationalParksMap() {
 
   const placements = useMemo(() => {
     // Masked points render a "?" instead of a name, so they don't enter declutter.
-    const maskedNow = (id: string, kind: "park" | "reserve") =>
-      mode === "recall" &&
-      !revealed.has(id) &&
-      (quizLayer === "parks" ? kind === "park" : kind === "reserve");
+    const maskedNow = (id: string) => mode === "recall" && !revealed.has(id);
 
     const singles = clusters
       .filter((c) => !isBubble(c))
-      .filter((c) => !maskedNow(c.members[0].id, c.members[0].kind));
+      .filter((c) => !maskedNow(c.members[0].id));
     const labels: LabelInput[] = singles.map((c) => ({
       id: c.id,
       text: c.members[0].name,
@@ -543,16 +549,12 @@ export default function NationalParksMap() {
       priority: c.members[0].priority,
     }));
     return placeLabels(labels, LFS_FRAC * vb[2], LGAP_FRAC * vb[2]);
-  }, [clusters, vb, mode, revealed, quizLayer]);
+  }, [clusters, vb, mode, revealed]);
 
-  /** In Recall mode the chosen layer is masked until the marker is clicked. */
+  /** In Recall mode every point (park and reserve) is masked until clicked. */
   const isMasked = useCallback(
-    (id: string, kind: "park" | "reserve") => {
-      if (mode !== "recall") return false;
-      if (revealed.has(id)) return false;
-      return quizLayer === "parks" ? kind === "park" : kind === "reserve";
-    },
-    [mode, revealed, quizLayer]
+    (id: string) => mode === "recall" && !revealed.has(id),
+    [mode, revealed]
   );
 
   const openPoint = useCallback(
@@ -638,26 +640,17 @@ export default function NationalParksMap() {
 
   return (
     <div className="np-root">
-      <header className="np-head">
-        <div className="np-crumb">
-          <span>UPSC Labs</span>
-          <span>/</span>
-          <span>GS3</span>
-          <span>/</span>
-          <b>National Parks · Active Recall</b>
-        </div>
-        <h1 className="np-title">
-          National Parks &amp; Tiger Reserves
-          <span className="np-wip">Work in progress</span>
-        </h1>
-        <p className="np-sub">
-          Pick a state, then reveal the parks. Data is provisional and unverified
-          — not for final revision.
-        </p>
-      </header>
-
-      <div className="np-workspace">
-        <aside className="np-sidebar">
+        <div className="np-headrow">
+          <div className="np-headtext">
+            <h1 className="np-title">
+              National Parks &amp; Tiger Reserves
+              <span className="np-wip">Work in progress</span>
+            </h1>
+            <p className="np-sub">
+              Pick a state, then reveal the parks. Data is provisional and
+              unverified — not for final revision.
+            </p>
+          </div>
           <div className="np-modes" role="group" aria-label="Study mode">
             <button
               className={`np-mode np-mode-learn ${
@@ -678,21 +671,57 @@ export default function NationalParksMap() {
               Recall <em>test yourself</em>
             </button>
           </div>
+        </div>
 
-          {activeState && (
-            <button className="np-reset" onClick={exitToIndia}>
-              ← Reset
-            </button>
-          )}
-
-          <div className="np-lyr-col" role="group" aria-label="Map layers">
-              <span className="np-lyr-cap">Layers</span>
-              <LayerChip variant="tr" on={layers.tr} onClick={() => toggle("tr")}>
+      <div className="np-workspace">
+        <div className="np-stage">
+          {/* floating layer menu (top-left of the frame) — inert until a state is picked */}
+          <div className="np-layerbox">
+            <div className="np-layerbox-head">
+              <span className="np-lb-icon" aria-hidden="true">
+                ▤
+              </span>
+              <span className="np-lb-title">{activeState ?? "All India Map"}</span>
+              {activeState && (
+                <button
+                  className="np-lb-reset"
+                  onClick={exitToIndia}
+                  aria-label="Back to All India view"
+                  title="Back to All India"
+                >
+                  ↺
+                </button>
+              )}
+            </div>
+            <div
+              className={`np-lyr-col ${activeState ? "" : "np-lyr-off"}`}
+              role="group"
+              aria-label="Map layers"
+            >
+              <span className="np-lyr-cap">Map Layers</span>
+              {!activeState && (
+                <p className="np-lyr-hint">Select a state to interact</p>
+              )}
+              <LayerChip
+                variant="np"
+                on={layers.np}
+                disabled={!activeState}
+                onClick={() => toggle("np")}
+              >
+                National Parks
+              </LayerChip>
+              <LayerChip
+                variant="tr"
+                on={layers.tr}
+                disabled={!activeState}
+                onClick={() => toggle("tr")}
+              >
                 Tiger Reserves
               </LayerChip>
               <LayerChip
                 variant="riv"
                 on={layers.rivers}
+                disabled={!activeState}
                 onClick={() => toggle("rivers")}
               >
                 Rivers
@@ -700,6 +729,7 @@ export default function NationalParksMap() {
               <LayerChip
                 variant="wet"
                 on={layers.wetlands}
+                disabled={!activeState}
                 onClick={() => toggle("wetlands")}
               >
                 Wetlands
@@ -707,84 +737,14 @@ export default function NationalParksMap() {
               <LayerChip
                 variant="hill"
                 on={layers.terrain}
+                disabled={!activeState}
                 onClick={() => toggle("terrain")}
               >
                 Terrain
               </LayerChip>
-              <LayerChip
-                variant="spc"
-                on={layers.species}
-                onClick={() => toggle("species")}
-              >
-                Key species
-              </LayerChip>
-            </div>
-
-          {mode === "recall" && activeState && (
-            <div className="np-quiz" role="group" aria-label="What to hide">
-              <span className="np-quiz-k">Hide</span>
-              <button
-                className={`np-quiz-b ${quizLayer === "parks" ? "on" : ""}`}
-                onClick={() => {
-                  setQuizLayer("parks");
-                  setRevealed(new Set());
-                }}
-                aria-pressed={quizLayer === "parks"}
-              >
-                Parks
-              </button>
-              <button
-                className={`np-quiz-b ${quizLayer === "reserves" ? "on" : ""}`}
-                onClick={() => {
-                  setQuizLayer("reserves");
-                  setRevealed(new Set());
-                }}
-                aria-pressed={quizLayer === "reserves"}
-                disabled={!layers.tr}
-                title={!layers.tr ? "Turn on the Tiger Reserves layer" : undefined}
-              >
-                Reserves
-              </button>
-            </div>
-          )}
-
-          <div className="np-toolkey" aria-label="Marker key">
-            <span className="np-tk-cap">Markers</span>
-            <span>
-              <i className="np-lg np-lg-np" />
-              National Park
-            </span>
-            <span>
-              <i className="np-lg np-lg-both" />
-              NP + Tiger Reserve
-            </span>
-            <span>
-              <i className="np-lg np-lg-amb" />
-              Tiger Reserve
-            </span>
-          </div>
-
-          <div className="np-iucnkey" aria-label="IUCN Red List key">
-            <b>IUCN Status</b>
-            <div className="np-iucn-pills">
-              {(["CR", "EN", "VU", "NT", "LC"] as const).map((k) => (
-                <span
-                  key={k}
-                  className={`np-iucn ${IUCN_DARK.has(k) ? "np-pill-dark" : ""}`}
-                  style={{ background: IUCN_COLOR[k] }}
-                >
-                  {k}
-                </span>
-              ))}
-            </div>
-            <div className="np-iucn-flags">
-              <span>✦ endemic</span>
-              <span>◆ state animal</span>
             </div>
           </div>
-        </aside>
 
-        <div className="np-stage">
         <svg
           ref={svgRef}
           className={`np-svg ${activeState ? "np-grab" : ""}`}
@@ -941,7 +901,7 @@ export default function NationalParksMap() {
                 const split = layers.tr && src?.kind === "park" && src.tr;
                 const isReserve = src?.kind === "reserve";
                 const pl = placements.get(c.id);
-                const masked = isMasked(m.id, m.kind);
+                const masked = isMasked(m.id);
                 const isSel = selected?.id === m.id;
 
                 return (
@@ -1038,11 +998,47 @@ export default function NationalParksMap() {
         {selected && (
           <Card
             sel={selected}
-            showSpecies={layers.species}
             onClose={() => setSelected(null)}
             panelRef={cardRef}
           />
         )}
+        </div>
+
+        {/* ── footnote: legends live outside the map frame ── */}
+        <div className="np-footnote">
+          <div className="np-fn-iucn" aria-label="IUCN Red List key">
+            <b>IUCN Status</b>
+            <div className="np-iucn-pills">
+              {(["CR", "EN", "VU", "NT", "LC"] as const).map((k) => (
+                <span
+                  key={k}
+                  className={`np-iucn ${IUCN_DARK.has(k) ? "np-pill-dark" : ""}`}
+                  style={{ background: IUCN_COLOR[k] }}
+                >
+                  {k}
+                </span>
+              ))}
+            </div>
+            <span className="np-fn-flags">
+              <span>✦ endemic</span>
+              <span>◆ state animal</span>
+            </span>
+          </div>
+
+          <div className="np-fn-markers" aria-label="Marker key">
+            <span>
+              <i className="np-lg np-lg-np" />
+              National Park
+            </span>
+            <span>
+              <i className="np-lg np-lg-both" />
+              NP + Tiger Reserve
+            </span>
+            <span>
+              <i className="np-lg np-lg-amb" />
+              Tiger Reserve
+            </span>
+          </div>
         </div>
       </div>
     </div>

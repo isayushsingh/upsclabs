@@ -80,23 +80,32 @@
 }
 .np-headrow {
   display: flex;
-  gap: 16px 24px;
+  gap: 12px 24px;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 12px;
 }
+.np-headtext {
+  min-width: 0;
+  flex: 1 1 340px;
+}
+.np-headtext .np-title {
+  margin-top: 0;
+}
 
 /* ── mode toggle (Learn = slate, Recall = terracotta) ── */
 .np-modes {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  flex-direction: row;
   gap: 3px;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 999px;
   padding: 4px;
   box-shadow: var(--shadow);
+  flex: 0 0 auto;
+  align-self: flex-start;
 }
 .np-mode {
   appearance: none;
@@ -107,13 +116,11 @@
   font-size: 14px;
   font-weight: 700;
   color: #6f6452;
-  padding: 9px 13px;
-  border-radius: 9px;
+  padding: 9px 15px;
+  border-radius: 999px;
   transition: 0.18s;
   white-space: nowrap;
-  width: 100%;
-  text-align: left;
-  display: flex;
+  display: inline-flex;
   align-items: baseline;
   gap: 6px;
 }
@@ -150,25 +157,14 @@
   .np-stage {
     aspect-ratio: 0.82;
   }
-  .np-workspace {
+  .np-layerbox {
+    width: 176px;
+    top: 10px;
+    left: 10px;
+  }
+  .np-footnote {
     flex-direction: column;
-  }
-  .np-sidebar {
-    flex: none;
-    width: auto;
-  }
-  .np-lyr-col {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .np-lyr-col .np-chip {
-    width: auto;
-  }
-  .np-modes {
-    flex-direction: row;
-  }
-  .np-iucnkey {
-    margin-top: 0;
+    gap: 12px;
   }
 }
 .np-svg {
@@ -218,47 +214,71 @@
   vector-effect: non-scaling-stroke;
 }
 
-/* ── workspace: left sidebar (controls) + framed map ── */
+/* ── workspace: full-width framed map ── */
 .np-workspace {
-  display: flex;
-  gap: 16px;
   margin-top: 18px;
-  align-items: stretch;
 }
-.np-sidebar {
-  flex: 0 0 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
+
+/* ── floating layer menu (top-left overlay inside the frame) ── */
+.np-layerbox {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 7;
+  width: 208px;
+  max-width: calc(100% - 28px);
+  background: rgba(251, 247, 238, 0.96);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
-.np-reset {
+.np-layerbox-head {
   display: flex;
-  width: 100%;
   align-items: center;
   gap: 8px;
-  justify-content: center;
-  background: var(--slate);
-  color: var(--paper);
-  border: 1px solid var(--slate);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font: inherit;
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: var(--shadow);
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #f4eee1, #fbf7ee);
 }
-.np-reset:hover {
-  filter: brightness(1.08);
+.np-lb-icon {
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1;
+}
+.np-lb-title {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.np-lb-reset {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fbf7ee;
+  color: var(--slate);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.np-lb-reset:hover {
+  background: #fff;
+  filter: brightness(1.02);
 }
 .np-lyr-col {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  background: rgba(251, 247, 238, 0.75);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 11px 10px;
+  padding: 11px 11px 12px;
 }
 .np-lyr-col .np-chip {
   width: 100%;
@@ -271,6 +291,21 @@
   letter-spacing: 0.08em;
   color: var(--stone);
   margin: 0 0 3px 2px;
+}
+.np-lyr-hint {
+  margin: 0 2px 4px;
+  font-size: 11.5px;
+  line-height: 1.35;
+  font-style: italic;
+  color: var(--stone);
+}
+/* inert until a state is chosen */
+.np-lyr-off .np-chip {
+  opacity: 0.5;
+}
+.np-chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 .np-chip {
   display: inline-flex;
@@ -310,6 +345,14 @@
 }
 .np-chip.on .np-sw::after {
   left: 12px;
+}
+.np-chip-np.on {
+  color: #274a36;
+  border-color: rgba(63, 107, 78, 0.4);
+  background: rgba(63, 107, 78, 0.09);
+}
+.np-chip-np.on .np-sw {
+  background: var(--forest);
 }
 .np-chip-riv.on {
   color: #33506b;
@@ -746,6 +789,32 @@
   color: var(--stone);
   margin-top: 3px;
 }
+.np-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+.np-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 2px 9px;
+  border: 1px solid;
+  line-height: 1.5;
+}
+.np-tag-np {
+  color: #2f5a3f;
+  background: rgba(63, 107, 78, 0.12);
+  border-color: rgba(63, 107, 78, 0.45);
+}
+.np-tag-tr {
+  color: #9a6f1d;
+  background: rgba(212, 154, 58, 0.15);
+  border-color: rgba(212, 154, 58, 0.55);
+}
 .np-card-x {
   font: inherit;
   font-size: 16px;
@@ -887,5 +956,58 @@
   .np-sw::after,
   .np-mode {
     transition: none;
+  }
+}
+
+/* ── footnote legends (outside the map frame) ── */
+.np-footnote {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px 32px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 11px 14px;
+  background: rgba(251, 247, 238, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 12px;
+  color: #6f6452;
+}
+.np-fn-iucn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.np-fn-iucn > b {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--stone);
+  font-weight: 700;
+}
+.np-fn-flags {
+  display: inline-flex;
+  gap: 12px;
+  padding-left: 12px;
+  margin-left: 2px;
+  border-left: 1px solid var(--line);
+  color: var(--stone);
+}
+.np-fn-markers {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.np-fn-markers span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+@media (max-width: 899px) {
+  .np-footnote {
+    align-items: flex-start;
   }
 }
