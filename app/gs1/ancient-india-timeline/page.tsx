@@ -1,5 +1,5 @@
 import Link from "next/link";
-import AncientIndiaTimeline from "@/components/AncientIndiaTimeline";
+import AncientIndiaTimeline from "@/components/ancient-india-timeline/AncientIndiaTimeline";
 
 export const metadata = {
   title: "Ancient India Dynastic Timeline · UPSC Labs",

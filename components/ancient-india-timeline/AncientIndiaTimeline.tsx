@@ -12,9 +12,9 @@ import {
   fmtYear,
   fmtRange,
   type Dynasty,
-} from "@/lib/dynasties";
-import southAsiaRaw from "@/lib/southAsia.json";
-import bordersRaw from "@/lib/borders.json";
+} from "@/lib/timeline/dynasties";
+import southAsiaRaw from "@/lib/timeline/southAsia.json"
+import bordersRaw from "@/lib/timeline/borders.json";
 import "./AncientIndiaTimeline.css";
 
 const BASE_LAND = southAsiaRaw as unknown as Feature;
@@ -31,17 +31,20 @@ export default function AncientIndiaTimeline() {
   const dragging = useRef(false);
 
   const { pathGen, project } = useMemo(() => {
-    const projection = geoMercator().fitExtent(
-      [
-        [22, 18],
-        [W - 22, H - 30],
-      ],
-      BASE_LAND
-    );
-    const project = (lng: number, lat: number): [number, number] =>
-      projection([lng, lat]) as [number, number];
-    return { pathGen: geoPath(projection), project };
-  }, []);
+  const projection = geoMercator().fitExtent(
+    [
+      [22, 18],
+      [W - 22, H - 30],
+    ],
+    BASE_LAND
+  );
+  const round = (n: number) => Math.round(n * 100) / 100;
+  const project = (lng: number, lat: number): [number, number] => {
+    const p = projection([lng, lat]) as [number, number];
+    return [round(p[0]), round(p[1])];
+  };
+  return { pathGen: geoPath(projection), project };
+}, []);
 
   const basePath = useMemo(() => pathGen(BASE_LAND) ?? "", [pathGen]);
   const borderPath = useMemo(() => pathGen(BORDERS) ?? "", [pathGen]);
