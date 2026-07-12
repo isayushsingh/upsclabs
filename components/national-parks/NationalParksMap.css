@@ -25,11 +25,20 @@
   --np-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
   --np-mono: var(--font-space-mono, var(--font-mono, ui-monospace, "SFMono-Regular", monospace));
 
-  max-width: 1160px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 24px 20px 44px;
   color: var(--ink);
   font-family: var(--np-sans);
+}
+
+/* Breadcrumb sits outside .np-root (rendered by the page, not this
+   component) but must line up with it — .ul-breadcrumb in site.css is
+   sized for the narrower timeline tool, so widen + repad to match here. */
+.np-breadcrumb {
+  max-width: 1400px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* ── header ── */
@@ -95,17 +104,16 @@
 }
 
 /* ── mode toggle (Learn = slate, Recall = terracotta) ── */
-.np-modes {
-  display: inline-flex;
+.np-modecard {
+  display: flex;
   flex-direction: row;
   gap: 3px;
-  background: var(--panel);
+  background: rgba(251, 247, 238, 0.96);
+  backdrop-filter: blur(4px);
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 4px;
   box-shadow: var(--shadow);
-  flex: 0 0 auto;
-  align-self: flex-start;
 }
 .np-mode {
   appearance: none;
@@ -113,16 +121,18 @@
   background: transparent;
   cursor: pointer;
   font: inherit;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   color: #6f6452;
-  padding: 9px 15px;
+  padding: 8px 0;
   border-radius: 999px;
   transition: 0.18s;
   white-space: nowrap;
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: center;
   gap: 6px;
+  flex: 1 1 0;
 }
 .np-mode em {
   font-style: normal;
@@ -157,7 +167,7 @@
   .np-stage {
     aspect-ratio: 0.82;
   }
-  .np-layerbox {
+  .np-floatstack {
     width: 176px;
     top: 10px;
     left: 10px;
@@ -197,7 +207,7 @@
   fill: var(--state-hi);
 }
 .np-active {
-  fill: var(--state);
+  fill: var(--state-hi);
   stroke: var(--forest);
   stroke-width: 1;
 }
@@ -219,14 +229,19 @@
   margin-top: 18px;
 }
 
-/* ── floating layer menu (top-left overlay inside the frame) ── */
-.np-layerbox {
+/* ── floating panel stack (top-left overlay inside the frame, pinned) ── */
+.np-floatstack {
   position: absolute;
   top: 14px;
   left: 14px;
   z-index: 7;
   width: 208px;
   max-width: calc(100% - 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.np-layerbox {
   background: rgba(251, 247, 238, 0.96);
   backdrop-filter: blur(4px);
   border: 1px solid var(--line);
@@ -258,21 +273,29 @@
   text-overflow: ellipsis;
 }
 .np-lb-reset {
-  flex: none;
-  width: 24px;
-  height: 24px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: #fbf7ee;
-  color: var(--slate);
-  font-size: 14px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: rgba(194, 104, 63, 0.1);
+  color: var(--terra);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 9px 11px;
   cursor: pointer;
   transition: 0.15s;
 }
+.np-lb-reset-ic {
+  font-size: 14px;
+  line-height: 1;
+}
 .np-lb-reset:hover {
-  background: #fff;
-  filter: brightness(1.02);
+  background: rgba(194, 104, 63, 0.18);
 }
 .np-lyr-col {
   display: flex;

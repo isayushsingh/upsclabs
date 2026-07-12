@@ -271,16 +271,18 @@ function Card({
   );
 }
 
+const DEFAULT_LAYERS: LayerState = {
+  np: true,
+  tr: false,
+  rivers: false,
+  wetlands: false,
+  terrain: false,
+};
+
 export default function NationalParksMap() {
   const [activeState, setActiveState] = useState<string | null>(null);
   const [vb, setVb] = useState<VB>(FULL_VB);
-  const [layers, setLayers] = useState<LayerState>({
-    np: true,
-    tr: false,
-    rivers: false,
-    wetlands: false,
-    terrain: false,
-  });
+  const [layers, setLayers] = useState<LayerState>(DEFAULT_LAYERS);
   const [mode, setMode] = useState<Mode>("learn");
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<SelectedInfo | null>(null);
@@ -293,6 +295,11 @@ export default function NationalParksMap() {
   const movedRef = useRef(false); // drag exceeded threshold
   const suppressClickRef = useRef(false); // ignore click that ends a drag
   const reduceMotionRef = useRef(false);
+  const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map());
+  const panBaseRef = useRef<{ x: number; y: number; vb: VB } | null>(null);
+  const pinchBaseRef = useRef<{ d: number; mx: number; my: number; vb: VB } | null>(
+    null
+  );
 
   const toggle = useCallback(
     (k: keyof LayerState) => setLayers((l) => ({ ...l, [k]: !l[k] })),
@@ -369,14 +376,19 @@ export default function NationalParksMap() {
     [animateTo]
   );
 
+  /** Clamp a viewBox width to the allowed zoom range (per active state). */
+  const clampWidth = useCallback((w: number): number => {
+    const fit = fitVBRef.current;
+    const minVW = fit[2] * 0.16; // max zoom-in (~6× the state fit)
+    const maxVW = FULL_VB[2]; // zoom-out ceiling is the whole-India view
+    return Math.min(maxVW, Math.max(minVW, w));
+  }, []);
+
   /** Clamp a viewBox: zoom-in depth is relative to the active state, but the
       user may zoom out all the way to the full India view and pan freely across
       neighbouring states (so a card overlapping a marker can be scrolled off). */
   const clampVB = useCallback((v: VB): VB => {
-    const fit = fitVBRef.current;
-    const minVW = fit[2] * 0.16; // max zoom-in (~6× the state fit)
-    const maxVW = FULL_VB[2]; // zoom-out ceiling is the whole-India view
-    const w = Math.min(maxVW, Math.max(minVW, v[2]));
+    const w = clampWidth(v[2]);
     const h = w / ASPECT;
     // Pan bounds = the full India frame, so panning is not locked to one state.
     const [bx, by, bw, bh] = FULL_VB;
@@ -385,7 +397,7 @@ export default function NationalParksMap() {
     const x = Math.min(Math.max(v[0], bx), Math.max(bx, maxX));
     const y = Math.min(Math.max(v[1], by), Math.max(by, maxY));
     return [x, y, w, h];
-  }, []);
+  }, [clampWidth]);
 
   /** Screen pixel → viewBox coordinates. */
   const pxToVb = useCallback((clientX: number, clientY: number): [number, number] => {
@@ -421,42 +433,97 @@ export default function NationalParksMap() {
     [zoomAround]
   );
 
-  /** Drag-to-pan (window listeners so the drag survives leaving the SVG). */
-  const onStagePointerDown = useCallback(
-    (e: React.PointerEvent) => {
-      if (!activeStateRef.current || e.button !== 0) return;
-      const start = { x: e.clientX, y: e.clientY, vb: vbRef.current };
-      movedRef.current = false;
-      const move = (ev: PointerEvent) => {
-        const dx = ev.clientX - start.x;
-        const dy = ev.clientY - start.y;
-        if (!movedRef.current && Math.hypot(dx, dy) > 4) movedRef.current = true;
-        if (!movedRef.current) return;
-        const el = svgRef.current;
-        if (!el) return;
-        const r = el.getBoundingClientRect();
-        const [x, y, w, h] = start.vb;
-        const nvb = clampVB([
-          x - (dx / r.width) * w,
-          y - (dy / r.height) * h,
-          w,
-          h,
-        ]);
+  /** Pointer-down: starts a one-finger pan, or (on a second pointer) a pinch-zoom. */
+  const onStagePointerDown = useCallback((e: React.PointerEvent) => {
+    if (!activeStateRef.current || e.button !== 0) return;
+    // A fresh gesture starts here — any suppression flag left over from an
+    // earlier drag (whose resulting click landed on a button/chip that never
+    // consumed it) must not bleed into this click.
+    suppressClickRef.current = false;
+    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    movedRef.current = false;
+    if (pointersRef.current.size === 1) {
+      panBaseRef.current = { x: e.clientX, y: e.clientY, vb: vbRef.current };
+      pinchBaseRef.current = null;
+    } else if (pointersRef.current.size === 2) {
+      const pts = [...pointersRef.current.values()];
+      pinchBaseRef.current = {
+        d: Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y),
+        mx: (pts[0].x + pts[1].x) / 2,
+        my: (pts[0].y + pts[1].y) / 2,
+        vb: vbRef.current,
+      };
+      panBaseRef.current = null;
+    }
+  }, []);
+
+  // Unified drag-to-pan / pinch-to-zoom (window listeners so a drag survives
+  // leaving the SVG, and a second finger seamlessly promotes pan → pinch).
+  useEffect(() => {
+    const onMove = (e: PointerEvent) => {
+      if (!pointersRef.current.has(e.pointerId)) return;
+      pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      const el = svgRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+
+      if (pointersRef.current.size >= 2 && pinchBaseRef.current) {
+        const pts = [...pointersRef.current.values()];
+        const nd = Math.max(1, Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y));
+        const base = pinchBaseRef.current;
+        const factor = base.d / nd;
+        const mx = (base.mx - r.left) / r.width;
+        const my = (base.my - r.top) / r.height;
+        const nvw = clampWidth(base.vb[2] * factor);
+        const nvh = nvw / ASPECT;
+        const px = base.vb[0] + mx * base.vb[2];
+        const py = base.vb[1] + my * base.vb[3];
+        const nvb = clampVB([px - mx * nvw, py - my * nvh, nvw, nvh]);
         vbRef.current = nvb;
         setVb(nvb);
-      };
-      const up = () => {
+        movedRef.current = true;
+        return;
+      }
+
+      if (pointersRef.current.size === 1 && panBaseRef.current) {
+        const dx = e.clientX - panBaseRef.current.x;
+        const dy = e.clientY - panBaseRef.current.y;
+        if (!movedRef.current && Math.hypot(dx, dy) > 8) movedRef.current = true;
+        if (!movedRef.current) return;
+        const [x, y, w, h] = panBaseRef.current.vb;
+        const nvb = clampVB([x - (dx / r.width) * w, y - (dy / r.height) * h, w, h]);
+        vbRef.current = nvb;
+        setVb(nvb);
+      }
+    };
+
+    const onUp = (e: PointerEvent) => {
+      pointersRef.current.delete(e.pointerId);
+      if (pointersRef.current.size < 2) pinchBaseRef.current = null;
+      if (pointersRef.current.size === 1) {
+        const p = [...pointersRef.current.values()][0];
+        panBaseRef.current = { x: p.x, y: p.y, vb: vbRef.current };
+      } else if (pointersRef.current.size === 0) {
+        panBaseRef.current = null;
         if (movedRef.current) suppressClickRef.current = true;
-        window.removeEventListener("pointermove", move);
-        window.removeEventListener("pointerup", up);
-      };
-      window.addEventListener("pointermove", move);
-      window.addEventListener("pointerup", up);
-    },
-    [clampVB]
-  );
+      }
+    };
+
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+    };
+  }, [clampVB, clampWidth]);
 
   // Non-passive wheel-to-zoom (toward the cursor), bound once to the SVG.
+  // Trackpads fire dozens of wheel events per gesture, each with a small
+  // deltaY — scale the per-event factor by that magnitude (capped) so a
+  // light scroll nudges the view instead of compounding into a snap to the
+  // zoom limits.
   useEffect(() => {
     const el = svgRef.current;
     if (!el) return;
@@ -464,7 +531,9 @@ export default function NationalParksMap() {
       if (!activeStateRef.current) return;
       e.preventDefault();
       const [cx, cy] = pxToVb(e.clientX, e.clientY);
-      zoomAround(cx, cy, e.deltaY > 0 ? 1.18 : 0.85, 0);
+      const mag = Math.min(Math.abs(e.deltaY), 60) / 60;
+      const factor = e.deltaY > 0 ? 1 + 0.1 * mag : 1 - 0.09 * mag;
+      zoomAround(cx, cy, factor, 0);
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
@@ -477,6 +546,7 @@ export default function NationalParksMap() {
     setActiveState(null);
     setSelected(null);
     setRevealed(new Set());
+    setLayers(DEFAULT_LAYERS);
     animateTo(FULL_VB);
   }, [animateTo]);
 
@@ -651,97 +721,103 @@ export default function NationalParksMap() {
               unverified — not for final revision.
             </p>
           </div>
-          <div className="np-modes" role="group" aria-label="Study mode">
-            <button
-              className={`np-mode np-mode-learn ${
-                mode === "learn" ? "np-mode-on" : ""
-              }`}
-              onClick={() => switchMode("learn")}
-              aria-pressed={mode === "learn"}
-            >
-              Learn <em>read &amp; review</em>
-            </button>
-            <button
-              className={`np-mode np-mode-recall ${
-                mode === "recall" ? "np-mode-on" : ""
-              }`}
-              onClick={() => switchMode("recall")}
-              aria-pressed={mode === "recall"}
-            >
-              Recall <em>test yourself</em>
-            </button>
-          </div>
         </div>
 
       <div className="np-workspace">
         <div className="np-stage">
-          {/* floating layer menu (top-left of the frame) — inert until a state is picked */}
-          <div className="np-layerbox">
-            <div className="np-layerbox-head">
-              <span className="np-lb-icon" aria-hidden="true">
-                ▤
-              </span>
-              <span className="np-lb-title">{activeState ?? "All India Map"}</span>
+          {/* floating panel (top-left of the frame, pinned so it stays put while
+              the page scrolls) — mode switch on top, layer menu below. */}
+          <div className="np-floatstack">
+            <div className="np-modecard" role="group" aria-label="Study mode">
+              <button
+                className={`np-mode np-mode-learn ${
+                  mode === "learn" ? "np-mode-on" : ""
+                }`}
+                onClick={() => switchMode("learn")}
+                aria-pressed={mode === "learn"}
+              >
+                Learn
+              </button>
+              <button
+                className={`np-mode np-mode-recall ${
+                  mode === "recall" ? "np-mode-on" : ""
+                }`}
+                onClick={() => switchMode("recall")}
+                aria-pressed={mode === "recall"}
+              >
+                Recall
+              </button>
+            </div>
+
+            <div className="np-layerbox">
+              <div className="np-layerbox-head">
+                <span className="np-lb-icon" aria-hidden="true">
+                  ▤
+                </span>
+                <span className="np-lb-title">{activeState ?? "All India Map"}</span>
+              </div>
               {activeState && (
                 <button
                   className="np-lb-reset"
                   onClick={exitToIndia}
-                  aria-label="Back to All India view"
-                  title="Back to All India"
+                  aria-label="Reset to All India view"
                 >
-                  ↺
+                  <span className="np-lb-reset-ic" aria-hidden="true">
+                    ↺
+                  </span>
+                  Reset to All India
                 </button>
               )}
-            </div>
-            <div
-              className={`np-lyr-col ${activeState ? "" : "np-lyr-off"}`}
-              role="group"
-              aria-label="Map layers"
-            >
-              <span className="np-lyr-cap">Map Layers</span>
-              {!activeState && (
-                <p className="np-lyr-hint">Select a state to interact</p>
-              )}
-              <LayerChip
-                variant="np"
-                on={layers.np}
-                disabled={!activeState}
-                onClick={() => toggle("np")}
+              <div
+                className={`np-lyr-col ${activeState ? "" : "np-lyr-off"}`}
+                role="group"
+                aria-label="Map layers"
               >
-                National Parks
-              </LayerChip>
-              <LayerChip
-                variant="tr"
-                on={layers.tr}
-                disabled={!activeState}
-                onClick={() => toggle("tr")}
-              >
-                Tiger Reserves
-              </LayerChip>
-              <LayerChip
-                variant="riv"
-                on={layers.rivers}
-                disabled={!activeState}
-                onClick={() => toggle("rivers")}
-              >
-                Rivers
-              </LayerChip>
-              <LayerChip
-                variant="wet"
-                on={layers.wetlands}
-                disabled={!activeState}
-                onClick={() => toggle("wetlands")}
-              >
-                Wetlands
-              </LayerChip>
-              <LayerChip
-                variant="hill"
-                on={layers.terrain}
-                disabled={!activeState}
-                onClick={() => toggle("terrain")}
-              >
-                Terrain
-              </LayerChip>
+                <span className="np-lyr-cap">Map Layers</span>
+                {!activeState && (
+                  <p className="np-lyr-hint">Select a state to interact</p>
+                )}
+                <LayerChip
+                  variant="np"
+                  on={layers.np}
+                  disabled={!activeState}
+                  onClick={() => toggle("np")}
+                >
+                  National Parks
+                </LayerChip>
+                <LayerChip
+                  variant="tr"
+                  on={layers.tr}
+                  disabled={!activeState}
+                  onClick={() => toggle("tr")}
+                >
+                  Tiger Reserves
+                </LayerChip>
+                <LayerChip
+                  variant="riv"
+                  on={layers.rivers}
+                  disabled={!activeState}
+                  onClick={() => toggle("rivers")}
+                >
+                  Rivers
+                </LayerChip>
+                <LayerChip
+                  variant="wet"
+                  on={layers.wetlands}
+                  disabled={!activeState}
+                  onClick={() => toggle("wetlands")}
+                >
+                  Wetlands
+                </LayerChip>
+                <LayerChip
+                  variant="hill"
+                  on={layers.terrain}
+                  disabled={!activeState}
+                  onClick={() => toggle("terrain")}
+                >
+                  Terrain
+                </LayerChip>
+              </div>
             </div>
           </div>
 
@@ -770,7 +846,17 @@ export default function NationalParksMap() {
                   ]
                     .filter(Boolean)
                     .join(" ")}
-                  onClick={clickable ? () => enterState(s.name) : undefined}
+                  onClick={
+                    clickable
+                      ? () => {
+                          if (suppressClickRef.current) {
+                            suppressClickRef.current = false;
+                            return;
+                          }
+                          enterState(s.name);
+                        }
+                      : undefined
+                  }
                 />
               );
             })}
@@ -980,14 +1066,14 @@ export default function NationalParksMap() {
           <div className="np-zoombtns">
             <button
               className="np-zoom"
-              onClick={() => zoomButtons(0.7)}
+              onClick={() => zoomButtons(0.8)}
               aria-label="Zoom in"
             >
               +
             </button>
             <button
               className="np-zoom"
-              onClick={() => zoomButtons(1.43)}
+              onClick={() => zoomButtons(1.25)}
               aria-label="Zoom out"
             >
               −

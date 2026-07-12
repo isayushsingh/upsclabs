@@ -9,7 +9,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <nav className="ul-breadcrumb" aria-label="Breadcrumb">
+      <nav className="ul-breadcrumb np-breadcrumb" aria-label="Breadcrumb">
         <Link href="/">UPSC Labs</Link>
         <span>/</span>
         <Link href="/gs1">GS3</Link>
