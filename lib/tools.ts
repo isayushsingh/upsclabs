@@ -32,7 +32,7 @@ export interface Tool {
 export const PAPERS: { id: Paper; topics: string }[] = [
   { id: "GS1", topics: "History · Geography" },
   { id: "GS2", topics: "Awaiting Presidential Assent. Coming Soon." },
-  { id: "GS3", topics: "Caught in the Middle-Income Trap. Coming Soon." },
+  { id: "GS3", topics: "Environment" },
 //   { id: "GS4", topics: "Ethics · Integrity" },
 ];
 
@@ -53,8 +53,8 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "national-parks",
-    title: "National Parks & Tiger Reserves",
-    fullTitle: "National Parks & Tiger Reserves",
+    title: "Environment Mapping",
+    fullTitle: "Environment Mapping",
     blurb:
         "Active-recall map of India's national parks & tiger reserves, with wetland, river and terrain layers and a Learn ⇄ Recall toggle.",
     paper: "GS3",
@@ -63,7 +63,7 @@ export const TOOLS: Tool[] = [
     href: "/gs3/national-parks",
     featured: true,
     accent: "#3E5C76",
-    preview: "timeline",
+    preview: "map",
   },
 ];
 

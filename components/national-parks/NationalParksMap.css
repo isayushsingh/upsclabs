@@ -16,6 +16,7 @@
   --river: #5e86a0;
   --wet: #5a93a0;
   --hill: #9c7a52;
+  --sanct: #6a8f3f;
   --state: #ebe1cf;
   --state-hi: #e3d6bd;
   --state-dim: #efe8db;
@@ -409,6 +410,14 @@
 .np-chip-hill.on .np-sw {
   background: var(--hill);
 }
+.np-chip-sanct.on {
+  color: #4c6b2b;
+  border-color: rgba(106, 143, 63, 0.45);
+  background: rgba(106, 143, 63, 0.12);
+}
+.np-chip-sanct.on .np-sw {
+  background: var(--sanct);
+}
 .np-chip-spc.on {
   color: #274a36;
   border-color: rgba(63, 107, 78, 0.4);
@@ -661,6 +670,14 @@
   stroke-width: 2px;
   vector-effect: non-scaling-stroke;
 }
+.np-wet-g {
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+}
+.np-wet-g:hover .np-wet {
+  stroke-width: 1.1;
+}
 .np-wet {
   fill: var(--wet);
   fill-opacity: 0.55;
@@ -680,6 +697,23 @@
 }
 .np-hilllabel {
   fill: var(--hill);
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.np-sanct {
+  fill: var(--sanct);
+  fill-opacity: 0.6;
+  stroke: #4c6b2b;
+  stroke-opacity: 0.55;
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+.np-sanctlabel {
+  fill: #4c6b2b;
   font-style: italic;
   text-anchor: middle;
   paint-order: stroke;
@@ -884,6 +918,16 @@
   color: #47818e;
   border-color: #47818e;
   background: #e2f0f2;
+}
+.np-badge-ele {
+  color: #9a6f1d;
+  border-color: #9a6f1d;
+  background: #f5ecd8;
+}
+.np-badge-iba {
+  color: #6b3f82;
+  border-color: #6b3f82;
+  background: #efe3f2;
 }
 .np-rows {
   margin: 0;

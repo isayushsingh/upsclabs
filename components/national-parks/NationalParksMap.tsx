@@ -8,6 +8,7 @@ import reservesRaw from "@/lib/parks/reserves.json";
 import riversRaw from "@/lib/parks/rivers.json";
 import wetlandsRaw from "@/lib/parks/wetlands.json";
 import terrainRaw from "@/lib/parks/terrain.json";
+import sanctuariesRaw from "@/lib/parks/sanctuaries.json";
 import {
   clusterPoints,
   placeLabels,
@@ -27,6 +28,7 @@ import {
   type RiversByState,
   type WetlandsByState,
   type TerrainByState,
+  type SanctuariesByState,
 } from "@/lib/parks/types";
 import "./NationalParksMap.css";
 
@@ -36,6 +38,7 @@ const RESERVES = reservesRaw as unknown as ReservesByState;
 const RIVERS = riversRaw as unknown as RiversByState;
 const WETLANDS = wetlandsRaw as unknown as WetlandsByState;
 const TERRAIN = terrainRaw as unknown as TerrainByState;
+const SANCTUARIES = sanctuariesRaw as unknown as SanctuariesByState;
 const PROJ = INDIA.proj;
 
 type VB = [number, number, number, number];
@@ -81,6 +84,8 @@ const RIVER_FRAC = 0.0118; // river label font-size (enlarged for legibility)
 const WET_FRAC = 0.0108; // wetland label font-size (enlarged for legibility)
 const HILL_FRAC = 0.0108; // terrain label font-size (enlarged for legibility)
 const DROP_FRAC = 0.006; // wetland droplet size
+const SANCT_FRAC = 0.0108; // sanctuary label font-size (matches wetland/terrain)
+const SANCT_SQ_FRAC = 0.0095; // sanctuary square marker half-size
 // Tuned so dense sets cluster exactly as the validated prototype did
 // (Kerala's High-Range sholas → one 3-bubble; Telangana's Hyderabad trio → 3).
 const CLUSTER_FRAC = 0.04;
@@ -118,6 +123,7 @@ interface LayerState {
   rivers: boolean;
   wetlands: boolean;
   terrain: boolean;
+  sanctuaries: boolean;
 }
 
 function LayerChip({
@@ -129,7 +135,7 @@ function LayerChip({
 }: {
   on: boolean;
   onClick: () => void;
-  variant: "np" | "tr" | "riv" | "wet" | "hill";
+  variant: "np" | "tr" | "riv" | "wet" | "hill" | "sanct";
   disabled?: boolean;
   children: ReactNode;
 }) {
@@ -230,11 +236,20 @@ function Card({
         </button>
       </header>
 
-      {p && (p.bio || p.whs || p.ramsar) && (
+      {p && (p.bio || p.whs || p.ramsar || p.iba || p.elephant) && (
         <div className="np-badges">
           {p.whs && <span className="np-badge np-badge-whs">UNESCO WHS</span>}
           {p.bio && <span className="np-badge np-badge-bio">Biosphere Reserve</span>}
           {p.ramsar && <span className="np-badge np-badge-ram">Ramsar Site</span>}
+          {p.elephant && <span className="np-badge np-badge-ele">Elephant Reserve</span>}
+          {p.iba && (
+            <span
+              className="np-badge np-badge-iba"
+              title="Important Bird and Biodiversity Area"
+            >
+              IBA
+            </span>
+          )}
         </div>
       )}
 
@@ -277,6 +292,7 @@ const DEFAULT_LAYERS: LayerState = {
   rivers: false,
   wetlands: false,
   terrain: false,
+  sanctuaries: false,
 };
 
 export default function NationalParksMap() {
@@ -664,6 +680,20 @@ export default function NationalParksMap() {
     [activeState]
   );
 
+  /** Reveal a masked context marker (e.g. wetland) without opening a card. */
+  const revealOnly = useCallback((id: string) => {
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false;
+      return;
+    }
+    setRevealed((prev) => {
+      if (prev.has(id)) return prev;
+      const next = new Set(prev);
+      next.add(id);
+      return next;
+    });
+  }, []);
+
   const switchMode = useCallback((m: Mode) => {
     setMode(m);
     setSelected(null);
@@ -675,8 +705,9 @@ export default function NationalParksMap() {
     if (!activeState)
       return {
         rivers: [] as { name: string; d: string; anchor: [number, number] }[],
-        wetlands: [] as { name: string; xy: [number, number] }[],
+        wetlands: [] as { id: string; name: string; xy: [number, number] }[],
         terrain: [] as { name: string; sym: string; xy: [number, number] }[],
+        sanctuaries: [] as { name: string; xy: [number, number] }[],
       };
     const rivers = (RIVERS[activeState] ?? []).map((r) => {
       const pts = r.pts;
@@ -685,7 +716,8 @@ export default function NationalParksMap() {
         : ([0, 0] as [number, number]);
       return { name: r.name, d: r.d, anchor };
     });
-    const wetlands = (WETLANDS[activeState] ?? []).map((w) => ({
+    const wetlands = (WETLANDS[activeState] ?? []).map((w, i) => ({
+      id: `wet:${activeState}:${i}`,
       name: w.name,
       xy: projectPoint(PROJ, w.lon, w.lat),
     }));
@@ -694,7 +726,11 @@ export default function NationalParksMap() {
       sym: t.sym,
       xy: projectPoint(PROJ, t.lon, t.lat),
     }));
-    return { rivers, wetlands, terrain };
+    const sanctuaries = (SANCTUARIES[activeState] ?? []).map((s) => ({
+      name: s.name,
+      xy: projectPoint(PROJ, s.lon, s.lat),
+    }));
+    return { rivers, wetlands, terrain, sanctuaries };
   }, [activeState]);
 
   // Zoom-independent on-screen sizing.
@@ -705,6 +741,8 @@ export default function NationalParksMap() {
   const WET_FS = WET_FRAC * vb[2];
   const HILL_FS = HILL_FRAC * vb[2];
   const DROP = DROP_FRAC * vb[2];
+  const SANCT_FS = SANCT_FRAC * vb[2];
+  const SANCT_SQ = SANCT_SQ_FRAC * vb[2];
   const BUB_R = BUBBLE_R_FRAC * vb[2];
   const LEAD_GAP = LEAD_GAP_FRAC * vb[2];
 
@@ -713,7 +751,7 @@ export default function NationalParksMap() {
         <div className="np-headrow">
           <div className="np-headtext">
             <h1 className="np-title">
-              National Parks &amp; Tiger Reserves
+              Protected Areas • Wetlands • Mapping
               <span className="np-wip">Work in progress</span>
             </h1>
             <p className="np-sub">
@@ -817,6 +855,14 @@ export default function NationalParksMap() {
                 >
                   Terrain
                 </LayerChip>
+                <LayerChip
+                  variant="sanct"
+                  on={layers.sanctuaries}
+                  disabled={!activeState}
+                  onClick={() => toggle("sanctuaries")}
+                >
+                  Wildlife Sanctuaries
+                </LayerChip>
               </div>
             </div>
           </div>
@@ -904,19 +950,34 @@ export default function NationalParksMap() {
           )}
 
           {activeState && layers.wetlands && (
-            <g className="np-wetlands" aria-hidden="true">
+            <g className="np-wetlands">
               {faint.wetlands.map((w) => {
                 const [cx, cy] = w.xy;
+                const masked = isMasked(w.id);
                 return (
-                  <g key={`wet-${w.name}`}>
+                  <g
+                    key={w.id}
+                    className="np-wet-g"
+                    onClick={() => revealOnly(w.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        revealOnly(w.id);
+                      }
+                    }}
+                    aria-label={masked ? "Hidden wetland — click to reveal" : w.name}
+                  >
                     <path d={dropletPath(cx, cy, DROP)} className="np-wet" />
                     <text
                       x={cx}
                       y={cy + DROP + WET_FS}
                       fontSize={WET_FS}
-                      className="np-wetlabel"
+                      textAnchor="middle"
+                      className={`np-wetlabel ${masked ? "np-mask" : ""}`}
                     >
-                      {w.name}
+                      {masked ? "?" : w.name}
                     </text>
                   </g>
                 );
@@ -938,6 +999,33 @@ export default function NationalParksMap() {
                   >
                     {t.sym ? `${t.sym} ${t.name}` : t.name}
                   </text>
+                );
+              })}
+            </g>
+          )}
+
+          {activeState && layers.sanctuaries && (
+            <g className="np-sanctuaries" aria-hidden="true">
+              {faint.sanctuaries.map((s) => {
+                const [cx, cy] = s.xy;
+                return (
+                  <g key={`sanct-${s.name}`}>
+                    <rect
+                      x={cx - SANCT_SQ}
+                      y={cy - SANCT_SQ}
+                      width={SANCT_SQ * 2}
+                      height={SANCT_SQ * 2}
+                      className="np-sanct"
+                    />
+                    <text
+                      x={cx}
+                      y={cy + SANCT_SQ + SANCT_FS}
+                      fontSize={SANCT_FS}
+                      className="np-sanctlabel"
+                    >
+                      {s.name}
+                    </text>
+                  </g>
                 );
               })}
             </g>
