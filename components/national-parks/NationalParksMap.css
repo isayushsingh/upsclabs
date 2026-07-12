@@ -1,0 +1,891 @@
+/* National Parks & Tiger Reserves — ported from the validated HTML build's
+   theme: parchment panel, pigment accents, soft hairline borders (#D9D0BF),
+   toggle-switch layer chips, framed radial-gradient map panel. Fonts inherit
+   the hub's next/font variables (Fraunces / Inter / Space Mono) with fallbacks. */
+
+.np-root {
+  --paper: #f2ece0;
+  --panel: #eae2d2;
+  --ink: #2a2520;
+  --stone: #9a9082;
+  --line: #d9d0bf;
+  --terra: #c2683f;
+  --forest: #3f6b4e;
+  --saffron: #d49a3a;
+  --slate: #3e5c76;
+  --river: #5e86a0;
+  --wet: #5a93a0;
+  --hill: #9c7a52;
+  --state: #ebe1cf;
+  --state-hi: #e3d6bd;
+  --state-dim: #efe8db;
+  --shadow: 0 1px 2px rgba(42, 37, 32, 0.06), 0 8px 24px rgba(42, 37, 32, 0.07);
+
+  --np-serif: var(--font-fraunces, var(--font-display, ui-serif, Georgia, serif));
+  --np-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
+  --np-mono: var(--font-space-mono, var(--font-mono, ui-monospace, "SFMono-Regular", monospace));
+
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 20px 44px;
+  color: var(--ink);
+  font-family: var(--np-sans);
+}
+
+/* ── header ── */
+.np-crumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-family: var(--np-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--stone);
+}
+.np-crumb b {
+  color: var(--ink);
+  font-weight: 500;
+}
+.np-title {
+  font-family: var(--np-serif);
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 12px 0 6px;
+}
+.np-sub {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--stone);
+  margin: 0;
+  max-width: 56ch;
+}
+.np-wip {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 14px;
+  position: relative;
+  top: -0.32em;
+  font-family: var(--np-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+.np-headrow {
+  display: flex;
+  gap: 16px 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* ── mode toggle (Learn = slate, Recall = terracotta) ── */
+.np-modes {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: var(--shadow);
+}
+.np-mode {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #6f6452;
+  padding: 9px 13px;
+  border-radius: 9px;
+  transition: 0.18s;
+  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.np-mode em {
+  font-style: normal;
+  font-weight: 500;
+  opacity: 0.75;
+  margin-left: 6px;
+  font-size: 12px;
+}
+.np-mode-on {
+  color: var(--paper);
+}
+.np-mode-learn.np-mode-on {
+  background: var(--slate);
+}
+.np-mode-recall.np-mode-on {
+  background: var(--terra);
+}
+
+/* ── framed map panel ── */
+.np-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: radial-gradient(120% 90% at 50% -10%, #f6f1e7 0%, var(--paper) 60%);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  aspect-ratio: 1.32;
+}
+@media (max-width: 899px) {
+  .np-stage {
+    aspect-ratio: 0.82;
+  }
+  .np-workspace {
+    flex-direction: column;
+  }
+  .np-sidebar {
+    flex: none;
+    width: auto;
+  }
+  .np-lyr-col {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .np-lyr-col .np-chip {
+    width: auto;
+  }
+  .np-modes {
+    flex-direction: row;
+  }
+  .np-iucnkey {
+    margin-top: 0;
+  }
+}
+.np-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+.np-grab {
+  cursor: grab;
+}
+.np-grab:active {
+  cursor: grabbing;
+}
+
+/* ── states ── */
+.np-state {
+  fill: var(--state-dim);
+  stroke: var(--line);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.25s;
+}
+.np-has-data {
+  fill: var(--state);
+  cursor: pointer;
+}
+.np-has-data:hover {
+  fill: var(--state-hi);
+}
+.np-active {
+  fill: var(--state);
+  stroke: var(--forest);
+  stroke-width: 1;
+}
+.np-statelabels {
+  pointer-events: none;
+}
+.np-statelabel {
+  fill: #5f574a;
+  font-style: italic;
+  font-weight: 500;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ── workspace: left sidebar (controls) + framed map ── */
+.np-workspace {
+  display: flex;
+  gap: 16px;
+  margin-top: 18px;
+  align-items: stretch;
+}
+.np-sidebar {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.np-reset {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  background: var(--slate);
+  color: var(--paper);
+  border: 1px solid var(--slate);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.np-reset:hover {
+  filter: brightness(1.08);
+}
+.np-lyr-col {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background: rgba(251, 247, 238, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 10px;
+}
+.np-lyr-col .np-chip {
+  width: 100%;
+  justify-content: flex-start;
+}
+.np-lyr-cap {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  margin: 0 0 3px 2px;
+}
+.np-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 11px 4px 7px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6f6452;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.np-sw {
+  width: 24px;
+  height: 14px;
+  border-radius: 999px;
+  background: #dbd2c1;
+  position: relative;
+  transition: 0.15s;
+  flex: 0 0 auto;
+}
+.np-sw::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transition: 0.15s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.np-chip.on .np-sw::after {
+  left: 12px;
+}
+.np-chip-riv.on {
+  color: #33506b;
+  border-color: rgba(94, 134, 160, 0.45);
+  background: rgba(94, 134, 160, 0.1);
+}
+.np-chip-riv.on .np-sw {
+  background: var(--river);
+}
+.np-chip-tr.on {
+  color: #9a6f1d;
+  border-color: rgba(212, 154, 58, 0.5);
+  background: rgba(212, 154, 58, 0.13);
+}
+.np-chip-tr.on .np-sw {
+  background: var(--saffron);
+}
+.np-chip-wet.on {
+  color: #3f6f7c;
+  border-color: rgba(90, 147, 160, 0.45);
+  background: rgba(90, 147, 160, 0.12);
+}
+.np-chip-wet.on .np-sw {
+  background: var(--wet);
+}
+.np-chip-hill.on {
+  color: #7d5f3c;
+  border-color: rgba(156, 122, 82, 0.45);
+  background: rgba(156, 122, 82, 0.12);
+}
+.np-chip-hill.on .np-sw {
+  background: var(--hill);
+}
+.np-chip-spc.on {
+  color: #274a36;
+  border-color: rgba(63, 107, 78, 0.4);
+  background: rgba(63, 107, 78, 0.08);
+}
+.np-chip-spc.on .np-sw {
+  background: var(--forest);
+}
+
+/* ── recall quiz selector ── */
+.np-quiz {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(251, 247, 238, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 6px 4px 11px;
+  box-shadow: var(--shadow);
+}
+.np-quiz-k {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--terra);
+}
+.np-quiz-b {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--stone);
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.np-quiz-b.on {
+  background: var(--terra);
+  color: #fff;
+}
+.np-quiz-b:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── zoom buttons ── */
+.np-zoombtns {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.np-zoom {
+  width: 36px;
+  height: 34px;
+  background: var(--panel);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.np-zoom:last-child {
+  border-bottom: 0;
+}
+.np-zoom:hover {
+  background: #efe7d6;
+}
+
+/* ── marker legend (bottom-right, dims when a card is open) ── */
+.np-maplegend {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 5;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: 62%;
+  background: rgba(242, 236, 224, 0.9);
+  backdrop-filter: blur(3px);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #6f6452;
+  box-shadow: var(--shadow);
+  transition: opacity 0.2s;
+}
+.np-maplegend.np-dim {
+  opacity: 0;
+  pointer-events: none;
+}
+.np-maplegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.np-lg {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  border: 1.4px solid #fff;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+.np-lg-np {
+  background: var(--forest);
+}
+.np-lg-both {
+  background: linear-gradient(90deg, var(--forest) 0 50%, var(--saffron) 50% 100%);
+}
+.np-lg-amb {
+  background: var(--saffron);
+}
+
+/* ── markers ── */
+.np-markers {
+  pointer-events: none;
+}
+.np-mrk-g {
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+}
+.np-mrk {
+  stroke: #fbf7ee;
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+}
+.np-mrk-np {
+  fill: var(--forest);
+}
+.np-mrk-amb {
+  fill: var(--saffron);
+}
+.np-half-np {
+  fill: var(--forest);
+}
+.np-half-amb {
+  fill: var(--saffron);
+}
+.np-mrk-ring {
+  fill: none;
+  stroke: #fbf7ee;
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+}
+.np-mrk-g:hover .np-mrk,
+.np-mrk-g:hover .np-mrk-ring {
+  stroke: #fff;
+  stroke-width: 2;
+}
+.np-mrk-g:focus-visible .np-mrk,
+.np-mrk-g:focus-visible .np-mrk-ring {
+  stroke: var(--terra);
+  stroke-width: 2.2;
+}
+.np-mrk-sel .np-mrk,
+.np-mrk-sel .np-mrk-ring {
+  stroke: var(--terra);
+  stroke-width: 2.2;
+}
+.np-mrklabel {
+  fill: var(--ink);
+  font-weight: 600;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+}
+.np-mask {
+  fill: var(--stone);
+  font-weight: 700;
+}
+
+/* ── counted cluster bubble ── */
+.np-bubble-g {
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+}
+.np-bubble {
+  fill: #fbf7ee;
+  stroke: var(--forest);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+.np-bubble-g:hover .np-bubble {
+  fill: #fff;
+  stroke-width: 2;
+}
+.np-bubble-g:focus-visible .np-bubble {
+  stroke: var(--terra);
+  stroke-width: 2;
+}
+.np-bubble-count {
+  fill: var(--forest);
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+.np-lead {
+  stroke: var(--stone);
+  stroke-width: 0.7;
+  stroke-opacity: 0.5;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ── faint context layers ── */
+.np-rivers,
+.np-wetlands,
+.np-terrain {
+  pointer-events: none;
+}
+.np-river {
+  fill: none;
+  stroke: var(--river);
+  stroke-width: 1;
+  stroke-opacity: 0.55;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.np-riverlabel {
+  fill: var(--river);
+  font-style: italic;
+  opacity: 0.9;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.np-wet {
+  fill: var(--wet);
+  fill-opacity: 0.55;
+  stroke: #47818e;
+  stroke-opacity: 0.5;
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+.np-wetlabel {
+  fill: #47818e;
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.np-hilllabel {
+  fill: var(--hill);
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ── sidebar legends (marker key + IUCN) ── */
+.np-toolkey {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(251, 247, 238, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 11px;
+  font-size: 12px;
+  color: #6f6452;
+}
+.np-tk-cap {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  margin-bottom: 1px;
+}
+.np-toolkey span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.np-iucnkey {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background: rgba(251, 247, 238, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 11px;
+  font-size: 11.5px;
+  color: #6f6452;
+}
+.np-iucnkey b {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--stone);
+  font-weight: 700;
+}
+.np-iucn-pills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.np-iucn-flags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.np-iucn {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 5px;
+  line-height: 1;
+}
+.np-pill-dark {
+  color: #2a2520;
+}
+
+/* ── card (side panel ≥900px, bottom sheet below) ── */
+.np-card {
+  position: absolute;
+  z-index: 8;
+  background: #fbf7ee;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 6px 30px rgba(42, 37, 32, 0.17);
+  overflow-y: auto;
+  top: 62px;
+  right: 14px;
+  width: 320px;
+  max-height: calc(100% - 80px);
+}
+.np-card-head {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 13px 16px 11px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #f4eee1, #fbf7ee);
+}
+.np-card-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex: none;
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.np-dot-np {
+  background: var(--forest);
+}
+.np-dot-amb {
+  background: var(--saffron);
+}
+.np-dot-split {
+  background: linear-gradient(90deg, var(--forest) 50%, var(--saffron) 50%);
+}
+.np-card-titles {
+  flex: 1;
+  min-width: 0;
+}
+.np-card-title {
+  font-family: var(--np-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.15;
+}
+.np-card-sub {
+  font-size: 12px;
+  color: var(--stone);
+  margin-top: 3px;
+}
+.np-card-x {
+  font: inherit;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--stone);
+  background: #fbf7ee;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  flex: none;
+}
+.np-card-x:hover {
+  background: #fff;
+  color: var(--ink);
+}
+.np-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 11px 16px 0;
+}
+.np-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 3px 9px;
+  border: 1px solid;
+}
+.np-badge-whs {
+  color: #3e5c76;
+  border-color: #3e5c76;
+  background: #e6eef5;
+}
+.np-badge-bio {
+  color: #3f6b4e;
+  border-color: #3f6b4e;
+  background: #e6f0e8;
+}
+.np-badge-ram {
+  color: #47818e;
+  border-color: #47818e;
+  background: #e2f0f2;
+}
+.np-rows {
+  margin: 0;
+  padding: 12px 16px 4px;
+}
+.np-row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.np-row:last-child {
+  border-bottom: 0;
+}
+.np-row dt {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--stone);
+  padding-top: 2px;
+}
+.np-row dd {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.np-species {
+  margin: 6px 14px 14px;
+  padding: 10px 10px 4px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f6f0e4;
+}
+.np-species-h {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin: 0 0 8px;
+}
+.np-sp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.np-sp {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #fbf7ee;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 9px;
+  margin-bottom: 6px;
+}
+.np-sp-name {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2f4a38;
+}
+.np-pill {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+.np-flag {
+  font-size: 12px;
+  color: var(--terra);
+}
+@media (max-width: 900px) {
+  .np-card {
+    top: auto;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    width: min(360px, 100% - 24px);
+    max-height: min(60vh, 440px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-state,
+  .np-chip,
+  .np-sw,
+  .np-sw::after,
+  .np-mode {
+    transition: none;
+  }
+}

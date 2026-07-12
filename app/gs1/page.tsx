@@ -1,7 +1,8 @@
 import { TOOLS } from "@/lib/tools";
 import ToolCard from "@/components/site/ToolCard";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "GS1 · History, Geography & Society · UPSC Labs",
   description: "Interactive tools for UPSC General Studies Paper I.",
 };

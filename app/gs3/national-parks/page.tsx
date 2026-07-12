@@ -1,12 +1,22 @@
-import type { Metadata } from "next";
-import NationalParksMap from "./NationalParksMap";
+import Link from "next/link";
+import NationalParksMap from "@/components/national-parks/NationalParksMap";
 
-export const metadata: Metadata = {
-  title: "National Parks & Tiger Reserves · Active Recall · UPSC Labs",
-  description:
-    "Interactive active-recall map of India's national parks, tiger reserves, wetlands, rivers and terrain for UPSC GS3 (Environment & Ecology). Work in progress — data provisional.",
+export const metadata = {
+  title: "",
+  description: "",
 };
 
-export default function NationalParksPage() {
-  return <NationalParksMap />;
+export default function Page() {
+  return (
+    <>
+      <nav className="ul-breadcrumb" aria-label="Breadcrumb">
+        <Link href="/">UPSC Labs</Link>
+        <span>/</span>
+        <Link href="/gs1">GS3</Link>
+        <span>/</span>
+        <span className="ul-breadcrumb-cur">National Parks, Tiger Reserves Interactive Map</span>
+      </nav>
+      <NationalParksMap />
+    </>
+  );
 }
