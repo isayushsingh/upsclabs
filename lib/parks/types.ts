@@ -28,6 +28,8 @@ export interface Park extends GeoPoint {
   bio?: boolean; // Biosphere Reserve badge
   whs?: boolean; // UNESCO World Heritage Site badge
   ramsar?: boolean; // Ramsar site badge
+  iba?: boolean; // Important Bird & Biodiversity Area badge
+  elephant?: boolean; // Elephant Reserve badge
   river: string;
   veg: string;
   note: string; // UPSC significance
@@ -42,6 +44,9 @@ export interface TigerReserve extends GeoPoint {
 
 /** Faint wetland context marker (teal droplet, no card). */
 export type Wetland = GeoPoint;
+
+/** Wildlife Sanctuary context marker (own layer/marker, no card). */
+export type Sanctuary = GeoPoint;
 
 /** Faint terrain / physical-feature label (brown, no card). */
 export interface Terrain extends GeoPoint {
@@ -61,6 +66,7 @@ export type ReservesByState = Record<string, TigerReserve[]>;
 export type WetlandsByState = Record<string, Wetland[]>;
 export type TerrainByState = Record<string, Terrain[]>;
 export type RiversByState = Record<string, River[]>;
+export type SanctuariesByState = Record<string, Sanctuary[]>;
 
 /* ── india.json (derived from the validated map_inline.json) ── */
 
