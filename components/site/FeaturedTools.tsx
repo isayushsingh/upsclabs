@@ -14,7 +14,8 @@ export default function FeaturedTools() {
       </div>
       <div className="ul-feat-list">
         {tools.map((t) => (
-          <article
+          <Link
+            href={t.href!}
             className="ul-feat"
             key={t.slug}
             style={{ "--accent": t.accent } as CSSProperties}
@@ -23,19 +24,15 @@ export default function FeaturedTools() {
               <ToolPreview kind={t.preview} accent={t.accent} />
             </div>
             <div className="ul-feat-body">
-              <div className="ul-feat-eyebrow">
-                <span className="ul-badge ul-badge-live">Live</span>
-                <span>
-                  {t.paper} · {t.topic}
-                </span>
-              </div>
-              <h3 className="ul-feat-title">{t.fullTitle || t.title}</h3>
+              <h3 className="ul-feat-title">
+                {t.fullTitle || t.title}
+              </h3>
               <p className="ul-feat-blurb">{t.blurb}</p>
-              <Link href={t.href!} className="ul-cta">
-                Open tool <span aria-hidden="true">→</span>
-              </Link>
             </div>
-          </article>
+            <span className="ul-feat-cta">
+              Open tool <span aria-hidden="true">→</span>
+            </span>
+          </Link>
         ))}
       </div>
     </section>

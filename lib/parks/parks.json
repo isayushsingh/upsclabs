@@ -3052,6 +3052,36 @@
           []
         ]
       ]
+    },
+    {
+      "name": "North Button Island",
+      "lon": 93.068,
+      "lat": 12.317,
+      "tr": false,
+      "river": "\u2014",
+      "veg": "Coral reef & tropical littoral forest islet, Ritchie's Archipelago",
+      "note": "Tiny uninhabited island national park adjoining Rani Jhansi Marine NP; coral reef ecosystem.",
+      "species": []
+    },
+    {
+      "name": "Middle Button Island",
+      "lon": 93.0261,
+      "lat": 12.2756,
+      "tr": false,
+      "river": "\u2014",
+      "veg": "Coral reef & tropical littoral forest islet, Ritchie's Archipelago",
+      "note": "Tiny uninhabited island national park adjoining Rani Jhansi Marine NP; coral reef ecosystem.",
+      "species": []
+    },
+    {
+      "name": "South Button Island",
+      "lon": 93.0203,
+      "lat": 12.2239,
+      "tr": false,
+      "river": "\u2014",
+      "veg": "Coral reef & tropical littoral forest islet, Ritchie's Archipelago",
+      "note": "India's smallest national park (~5 sq km); coral reef ecosystem near Havelock Island.",
+      "species": []
     }
   ]
 }

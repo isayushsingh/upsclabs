@@ -28,7 +28,7 @@
   --np-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
   --np-mono: var(--font-space-mono, var(--font-mono, ui-monospace, "SFMono-Regular", monospace));
 
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 24px 20px 44px;
   color: var(--ink);
@@ -39,9 +39,23 @@
    component) but must line up with it — .ul-breadcrumb in site.css is
    sized for the narrower timeline tool, so widen + repad to match here. */
 .np-breadcrumb {
-  max-width: 1400px;
+  max-width: 1280px;
   padding-left: 20px;
   padding-right: 20px;
+}
+/* The current-page breadcrumb segment ("National Parks, Tiger Reserves
+   Interactive Map") is much longer than other tools' — on narrow screens it
+   wraps onto a second line and pushes everything down. Truncate it with an
+   ellipsis instead, matching the single-line breadcrumb every other tool
+   has. Scoped to this page only via .np-breadcrumb, not the shared rule. */
+.np-breadcrumb {
+  flex-wrap: nowrap;
+}
+.np-breadcrumb .ul-breadcrumb-cur {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 /* ── header ── */
@@ -60,35 +74,18 @@
 }
 .np-title {
   font-family: var(--np-serif);
-  font-size: clamp(28px, 3.4vw, 40px);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.015em;
-  margin: 12px 0 6px;
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
 }
 .np-sub {
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--stone);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft, #5c5d52);
   margin: 0;
-  max-width: 56ch;
-}
-.np-wip {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 14px;
-  position: relative;
-  top: -0.32em;
-  font-family: var(--np-mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--stone);
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 3px 9px;
+  max-width: 58ch;
 }
 .np-headrow {
   display: flex;
@@ -104,6 +101,100 @@
 }
 .np-headtext .np-title {
   margin-top: 0;
+}
+
+/* ── universal search: parks, reserves, wetlands, biosphere reserves ── */
+.np-search {
+  position: relative;
+}
+.np-search-box {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(251, 247, 238, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 13px;
+  box-shadow: var(--shadow);
+}
+.np-search-ic {
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.np-search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+}
+.np-search-input::placeholder {
+  color: var(--stone);
+}
+.np-search-clear {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--stone);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+.np-search-clear:hover {
+  color: var(--ink);
+}
+.np-search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 12;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: rgba(251, 247, 238, 0.98);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  max-height: 340px;
+  overflow-y: auto;
+}
+.np-search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 7px 9px;
+  cursor: pointer;
+  font: inherit;
+}
+.np-search-result:hover {
+  background: rgba(63, 107, 78, 0.09);
+}
+.np-search-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.np-search-meta {
+  font-size: 10.5px;
+  color: var(--stone);
+}
+.np-search-empty {
+  padding: 9px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--stone);
 }
 
 /* ── mode toggle (Learn = slate, Recall = terracotta) ── */
@@ -154,17 +245,20 @@
   background: var(--terra);
 }
 
-/* ── framed map panel ── */
+/* ── map panel: seamless/borderless like the timeline tool's map, flat
+   background matching the page (no gradient, no rounded corners) — just a
+   hairline bottom rule so the canvas boundary still reads clearly against
+   the sidebar and legends around it. Taller aspect ratio (was 1.32) claims
+   more vertical space, which matters most on narrow mobile widths. ── */
 .np-stage {
   position: relative;
   flex: 1 1 auto;
   min-width: 0;
-  border: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   border-radius: 16px;
-  background: radial-gradient(120% 90% at 50% -10%, #f6f1e7 0%, var(--paper) 60%);
+  background: var(--paper);
   overflow: hidden;
-  box-shadow: var(--shadow);
-  aspect-ratio: 1.32;
+  aspect-ratio: 1.1;
 }
 .np-svg {
   display: block;
@@ -234,6 +328,7 @@
   width: 100%;
 }
 .np-mapcol {
+  position: relative;
   flex: 1 1 auto;
   min-width: 0;
   display: flex;
@@ -272,12 +367,9 @@
   background: rgba(194, 104, 63, 0.18);
 }
 .np-lyr-col {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 7px;
-}
-.np-lyr-col.np-lyr-open {
-  display: flex;
 }
 @media (max-width: 899px) {
   /* Small screens: the map renders first (full width, immediately visible,
@@ -303,6 +395,9 @@
     gap: 8px;
     margin-top: 14px;
   }
+  .np-search {
+    flex: 1 1 100%;
+  }
   .np-sidebar .np-modecard {
     width: auto;
     flex: 1 1 160px;
@@ -319,20 +414,6 @@
     width: auto;
   }
 }
-@media (min-width: 900px) {
-  /* Desktop sidebar sits in normal document flow with plenty of room — the
-     layer list is always shown, and the collapse affordance is redundant. */
-  .np-lyr-col {
-    display: flex !important;
-  }
-  .np-lyr-cap-btn {
-    cursor: default;
-    pointer-events: none;
-  }
-  .np-lyr-chev {
-    display: none;
-  }
-}
 .np-lyr-col .np-chip {
   width: 100%;
   justify-content: flex-start;
@@ -345,21 +426,6 @@
   letter-spacing: 0.08em;
   color: var(--stone);
   margin: 0 0 9px 2px;
-}
-.np-lyr-cap-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 0;
-  background: transparent;
-  font: inherit;
-  cursor: pointer;
-  padding: 0;
-}
-.np-lyr-chev {
-  font-size: 9px;
-  color: var(--stone);
 }
 .np-chip:disabled {
   cursor: not-allowed;
@@ -601,6 +667,14 @@
   pointer-events: auto;
   outline: none;
 }
+/* Invisible, comfortably-sized hit area under every clickable marker glyph —
+   the visible icon can stay small/precisely shaped without being hard to
+   tap on a phone or tablet. */
+.np-touch-target {
+  fill: transparent;
+  stroke: none;
+  pointer-events: all;
+}
 .np-mrk {
   stroke: #fbf7ee;
   stroke-width: 1.6;
@@ -766,12 +840,12 @@
 
 /* ── biosphere reserves: faint gradient-filled circle, name only on hover.
    Not a surveyed boundary — a rough "this general area" wash, deliberately
-   under everything else (rivers/wetlands/terrain/sanctuaries/markers). ── */
-.np-bio-g {
+   under everything else (rivers/wetlands/terrain/sanctuaries/markers). The
+   hover label itself is rendered separately, on top of the markers layer —
+   otherwise it paints underneath park/reserve dots and their labels. */
+.np-bio-circle {
   cursor: default;
   pointer-events: auto;
-}
-.np-bio-circle {
   stroke: none;
   transition: opacity 0.15s;
 }
@@ -782,7 +856,7 @@
   stroke-dasharray: 2.5 2;
   vector-effect: non-scaling-stroke;
 }
-.np-bio-g:hover .np-bio-circle {
+.np-bio-circle:hover {
   opacity: 0.75;
 }
 .np-biolabel {
@@ -1080,14 +1154,14 @@
   color: var(--terra);
 }
 @media (max-width: 900px) {
+  /* On mobile the card is a normal block right after the map frame, not an
+     overlay floating on top of it — it pushes the search/layers/reset
+     column further down the page instead of covering the map. */
   .np-card {
-    top: auto;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 12px;
-    width: min(360px, 100% - 24px);
-    max-height: min(60vh, 440px);
+    position: static;
+    margin-top: 14px;
+    width: 100%;
+    max-height: none;
   }
 }
 
@@ -1101,24 +1175,24 @@
   }
 }
 
-/* ── footnote legends — compact, right-aligned, sits under the map column
-   only (not the sidebar). ── */
+/* ── footnote legends — bottom of the left tool column, stacked and
+   left-aligned to fit the narrow sidebar. ── */
 .np-footnote {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px 18px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  padding: 7px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 2px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
   font-size: 10.5px;
   color: #6f6452;
 }
 .np-fn-iucn {
   display: flex;
-  align-items: center;
-  gap: 7px;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 6px;
 }
 .np-fn-iucn > b {
   font-size: 9px;
@@ -1128,28 +1202,29 @@
   font-weight: 700;
 }
 .np-fn-flags {
-  display: inline-flex;
-  gap: 8px;
-  padding-left: 8px;
-  margin-left: 1px;
-  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   color: var(--stone);
 }
 .np-fn-markers {
   display: flex;
-  gap: 11px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 6px;
 }
 .np-fn-markers span {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   white-space: nowrap;
 }
 @media (max-width: 899px) {
   .np-footnote {
-    flex-direction: column;
-    align-items: flex-end;
+    flex: 1 1 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
     gap: 10px;
   }
 }

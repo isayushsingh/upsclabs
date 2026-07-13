@@ -8,12 +8,7 @@ export default function Home() {
     <main className="ul-main">
       <section className="ul-hero">
         <div className="ul-hero-text">
-          <div className="ul-eyebrow">upsc.labs · Coverage</div>
-          <h1 className="ul-hero-title">
-            Building UPSC syllabus,
-            <br />
-            one interactive tool at a time.
-          </h1>
+          <h1 className="ul-hero-title">Building UPSC syllabus, one interactive tool at a time.</h1>
           <p className="ul-hero-sub">
             Every General Studies paper, mapped to a hands-on tool.
           </p>
@@ -25,9 +20,9 @@ export default function Home() {
 
       <FeaturedTools />
 
-      <section className="ul-news-wrap">
+      {/* <section className="ul-news-wrap">
         <NewsletterSignup />
-      </section>
+      </section> */}
     </main>
   );
 }

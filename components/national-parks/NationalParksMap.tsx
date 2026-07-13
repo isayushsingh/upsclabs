@@ -64,10 +64,51 @@ const ALL_BIOSPHERE: Biosphere[] = (() => {
   return list;
 })();
 
+interface SearchItem {
+  id: string;
+  type: "park" | "reserve" | "wetland" | "biosphere";
+  name: string;
+  state: string;
+  /** Index within that state's array — reconstructs the id used elsewhere
+      (e.g. `np:${state}:${idx}`) so the same lookups/reveal logic apply. */
+  idx: number;
+  mab?: boolean;
+}
+
+/** Flat, searchable index across every layer with a name — built once, not
+    per-render. Biosphere reserves that span multiple states appear once per
+    state (matching how the map itself keys them), which is a feature here:
+    each row is a distinct jump-to-this-state destination. */
+const SEARCH_INDEX: SearchItem[] = (() => {
+  const items: SearchItem[] = [];
+  Object.entries(PARKS).forEach(([state, arr]) =>
+    arr.forEach((p, i) => items.push({ id: `np:${state}:${i}`, type: "park", name: p.name, state, idx: i }))
+  );
+  Object.entries(RESERVES).forEach(([state, arr]) =>
+    arr.forEach((r, i) => items.push({ id: `tr:${state}:${i}`, type: "reserve", name: r.name, state, idx: i }))
+  );
+  Object.entries(WETLANDS).forEach(([state, arr]) =>
+    arr.forEach((w, i) => items.push({ id: `wet:${state}:${i}`, type: "wetland", name: w.name, state, idx: i }))
+  );
+  Object.entries(BIOSPHERE).forEach(([state, arr]) =>
+    arr.forEach((b, i) =>
+      items.push({ id: `bio:${state}:${i}`, type: "biosphere", name: b.name, state, idx: i, mab: b.mab })
+    )
+  );
+  return items;
+})();
+
+const SEARCH_TYPE_LABEL: Record<SearchItem["type"], string> = {
+  park: "National Park",
+  reserve: "Tiger Reserve",
+  wetland: "Wetland",
+  biosphere: "Biosphere Reserve",
+};
+
 type VB = [number, number, number, number];
 
 const RAW_VB = INDIA.viewBox as VB;
-const PANEL_ASPECT = 1.32; // matches the framed map panel (HTML aesthetic)
+const PANEL_ASPECT = 1.1; // must match .np-stage's CSS aspect-ratio exactly
 const ASPECT = PANEL_ASPECT;
 const BBOX_PAD = 0.08;
 
@@ -93,23 +134,63 @@ function frameToAspect(
   }
   return [nx, ny, nw, nh];
 }
+
+/** Like frameToAspect, but crops the excess dimension (symmetric) instead of
+    padding it — a "cover" fit rather than "contain". Used only for the
+    initial all-India view: showing the whole outline with no cropping tends
+    to add a lot of blank letterbox space once the panel gets taller/narrower
+    than India's own bounding-box aspect ratio, whereas a touch of zoom (with
+    panning to reach the cropped edges) reads better and fills the frame. */
+function frameToCover(
+  [x, y, w, h]: [number, number, number, number],
+  padFrac: number
+): VB {
+  const px = w * padFrac;
+  const py = h * padFrac;
+  let nx = x - px;
+  let ny = y - py;
+  let nw = w + 2 * px;
+  let nh = h + 2 * py;
+  if (nw / nh > ASPECT) {
+    const t = nh * ASPECT;
+    nx += (nw - t) / 2;
+    nw = t;
+  } else {
+    const t = nw / ASPECT;
+    ny += (nh - t) / 2;
+    nh = t;
+  }
+  return [nx, ny, nw, nh];
+}
+// FULL_VB is the true, uncropped fit — it's the pan boundary and the
+// zoom-out ceiling, so every part of India must stay reachable through it.
 const FULL_VB: VB = frameToAspect(RAW_VB, 0);
-const STATE_LABEL_FS = FULL_VB[2] * 0.0082; // India-overview label size
+// LANDING_VB is what actually loads on screen: a touch of zoom into that
+// same view (cropping instead of letterboxing), since panning is enabled
+// on the India overview too — nothing becomes unreachable, it's just not
+// all visible on the very first paint.
+const LANDING_VB: VB = frameToCover(RAW_VB, 0.02);
+const STATE_LABEL_FS = LANDING_VB[2] * 0.011; // India-overview label size (+2px)
 const ZOOM_MS = 620;
 
 // Marker / label sizes as a fraction of the current viewBox width, so they stay
 // a constant on-screen size regardless of zoom level.
 const R_FRAC = 0.008; // marker radius
-const LFS_FRAC = 0.015; // park label font-size (enlarged for readability)
+const LFS_FRAC = 0.018; // park label font-size (+2px)
 const LGAP_FRAC = 0.005; // marker→label gap
 // Faint context layers — subordinate size hierarchy: park > river > wetland ≈ terrain.
-const RIVER_FRAC = 0.0118; // river label font-size (enlarged for legibility)
-const WET_FRAC = 0.0108; // wetland label font-size (enlarged for legibility)
+const RIVER_FRAC = 0.0147; // river label font-size (+2px)
+const WET_FRAC = 0.016; // wetland label font-size (+2px)
 const HILL_FRAC = 0.0108; // terrain label font-size (enlarged for legibility)
 const DROP_FRAC = 0.006; // wetland droplet size
-const SANCT_FRAC = 0.0108; // sanctuary label font-size (matches wetland/terrain)
+const SANCT_FRAC = 0.0137; // sanctuary label font-size (+2px)
 const SANCT_SQ_FRAC = 0.0095; // sanctuary square marker half-size
 const BIO_FRAC = 0.0118; // biosphere hover-label font-size
+// Invisible touch-target radius for every clickable marker (park, reserve,
+// bubble, wetland) — comfortably bigger than any of their visual glyphs, so
+// a finger on a phone/tablet doesn't have to land pixel-perfectly on a small
+// or oddly-shaped icon (the wetland droplet's pointed tip was the worst case).
+const TOUCH_R_FRAC = 0.02;
 // Tuned so dense sets cluster exactly as the validated prototype did
 // (Kerala's High-Range sholas → one 3-bubble; Telangana's Hyderabad trio → 3).
 const CLUSTER_FRAC = 0.04;
@@ -323,21 +404,20 @@ const DEFAULT_LAYERS: LayerState = {
 
 export default function NationalParksMap() {
   const [activeState, setActiveState] = useState<string | null>(null);
-  const [vb, setVb] = useState<VB>(FULL_VB);
+  const [vb, setVb] = useState<VB>(LANDING_VB);
   const [layers, setLayers] = useState<LayerState>(DEFAULT_LAYERS);
   const [mode, setMode] = useState<Mode>("learn");
-  // Collapsed by default — on narrow screens the sidebar overlays the map,
-  // and the full 6-toggle list is taller than the frame itself. Desktop
-  // ignores this (the layer list is always shown there via CSS).
-  const [layersOpen, setLayersOpen] = useState(false);
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<SelectedInfo | null>(null);
   const [hoveredBio, setHoveredBio] = useState<string | null>(null);
-  const vbRef = useRef<VB>(FULL_VB);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef<HTMLDivElement | null>(null);
+  const vbRef = useRef<VB>(LANDING_VB);
   const rafRef = useRef<number | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
   const cardRef = useRef<HTMLElement | null>(null);
-  const fitVBRef = useRef<VB>(FULL_VB); // the "fit" viewBox of the active state
+  const fitVBRef = useRef<VB>(LANDING_VB); // the "fit" viewBox of the active state
   const activeStateRef = useRef<string | null>(null); // for long-lived listeners
   const movedRef = useRef(false); // drag exceeded threshold
   const suppressClickRef = useRef(false); // ignore click that ends a drag
@@ -394,6 +474,16 @@ export default function NationalParksMap() {
     return () => mq.removeEventListener("change", h);
   }, []);
 
+  // Close the search dropdown on an outside click (but not on every
+  // keystroke — typing keeps it open via onChange/onFocus below).
+  useEffect(() => {
+    if (!searchOpen) return;
+    const onDown = (e: PointerEvent) => {
+      if (!searchRef.current?.contains(e.target as Node)) setSearchOpen(false);
+    };
+    window.addEventListener("pointerdown", onDown);
+    return () => window.removeEventListener("pointerdown", onDown);
+  }, [searchOpen]);
 
   // Escape closes the card; focus moves into it on open.
   useEffect(() => {
@@ -410,6 +500,11 @@ export default function NationalParksMap() {
 
   const enterState = useCallback(
     (name: string) => {
+      // Re-clicking the already-active state's shape is easy to do by
+      // accident while aiming for a nearby marker — it must not re-run the
+      // "enter a state" reset (revealed markers, selected card) or the user
+      // loses everything they've uncovered in Recall mode for a stray click.
+      if (name === activeStateRef.current) return;
       const shape = INDIA.states.find((s) => s.name === name);
       if (!shape) return;
       const fit = frameToAspect(shape.bbox, BBOX_PAD);
@@ -422,6 +517,51 @@ export default function NationalParksMap() {
       animateTo(fit);
     },
     [animateTo]
+  );
+
+  const searchResults = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [] as SearchItem[];
+    return SEARCH_INDEX.filter(
+      (it) => it.name.toLowerCase().includes(q) || it.state.toLowerCase().includes(q)
+    ).slice(0, 8);
+  }, [searchQuery]);
+
+  /** Jump to a search result's state and surface the item itself — opens its
+      card for parks/reserves, or reveals/hover-highlights it for the
+      card-less wetland and biosphere layers (turning that layer on too). */
+  const goToSearchResult = useCallback(
+    (item: SearchItem) => {
+      enterState(item.state);
+      if (item.type === "park") {
+        const park = (PARKS[item.state] ?? [])[item.idx];
+        if (park) {
+          setSelected({ id: item.id, name: item.name, kind: "park", state: item.state, park });
+          setRevealed(new Set([item.id]));
+        }
+      } else if (item.type === "reserve") {
+        const reserve = (RESERVES[item.state] ?? [])[item.idx];
+        if (reserve) {
+          setSelected({
+            id: item.id,
+            name: item.name,
+            kind: "reserve",
+            state: item.state,
+            reserve,
+          });
+          setRevealed(new Set([item.id]));
+        }
+      } else if (item.type === "wetland") {
+        setLayers((l) => ({ ...l, wetlands: true }));
+        setRevealed(new Set([item.id]));
+      } else {
+        setLayers((l) => ({ ...l, biosphere: true }));
+        setHoveredBio(item.id);
+      }
+      setSearchQuery("");
+      setSearchOpen(false);
+    },
+    [enterState]
   );
 
   /** Clamp a viewBox width to the allowed zoom range (per active state). */
@@ -493,7 +633,10 @@ export default function NationalParksMap() {
     // swallowing every state click until the page is refreshed.
     suppressClickRef.current = false;
     movedRef.current = false;
-    if (!activeStateRef.current || e.button !== 0) return;
+    // Pan/pinch work on the India overview too — the landing view is a
+    // deliberate crop, and states outside it must stay reachable by drag,
+    // not just by clicking one that's already visible.
+    if (e.button !== 0) return;
     pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointersRef.current.size === 1) {
       panBaseRef.current = { x: e.clientX, y: e.clientY, vb: vbRef.current };
@@ -584,7 +727,6 @@ export default function NationalParksMap() {
     const el = svgRef.current;
     if (!el) return;
     const onWheel = (e: WheelEvent) => {
-      if (!activeStateRef.current) return;
       e.preventDefault();
       const [cx, cy] = pxToVb(e.clientX, e.clientY);
       const mag = Math.sqrt(Math.min(Math.abs(e.deltaY), 100) / 100);
@@ -598,13 +740,13 @@ export default function NationalParksMap() {
 
   const exitToIndia = useCallback(() => {
     activeStateRef.current = null;
-    fitVBRef.current = FULL_VB;
+    fitVBRef.current = LANDING_VB;
     setActiveState(null);
     setSelected(null);
     setRevealed(new Set());
     setHoveredBio(null);
     setLayers(DEFAULT_LAYERS);
-    animateTo(FULL_VB);
+    animateTo(LANDING_VB);
   }, [animateTo]);
 
   // Project the point set for the active state. Parks appear when the National
@@ -852,6 +994,7 @@ export default function NationalParksMap() {
   const SANCT_FS = SANCT_FRAC * vb[2];
   const SANCT_SQ = SANCT_SQ_FRAC * vb[2];
   const BIO_FS = BIO_FRAC * vb[2];
+  const TOUCH_R = TOUCH_R_FRAC * vb[2];
   const BUB_R = BUBBLE_R_FRAC * vb[2];
   const LEAD_GAP = LEAD_GAP_FRAC * vb[2];
 
@@ -859,10 +1002,7 @@ export default function NationalParksMap() {
     <div className="np-root">
         <div className="np-headrow">
           <div className="np-headtext">
-            <h1 className="np-title">
-              Protected Areas • Wetlands • Mapping
-              <span className="np-wip">Work in progress</span>
-            </h1>
+            <h1 className="np-title">Protected Areas • Wetlands • Mapping</h1>
             <p className="np-sub">
               Pick a state, then reveal the parks. Data is provisional and
               unverified — not for final revision.
@@ -874,6 +1014,71 @@ export default function NationalParksMap() {
         {/* standalone left column — mode switch, layer menu, reset — lives
             outside the map frame so it never overlaps markers/cards. */}
         <aside className="np-sidebar">
+          <div className="np-search" role="search" ref={searchRef}>
+            <div className="np-search-box">
+              <span className="np-search-ic" aria-hidden="true">
+                ⚲
+              </span>
+              <input
+                type="text"
+                className="np-search-input"
+                placeholder="Search parks, reserves, wetlands…"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setSearchOpen(true);
+                }}
+                onFocus={() => {
+                  if (searchQuery.trim()) setSearchOpen(true);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && searchResults.length > 0) {
+                    goToSearchResult(searchResults[0]);
+                  } else if (e.key === "Escape") {
+                    setSearchQuery("");
+                    setSearchOpen(false);
+                  }
+                }}
+                aria-label="Search parks, tiger reserves, wetlands and biosphere reserves"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  className="np-search-clear"
+                  onClick={() => {
+                    setSearchQuery("");
+                    setSearchOpen(false);
+                  }}
+                  aria-label="Clear search"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+            {searchQuery.trim() && searchOpen && (
+              <ul className="np-search-results">
+                {searchResults.length === 0 ? (
+                  <li className="np-search-empty">No matches</li>
+                ) : (
+                  searchResults.map((r) => (
+                    <li key={r.id}>
+                      <button
+                        type="button"
+                        className="np-search-result"
+                        onClick={() => goToSearchResult(r)}
+                      >
+                        <span className="np-search-name">{r.name}</span>
+                        <span className="np-search-meta">
+                          {SEARCH_TYPE_LABEL[r.type]} · {r.state}
+                        </span>
+                      </button>
+                    </li>
+                  ))
+                )}
+              </ul>
+            )}
+          </div>
+
           <div className="np-modecard" role="group" aria-label="Study mode">
             <button
               className={`np-mode np-mode-learn ${
@@ -882,7 +1087,7 @@ export default function NationalParksMap() {
               onClick={() => switchMode("learn")}
               aria-pressed={mode === "learn"}
             >
-              Learn
+              Learn Mode
             </button>
             <button
               className={`np-mode np-mode-recall ${
@@ -891,29 +1096,13 @@ export default function NationalParksMap() {
               onClick={() => switchMode("recall")}
               aria-pressed={mode === "recall"}
             >
-              Recall
+              Recall Mode
             </button>
           </div>
 
           <div className="np-layerbox">
-            <button
-              type="button"
-              className="np-lyr-cap np-lyr-cap-btn"
-              onClick={() => setLayersOpen((o) => !o)}
-              aria-expanded={layersOpen}
-              aria-controls="np-lyr-col"
-            >
-              Layers
-              <span className="np-lyr-chev" aria-hidden="true">
-                {layersOpen ? "▲" : "▼"}
-              </span>
-            </button>
-            <div
-              id="np-lyr-col"
-              className={`np-lyr-col ${layersOpen ? "np-lyr-open" : ""}`}
-              role="group"
-              aria-label="Map layers"
-            >
+            <span className="np-lyr-cap">Layers</span>
+            <div className="np-lyr-col" role="group" aria-label="Map layers">
               <LayerChip
                 variant="bios"
                 on={layers.biosphere}
@@ -953,14 +1142,10 @@ export default function NationalParksMap() {
               >
                 Wetlands
               </LayerChip>
-              <LayerChip
-                variant="hill"
-                on={layers.terrain}
-                disabled={!activeState}
-                onClick={() => toggle("terrain")}
-              >
-                Terrain
-              </LayerChip>
+              {/* Terrain toggle hidden from the menu — layer/data/rendering
+                  code stays intact (layers.terrain, faint.terrain, etc.),
+                  it's just not polished enough to expose yet. Re-add the
+                  LayerChip below (variant="hill") when it's ready. */}
               <LayerChip
                 variant="sanct"
                 on={layers.sanctuaries}
@@ -982,13 +1167,50 @@ export default function NationalParksMap() {
             </span>
             Reset to All India
           </button>
+
+          {/* ── legends: marker key + IUCN key — bottom of the tool column ── */}
+          <div className="np-footnote">
+            <div className="np-fn-markers" aria-label="Marker key">
+              <span>
+                <i className="np-lg np-lg-np" />
+                National Park
+              </span>
+              <span>
+                <i className="np-lg np-lg-both" />
+                NP + Tiger Reserve
+              </span>
+              <span>
+                <i className="np-lg np-lg-amb" />
+                Tiger Reserve
+              </span>
+            </div>
+
+            <div className="np-fn-iucn" aria-label="IUCN Red List key">
+              <b>IUCN Status</b>
+              <div className="np-iucn-pills">
+                {(["CR", "EN", "VU", "NT", "LC"] as const).map((k) => (
+                  <span
+                    key={k}
+                    className={`np-iucn ${IUCN_DARK.has(k) ? "np-pill-dark" : ""}`}
+                    style={{ background: IUCN_COLOR[k] }}
+                  >
+                    {k}
+                  </span>
+                ))}
+              </div>
+              <span className="np-fn-flags">
+                <span>✦ endemic</span>
+                <span>◆ state animal</span>
+              </span>
+            </div>
+          </div>
         </aside>
 
         <div className="np-mapcol">
         <div className="np-stage">
         <svg
           ref={svgRef}
-          className={`np-svg ${activeState ? "np-grab" : ""}`}
+          className="np-svg np-grab"
           viewBox={vb.join(" ")}
           onPointerDown={onStagePointerDown}
           role="img"
@@ -1066,37 +1288,20 @@ export default function NationalParksMap() {
               </defs>
               {faint.biosphere.map((b) => {
                 const [cx, cy] = b.xy;
-                const hovered = hoveredBio === b.id;
                 return (
-                  <g
+                  <ellipse
                     key={b.id}
-                    className="np-bio-g"
+                    cx={cx}
+                    cy={cy}
+                    rx={b.rx}
+                    ry={b.ry}
+                    className={`np-bio-circle ${b.mab ? "np-bio-mab" : ""}`}
+                    fill={b.mab ? "url(#np-bio-grad-mab)" : "url(#np-bio-grad)"}
                     onMouseEnter={() => setHoveredBio(b.id)}
                     onMouseLeave={() =>
                       setHoveredBio((cur) => (cur === b.id ? null : cur))
                     }
-                  >
-                    <ellipse
-                      cx={cx}
-                      cy={cy}
-                      rx={b.rx}
-                      ry={b.ry}
-                      className={`np-bio-circle ${b.mab ? "np-bio-mab" : ""}`}
-                      fill={b.mab ? "url(#np-bio-grad-mab)" : "url(#np-bio-grad)"}
-                    />
-                    {hovered && (
-                      <text
-                        x={cx}
-                        y={cy}
-                        fontSize={BIO_FS}
-                        textAnchor="middle"
-                        className="np-biolabel"
-                      >
-                        {b.name}
-                        {b.mab ? " (UNESCO MAB)" : ""}
-                      </text>
-                    )}
-                  </g>
+                  />
                 );
               })}
             </g>
@@ -1141,6 +1346,7 @@ export default function NationalParksMap() {
                     }}
                     aria-label={masked ? "Hidden wetland — click to reveal" : w.name}
                   >
+                    <circle cx={cx} cy={cy} r={TOUCH_R} className="np-touch-target" />
                     <path d={dropletPath(cx, cy, DROP)} className="np-wet" />
                     {masked ? (
                       <text
@@ -1284,6 +1490,7 @@ export default function NationalParksMap() {
                       }}
                       aria-label={`${c.members.length} parks here — zoom to split`}
                     >
+                      <circle cx={c.x} cy={c.y} r={TOUCH_R} className="np-touch-target" />
                       <circle cx={c.x} cy={c.y} r={BUB_R} className="np-bubble" />
                       <text
                         x={c.x}
@@ -1320,6 +1527,7 @@ export default function NationalParksMap() {
                     }}
                     aria-label={masked ? "Hidden park — click to reveal" : m.name}
                   >
+                    <circle cx={c.x} cy={c.y} r={TOUCH_R} className="np-touch-target" />
                     {split ? (
                       <>
                         <path d={halfCircle(c.x, c.y, R, false)} className="np-half-np" />
@@ -1375,6 +1583,28 @@ export default function NationalParksMap() {
               })}
             </g>
           )}
+
+          {/* Biosphere hover label — rendered last so it paints above every
+              marker/label layer, not just its own (backmost) circle layer. */}
+          {layers.biosphere &&
+            hoveredBio &&
+            (() => {
+              const b = faint.biosphere.find((x) => x.id === hoveredBio);
+              if (!b) return null;
+              const [cx, cy] = b.xy;
+              return (
+                <text
+                  x={cx}
+                  y={cy}
+                  fontSize={BIO_FS}
+                  textAnchor="middle"
+                  className="np-biolabel"
+                >
+                  {b.name}
+                  {b.mab ? " (UNESCO MAB)" : ""}
+                </text>
+              );
+            })()}
         </svg>
 
         {activeState && (
@@ -1396,6 +1626,12 @@ export default function NationalParksMap() {
           </div>
         )}
 
+        </div>
+
+        {/* Card lives outside .np-stage (not clipped by its overflow:hidden)
+            so that on mobile it can drop into normal document flow below the
+            map frame instead of floating on top of it — see .np-card's
+            mobile override in the CSS. */}
         {selected && (
           <Card
             sel={selected}
@@ -1403,45 +1639,6 @@ export default function NationalParksMap() {
             panelRef={cardRef}
           />
         )}
-        </div>
-
-        {/* ── footnote: legends live outside the map frame, under the map
-            column only — right-aligned, compact. ── */}
-        <div className="np-footnote">
-          <div className="np-fn-markers" aria-label="Marker key">
-            <span>
-              <i className="np-lg np-lg-np" />
-              National Park
-            </span>
-            <span>
-              <i className="np-lg np-lg-both" />
-              NP + Tiger Reserve
-            </span>
-            <span>
-              <i className="np-lg np-lg-amb" />
-              Tiger Reserve
-            </span>
-          </div>
-
-          <div className="np-fn-iucn" aria-label="IUCN Red List key">
-            <b>IUCN Status</b>
-            <div className="np-iucn-pills">
-              {(["CR", "EN", "VU", "NT", "LC"] as const).map((k) => (
-                <span
-                  key={k}
-                  className={`np-iucn ${IUCN_DARK.has(k) ? "np-pill-dark" : ""}`}
-                  style={{ background: IUCN_COLOR[k] }}
-                >
-                  {k}
-                </span>
-              ))}
-            </div>
-            <span className="np-fn-flags">
-              <span>✦ endemic</span>
-              <span>◆ state animal</span>
-            </span>
-          </div>
-        </div>
         </div>
       </div>
     </div>
