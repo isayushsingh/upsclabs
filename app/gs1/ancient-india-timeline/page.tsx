@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AncientIndiaTimeline from "@/components/ancient-india-timeline/AncientIndiaTimeline";
+import DesktopRecommendedModal from "@/components/site/DesktopRecommendedModal";
 
 export const metadata = {
   title: "Ancient India Dynastic Timeline · UPSC Labs",
@@ -9,6 +10,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
+      <DesktopRecommendedModal toolName="This ancient India dynastic timeline" />
       <nav className="ul-breadcrumb" aria-label="Breadcrumb">
         <Link href="/">UPSC Labs</Link>
         <span>/</span>

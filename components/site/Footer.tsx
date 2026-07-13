@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -6,6 +7,7 @@ export default function Footer() {
       <div className="ul-footer-inner">
         <div className="ul-footer-brand">
           <span className="ul-wordmark-mark">upsc.labs</span>
+          <Logo size={14} className="ul-wordmark-logo" />
         </div>
         <nav className="ul-footer-nav" aria-label="Footer">
           <Link href="/#tools">Tools</Link>

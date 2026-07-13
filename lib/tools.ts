@@ -53,8 +53,8 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "national-parks",
-    title: "Environment Mapping",
-    fullTitle: "Environment Mapping",
+    title: "Interactive Map: Protected Areas & Wetlands",
+    fullTitle: "Interactive Map: Protected Areas & Wetlands",
     blurb:
         "Active-recall map of India's national parks & tiger reserves, with wetland, river and terrain layers and a Learn ⇄ Recall toggle.",
     paper: "GS3",
