@@ -28,7 +28,7 @@
   --np-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
   --np-mono: var(--font-space-mono, var(--font-mono, ui-monospace, "SFMono-Regular", monospace));
 
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 24px 20px 44px;
   color: var(--ink);
@@ -39,7 +39,7 @@
    component) but must line up with it — .ul-breadcrumb in site.css is
    sized for the narrower timeline tool, so widen + repad to match here. */
 .np-breadcrumb {
-  max-width: 1280px;
+  max-width: 1400px;
   padding-left: 20px;
   padding-right: 20px;
 }
