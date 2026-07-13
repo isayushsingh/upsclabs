@@ -17,6 +17,8 @@
   --wet: #2c5f8a;
   --hill: #9c7a52;
   --sanct: #6a8f3f;
+  --bio: #4f7a3f;
+  --bio-mab: #b3402f;
   --state: #ebe1cf;
   --state-hi: #e3d6bd;
   --state-dim: #efe8db;
@@ -164,20 +166,6 @@
   box-shadow: var(--shadow);
   aspect-ratio: 1.32;
 }
-@media (max-width: 899px) {
-  .np-stage {
-    aspect-ratio: 0.82;
-  }
-  .np-floatstack {
-    width: 176px;
-    top: 10px;
-    left: 10px;
-  }
-  .np-footnote {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
 .np-svg {
   display: block;
   width: 100%;
@@ -225,53 +213,38 @@
   vector-effect: non-scaling-stroke;
 }
 
-/* ── workspace: full-width framed map ── */
+/* ── workspace: standalone left sidebar + map column ── */
 .np-workspace {
   margin-top: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
 }
 
-/* ── floating panel stack (top-left overlay inside the frame, pinned) ── */
-.np-floatstack {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 7;
-  width: 208px;
-  max-width: calc(100% - 28px);
+/* ── left sidebar (mode switch, layer menu, reset) — a normal document
+   column now, not an overlay pinned inside the map frame. ── */
+.np-sidebar {
+  flex: 0 0 232px;
+  width: 232px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+}
+.np-sidebar .np-modecard {
+  width: 100%;
+}
+.np-mapcol {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 .np-layerbox {
   background: rgba(251, 247, 238, 0.96);
-  backdrop-filter: blur(4px);
   border: 1px solid var(--line);
   border-radius: 13px;
   box-shadow: var(--shadow);
-  overflow: hidden;
-}
-.np-layerbox-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 11px;
-  border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, #f4eee1, #fbf7ee);
-}
-.np-lb-icon {
-  font-size: 13px;
-  color: var(--stone);
-  line-height: 1;
-}
-.np-lb-title {
-  flex: 1;
-  min-width: 0;
-  font-weight: 700;
-  font-size: 13px;
-  color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding: 12px 12px 13px;
 }
 .np-lb-reset {
   display: flex;
@@ -279,17 +252,17 @@
   justify-content: center;
   gap: 7px;
   width: 100%;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  border-radius: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   background: rgba(194, 104, 63, 0.1);
   color: var(--terra);
   font: inherit;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
-  padding: 9px 11px;
+  padding: 11px 14px;
   cursor: pointer;
   transition: 0.15s;
+  box-shadow: var(--shadow);
 }
 .np-lb-reset-ic {
   font-size: 14px;
@@ -299,33 +272,94 @@
   background: rgba(194, 104, 63, 0.18);
 }
 .np-lyr-col {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 7px;
-  padding: 11px 11px 12px;
+}
+.np-lyr-col.np-lyr-open {
+  display: flex;
+}
+@media (max-width: 899px) {
+  /* Small screens: the map renders first (full width, immediately visible,
+     zoom buttons still overlaid on it) and the menu — mode switch, layers,
+     reset — follows underneath in the normal document flow. Neither
+     overlaying the map nor pushing it below a tall menu works well here.
+     This must come after the base .np-sidebar/.np-mapcol/.np-layerbox rules
+     above — same specificity, so source order decides, and a media query
+     does not automatically win against a later plain rule. */
+  .np-workspace {
+    flex-direction: column;
+  }
+  .np-mapcol {
+    order: 1;
+    width: 100%;
+  }
+  .np-sidebar {
+    order: 2;
+    width: 100%;
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .np-sidebar .np-modecard {
+    width: auto;
+    flex: 1 1 160px;
+  }
+  .np-layerbox {
+    flex: 1 1 100%;
+    padding: 10px 11px 11px;
+  }
+  .np-lyr-col {
+    gap: 6px;
+  }
+  .np-lb-reset {
+    flex: 1 1 160px;
+    width: auto;
+  }
+}
+@media (min-width: 900px) {
+  /* Desktop sidebar sits in normal document flow with plenty of room — the
+     layer list is always shown, and the collapse affordance is redundant. */
+  .np-lyr-col {
+    display: flex !important;
+  }
+  .np-lyr-cap-btn {
+    cursor: default;
+    pointer-events: none;
+  }
+  .np-lyr-chev {
+    display: none;
+  }
 }
 .np-lyr-col .np-chip {
   width: 100%;
   justify-content: flex-start;
 }
 .np-lyr-cap {
+  display: block;
   font-size: 10.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--stone);
-  margin: 0 0 3px 2px;
+  margin: 0 0 9px 2px;
 }
-.np-lyr-hint {
-  margin: 0 2px 4px;
-  font-size: 11.5px;
-  line-height: 1.35;
-  font-style: italic;
+.np-lyr-cap-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+.np-lyr-chev {
+  font-size: 9px;
   color: var(--stone);
-}
-/* inert until a state is chosen */
-.np-lyr-off .np-chip {
-  opacity: 0.5;
 }
 .np-chip:disabled {
   cursor: not-allowed;
@@ -417,6 +451,14 @@
 }
 .np-chip-sanct.on .np-sw {
   background: var(--sanct);
+}
+.np-chip-bios.on {
+  color: #3f6b31;
+  border-color: rgba(79, 122, 63, 0.45);
+  background: rgba(79, 122, 63, 0.12);
+}
+.np-chip-bios.on .np-sw {
+  background: var(--bio);
 }
 .np-chip-spc.on {
   color: #274a36;
@@ -533,10 +575,10 @@
   white-space: nowrap;
 }
 .np-lg {
-  width: 11px;
-  height: 11px;
+  width: 9px;
+  height: 9px;
   display: inline-block;
-  border: 1.4px solid #fff;
+  border: 1.2px solid #fff;
   flex: 0 0 auto;
   border-radius: 50%;
 }
@@ -722,6 +764,39 @@
   vector-effect: non-scaling-stroke;
 }
 
+/* ── biosphere reserves: faint gradient-filled circle, name only on hover.
+   Not a surveyed boundary — a rough "this general area" wash, deliberately
+   under everything else (rivers/wetlands/terrain/sanctuaries/markers). ── */
+.np-bio-g {
+  cursor: default;
+  pointer-events: auto;
+}
+.np-bio-circle {
+  stroke: none;
+  transition: opacity 0.15s;
+}
+.np-bio-circle.np-bio-mab {
+  stroke: var(--bio-mab);
+  stroke-opacity: 0.45;
+  stroke-width: 0.8;
+  stroke-dasharray: 2.5 2;
+  vector-effect: non-scaling-stroke;
+}
+.np-bio-g:hover .np-bio-circle {
+  opacity: 0.75;
+}
+.np-biolabel {
+  fill: var(--ink);
+  font-weight: 600;
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
 /* ── sidebar legends (marker key + IUCN) ── */
 .np-toolkey {
   display: flex;
@@ -778,12 +853,12 @@
   flex-wrap: wrap;
 }
 .np-iucn {
-  font-size: 10px;
+  font-size: 8.5px;
   font-weight: 800;
   letter-spacing: 0.03em;
   color: #fff;
-  padding: 2px 6px;
-  border-radius: 5px;
+  padding: 1.5px 5px;
+  border-radius: 4px;
   line-height: 1;
 }
 .np-pill-dark {
@@ -1026,29 +1101,27 @@
   }
 }
 
-/* ── footnote legends (outside the map frame) ── */
+/* ── footnote legends — compact, right-aligned, sits under the map column
+   only (not the sidebar). ── */
 .np-footnote {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  gap: 14px 32px;
+  gap: 8px 18px;
   flex-wrap: wrap;
-  margin-top: 14px;
-  padding: 11px 14px;
-  background: rgba(251, 247, 238, 0.7);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  font-size: 12px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  font-size: 10.5px;
   color: #6f6452;
 }
 .np-fn-iucn {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
   flex-wrap: wrap;
 }
 .np-fn-iucn > b {
-  font-size: 10.5px;
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: var(--stone);
@@ -1056,25 +1129,27 @@
 }
 .np-fn-flags {
   display: inline-flex;
-  gap: 12px;
-  padding-left: 12px;
-  margin-left: 2px;
+  gap: 8px;
+  padding-left: 8px;
+  margin-left: 1px;
   border-left: 1px solid var(--line);
   color: var(--stone);
 }
 .np-fn-markers {
   display: flex;
-  gap: 16px;
+  gap: 11px;
   flex-wrap: wrap;
 }
 .np-fn-markers span {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 5px;
   white-space: nowrap;
 }
 @media (max-width: 899px) {
   .np-footnote {
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
   }
 }

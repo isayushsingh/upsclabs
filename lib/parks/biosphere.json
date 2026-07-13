@@ -1,0 +1,56 @@
+{
+  "Himachal Pradesh": [
+    { "name": "Cold Desert", "lon": 78.0, "lat": 32.3, "radius": 0.9, "mab": false }
+  ],
+  "Uttarakhand": [
+    { "name": "Nanda Devi", "lon": 79.7, "lat": 30.6, "radius": 0.75, "mab": true }
+  ],
+  "Sikkim": [
+    { "name": "Khangchendzonga", "lon": 88.4, "lat": 27.6, "radius": 0.5, "mab": true }
+  ],
+  "Assam": [
+    { "name": "Manas", "lon": 91.0, "lat": 26.7, "radius": 0.55, "mab": false },
+    { "name": "Dibru-Saikhowa", "lon": 95.4, "lat": 27.6, "radius": 0.3, "mab": false }
+  ],
+  "Arunachal Pradesh": [
+    { "name": "Dehang Debang", "lon": 95.4, "lat": 28.65, "radius": 0.7, "mab": false }
+  ],
+  "Meghalaya": [
+    { "name": "Nokrek", "lon": 90.3, "lat": 25.45, "radius": 0.3, "mab": true }
+  ],
+  "Gujarat": [
+    { "name": "Kachchh", "lon": 70.5, "lat": 23.5, "radius": 1.1, "mab": false }
+  ],
+  "Madhya Pradesh": [
+    { "name": "Panna", "lon": 80.2, "lat": 24.7, "radius": 0.5, "mab": true },
+    { "name": "Panchmarhi", "lon": 78.4, "lat": 22.5, "radius": 0.65, "mab": true },
+    { "name": "Achanakmar-Amarkantak", "lon": 81.75, "lat": 22.6, "radius": 0.55, "mab": true }
+  ],
+  "Chhattisgarh": [
+    { "name": "Achanakmar-Amarkantak", "lon": 81.75, "lat": 22.6, "radius": 0.55, "mab": true }
+  ],
+  "West Bengal": [
+    { "name": "Sunderbans", "lon": 88.9, "lat": 21.9, "radius": 0.85, "mab": true }
+  ],
+  "Odisha": [
+    { "name": "Simlipal", "lon": 86.35, "lat": 21.6, "radius": 0.6, "mab": true }
+  ],
+  "Karnataka": [
+    { "name": "Nilgiri", "lon": 76.5, "lat": 11.5, "radius": 0.7, "mab": true }
+  ],
+  "Tamil Nadu": [
+    { "name": "Nilgiri", "lon": 76.5, "lat": 11.5, "radius": 0.7, "mab": true },
+    { "name": "Agasthyamala", "lon": 77.2, "lat": 8.6, "radius": 0.55, "mab": true },
+    { "name": "Gulf of Mannar", "lon": 79.2, "lat": 9.1, "radius": 0.8, "mab": true }
+  ],
+  "Kerala": [
+    { "name": "Nilgiri", "lon": 76.5, "lat": 11.5, "radius": 0.7, "mab": true },
+    { "name": "Agasthyamala", "lon": 77.2, "lat": 8.6, "radius": 0.55, "mab": true }
+  ],
+  "Andhra Pradesh": [
+    { "name": "Seshachalam", "lon": 79.3, "lat": 13.7, "radius": 0.65, "mab": false }
+  ],
+  "Andaman and Nicobar Islands": [
+    { "name": "Great Nicobar", "lon": 93.9, "lat": 7.0, "radius": 0.35, "mab": true }
+  ]
+}
