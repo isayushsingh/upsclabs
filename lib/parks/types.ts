@@ -48,6 +48,14 @@ export type Wetland = GeoPoint;
 /** Wildlife Sanctuary context marker (own layer/marker, no card). */
 export type Sanctuary = GeoPoint;
 
+/** Biosphere Reserve — rendered as a faint gradient-filled circle (no marker,
+    no card); name only appears on hover. `radius` is in degrees, a rough
+    approximation of the reserve's real extent, not a surveyed boundary. */
+export interface Biosphere extends GeoPoint {
+  radius: number;
+  mab: boolean; // UNESCO Man and Biosphere Reserve (World Network) member
+}
+
 /** Faint terrain / physical-feature label (brown, no card). */
 export interface Terrain extends GeoPoint {
   sym: TerrainSymbol;
@@ -67,6 +75,7 @@ export type WetlandsByState = Record<string, Wetland[]>;
 export type TerrainByState = Record<string, Terrain[]>;
 export type RiversByState = Record<string, River[]>;
 export type SanctuariesByState = Record<string, Sanctuary[]>;
+export type BiosphereByState = Record<string, Biosphere[]>;
 
 /* ── india.json (derived from the validated map_inline.json) ── */
 

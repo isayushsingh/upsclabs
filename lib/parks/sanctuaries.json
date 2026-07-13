@@ -1,1 +1,105 @@
-{"Tripura":[{"name":"Sepahijala Wildlife Sanctuary","lon":91.31,"lat":23.66},{"name":"Gumti Wildlife Sanctuary","lon":91.75,"lat":23.45},{"name":"Trishna Wildlife Sanctuary","lon":91.55,"lat":23.3}]}
+{
+  "Tripura": [
+    {
+      "name": "Sepahijala Wildlife Sanctuary",
+      "lon": 91.31,
+      "lat": 23.66
+    },
+    {
+      "name": "Gumti Wildlife Sanctuary",
+      "lon": 91.75,
+      "lat": 23.45
+    },
+    {
+      "name": "Trishna Wildlife Sanctuary",
+      "lon": 91.55,
+      "lat": 23.3
+    },
+    {
+      "name": "Rowa Wildlife Sanctuary",
+      "lon": 92.17,
+      "lat": 24.29
+    }
+  ],
+  "Uttarakhand": [
+    {
+      "name": "Askot Musk Deer Sanctuary",
+      "lon": 80.26,
+      "lat": 29.53
+    },
+    {
+      "name": "Chilla Wildlife Sanctuary",
+      "lon": 78.27,
+      "lat": 29.93
+    },
+    {
+      "name": "Motichur Wildlife Sanctuary",
+      "lon": 78.13,
+      "lat": 29.97
+    }
+  ],
+  "Rajasthan": [
+    {
+      "name": "Tal Chhapar Wildlife Sanctuary",
+      "lon": 74.4349,
+      "lat": 27.7981
+    }
+  ],
+  "Odisha": [
+    {
+      "name": "Hadgarh Wildlife Sanctuary",
+      "lon": 86.3204,
+      "lat": 21.2893
+    },
+    {
+      "name": "Kuldiha Wildlife Sanctuary",
+      "lon": 86.3,
+      "lat": 21.2
+    }
+  ],
+  "Madhya Pradesh": [
+    {
+      "name": "Nauradehi Wildlife Sanctuary",
+      "lon": 79.2019,
+      "lat": 23.1781
+    }
+  ],
+  "Maharashtra": [
+    {
+      "name": "Radhanagari Wildlife Sanctuary",
+      "lon": 74.05,
+      "lat": 16.23
+    },
+    {
+      "name": "Koyna Wildlife Sanctuary",
+      "lon": 73.7009,
+      "lat": 17.7819
+    }
+  ],
+  "Tamil Nadu": [
+    {
+      "name": "Grizzled Squirrel Wildlife Sanctuary",
+      "lon": 77.635,
+      "lat": 9.5106
+    }
+  ],
+  "Uttar Pradesh": [
+    {
+      "name": "Kishanpur Wildlife Sanctuary",
+      "lon": 80.3645,
+      "lat": 28.3963
+    },
+    {
+      "name": "Katarniaghat Wildlife Sanctuary",
+      "lon": 81.12,
+      "lat": 28.31
+    }
+  ],
+  "Assam": [
+    {
+      "name": "Bura Chapori Wildlife Sanctuary",
+      "lon": 92.68,
+      "lat": 26.52
+    }
+  ]
+}

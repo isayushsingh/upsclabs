@@ -1,1 +1,3057 @@
-{"Madhya Pradesh":[{"name":"Kanha","lon":80.61,"lat":22.33,"tr":true,"bio":false,"whs":false,"ramsar":false,"river":"Banjar \u00b7 Halon","veg":"Sal & bamboo moist deciduous; grassland maidans","note":"Jungle Book inspiration; among first 9 Project Tiger reserves.","species":[["Barasingha","VU",["end","state"]],["Bengal Tiger","EN",[]],["Gaur","VU",[]]]},{"name":"Bandhavgarh","lon":81.03,"lat":23.7,"tr":true,"bio":false,"whs":false,"ramsar":false,"river":"Charanganga","veg":"Sal & mixed forest; Vindhyan hills","note":"Among the highest tiger densities in India.","species":[["Bengal Tiger","EN",[]],["Sloth Bear","VU",[]],["Indian Leopard","VU",[]]]},{"name":"Pench","lon":79.3,"lat":21.78,"tr":true,"bio":false,"whs":false,"ramsar":false,"river":"Pench","veg":"Southern tropical dry deciduous teak","note":"'Mowgli-land'; straddles MP\u2013Maharashtra.","species":[["Dhole","EN",[]],["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Satpura","lon":78.43,"lat":22.55,"tr":true,"bio":true,"whs":false,"ramsar":false,"river":"Tawa \u00b7 Denwa","veg":"Highland sal & teak; Satpura\u2013Maikal hills","note":"Core of the Pachmarhi Biosphere Reserve.","species":[["Indian Giant Squirrel","LC",[]],["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Panna","lon":80.05,"lat":24.72,"tr":true,"bio":true,"whs":false,"ramsar":false,"river":"Ken","veg":"Dry deciduous; Ken gorge ecosystem","note":"UNESCO Biosphere Reserve; site of the Ken\u2013Betwa river link.","species":[["Gharial","CR",[]],["Bengal Tiger","EN",[]],["Chinkara","LC",[]]]},{"name":"Sanjay","lon":81.4,"lat":24.1,"tr":true,"bio":false,"whs":false,"ramsar":false,"river":"Gopad \u00b7 Banas","veg":"Sal & mixed deciduous","note":"Contiguous with Guru Ghasidas NP (Chhattisgarh).","species":[["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]],["Gaur","VU",[]]]},{"name":"Kuno","lon":77.13,"lat":25.5,"tr":true,"bio":false,"whs":false,"ramsar":false,"river":"Kuno","veg":"Kardhai\u2013khair dry deciduous; savanna grassland","note":"Project Cheetah \u2014 African cheetah reintroduction.","species":[["Cheetah (African)","VU",[]],["Striped Hyena","NT",[]],["Indian Leopard","VU",[]]]},{"name":"Madhav","lon":77.75,"lat":25.5,"tr":true,"bio":false,"whs":false,"ramsar":false,"river":"Sindh (nearby)","veg":"Dry thorn & deciduous; Shivpuri plateau","note":"Madhav Tiger Reserve (notified 2025); Sakhya Sagar lake.","species":[["Chinkara","LC",[]],["Nilgai","LC",[]],["Indian Leopard","VU",[]]]},{"name":"Van Vihar","lon":77.36,"lat":23.21,"tr":false,"bio":false,"whs":false,"ramsar":false,"river":"\u2014","veg":"Urban dry deciduous; lakeside","note":"NP-cum-zoo beside Bhoj Wetland (Ramsar site, adjacent).","species":[["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]]]}],"Gujarat":[{"name":"Gir","lon":70.8,"lat":21.13,"tr":false,"river":"Hiran \u00b7 Shetrunji","veg":"Dry deciduous teak & thorn scrub; Saurashtra","note":"Only wild population of the Asiatic Lion; Maldhari pastoralists.","species":[["Asiatic Lion","EN",["end","state"]],["Indian Leopard","VU",[]],["Chital","LC",[]]]},{"name":"Blackbuck (Velavadar)","lon":72.02,"lat":22.03,"tr":false,"river":"Bhal coastal plain","veg":"Tropical grassland & savanna (Bhal)","note":"Velavadar grasslands; harrier roost; lesser florican & wolf.","species":[["Lesser Florican","CR",[]],["Blackbuck","LC",["state"]],["Indian Wolf","LC",[]]]},{"name":"Vansda","lon":73.47,"lat":20.75,"tr":false,"river":"Ambika","veg":"Moist deciduous teak; the Dangs (Western Ghats edge)","note":"Dense forest of southern Gujarat; rich birdlife.","species":[["Indian Pangolin","EN",[]],["Indian Giant Squirrel","LC",[]],["Indian Leopard","VU",[]]]},{"name":"Marine (Gulf of Kutch)","lon":69.4,"lat":22.5,"tr":false,"river":"Gulf of Kutch (marine)","veg":"Mangroves, coral reefs, intertidal mudflats","note":"India's first Marine National Park (1982); 42 islands.","species":[["Dugong","VU",[]],["Green Sea Turtle","EN",[]],["Whale Shark","EN",[]]]}],"Maharashtra":[{"name":"Tadoba","lon":79.38,"lat":20.3,"tr":true,"river":"Andhari \u00b7 Tadoba lake","veg":"Southern dry deciduous teak & bamboo","note":"Maharashtra's oldest national park; flagship Tiger Reserve.","species":[["Bengal Tiger","EN",[]],["Dhole","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Gugamal","lon":77.2,"lat":21.45,"tr":true,"river":"Sipna","veg":"Dry deciduous teak; Gavilgarh (Satpura) hills","note":"Core of Melghat Tiger Reserve (one of the first, 1973-74).","species":[["Bengal Tiger","EN",[]],["Gaur","VU",[]],["Sloth Bear","VU",[]]]},{"name":"Navegaon","lon":80.1,"lat":20.92,"tr":true,"river":"Navegaon lake","veg":"Southern dry deciduous; lake & forest","note":"Part of Navegaon\u2013Nagzira Tiger Reserve; rich waterbird life.","species":[["Bengal Tiger","EN",[]],["Dhole","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Pench (Maharashtra)","lon":79.3,"lat":21.68,"tr":true,"river":"Pench","veg":"Southern tropical dry deciduous teak","note":"Maharashtra side of Pench; 'Mowgli' country.","species":[["Bengal Tiger","EN",[]],["Dhole","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Sanjay Gandhi (Borivali)","lon":72.91,"lat":19.22,"tr":false,"river":"Tulsi & Vihar lakes","veg":"Moist deciduous within Mumbai metropolis","note":"Urban national park; Kanheri Caves; high leopard density.","species":[["Indian Leopard","VU",[]],["Sambar","VU",[]],["Chital","LC",[]]]},{"name":"Chandoli","lon":73.83,"lat":17.2,"tr":true,"river":"Warna \u00b7 Vasant Sagar","veg":"Northern Western Ghats semi-evergreen","note":"Part of Sahyadri Tiger Reserve; Western Ghats biodiversity.","species":[["Bengal Tiger","EN",[]],["Indian Giant Squirrel","LC",[]],["Indian Pangolin","EN",[]]]}],"Karnataka":[{"name":"Bandipur","lon":76.63,"lat":11.67,"tr":true,"bio":true,"river":"Kabini \u00b7 Moyar","veg":"Southern dry & moist deciduous; Nilgiri foothills","note":"Part of the Nilgiri Biosphere Reserve; among the first Project Tiger reserves.","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Nagarhole","lon":76.13,"lat":12.0,"tr":true,"bio":true,"river":"Kabini \u00b7 Lakshmana Tirtha","veg":"Moist & dry deciduous; Western Ghats","note":"Rajiv Gandhi NP; Nilgiri Biosphere Reserve; high tiger & elephant density.","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Dhole","EN",[]]]},{"name":"Bannerghatta","lon":77.57,"lat":12.8,"tr":false,"river":"Suvarnamukhi stream","veg":"Dry deciduous & scrub near Bengaluru","note":"Biological park & elephant corridor on Bengaluru's edge.","species":[["Asian Elephant","EN",[]],["Sloth Bear","VU",[]],["Indian Leopard","VU",[]]]},{"name":"Kudremukh","lon":75.25,"lat":13.2,"tr":false,"river":"Tunga \u00b7 Bhadra \u00b7 Nethravathi (sources)","veg":"Shola\u2013grassland & evergreen; Western Ghats","note":"Western Ghats; source of the Tunga, Bhadra & Nethravathi rivers.","species":[["Lion-tailed Macaque","EN",["end"]],["Indian Giant Squirrel","LC",[]],["Indian Leopard","VU",[]]]},{"name":"Anshi","lon":74.4,"lat":15.0,"tr":true,"river":"Kali","veg":"Evergreen Western Ghats rainforest","note":"Core of Kali (Dandeli\u2013Anshi) Tiger Reserve; black-panther sightings.","species":[["Bengal Tiger","EN",[]],["King Cobra","VU",[]],["Indian Leopard","VU",[]]]}],"Kerala":[{"name":"Eravikulam","lon":77.05,"lat":10.18,"tr":false,"river":"High-range streams","veg":"Shola\u2013grassland; Anamudi (highest peak in S. India)","note":"Nilgiri Tahr stronghold; Neelakurinji blooms every 12 years.","species":[["Nilgiri Tahr","EN",["end"]],["Asian Elephant","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Silent Valley","lon":76.44,"lat":11.08,"tr":false,"river":"Kunthipuzha","veg":"Pristine tropical evergreen rainforest","note":"Saved by the Silent Valley movement (1980s); undisturbed rainforest.","species":[["Lion-tailed Macaque","EN",["end"]],["Nilgiri Langur","VU",["end"]],["Indian Giant Squirrel","LC",[]]]},{"name":"Periyar","lon":77.16,"lat":9.47,"tr":true,"river":"Periyar \u00b7 Pamba","veg":"Evergreen & moist deciduous; Periyar lake","note":"Periyar Tiger Reserve; elephants & tigers; Thekkady.","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Nilgiri Tahr","EN",["end"]]]},{"name":"Mathikettan Shola","lon":77.22,"lat":10.02,"tr":false,"river":"High-range streams","veg":"Shola forest; the High Range (Idukki)","note":"Shola park & elephant corridor in the High Range.","species":[["Asian Elephant","EN",[]],["Gaur","VU",[]],["Indian Leopard","VU",[]]]},{"name":"Anamudi Shola","lon":77.24,"lat":10.21,"tr":false,"river":"High-range streams","veg":"Shola\u2013grassland; near Anamudi","note":"Largest contiguous shola stretch in the High Range.","species":[["Nilgiri Tahr","EN",["end"]],["Asian Elephant","EN",[]],["Nilgiri Marten","VU",["end"]]]},{"name":"Pampadum Shola","lon":77.26,"lat":10.33,"tr":false,"river":"High-range streams","veg":"Shola forest; Kerala's smallest NP","note":"Kerala's smallest national park; shola-grassland mosaic.","species":[["Nilgiri Marten","VU",["end"]],["Gaur","VU",[]],["Nilgiri Langur","VU",["end"]]]}],"Tamil Nadu":[{"name":"Mudumalai","lon":76.55,"lat":11.57,"tr":true,"bio":true,"river":"Moyar","veg":"Dry & moist deciduous; Nilgiri Biosphere Reserve","note":"Nilgiri Biosphere Reserve; tri-junction of TN, Karnataka & Kerala.","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Mukurthi","lon":76.5,"lat":11.4,"tr":false,"bio":true,"river":"Pykara","veg":"Shola\u2013grassland; upper Nilgiris","note":"Nilgiri Tahr habitat; Nilgiri Biosphere Reserve.","species":[["Nilgiri Tahr","EN",["end","state"]],["Nilgiri Marten","VU",["end"]],["Nilgiri Langur","VU",["end"]]]},{"name":"Indira Gandhi (Anamalai)","lon":77.0,"lat":10.4,"tr":true,"river":"Aliyar \u00b7 Parambikulam","veg":"Evergreen & shola; Anamalai hills","note":"Anamalai Tiger Reserve; southern Western Ghats.","species":[["Bengal Tiger","EN",[]],["Lion-tailed Macaque","EN",["end"]],["Asian Elephant","EN",[]]]},{"name":"Guindy","lon":80.24,"lat":13.0,"tr":false,"river":"Adyar (nearby)","veg":"Tropical dry evergreen scrub; within Chennai","note":"Among India's smallest national parks; inside Chennai city.","species":[["Blackbuck","LC",[]],["Indian Star Tortoise","VU",[]],["Chital","LC",[]]]},{"name":"Gulf of Mannar Marine","lon":78.95,"lat":9.1,"tr":false,"bio":true,"river":"Marine (21 islands)","veg":"Coral reefs, seagrass & mangroves","note":"India's first Marine Biosphere Reserve; dugong / sea cow.","species":[["Dugong","VU",[]],["Hawksbill Turtle","CR",[]],["Green Sea Turtle","EN",[]]]}],"Andhra Pradesh":[{"name":"Sri Venkateswara","lon":79.3,"lat":13.8,"tr":false,"bio":true,"river":"Swarnamukhi","veg":"Eastern Ghats dry & moist deciduous; Seshachalam hills","note":"Seshachalam Biosphere Reserve; endemic Red Sanders; near Tirupati.","species":[["Grey Slender Loris","NT",[]],["Indian Pangolin","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Papikonda","lon":81.5,"lat":17.4,"tr":false,"river":"Godavari","veg":"Eastern Ghats moist deciduous; Godavari gorge","note":"Eastern Ghats along the Godavari gorge ('Papi hills').","species":[["Indian Leopard","VU",[]],["Gaur","VU",[]],["Indian Pangolin","EN",[]]]},{"name":"Rajiv Gandhi (Kadapa)","lon":78.8,"lat":14.5,"tr":false,"river":"Penner (nearby)","veg":"Scrub & dry deciduous; Eastern Ghats","note":"Small national park in the Kadapa region.","species":[["Indian Leopard","VU",[]],["Sloth Bear","VU",[]],["Blackbuck","LC",[]]]}],"Telangana":[{"name":"Mahavir Harina Vanasthali","lon":78.28,"lat":17.32,"tr":false,"river":"Hyderabad outskirts","veg":"Dry deciduous & scrub near Hyderabad","note":"Deer park on Hyderabad's western edge.","species":[["Blackbuck","LC",[]],["Chinkara","LC",[]],["Indian Leopard","VU",[]]]},{"name":"Mrugavani","lon":78.33,"lat":17.34,"tr":false,"river":"Hyderabad outskirts","veg":"Dry deciduous scrub (Chevella)","note":"Small reserve-forest park near Hyderabad.","species":[["Indian Rock Python","NT",[]],["Chital","LC",[]],["Indian Civet","LC",[]]]},{"name":"Kasu Brahmananda Reddy (KBR)","lon":78.42,"lat":17.42,"tr":false,"river":"Hyderabad (Jubilee Hills)","veg":"Urban dry deciduous within Hyderabad","note":"Green lung of Hyderabad; high urban biodiversity.","species":[["Indian Pangolin","EN",[]],["Indian Rock Python","NT",[]],["Indian Peafowl","LC",[]]]}],"Chhattisgarh":[{"name":"Indravati","lon":80.7,"lat":19.0,"tr":true,"river":"Indravati","veg":"Tropical moist & dry deciduous; Bastar","note":"Chhattisgarh's flagship Tiger Reserve; last refuge of wild buffalo & barasingha.","species":[["Bengal Tiger","EN",[]],["Wild Water Buffalo","EN",[]],["Barasingha","VU",[]]]},{"name":"Kanger Valley","lon":81.9,"lat":18.83,"tr":false,"river":"Kanger \u00b7 Kholaba","veg":"Mixed moist deciduous; limestone karst","note":"Kutumsar limestone caves; Bastar Hill Myna (state bird).","species":[["Bastar Hill Myna","LC",[]],["Indian Leopard","VU",[]],["Mouse Deer","LC",[]]]},{"name":"Guru Ghasidas (Sanjay)","lon":81.7,"lat":23.7,"tr":true,"river":"Gopad \u00b7 Banas","veg":"Northern moist deciduous sal; Chota Nagpur edge","note":"Formerly Sanjay NP; core of the new Guru Ghasidas\u2013Tamor Pingla Tiger Reserve (2024).","species":[["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]],["Sloth Bear","VU",[]]]}],"Odisha":[{"name":"Similipal","lon":86.3,"lat":21.6,"tr":true,"bio":true,"river":"Budhabalanga \u00b7 Khairi","veg":"Moist deciduous & sal; Similipal Biosphere Reserve","note":"Similipal Biosphere Reserve; famed for melanistic (black) tigers.","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Indian Pangolin","EN",[]]]},{"name":"Bhitarkanika","lon":86.9,"lat":20.7,"tr":false,"ramsar":true,"river":"Brahmani \u00b7 Baitarani delta","veg":"Mangroves (India's 2nd-largest mangrove)","note":"Saltwater crocodile stronghold; adjoins Gahirmata (olive ridley) beach; Ramsar site.","species":[["Saltwater Crocodile","LC",[]],["Olive Ridley Turtle","VU",[]],["King Cobra","VU",[]]]}],"Jharkhand":[{"name":"Betla","lon":84.19,"lat":23.88,"tr":true,"river":"North Koel \u00b7 Auranga","veg":"Dry & moist deciduous sal; Chota Nagpur plateau","note":"Core of Palamau Tiger Reserve \u2014 one of the first nine Project Tiger reserves (1973-74); first pugmark tiger census.","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Gaur","VU",[]]]}],"West Bengal":[{"name":"Sundarbans","lon":88.8,"lat":21.9,"tr":true,"bio":true,"whs":true,"ramsar":true,"river":"Ganga\u2013Brahmaputra delta (Matla, Bidya)","veg":"World's largest mangrove forest","note":"Royal Bengal Tiger; UNESCO World Heritage Site, Biosphere Reserve & Ramsar site.","species":[["Bengal Tiger","EN",[]],["Saltwater Crocodile","LC",[]],["Gangetic Dolphin","EN",[]]]},{"name":"Gorumara","lon":88.8,"lat":26.72,"tr":false,"river":"Murti \u00b7 Raidak","veg":"Riverine grassland & moist deciduous; Dooars","note":"One-horned rhino habitat in the Dooars.","species":[["Indian Rhinoceros","VU",[]],["Asian Elephant","EN",[]],["Gaur","VU",[]]]},{"name":"Neora Valley","lon":88.72,"lat":27.05,"tr":false,"river":"Neora","veg":"Subtropical to temperate; eastern Himalaya","note":"Pristine eastern-Himalayan forest; red panda habitat.","species":[["Red Panda","EN",[]],["Clouded Leopard","VU",[]],["Himalayan Black Bear","VU",[]]]},{"name":"Singalila","lon":88.0,"lat":27.1,"tr":false,"river":"Singalila ridge","veg":"Temperate & alpine; Singalila ridge","note":"Sandakphu, the highest point in West Bengal; red panda; Kanchenjunga views.","species":[["Red Panda","EN",[]],["Clouded Leopard","VU",[]],["Satyr Tragopan","NT",[]]]},{"name":"Buxa","lon":89.55,"lat":26.75,"tr":true,"river":"Raidak \u00b7 Jayanti","veg":"Moist deciduous & evergreen; Himalayan foothills","note":"Buxa Tiger Reserve; elephant corridor to Bhutan.","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Gaur","VU",[]]]},{"name":"Jaldapara","lon":89.28,"lat":26.62,"tr":false,"river":"Torsa","veg":"Riverine grassland & savanna; Dooars","note":"Major one-horned rhino stronghold in the Dooars.","species":[["Indian Rhinoceros","VU",[]],["Asian Elephant","EN",[]],["Bengal Florican","CR",[]]]}],"Bihar":[{"name":"Valmiki","lon":84.08,"lat":27.3,"tr":true,"river":"Gandak (Narayani)","veg":"Bhabar\u2013Terai; moist deciduous sal; Himalayan foothills","note":"Bihar's only Tiger Reserve; Indo-Nepal border, contiguous with Chitwan (Nepal).","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Gaur","VU",[]]]}],"Uttar Pradesh":[{"name":"Dudhwa","lon":80.68,"lat":28.52,"tr":true,"river":"Suheli \u00b7 Mohana; Sharda nearby","veg":"Terai grassland & sal; Indo-Nepal border","note":"Dudhwa Tiger Reserve; swamp deer (barasingha) & reintroduced one-horned rhino.","species":[["Bengal Tiger","EN",[]],["Swamp Deer (Barasingha)","VU",[]],["Indian Rhinoceros","VU",[]]]}],"Rajasthan":[{"name":"Ranthambore","lon":76.5,"lat":26.02,"tr":true,"river":"Chambal \u00b7 Banas","veg":"Dry deciduous & Aravalli\u2013Vindhya scrub","note":"Flagship Tiger Reserve; Ranthambore Fort; where Aravalli meets Vindhya.","species":[["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]],["Marsh Crocodile","VU",[]]]},{"name":"Keoladeo (Ghana)","lon":77.52,"lat":27.16,"tr":false,"whs":true,"ramsar":true,"river":"Gambhir \u00b7 Banganga (man-made)","veg":"Wetland & woodland mosaic","note":"UNESCO WHS & Ramsar; renowned wintering ground for migratory birds (once the Siberian Crane).","species":[["Siberian Crane","CR",[]],["Sarus Crane","VU",[]],["Painted Stork","LC",[]]]},{"name":"Sariska","lon":76.42,"lat":27.32,"tr":true,"river":"Ruparel (ephemeral)","veg":"Dry deciduous & Aravalli scrub","note":"Tiger Reserve; first successful tiger reintroduction after local extinction (2008).","species":[["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]],["Striped Hyena","NT",[]]]},{"name":"Desert","lon":70.9,"lat":26.8,"tr":false,"river":"Thar (ephemeral)","veg":"Thar desert; sand dunes & sewan grassland","note":"Thar Desert; last stronghold of the Great Indian Bustard.","species":[["Great Indian Bustard","CR",[]],["Chinkara","LC",["state"]],["Desert Fox","LC",[]]]},{"name":"Mukundra Hills","lon":75.9,"lat":24.8,"tr":true,"river":"Chambal","veg":"Dry deciduous; Mukundra (Vindhyan) hills","note":"Tiger Reserve on the Chambal; Vindhyan hills near Kota.","species":[["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]],["Chinkara","LC",["state"]]]}],"Haryana":[{"name":"Sultanpur","lon":76.89,"lat":28.46,"tr":false,"ramsar":true,"river":"Najafgarh drainage","veg":"Shallow wetland & scrub near Delhi","note":"Ramsar site; key migratory-bird stopover on the Central Asian Flyway.","species":[["Sarus Crane","VU",[]],["Painted Stork","LC",[]],["Greater Flamingo","LC",[]]]},{"name":"Kalesar","lon":77.48,"lat":30.35,"tr":false,"river":"Yamuna (nearby)","veg":"Sal & Shivalik foothills","note":"Shivalik foothills; elephants & leopards; adjoins Rajaji (Uttarakhand).","species":[["Asian Elephant","EN",[]],["Indian Leopard","VU",[]],["Sambar","VU",[]]]}],"Punjab":[],"Uttarakhand":[{"name":"Jim Corbett","lon":78.9,"lat":29.53,"tr":true,"river":"Ramganga \u00b7 Kosi","veg":"Sal & terai grassland; Shivalik foothills","note":"India's first national park (1936); launch site of Project Tiger (1973).","species":[["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]],["Gharial","CR",[]]]},{"name":"Rajaji","lon":78.2,"lat":30.05,"tr":true,"river":"Ganga \u00b7 Song","veg":"Sal & Shivalik; where the Ganga meets the plains","note":"Rajaji Tiger Reserve; elephant stronghold at the Ganga's exit to the plains.","species":[["Asian Elephant","EN",[]],["Bengal Tiger","EN",[]],["Indian Leopard","VU",[]]]},{"name":"Valley of Flowers","lon":79.6,"lat":30.73,"tr":false,"whs":true,"river":"Pushpawati","veg":"Alpine meadows; endemic Himalayan flora","note":"UNESCO WHS; alpine floral meadows within the Nanda Devi Biosphere Reserve.","species":[["Snow Leopard","VU",[]],["Himalayan Musk Deer","EN",[]],["Blue Sheep","NT",[]]]},{"name":"Nanda Devi","lon":79.97,"lat":30.42,"tr":false,"whs":true,"bio":true,"river":"Rishi Ganga","veg":"Alpine & glacial; around Nanda Devi peak","note":"UNESCO WHS & Biosphere Reserve; encloses India's 2nd-highest peak.","species":[["Snow Leopard","VU",[]],["Himalayan Tahr","NT",[]],["Blue Sheep","NT",[]]]},{"name":"Gangotri","lon":78.95,"lat":30.95,"tr":false,"river":"Bhagirathi","veg":"Alpine conifer; Gangotri glacier","note":"Encloses the Gangotri glacier \u2014 source of the Bhagirathi (Ganga).","species":[["Snow Leopard","VU",[]],["Blue Sheep","NT",[]],["Himalayan Monal","LC",[]]]},{"name":"Govind (Pashu Vihar)","lon":78.4,"lat":31.05,"tr":false,"river":"Tons \u00b7 Supin","veg":"Alpine & temperate conifer; upper Tons valley","note":"Snow leopard habitat in the upper Tons (Yamuna) valley.","species":[["Snow Leopard","VU",[]],["Himalayan Musk Deer","EN",[]],["Western Tragopan","VU",[]]]}],"Himachal Pradesh":[{"name":"Great Himalayan (GHNP)","lon":77.55,"lat":31.7,"tr":false,"whs":true,"river":"Tirthan \u00b7 Sainj \u00b7 Jiwa","veg":"Alpine, temperate & sub-alpine forest","note":"UNESCO World Heritage Site; western Himalayan biodiversity.","species":[["Western Tragopan","VU",[]],["Snow Leopard","VU",[]],["Himalayan Musk Deer","EN",[]]]},{"name":"Pin Valley","lon":78.0,"lat":31.8,"tr":false,"river":"Pin","veg":"Cold desert; alpine steppe (Spiti)","note":"Trans-Himalayan cold desert; prime snow leopard & ibex habitat.","species":[["Snow Leopard","VU",[]],["Siberian Ibex","LC",[]],["Blue Sheep","NT",[]]]},{"name":"Khirganga","lon":77.5,"lat":31.95,"tr":false,"river":"Parvati","veg":"Temperate & alpine; Parvati valley","note":"Parvati valley; part of the greater Kullu conservation landscape.","species":[["Himalayan Black Bear","VU",[]],["Himalayan Musk Deer","EN",[]],["Himalayan Monal","LC",[]]]},{"name":"Inderkilla","lon":77.3,"lat":32.0,"tr":false,"river":"Beas tributaries","veg":"Temperate & alpine meadow","note":"Small high-altitude park in Kullu.","species":[["Himalayan Tahr","NT",[]],["Himalayan Monal","LC",[]],["Himalayan Musk Deer","EN",[]]]},{"name":"Simbalbara","lon":77.48,"lat":30.42,"tr":false,"river":"Shivalik streams","veg":"Sal & Shivalik foothills","note":"Shivalik foothills; contiguous with Kalesar (Haryana) & Rajaji (Uttarakhand).","species":[["Indian Leopard","VU",[]],["Sambar","VU",[]],["Goral","NT",[]]]}],"Jammu and Kashmir":[{"name":"Dachigam","lon":74.98,"lat":34.15,"tr":false,"river":"Dagwan","veg":"Temperate broadleaf & alpine; Zabarwan range","note":"Last refuge of the Hangul (Kashmir stag), J&K's state animal.","species":[["Hangul (Kashmir Stag)","CR",["end","state"]],["Himalayan Black Bear","VU",[]],["Himalayan Musk Deer","EN",[]]]},{"name":"Kishtwar","lon":75.8,"lat":33.55,"tr":false,"river":"Chenab \u00b7 Marwah","veg":"Alpine & sub-alpine; high Himalaya","note":"High-altitude park; snow leopard & markhor habitat.","species":[["Snow Leopard","VU",[]],["Markhor","NT",[]],["Himalayan Musk Deer","EN",[]]]},{"name":"Kazinag","lon":74.1,"lat":34.15,"tr":false,"river":"Jhelum tributaries","veg":"Temperate conifer; Pir Panjal","note":"Key markhor conservation area near the LoC.","species":[["Markhor","NT",[]],["Himalayan Brown Bear","LC",[]],["Himalayan Musk Deer","EN",[]]]},{"name":"Salim Ali (City Forest)","lon":74.85,"lat":34.13,"tr":false,"river":"Dal Lake vicinity","veg":"Urban riverine forest; Srinagar","note":"Small city-forest national park by the Dal Lake.","species":[["Hangul (Kashmir Stag)","CR",["end"]],["Indian Leopard","VU",[]],["Himalayan Serow","VU",[]]]}],"Ladakh":[{"name":"Hemis","lon":77.5,"lat":33.9,"tr":false,"river":"Markha \u00b7 Rumbak (Indus)","veg":"Trans-Himalayan cold desert; alpine steppe","note":"India's largest national park; the 'snow leopard capital'.","species":[["Snow Leopard","VU",[]],["Blue Sheep","NT",[]],["Ladakh Urial","VU",[]]]}],"Assam":[{"name":"Kaziranga","lon":93.35,"lat":26.58,"tr":true,"whs":true,"river":"Brahmaputra","veg":"Alluvial grassland & wetland; Brahmaputra floodplain","note":"UNESCO WHS; two-thirds of the world's one-horned rhinos; Tiger Reserve.","species":[["Indian Rhinoceros","VU",[]],["Bengal Tiger","EN",[]],["Wild Water Buffalo","EN",[]]],"iba":true},{"name":"Manas","lon":91.0,"lat":26.72,"tr":true,"whs":true,"bio":true,"river":"Manas","veg":"Grassland & semi-evergreen; Bhutan border","note":"WHS & Biosphere Reserve; contiguous with Royal Manas (Bhutan); pygmy hog & golden langur. Among the first 9 Tiger Reserves declared under Project Tiger (1973).","species":[["Pygmy Hog","EN",["end"]],["Golden Langur","EN",[]],["Bengal Tiger","EN",[]]],"iba":true,"elephant":true},{"name":"Nameri","lon":92.9,"lat":27.0,"tr":true,"river":"Jia Bharali (Kameng)","veg":"Semi-evergreen; Himalayan foothills","note":"Nameri Tiger Reserve; white-winged wood duck habitat.","species":[["White-winged Wood Duck","EN",[]],["Bengal Tiger","EN",[]],["Asian Elephant","EN",[]]]},{"name":"Orang","lon":92.3,"lat":26.55,"tr":true,"river":"Brahmaputra","veg":"Alluvial grassland; 'mini Kaziranga'","note":"Orang Tiger Reserve; rhino & tiger on the north bank of the Brahmaputra.","species":[["Indian Rhinoceros","VU",[]],["Bengal Tiger","EN",[]],["Pygmy Hog","EN",["end"]]]},{"name":"Dibru-Saikhowa","lon":95.4,"lat":27.65,"tr":false,"bio":true,"river":"Brahmaputra \u00b7 Lohit","veg":"Wetland & swamp forest; Biosphere Reserve","note":"Biosphere Reserve; feral horses; river-island ecosystem.","species":[["Gangetic Dolphin","EN",[]],["White-winged Wood Duck","EN",[]],["Feral Horse","LC",[]]]},{"name":"Raimona","lon":90.2,"lat":26.72,"tr":false,"river":"Sankosh \u00b7 Saralbhanga","veg":"Semi-evergreen; western Assam (Bodoland)","note":"Notified 2021; golden langur habitat; contiguous with Bhutan & Buxa (WB).","species":[["Golden Langur","EN",[]],["Asian Elephant","EN",[]],["Clouded Leopard","VU",[]]]},{"name":"Dehing Patkai","lon":95.4,"lat":27.3,"tr":false,"river":"Dehing (Burhi Dihing)","veg":"Lowland tropical rainforest ('Amazon of the East')","note":"Notified 2021; India's largest lowland rainforest stretch.","species":[["Hoolock Gibbon","EN",[]],["Clouded Leopard","VU",[]],["White-winged Wood Duck","EN",[]]]}],"Sikkim":[{"name":"Khangchendzonga","lon":88.5,"lat":27.7,"tr":false,"whs":true,"bio":true,"river":"Teesta \u00b7 Rangit (glacial)","veg":"Alpine, temperate & glacial; Kanchenjunga massif","note":"India's first 'Mixed' UNESCO WHS; Biosphere Reserve; Kanchenjunga (world's 3rd-highest peak).","species":[["Snow Leopard","VU",[]],["Red Panda","EN",[]],["Himalayan Tahr","NT",[]]]}],"Arunachal Pradesh":[{"name":"Namdapha","lon":96.4,"lat":27.5,"tr":true,"river":"Noa-Dihing","veg":"Tropical rainforest to alpine; largest PA in the NE","note":"Only Indian park with four big cats (tiger, leopard, clouded & snow leopard); endemic Namdapha flying squirrel.","species":[["Namdapha Flying Squirrel","CR",["end"]],["Clouded Leopard","VU",[]],["Hoolock Gibbon","EN",[]]]},{"name":"Mouling","lon":94.8,"lat":28.6,"tr":false,"river":"Siang","veg":"Sub-tropical & temperate; Dihang-Dibang landscape","note":"Part of the Dihang-Dibang Biosphere Reserve; takin & red panda.","species":[["Takin","VU",[]],["Red Panda","EN",[]],["Hoolock Gibbon","EN",[]]]}],"Mizoram":[{"name":"Murlen","lon":93.3,"lat":23.6,"tr":false,"river":"Tuivai tributaries","veg":"Montane sub-tropical & temperate evergreen","note":"Near the Myanmar border; rich orchid & primate diversity.","species":[["Hoolock Gibbon","EN",[]],["Clouded Leopard","VU",[]],["Serow","VU",[]]]},{"name":"Phawngpui (Blue Mountain)","lon":93.05,"lat":22.65,"tr":false,"river":"Chhimtuipui (nearby)","veg":"Montane temperate; grassland summit","note":"Highest peak in Mizoram; sacred 'Blue Mountain'.","species":[["Blyth's Tragopan","VU",[]],["Clouded Leopard","VU",[]],["Serow","VU",[]]]}],"Manipur":[{"name":"Keibul Lamjao","lon":93.8,"lat":24.5,"tr":false,"river":"Loktak Lake","veg":"Floating 'phumdi' biomass over Loktak Lake","note":"World's only floating national park; last refuge of the Sangai (brow-antlered deer), Manipur's state animal.","species":[["Sangai (Brow-antlered Deer)","EN",["end","state"]],["Hog Deer","EN",[]],["Asian Golden Cat","NT",[]]]},{"name":"Shirui National Park","lon":94.35,"lat":25.28,"tr":false,"river":"\u2014","veg":"Temperate broadleaf forest & alpine meadow on Shirui Kashong Peak","note":"Sole natural habitat of the Shirui Lily (Lilium mackliniae), Manipur's state flower; established 1982.","species":[["Shirui Lily","EN",["end","state"]],["Blyth's Tragopan","VU",[]]]}],"Nagaland":[{"name":"Intanki (Intangki)","lon":93.5,"lat":25.5,"tr":false,"river":"Diphu \u00b7 Barak tributaries","veg":"Tropical & sub-tropical evergreen","note":"Nagaland's only national park; hoolock gibbon habitat.","species":[["Hoolock Gibbon","EN",[]],["Asian Elephant","EN",[]],["Indian Python","NT",[]]]}],"Tripura":[{"name":"Clouded Leopard (Sipahijala)","lon":91.32,"lat":23.68,"tr":false,"river":"Sipahijala","veg":"Moist deciduous & mixed; botanical garden","note":"Named for the clouded leopard; spectacled (Phayre's) langur.","species":[["Clouded Leopard","VU",[]],["Phayre's Langur","EN",[]],["Hoolock Gibbon","EN",[]]]},{"name":"Bison (Rajbari)","lon":91.55,"lat":23.52,"tr":false,"river":"Trishna","veg":"Moist deciduous; southern Tripura","note":"Named for the Indian bison (gaur); southern Tripura.","species":[["Gaur (Indian Bison)","VU",[]],["Phayre's Langur","EN",[]],["Hoolock Gibbon","EN",[]]]}],"Meghalaya":[{"name":"Nokrek","lon":90.3,"lat":25.5,"tr":false,"bio":true,"river":"Simsang (source)","veg":"Sub-tropical & temperate; Nokrek Biosphere Reserve","note":"Nokrek Biosphere Reserve; wild citrus (Citrus indica) gene sanctuary; red panda.","species":[["Red Panda","EN",[]],["Hoolock Gibbon","EN",[]],["Asian Elephant","EN",[]]]},{"name":"Balphakram","lon":90.85,"lat":25.2,"tr":false,"river":"Simsang \u00b7 Mahadeo","veg":"Deep canyon; grassland & forest","note":"'Land of perpetual winds/spirits'; deep canyon; Garo cultural landscape.","species":[["Asian Elephant","EN",[]],["Gaur (Indian Bison)","VU",[]],["Red Panda","EN",[]]]}],"Goa":[{"name":"Mollem (Bhagwan Mahaveer)","lon":74.35,"lat":15.35,"tr":false,"river":"Mhadei \u00b7 Dudhsagar","veg":"Western Ghats moist deciduous & semi-evergreen","note":"Western Ghats; Dudhsagar Falls; part of the Mhadei tiger landscape.","species":[["Bengal Tiger","EN",[]],["Indian Giant Squirrel","LC",[]],["King Cobra","VU",[]]]}],"Andaman and Nicobar Islands":[{"name":"Mahatma Gandhi Marine (Wandoor)","lon":92.6,"lat":11.55,"tr":false,"river":"Marine (South Andaman)","veg":"Coral reefs, mangroves & islets","note":"Coral marine park off Wandoor, South Andaman.","species":[["Dugong","VU",[]],["Green Sea Turtle","EN",[]],["Saltwater Crocodile","LC",[]]]},{"name":"Rani Jhansi Marine","lon":93.0,"lat":12.15,"tr":false,"river":"Marine (Ritchie's Archipelago)","veg":"Coral reefs & marine life","note":"Ritchie's Archipelago; coral & marine biodiversity.","species":[["Dugong","VU",[]],["Hawksbill Turtle","CR",[]],["Coral","LC",[]]]},{"name":"Saddle Peak","lon":93.02,"lat":13.15,"tr":false,"river":"North Andaman","veg":"Tropical evergreen; highest point of the islands","note":"Highest point of the Andaman & Nicobar Islands.","species":[["Andaman Wild Pig","VU",["end"]],["Saltwater Crocodile","LC",[]],["Nicobar Pigeon","NT",[]]]},{"name":"Campbell Bay","lon":93.9,"lat":7.05,"tr":false,"bio":true,"river":"Great Nicobar","veg":"Tropical evergreen; Great Nicobar Biosphere Reserve","note":"Great Nicobar Biosphere Reserve; southernmost India.","species":[["Nicobar Megapode","VU",["end"]],["Saltwater Crocodile","LC",[]],["Nicobar Long-tailed Macaque","VU",["end"]]]},{"name":"Galathea","lon":93.85,"lat":6.9,"tr":false,"river":"Great Nicobar","veg":"Tropical evergreen & beach; Great Nicobar","note":"Great Nicobar; leatherback sea-turtle nesting beach.","species":[["Leatherback Turtle","VU",[]],["Nicobar Megapode","VU",["end"]],["Saltwater Crocodile","LC",[]]]}]}
+{
+  "Madhya Pradesh": [
+    {
+      "name": "Kanha",
+      "lon": 80.61,
+      "lat": 22.33,
+      "tr": true,
+      "bio": false,
+      "whs": false,
+      "ramsar": false,
+      "river": "Banjar \u00b7 Halon",
+      "veg": "Sal & bamboo moist deciduous; grassland maidans",
+      "note": "Jungle Book inspiration; among first 9 Project Tiger reserves.",
+      "species": [
+        [
+          "Barasingha",
+          "VU",
+          [
+            "end",
+            "state"
+          ]
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Bandhavgarh",
+      "lon": 81.03,
+      "lat": 23.7,
+      "tr": true,
+      "bio": false,
+      "whs": false,
+      "ramsar": false,
+      "river": "Charanganga",
+      "veg": "Sal & mixed forest; Vindhyan hills",
+      "note": "Among the highest tiger densities in India.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Sloth Bear",
+          "VU",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Pench",
+      "lon": 79.3,
+      "lat": 21.78,
+      "tr": true,
+      "bio": false,
+      "whs": false,
+      "ramsar": false,
+      "river": "Pench",
+      "veg": "Southern tropical dry deciduous teak",
+      "note": "AKA Indira Priyadarshni - 'Mowgli-land'; straddles MP\u2013Maharashtra.",
+      "species": [
+        [
+          "Dhole",
+          "EN",
+          []
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Bori-Satpura",
+      "lon": 78.43,
+      "lat": 22.55,
+      "tr": true,
+      "bio": true,
+      "whs": false,
+      "ramsar": false,
+      "river": "Tawa \u00b7 Denwa",
+      "veg": "Highland sal & teak; Satpura\u2013Maikal hills",
+      "note": "Core of the Pachmarhi Biosphere Reserve.",
+      "species": [
+        [
+          "Indian Giant Squirrel",
+          "LC",
+          []
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Panna",
+      "lon": 80.05,
+      "lat": 24.72,
+      "tr": true,
+      "bio": true,
+      "whs": false,
+      "ramsar": false,
+      "river": "Ken",
+      "veg": "Dry deciduous; Ken gorge ecosystem",
+      "note": "UNESCO Biosphere Reserve; site of the Ken\u2013Betwa river link.",
+      "species": [
+        [
+          "Gharial",
+          "CR",
+          []
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Chinkara",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Sanjay Dubri",
+      "lon": 81.4,
+      "lat": 24.1,
+      "tr": true,
+      "bio": false,
+      "whs": false,
+      "ramsar": false,
+      "river": "Gopad \u00b7 Banas",
+      "veg": "Sal & mixed deciduous",
+      "note": "Contiguous with Guru Ghasidas NP (Chhattisgarh).",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Kuno",
+      "lon": 77.13,
+      "lat": 25.5,
+      "tr": true,
+      "bio": false,
+      "whs": false,
+      "ramsar": false,
+      "river": "Kuno",
+      "veg": "Kardhai\u2013khair dry deciduous; savanna grassland",
+      "note": "Project Cheetah \u2014 African cheetah reintroduction.",
+      "species": [
+        [
+          "Cheetah (African)",
+          "VU",
+          []
+        ],
+        [
+          "Striped Hyena",
+          "NT",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Madhav",
+      "lon": 77.75,
+      "lat": 25.5,
+      "tr": true,
+      "bio": false,
+      "whs": false,
+      "ramsar": false,
+      "river": "Sindh (nearby)",
+      "veg": "Dry thorn & deciduous; Shivpuri plateau",
+      "note": "Madhav Tiger Reserve (notified 2025); Sakhya Sagar lake.",
+      "species": [
+        [
+          "Chinkara",
+          "LC",
+          []
+        ],
+        [
+          "Nilgai",
+          "LC",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Van Vihar",
+      "lon": 77.36,
+      "lat": 23.21,
+      "tr": false,
+      "bio": false,
+      "whs": false,
+      "ramsar": false,
+      "river": "\u2014",
+      "veg": "Urban dry deciduous; lakeside",
+      "note": "NP-cum-zoo beside Bhoj Wetland (Ramsar site, adjacent).",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Mandla Plant Fossils National Park",
+      "lon": 80.6136,
+      "lat": 23.1103,
+      "tr": false,
+      "river": "\u2014",
+      "veg": "Fossilised Gondwana-era plant remains in Deccan Trap sedimentary beds",
+      "note": "~65-million-year-old fossilised tree trunks and Gondwana flora",
+      "species": []
+    }
+  ],
+  "Gujarat": [
+    {
+      "name": "Gir",
+      "lon": 70.8,
+      "lat": 21.13,
+      "tr": false,
+      "river": "Hiran \u00b7 Shetrunji \u00b7 Sarkala \u00b7 Kamleshwar Dam",
+      "veg": "Dry deciduous teak & thorn scrub; Saurashtra",
+      "note": "Only wild population of the Asiatic Lion; Maldhari pastoralists.",
+      "species": [
+        [
+          "Asiatic Lion",
+          "EN",
+          [
+            "end",
+            "state"
+          ]
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Chital",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Blackbuck (Velavadar)",
+      "lon": 72.02,
+      "lat": 22.03,
+      "tr": false,
+      "river": "Bhal coastal plain",
+      "veg": "Tropical grassland & savanna (Bhal)",
+      "note": "Velavadar grasslands; harrier roost; lesser florican & wolf.",
+      "species": [
+        [
+          "Lesser Florican",
+          "CR",
+          []
+        ],
+        [
+          "Blackbuck",
+          "LC",
+          [
+            "state"
+          ]
+        ],
+        [
+          "Indian Wolf",
+          "LC",
+          []
+        ],
+        [
+          "Macqueen's Bustard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Vansda",
+      "lon": 73.47,
+      "lat": 20.75,
+      "tr": false,
+      "river": "Ambika",
+      "veg": "Moist deciduous teak; the Dangs (Western Ghats edge)",
+      "note": "Dense forest of southern Gujarat; rich birdlife.",
+      "species": [
+        [
+          "Indian Pangolin",
+          "EN",
+          []
+        ],
+        [
+          "Indian Giant Squirrel",
+          "LC",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Marine (Gulf of Kutch)",
+      "lon": 69.4,
+      "lat": 22.5,
+      "tr": false,
+      "river": "Gulf of Kutch (marine)",
+      "veg": "Mangroves, coral reefs, intertidal mudflats",
+      "note": "India's first Marine National Park (1982); 42 islands (including Pirotan Island)",
+      "species": [
+        [
+          "Dugong",
+          "VU",
+          []
+        ],
+        [
+          "Green Sea Turtle",
+          "EN",
+          []
+        ],
+        [
+          "Whale Shark",
+          "EN",
+          []
+        ]
+      ]
+    }
+  ],
+  "Maharashtra": [
+    {
+      "name": "Tadoba",
+      "lon": 79.38,
+      "lat": 20.3,
+      "tr": true,
+      "river": "Andhari \u00b7 Tadoba lake",
+      "veg": "Southern dry deciduous teak & bamboo",
+      "note": "Maharashtra's oldest national park; flagship Tiger Reserve; Mohrali Kolsa Ranges",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Dhole",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Sloth Bear",
+          "",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Gugamal",
+      "lon": 77.2,
+      "lat": 21.45,
+      "tr": true,
+      "river": "Sipna",
+      "veg": "Dry deciduous teak; Gavilgarh (Satpura) hills",
+      "note": "Core of Melghat Tiger Reserve (one of the first, 1973-74).",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ],
+        [
+          "Sloth Bear",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Navegaon",
+      "lon": 80.1,
+      "lat": 20.92,
+      "tr": true,
+      "river": "Navegaon lake",
+      "veg": "Southern dry deciduous; lake & forest",
+      "note": "Part of Navegaon\u2013Nagzira Tiger Reserve; rich waterbird life.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Dhole",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Pench (Maharashtra)",
+      "lon": 79.3,
+      "lat": 21.68,
+      "tr": true,
+      "river": "Pench",
+      "veg": "Southern tropical dry deciduous teak",
+      "note": "Maharashtra side of Pench; 'Mowgli' country.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Dhole",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Sanjay Gandhi (Borivali)",
+      "lon": 72.91,
+      "lat": 19.22,
+      "tr": false,
+      "river": "Tulsi & Vihar lakes",
+      "veg": "Moist deciduous within Mumbai metropolis",
+      "note": "Urban national park; Kanheri Caves; high leopard density.",
+      "species": [
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Sambar",
+          "VU",
+          []
+        ],
+        [
+          "Chital",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Chandoli",
+      "lon": 73.83,
+      "lat": 17.2,
+      "tr": true,
+      "river": "Warna \u00b7 Vasant Sagar",
+      "veg": "Northern Western Ghats semi-evergreen",
+      "note": "Part of Sahyadri Tiger Reserve; Western Ghats biodiversity.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Giant Squirrel",
+          "LC",
+          []
+        ],
+        [
+          "Indian Pangolin",
+          "EN",
+          []
+        ]
+      ]
+    }
+  ],
+  "Karnataka": [
+    {
+      "name": "Bandipur",
+      "lon": 76.63,
+      "lat": 11.67,
+      "tr": true,
+      "bio": true,
+      "river": "Kabini \u00b7 Moyar",
+      "veg": "Southern dry & moist deciduous; Nilgiri foothills",
+      "note": "Part of the Nilgiri Biosphere Reserve; among the first Project Tiger reserves.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Gaur",
+          "",
+          []
+        ],
+        [
+          "Sloth Bear",
+          "",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Nagarhole",
+      "lon": 76.13,
+      "lat": 12,
+      "tr": true,
+      "bio": true,
+      "river": "Kabini \u00b7 Lakshmana Tirtha",
+      "veg": "Moist & dry deciduous; Western Ghats",
+      "note": "Rajiv Gandhi NP; Nilgiri Biosphere Reserve; high tiger & elephant density; Brahmagiri Hills",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Dhole",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Bannerghatta",
+      "lon": 77.57,
+      "lat": 12.8,
+      "tr": false,
+      "river": "Suvarnamukhi stream",
+      "veg": "Dry deciduous & scrub near Bengaluru",
+      "note": "Biological park & elephant corridor on Bengaluru's edge.",
+      "species": [
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Sloth Bear",
+          "VU",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Kudremukh",
+      "lon": 75.25,
+      "lat": 13.2,
+      "tr": false,
+      "river": "Tunga \u00b7 Bhadra \u00b7 Nethravathi (sources)",
+      "veg": "Shola\u2013grassland & evergreen; Western Ghats",
+      "note": "Western Ghats; source of the Tunga, Bhadra & Nethravathi rivers.",
+      "species": [
+        [
+          "Lion-tailed Macaque",
+          "EN",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Indian Giant Squirrel",
+          "LC",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Anshi",
+      "lon": 74.4,
+      "lat": 15,
+      "tr": true,
+      "river": "Kali",
+      "veg": "Evergreen Western Ghats rainforest",
+      "note": "Core of Kali (Dandeli\u2013Anshi) Tiger Reserve; black-panther sightings.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "King Cobra",
+          "VU",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "Kerala": [
+    {
+      "name": "Eravikulam",
+      "lon": 77.05,
+      "lat": 10.18,
+      "tr": false,
+      "river": "(Lakkam Waterfalls)",
+      "veg": "Shola\u2013grassland; Anamudi (highest peak in S. India)",
+      "note": "Nilgiri Tahr stronghold; Neelakurinji blooms every 12 years.",
+      "species": [
+        [
+          "Nilgiri Tahr",
+          "EN",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Silent Valley",
+      "lon": 76.44,
+      "lat": 11.08,
+      "tr": false,
+      "river": "Kunthipuzha",
+      "veg": "Pristine tropical evergreen rainforest",
+      "note": "Saved by the Silent Valley movement (1980s); undisturbed rainforest.",
+      "species": [
+        [
+          "Lion-tailed Macaque",
+          "EN",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Nilgiri Langur",
+          "VU",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Indian Giant Squirrel",
+          "LC",
+          []
+        ],
+        [
+          "Black Footed Gray Langur",
+          "VU",
+          []
+        ],
+        [
+          "Indian Pangolin (vs. Chinese CR)",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Periyar",
+      "lon": 77.16,
+      "lat": 9.47,
+      "tr": true,
+      "river": "Periyar \u00b7 Pamba",
+      "veg": "Evergreen & moist deciduous; Periyar lake",
+      "note": "Cardamom & Pandalam Hills; Thekkady.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Salim Ali Fruit Bat",
+          "EN",
+          []
+        ],
+        [
+          "Nilgiri Tahr",
+          "EN",
+          [
+            "end"
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "Mathikettan Shola",
+      "lon": 77.22,
+      "lat": 10.02,
+      "tr": false,
+      "river": "High-range streams",
+      "veg": "Shola forest; the High Range (Idukki)",
+      "note": "Shola park & elephant corridor in the High Range.",
+      "species": [
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Anamudi Shola",
+      "lon": 77.24,
+      "lat": 10.21,
+      "tr": false,
+      "river": "High-range streams",
+      "veg": "Shola\u2013grassland; near Anamudi",
+      "note": "Largest contiguous shola stretch in the High Range.",
+      "species": [
+        [
+          "Nilgiri Tahr",
+          "EN",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Nilgiri Marten",
+          "VU",
+          [
+            "end"
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "Pampadum Shola",
+      "lon": 77.26,
+      "lat": 10.33,
+      "tr": false,
+      "river": "High-range streams",
+      "veg": "Shola forest; Kerala's smallest NP",
+      "note": "Kerala's smallest national park; shola-grassland mosaic.",
+      "species": [
+        [
+          "Nilgiri Marten",
+          "VU",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Golden Jackal",
+          "LC",
+          []
+        ],
+        [
+          "Asian Small Clawed Otter",
+          "VU",
+          []
+        ],
+        [
+          "Nilgiri Langur",
+          "VU",
+          [
+            "end"
+          ]
+        ]
+      ]
+    }
+  ],
+  "Tamil Nadu": [
+    {
+      "name": "Mudumalai",
+      "lon": 76.55,
+      "lat": 11.57,
+      "tr": true,
+      "bio": true,
+      "river": "Moyar",
+      "veg": "Dry & moist deciduous; Nilgiri Biosphere Reserve",
+      "note": "Nilgiri Biosphere Reserve; tri-junction of TN, Karnataka & Kerala.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "White Rumped / Indian Vulture",
+          "CR",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Mukurthi",
+      "lon": 76.5,
+      "lat": 11.4,
+      "tr": false,
+      "bio": true,
+      "river": "Pykara \u00b7 Kunda",
+      "veg": "Shola\u2013grassland; upper Nilgiris",
+      "note": "Nilgiri Tahr habitat; Nilgiri Biosphere Reserve.",
+      "species": [
+        [
+          "Nilgiri Tahr",
+          "EN",
+          [
+            "end",
+            "state"
+          ]
+        ],
+        [
+          "Nilgiri Marten",
+          "VU",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Nilgiri Langur",
+          "VU",
+          [
+            "end"
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "Indira Gandhi (Anamalai)",
+      "lon": 77,
+      "lat": 10.4,
+      "tr": true,
+      "river": "Aliyar \u00b7 Parambikulam",
+      "veg": "Evergreen & shola; Anamalai hills",
+      "note": "Anamalai Tiger Reserve; southern Western Ghats.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Lion-tailed Macaque",
+          "EN",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Guindy",
+      "lon": 80.24,
+      "lat": 13,
+      "tr": false,
+      "river": "Adyar (nearby)",
+      "veg": "Tropical dry evergreen scrub; within Chennai",
+      "note": "Among India's smallest national parks; inside Chennai city.",
+      "species": [
+        [
+          "Blackbuck",
+          "LC",
+          []
+        ],
+        [
+          "Indian Star Tortoise",
+          "VU",
+          []
+        ],
+        [
+          "Chital",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Gulf of Mannar Marine",
+      "lon": 78.95,
+      "lat": 9.1,
+      "tr": false,
+      "bio": true,
+      "river": "Marine (21 islands)",
+      "veg": "Coral reefs, seagrass & mangroves",
+      "note": "India's first Marine Biosphere Reserve; Dhanushkodi",
+      "species": [
+        [
+          "Dugong",
+          "VU",
+          []
+        ],
+        [
+          "Indo-Pacific Bottlenose Dolphin",
+          "NT",
+          []
+        ],
+        [
+          "Hawksbill Turtle",
+          "CR",
+          []
+        ],
+        [
+          "Green Sea Turtle",
+          "EN",
+          []
+        ]
+      ]
+    }
+  ],
+  "Andhra Pradesh": [
+    {
+      "name": "Sri Venkateswara (Tirumala)",
+      "lon": 79.3,
+      "lat": 13.8,
+      "tr": false,
+      "bio": true,
+      "river": "Swarnamukhi",
+      "veg": "Eastern Ghats dry & moist deciduous; Seshachalam hills",
+      "note": "Seshachalam Biosphere Reserve; endemic Red Sanders; near Tirupati.",
+      "species": [
+        [
+          "Grey Slender Loris",
+          "NT",
+          []
+        ],
+        [
+          "Indian Pangolin",
+          "EN",
+          []
+        ],
+        [
+          "White Backed Vulture",
+          "CR",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Yellow Throated Bulbul",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Papikonda",
+      "lon": 81.5,
+      "lat": 17.4,
+      "tr": false,
+      "river": "Godavari",
+      "veg": "Eastern Ghats moist deciduous; Godavari gorge",
+      "note": "Eastern Ghats along the Godavari gorge ('Papi hills').",
+      "species": [
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ],
+        [
+          "Indian Pangolin",
+          "EN",
+          []
+        ],
+        [
+          "Birds: Oriental Darter (NT), Black Bellied Tern (EN), Pallid Harrier (NT), Pale Capped Pigeon (VU), Jerdon's Nightjar, Great Stone Curlew",
+          "",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Rajiv Gandhi (Kadapa)",
+      "lon": 78.8,
+      "lat": 14.5,
+      "tr": false,
+      "river": "Penner (nearby)",
+      "veg": "Scrub & dry deciduous; Eastern Ghats",
+      "note": "Small national park in the Kadapa region.",
+      "species": [
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Sloth Bear",
+          "VU",
+          []
+        ],
+        [
+          "Blackbuck",
+          "LC",
+          []
+        ]
+      ]
+    }
+  ],
+  "Telangana": [
+    {
+      "name": "Mahavir Harina Vanasthali",
+      "lon": 78.42,
+      "lat": 17.02,
+      "tr": false,
+      "river": "Hyderabad outskirts",
+      "veg": "Dry deciduous & scrub near Hyderabad",
+      "note": "Deer park on Hyderabad's western edge.",
+      "species": [
+        [
+          "Blackbuck",
+          "LC",
+          []
+        ],
+        [
+          "Chinkara",
+          "LC",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Mrugavani",
+      "lon": 78.08,
+      "lat": 17.18,
+      "tr": false,
+      "river": "Hyderabad outskirts",
+      "veg": "Dry deciduous scrub (Chevella)",
+      "note": "Small reserve-forest park near Hyderabad.",
+      "species": [
+        [
+          "Indian Rock Python",
+          "NT",
+          []
+        ],
+        [
+          "Chital",
+          "LC",
+          []
+        ],
+        [
+          "Indian Civet",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Kasu Brahmananda Reddy (KBR)",
+      "lon": 78.42,
+      "lat": 17.42,
+      "tr": false,
+      "river": "Hyderabad (Jubilee Hills)",
+      "veg": "Urban dry deciduous within Hyderabad",
+      "note": "Green lung of Hyderabad; high urban biodiversity.",
+      "species": [
+        [
+          "Indian Pangolin",
+          "EN",
+          []
+        ],
+        [
+          "Indian Rock Python",
+          "NT",
+          []
+        ],
+        [
+          "Indian Peafowl",
+          "LC",
+          []
+        ]
+      ]
+    }
+  ],
+  "Chhattisgarh": [
+    {
+      "name": "Indravati Kutru",
+      "lon": 80.7,
+      "lat": 19,
+      "tr": true,
+      "river": "Indravati",
+      "veg": "Tropical moist & dry deciduous; Bastar",
+      "note": "Chhattisgarh's flagship Tiger Reserve; last refuge of wild buffalo & barasingha.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Wild Water Buffalo",
+          "EN",
+          []
+        ],
+        [
+          "Barasingha",
+          "VU",
+          []
+        ],
+        [
+          "Chaursingha (Four-horned Antelope)",
+          "",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Kanger Valley (Ghati)",
+      "lon": 81.9,
+      "lat": 18.83,
+      "tr": false,
+      "river": "Kanger \u00b7 Kholaba",
+      "veg": "Mixed moist deciduous; limestone karst",
+      "note": "Kutumsar limestone caves; Bastar Hill Myna (state bird).",
+      "species": [
+        [
+          "Bastar Hill Myna",
+          "LC",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Mouse Deer",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Guru Ghasidas (Sanjay/Tamor Pingla)",
+      "lon": 81.7,
+      "lat": 23.7,
+      "tr": true,
+      "river": "Gopad \u00b7 Banas \u00b7 Rihand",
+      "veg": "Northern moist deciduous sal; Chota Nagpur edge",
+      "note": "Formerly Sanjay NP; core of the new Guru Ghasidas\u2013Tamor Pingla Tiger Reserve (2024).",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Sloth Bear",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "Odisha": [
+    {
+      "name": "Similipal",
+      "lon": 86.3,
+      "lat": 21.6,
+      "tr": true,
+      "bio": true,
+      "river": "Budhabalanga \u00b7 Khairi",
+      "veg": "Moist deciduous & sal; Similipal Biosphere Reserve",
+      "note": "Barehipani Falls; Famed for melanistic (black) tigers.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Mugger Crocodile",
+          "VU",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Indian Pangolin",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Bhitarkanika",
+      "lon": 86.9,
+      "lat": 20.7,
+      "tr": false,
+      "ramsar": true,
+      "river": "Brahmani \u00b7 Baitarani delta",
+      "veg": "Mangroves (India's 2nd-largest mangrove)",
+      "note": "Saltwater crocodile stronghold; adjoins Gahirmata (olive ridley) beach; Ramsar site.",
+      "species": [
+        [
+          "Saltwater Crocodile",
+          "LC",
+          []
+        ],
+        [
+          "Olive Ridley Turtle",
+          "VU",
+          []
+        ],
+        [
+          "King Cobra",
+          "VU",
+          []
+        ],
+        [
+          "Red-Naped Ibis",
+          "LC",
+          []
+        ]
+      ]
+    }
+  ],
+  "Jharkhand": [
+    {
+      "name": "Betla",
+      "lon": 84.19,
+      "lat": 23.88,
+      "tr": true,
+      "river": "North Koel \u00b7 Auranga",
+      "veg": "Dry & moist deciduous sal; Chota Nagpur plateau",
+      "note": "Core of Palamau Tiger Reserve \u2014 one of the first nine Project Tiger reserves (1973-74); first pugmark tiger census.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "West Bengal": [
+    {
+      "name": "Sundarbans",
+      "lon": 88.8,
+      "lat": 21.9,
+      "tr": true,
+      "bio": true,
+      "whs": true,
+      "ramsar": true,
+      "river": "Ganga\u2013Brahmaputra delta (Matla, Bidya)",
+      "veg": "World's largest mangrove forest",
+      "note": "Royal Bengal Tiger; UNESCO World Heritage Site, Biosphere Reserve & Ramsar site.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Saltwater Crocodile",
+          "LC",
+          []
+        ],
+        [
+          "Gangetic Dolphin",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Gorumara",
+      "lon": 88.8,
+      "lat": 26.72,
+      "tr": false,
+      "river": "Murti \u00b7 Raidak \u00b7 Jaldhaka",
+      "veg": "Riverine grassland & moist deciduous; Dooars",
+      "note": "One-horned rhino habitat in the Dooars.",
+      "species": [
+        [
+          "Indian Rhinoceros",
+          "VU",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Sloth",
+          "EN",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Neora Valley",
+      "lon": 88.72,
+      "lat": 27.05,
+      "tr": false,
+      "river": "Neora",
+      "veg": "Subtropical to temperate; eastern Himalaya",
+      "note": "Pristine eastern-Himalayan forest; red panda habitat.",
+      "species": [
+        [
+          "Red Panda",
+          "EN",
+          []
+        ],
+        [
+          "Clouded Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Black Bear",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Singalila",
+      "lon": 88,
+      "lat": 27.1,
+      "tr": false,
+      "river": "Rammam \u00b7 Sirikhola",
+      "veg": "Temperate & alpine; Singalila ridge",
+      "note": "Sandakphu, the highest point in West Bengal; red panda; Kanchenjunga views.",
+      "species": [
+        [
+          "Red Panda",
+          "EN",
+          []
+        ],
+        [
+          "Clouded Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Satyr Tragopan",
+          "NT",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Buxa",
+      "lon": 89.55,
+      "lat": 26.75,
+      "tr": true,
+      "river": "Raidak \u00b7 Jayanti",
+      "veg": "Moist deciduous & evergreen; Himalayan foothills",
+      "note": "Buxa Tiger Reserve; elephant corridor to Bhutan.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ],
+        [
+          "Giant Squirrel",
+          "",
+          []
+        ],
+        [
+          "Clouded Leopard",
+          "",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Jaldapara",
+      "lon": 89.28,
+      "lat": 26.62,
+      "tr": false,
+      "river": "Torsa \u00b7 Kaljani",
+      "veg": "Riverine grassland & savanna; Dooars; Chilapata Forests",
+      "note": "Major one-horned rhino stronghold (highest after Kaziranga) in the Dooars.",
+      "species": [
+        [
+          "Indian Rhinoceros",
+          "VU",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Bengal Florican",
+          "CR",
+          []
+        ]
+      ]
+    }
+  ],
+  "Bihar": [
+    {
+      "name": "Valmiki",
+      "lon": 84.08,
+      "lat": 27.3,
+      "tr": true,
+      "river": "Gandak (Narayani) \u00b7 Burhi Gandak \u00b7 Harsha Masan \u00b7 Pandai",
+      "veg": "Bhabar\u2013Terai; moist deciduous sal; Himalayan foothills",
+      "note": "Bihar's only Tiger Reserve; Indo-Nepal border, contiguous with Chitwan (Nepal).",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "One Horned Rhino",
+          "VU",
+          []
+        ],
+        [
+          "Gaur",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "Uttar Pradesh": [
+    {
+      "name": "Dudhwa",
+      "lon": 80.68,
+      "lat": 28.52,
+      "tr": true,
+      "river": "Suheli \u00b7 Mohana; Sharda nearby",
+      "veg": "Terai grassland & sal; Indo-Nepal border",
+      "note": "Dudhwa Tiger Reserve; swamp deer (barasingha) & reintroduced one-horned rhino.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Swamp Deer (Barasingha)",
+          "VU",
+          []
+        ],
+        [
+          "Indian Rhinoceros",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "Rajasthan": [
+    {
+      "name": "Ranthambore",
+      "lon": 76.5,
+      "lat": 26.02,
+      "tr": true,
+      "river": "Chambal \u00b7 Banas",
+      "veg": "Dry deciduous & Aravalli\u2013Vindhya scrub",
+      "note": "Flagship Tiger Reserve; Ranthambore Fort; where Aravalli meets Vindhya.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Marsh Crocodile",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Keoladeo (Ghana/Bharatpur)",
+      "lon": 77.52,
+      "lat": 27.16,
+      "tr": false,
+      "whs": true,
+      "ramsar": true,
+      "river": "Gambhir \u00b7 Banganga (man-made)",
+      "veg": "Wetland & woodland mosaic",
+      "note": "UNESCO WHS & Ramsar; Renowned wintering ground for migratory birds",
+      "species": [
+        [
+          "Siberian Crane",
+          "CR",
+          []
+        ],
+        [
+          "Sarus Crane",
+          "VU",
+          []
+        ],
+        [
+          "Painted Stork",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Sariska",
+      "lon": 76.42,
+      "lat": 27.32,
+      "tr": true,
+      "river": "Ruparel (ephemeral)",
+      "veg": "Dry deciduous & Aravalli scrub",
+      "note": "Tiger Reserve; first successful tiger reintroduction after local extinction (2008).",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Striped Hyena",
+          "NT",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Desert",
+      "lon": 70.9,
+      "lat": 26.8,
+      "tr": false,
+      "river": "Thar (ephemeral)",
+      "veg": "Thar desert; sand dunes & sewan grassland",
+      "note": "Thar Desert; last stronghold of the Great Indian Bustard.",
+      "species": [
+        [
+          "Great Indian Bustard",
+          "CR",
+          []
+        ],
+        [
+          "Chinkara",
+          "LC",
+          [
+            "state"
+          ]
+        ],
+        [
+          "Desert Fox",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Mukundra Hills (Darrah)",
+      "lon": 75.9,
+      "lat": 24.8,
+      "tr": true,
+      "river": "Chambal",
+      "veg": "Dry deciduous; Mukundra (Vindhyan) hills",
+      "note": "Tiger Reserve on the Chambal; Vindhyan hills near Kota.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Chinkara",
+          "LC",
+          [
+            "state"
+          ]
+        ]
+      ]
+    }
+  ],
+  "Haryana": [
+    {
+      "name": "Sultanpur",
+      "lon": 76.89,
+      "lat": 28.46,
+      "tr": false,
+      "ramsar": true,
+      "river": "Najafgarh drainage",
+      "veg": "Shallow wetland & scrub near Delhi",
+      "note": "Ramsar site; key migratory-bird stopover on the Central Asian Flyway.",
+      "species": [
+        [
+          "Sarus Crane",
+          "VU",
+          []
+        ],
+        [
+          "Painted Stork",
+          "LC",
+          []
+        ],
+        [
+          "Greater Flamingo",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Kalesar",
+      "lon": 77.48,
+      "lat": 30.35,
+      "tr": false,
+      "river": "Yamuna (nearby)",
+      "veg": "Sal & Shivalik foothills",
+      "note": "Shivalik foothills; elephants & leopards; adjoins Rajaji (Uttarakhand).",
+      "species": [
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Sambar",
+          "VU",
+          []
+        ],
+        [
+          "Siberian Crane",
+          "EN",
+          []
+        ]
+      ]
+    }
+  ],
+  "Punjab": [],
+  "Uttarakhand": [
+    {
+      "name": "Jim Corbett",
+      "lon": 78.9,
+      "lat": 29.53,
+      "tr": true,
+      "river": "Ramganga \u00b7 Kosi",
+      "veg": "Sal & terai grassland; Shivalik foothills",
+      "note": "India's first national park (1936); launch site of Project Tiger (1973).",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Gharial",
+          "CR",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Rajaji",
+      "lon": 78.2,
+      "lat": 30.05,
+      "tr": true,
+      "river": "Ganga \u00b7 Song",
+      "veg": "Sal & Shivalik",
+      "note": "Rajaji Tiger Reserve; elephant stronghold at the Ganga's exit to the plains.",
+      "species": [
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Valley of Flowers",
+      "lon": 79.6,
+      "lat": 30.73,
+      "tr": false,
+      "whs": true,
+      "river": "Pushpawati",
+      "veg": "Alpine meadows - ENDEMIC Himalayan flora",
+      "note": "UNESCO WHS; alpine floral meadows within the Nanda Devi Biosphere Reserve.",
+      "species": [
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Musk Deer",
+          "EN",
+          []
+        ],
+        [
+          "Blue Sheep",
+          "NT",
+          []
+        ],
+        [
+          "Asian Black Bear",
+          "VU",
+          []
+        ],
+        [
+          "Sambar Stag",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Nanda Devi",
+      "lon": 79.97,
+      "lat": 30.42,
+      "tr": false,
+      "whs": true,
+      "bio": true,
+      "river": "Rishi Ganga",
+      "veg": "Alpine & glacial; around Nanda Devi peak",
+      "note": "UNESCO WHS & Biosphere Reserve; encloses India's 2nd-highest peak.",
+      "species": [
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Tahr",
+          "NT",
+          []
+        ],
+        [
+          "Blue Sheep",
+          "NT",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Gangotri",
+      "lon": 78.95,
+      "lat": 30.95,
+      "tr": false,
+      "river": "Bhagirathi",
+      "veg": "Alpine conifer; Gangotri glacier",
+      "note": "Encloses the Gangotri glacier \u2014 source of the Bhagirathi (Ganga).",
+      "species": [
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Blue Sheep",
+          "NT",
+          []
+        ],
+        [
+          "Himalayan Monal",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Govind (Pashu Vihar)",
+      "lon": 78.4,
+      "lat": 31.05,
+      "tr": false,
+      "river": "Tons \u00b7 Supin",
+      "veg": "Alpine & temperate conifer; upper Tons valley",
+      "note": "Snow leopard habitat in the upper Tons (Yamuna) valley.",
+      "species": [
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Musk Deer",
+          "EN",
+          []
+        ],
+        [
+          "Western Tragopan",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "Himachal Pradesh": [
+    {
+      "name": "Great Himalayan",
+      "lon": 77.55,
+      "lat": 31.7,
+      "tr": false,
+      "whs": true,
+      "river": "Tirthan (Beas) \u00b7 Sainj \u00b7 Jiwa",
+      "veg": "Alpine, temperate & sub-alpine forest",
+      "note": "UNESCO World Heritage Site; Near Kullu",
+      "species": [
+        [
+          "Western Tragopan",
+          "VU",
+          []
+        ],
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Musk Deer",
+          "EN",
+          []
+        ],
+        [
+          "Himalayan Brown Bear",
+          "CR",
+          []
+        ],
+        [
+          "Himalayan Tahr",
+          "NT",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Pin Valley",
+      "lon": 78,
+      "lat": 31.8,
+      "tr": false,
+      "river": "Pin",
+      "bio": true,
+      "veg": "Cold desert; alpine steppe (Lahaul Spiti)",
+      "note": "Trans-Himalayan cold desert; prime snow leopard & ibex habitat.",
+      "species": [
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Siberian Ibex",
+          "LC",
+          []
+        ],
+        [
+          "Blue Sheep",
+          "NT",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Khirganga",
+      "lon": 77.5,
+      "lat": 31.95,
+      "tr": false,
+      "river": "Parvati",
+      "veg": "Temperate & alpine; Parvati valley",
+      "note": "Parvati valley; part of the greater Kullu conservation landscape.",
+      "species": [
+        [
+          "Himalayan Black Bear",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Musk Deer",
+          "EN",
+          []
+        ],
+        [
+          "Himalayan Monal",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Inderkilla",
+      "lon": 77.3,
+      "lat": 32,
+      "tr": false,
+      "river": "Beas tributaries",
+      "veg": "Temperate & alpine meadow",
+      "note": "Small high-altitude park in Kullu.",
+      "species": [
+        [
+          "Himalayan Tahr",
+          "NT",
+          []
+        ],
+        [
+          "Himalayan Monal",
+          "LC",
+          []
+        ],
+        [
+          "Himalayan Musk Deer",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Simbalbara",
+      "lon": 77.48,
+      "lat": 30.42,
+      "tr": false,
+      "river": "Shivalik streams",
+      "veg": "Sal Forest",
+      "note": "Shivalik foothills (Paonta Valley); contiguous with Kalesar (Haryana) & Rajaji (Uttarakhand).",
+      "species": [
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Sambar Stag",
+          "VU",
+          []
+        ],
+        [
+          "Goral",
+          "NT",
+          []
+        ]
+      ]
+    }
+  ],
+  "Jammu and Kashmir": [
+    {
+      "name": "Dachigam",
+      "lon": 74.98,
+      "lat": 34.15,
+      "tr": false,
+      "river": "Dagwan",
+      "veg": "Temperate broadleaf & alpine; Zabarwan range",
+      "note": "Near Marsar Lake",
+      "species": [
+        [
+          "Hangul (Kashmir Stag)",
+          "CR",
+          [
+            "end",
+            "state"
+          ]
+        ],
+        [
+          "Himalayan Black Bear",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Musk Deer",
+          "EN",
+          []
+        ],
+        [
+          "Himalayan Monal",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Kishtwar",
+      "lon": 75.8,
+      "lat": 33.55,
+      "tr": false,
+      "river": "Chenab \u00b7 Marwah",
+      "veg": "Alpine & sub-alpine; high Himalaya",
+      "note": "High-altitude park; snow leopard & markhor habitat.",
+      "species": [
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Markhor",
+          "NT",
+          []
+        ],
+        [
+          "Himalayan Musk Deer",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Kazinag",
+      "lon": 74.1,
+      "lat": 34.15,
+      "tr": false,
+      "river": "Jhelum tributaries",
+      "veg": "Temperate conifer; Pir Panjal",
+      "note": "Key markhor conservation area near the LoC.",
+      "species": [
+        [
+          "Markhor",
+          "NT",
+          []
+        ],
+        [
+          "Himalayan Brown Bear",
+          "LC",
+          []
+        ],
+        [
+          "Himalayan Musk Deer",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Salim Ali (City Forest)",
+      "lon": 74.85,
+      "lat": 34.13,
+      "tr": false,
+      "river": "Jhelum",
+      "veg": "Urban riverine forest; Srinagar",
+      "note": "Near Dal Lake.",
+      "species": [
+        [
+          "Hangul (Kashmir Stag)",
+          "CR",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Indian Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Serow",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Snowcock",
+          "LC",
+          []
+        ]
+      ]
+    }
+  ],
+  "Ladakh": [
+    {
+      "name": "Hemis",
+      "lon": 77.5,
+      "lat": 33.9,
+      "tr": false,
+      "river": "Markha \u00b7 Rumbak (Indus)",
+      "veg": "Trans-Himalayan cold desert; alpine steppe",
+      "note": "India's largest national park; the 'snow leopard capital'.",
+      "species": [
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Blue Sheep",
+          "NT",
+          []
+        ],
+        [
+          "Ladakh Urial",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "Assam": [
+    {
+      "name": "Kaziranga",
+      "lon": 93.35,
+      "lat": 26.58,
+      "tr": true,
+      "whs": true,
+      "river": "Brahmaputra (Diphlu)",
+      "veg": "Alluvial grassland & wetland; Brahmaputra floodplain",
+      "note": "UNESCO WHS; two-thirds of the world's one-horned rhinos; Tiger Reserve.",
+      "species": [
+        [
+          "Indian Rhinoceros",
+          "VU",
+          []
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Wild Water Buffalo",
+          "EN",
+          []
+        ],
+        [
+          "Barasingha Swamp Deer",
+          "VU",
+          []
+        ]
+      ],
+      "iba": true
+    },
+    {
+      "name": "Manas",
+      "lon": 91,
+      "lat": 26.72,
+      "tr": true,
+      "whs": true,
+      "bio": true,
+      "river": "Manas",
+      "veg": "Grassland & semi-evergreen; Bhutan border",
+      "note": "WHS & Biosphere Reserve; contiguous with Royal Manas (Bhutan); pygmy hog & golden langur. Among the first 9 Tiger Reserves declared under Project Tiger (1973).",
+      "species": [
+        [
+          "Pygmy Hog",
+          "EN",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Golden Langur",
+          "EN",
+          []
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Great Hornbill",
+          "VU",
+          []
+        ],
+        [
+          "Bengal Florican (largest population)",
+          "CR",
+          []
+        ],
+        [
+          "Assam Roofed Turtle",
+          "EN",
+          []
+        ],
+        [
+          "Hispid Hare",
+          "EN",
+          []
+        ]
+      ],
+      "iba": true,
+      "elephant": true
+    },
+    {
+      "name": "Nameri",
+      "lon": 92.9,
+      "lat": 27,
+      "tr": true,
+      "river": "Jia Bharali (Kameng)",
+      "veg": "Semi-evergreen; Himalayan foothills",
+      "note": "Nameri Tiger Reserve; white-winged wood duck habitat.",
+      "species": [
+        [
+          "White-winged Wood Duck",
+          "EN",
+          []
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Orang",
+      "lon": 92.3,
+      "lat": 26.55,
+      "tr": true,
+      "river": "Brahmaputra (Pachnol, Belsiri & Dhansiri)",
+      "veg": "Alluvial grassland; 'mini Kaziranga'",
+      "note": "Orang Tiger Reserve; rhino & tiger on the north bank of the Brahmaputra.",
+      "species": [
+        [
+          "Indian Rhinoceros",
+          "VU",
+          []
+        ],
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Pygmy Hog",
+          "EN",
+          [
+            "end"
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "Dibru-Saikhowa",
+      "lon": 95.4,
+      "lat": 27.65,
+      "tr": false,
+      "bio": true,
+      "river": "Brahmaputra \u00b7 Lohit \u00b7 Dibru",
+      "veg": "Wetland & swamp forest; Biosphere Reserve",
+      "note": "Biosphere Reserve; feral horses; river-island ecosystem.",
+      "species": [
+        [
+          "Gangetic Dolphin",
+          "EN",
+          []
+        ],
+        [
+          "White-winged Wood Duck",
+          "EN",
+          []
+        ],
+        [
+          "Feral Horse",
+          "LC",
+          []
+        ],
+        [
+          "Sloth Bear",
+          "VU",
+          []
+        ],
+        [
+          "Indian leopard & Clouded Leopard",
+          "",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Raimona",
+      "lon": 90.2,
+      "lat": 26.72,
+      "tr": false,
+      "river": "Sankosh \u00b7 Saralbhanga \u00b7 Pekua",
+      "veg": "Semi-evergreen; western Assam (Bodoland)",
+      "note": "Notified 2021; golden langur habitat; contiguous with Bhutan & Buxa (WB).",
+      "species": [
+        [
+          "Golden Langur",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Clouded Leopard",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Dehing Patkai",
+      "lon": 95.4,
+      "lat": 27.3,
+      "tr": false,
+      "river": "Dehing (Burhi Dihing)",
+      "veg": "Lowland tropical rainforest: Jeypore Rainforest ('Amazon of the East')",
+      "note": "Notified 2021; India's largest lowland rainforest stretch.",
+      "species": [
+        [
+          "Hoolock Gibbon",
+          "EN",
+          []
+        ],
+        [
+          "Clouded Leopard",
+          "VU",
+          []
+        ],
+        [
+          "White-winged Wood Duck (highest concentration)",
+          "EN",
+          []
+        ]
+      ]
+    }
+  ],
+  "Sikkim": [
+    {
+      "name": "Khangchendzonga",
+      "lon": 88.5,
+      "lat": 27.7,
+      "tr": false,
+      "whs": true,
+      "bio": true,
+      "river": "Teesta \u00b7 Rangit (glacial)",
+      "veg": "Alpine, temperate & glacial; Kanchenjunga massif",
+      "note": "India's first 'Mixed' UNESCO WHS; Biosphere Reserve; Kanchenjunga (world's 3rd-highest peak).",
+      "species": [
+        [
+          "Snow Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Red Panda",
+          "EN",
+          []
+        ],
+        [
+          "Dhole (Asian Wild Dog)",
+          "VU",
+          []
+        ],
+        [
+          "Himalayan Tahr",
+          "NT",
+          []
+        ]
+      ]
+    }
+  ],
+  "Arunachal Pradesh": [
+    {
+      "name": "Namdapha",
+      "lon": 96.4,
+      "lat": 27.5,
+      "tr": true,
+      "river": "Noa-Dihing",
+      "veg": "Tropical rainforest to alpine; largest PA in the NE",
+      "note": "Only Indian park with four big cats (tiger, leopard, clouded & snow leopard); endemic Namdapha flying squirrel.",
+      "species": [
+        [
+          "Namdapha Flying Squirrel",
+          "CR",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Clouded Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Hoolock Gibbon",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Mouling",
+      "lon": 94.8,
+      "lat": 28.6,
+      "tr": false,
+      "river": "Siang",
+      "veg": "Sub-tropical & temperate; Dihang-Dibang landscape",
+      "note": "Part of the Dihang-Dibang Biosphere Reserve; takin & red panda.",
+      "species": [
+        [
+          "Takin",
+          "VU",
+          []
+        ],
+        [
+          "Red Panda",
+          "EN",
+          []
+        ],
+        [
+          "Hoolock Gibbon",
+          "EN",
+          []
+        ]
+      ]
+    }
+  ],
+  "Mizoram": [
+    {
+      "name": "Murlen",
+      "lon": 93.3,
+      "lat": 23.6,
+      "tr": false,
+      "river": "Tuivai tributaries",
+      "veg": "Montane sub-tropical & temperate evergreen",
+      "note": "Near the Myanmar border; rich orchid & primate diversity.",
+      "species": [
+        [
+          "Hoolock Gibbon",
+          "EN",
+          []
+        ],
+        [
+          "Clouded Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Serow",
+          "VU",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Phawngpui (Blue Mountain)",
+      "lon": 93.05,
+      "lat": 22.65,
+      "tr": false,
+      "river": "Chhimtuipui (nearby)",
+      "veg": "Montane temperate; grassland summit",
+      "note": "Highest peak in Mizoram; sacred 'Blue Mountain'.",
+      "species": [
+        [
+          "Blyth's Tragopan",
+          "VU",
+          []
+        ],
+        [
+          "Clouded Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Serow",
+          "VU",
+          []
+        ],
+        [
+          "Hume's Pheasant",
+          "NT",
+          []
+        ]
+      ]
+    }
+  ],
+  "Manipur": [
+    {
+      "name": "Keibul Lamjao",
+      "lon": 93.8,
+      "lat": 24.5,
+      "tr": false,
+      "river": "Loktak Lake",
+      "veg": "Floating 'phumdi' biomass over Loktak Lake",
+      "note": "World's only floating national park; last refuge of the Sangai (brow-antlered deer), Manipur's state animal.",
+      "species": [
+        [
+          "Sangai (Brow-antlered Deer)",
+          "EN",
+          [
+            "end",
+            "state"
+          ]
+        ],
+        [
+          "Hog Deer",
+          "EN",
+          []
+        ],
+        [
+          "Asian Golden Cat",
+          "NT",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Shirui National Park",
+      "lon": 94.35,
+      "lat": 25.28,
+      "tr": false,
+      "river": "\u2014",
+      "veg": "Temperate broadleaf forest & alpine meadow on Shirui Kashong Peak",
+      "note": "Sole natural habitat of the Shirui Lily (Lilium mackliniae), Manipur's state flower; established 1982.",
+      "species": [
+        [
+          "Shirui Lily",
+          "EN",
+          [
+            "end",
+            "state"
+          ]
+        ],
+        [
+          "Blyth's Tragopan",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "Nagaland": [
+    {
+      "name": "Intanki (Intangki)",
+      "lon": 93.5,
+      "lat": 25.5,
+      "tr": false,
+      "river": "Diphu \u00b7 Barak tributaries",
+      "veg": "Tropical & sub-tropical evergreen",
+      "note": "Nagaland's only national park; hoolock gibbon habitat.",
+      "species": [
+        [
+          "Hoolock Gibbon",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Golden Langur",
+          "EN",
+          []
+        ],
+        [
+          "Hornbill",
+          "",
+          []
+        ]
+      ]
+    }
+  ],
+  "Tripura": [
+    {
+      "name": "Clouded Leopard (Sipahijala)",
+      "lon": 91.32,
+      "lat": 23.68,
+      "tr": false,
+      "river": "Sipahijala",
+      "veg": "Moist deciduous & mixed; botanical garden",
+      "note": "Named for the clouded leopard; spectacled (Phayre's) langur.",
+      "species": [
+        [
+          "Clouded Leopard",
+          "VU",
+          []
+        ],
+        [
+          "Phayre's Langur",
+          "EN",
+          []
+        ],
+        [
+          "Hoolock Gibbon",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Bison (Rajbari)",
+      "lon": 91.55,
+      "lat": 23.52,
+      "tr": false,
+      "river": "Trishna",
+      "veg": "Moist deciduous; southern Tripura",
+      "note": "Named for the Indian bison (gaur); southern Tripura.",
+      "species": [
+        [
+          "Gaur (Indian Bison)",
+          "VU",
+          []
+        ],
+        [
+          "Phayre's Langur",
+          "EN",
+          []
+        ],
+        [
+          "Hoolock Gibbon",
+          "EN",
+          []
+        ]
+      ]
+    }
+  ],
+  "Meghalaya": [
+    {
+      "name": "Nokrek",
+      "lon": 90.3,
+      "lat": 25.5,
+      "tr": false,
+      "bio": true,
+      "river": "Simsang (Someshwari) \u00b7 Rongbang Dare Waterfall",
+      "veg": "Sub-tropical & temperate; Nokrek Biosphere Reserve",
+      "note": "Nokrek Biosphere Reserve; wild citrus (Citrus indica) gene sanctuary; red panda.",
+      "species": [
+        [
+          "Red Panda",
+          "EN",
+          []
+        ],
+        [
+          "Stump Tailed Macaque",
+          "VU",
+          []
+        ],
+        [
+          "Hoolock Gibbon",
+          "EN",
+          []
+        ],
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Balphakram",
+      "lon": 90.85,
+      "lat": 25.2,
+      "tr": false,
+      "river": "Simsang \u00b7 Mahadeo \u00b7 Goneshwar",
+      "veg": "Deep canyon; grassland & forest",
+      "note": "'Land of perpetual winds/spirits'; deep canyon; Garo cultural landscape.",
+      "species": [
+        [
+          "Asian Elephant",
+          "EN",
+          []
+        ],
+        [
+          "Gaur (Indian Bison)",
+          "VU",
+          []
+        ],
+        [
+          "Red Panda",
+          "EN",
+          []
+        ],
+        [
+          "Asian Golden Cat",
+          "",
+          []
+        ]
+      ]
+    }
+  ],
+  "Goa": [
+    {
+      "name": "Mollem (Bhagwan Mahaveer)",
+      "lon": 74.35,
+      "lat": 15.35,
+      "tr": false,
+      "river": "Mhadei \u00b7 Dudhsagar",
+      "veg": "Western Ghats moist deciduous & semi-evergreen",
+      "note": "Western Ghats; Dudhsagar Falls; part of the Mhadei tiger landscape.",
+      "species": [
+        [
+          "Bengal Tiger",
+          "EN",
+          []
+        ],
+        [
+          "Indian Giant Squirrel",
+          "LC",
+          []
+        ],
+        [
+          "King Cobra",
+          "VU",
+          []
+        ]
+      ]
+    }
+  ],
+  "Andaman and Nicobar Islands": [
+    {
+      "name": "Mahatma Gandhi Marine (Wandoor)",
+      "lon": 92.6,
+      "lat": 11.55,
+      "tr": false,
+      "river": "Marine (South Andaman)",
+      "veg": "Coral reefs, mangroves & islets",
+      "note": "Coral marine park off Wandoor, South Andaman.",
+      "species": [
+        [
+          "Dugong",
+          "VU",
+          []
+        ],
+        [
+          "Green Sea Turtle",
+          "EN",
+          []
+        ],
+        [
+          "Saltwater Crocodile",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Rani Jhansi Marine",
+      "lon": 93,
+      "lat": 12.15,
+      "tr": false,
+      "river": "Marine (Ritchie's Archipelago)",
+      "veg": "Coral reefs & marine life",
+      "note": "Ritchie's Archipelago; coral & marine biodiversity.",
+      "species": [
+        [
+          "Dugong",
+          "VU",
+          []
+        ],
+        [
+          "Hawksbill Turtle",
+          "CR",
+          []
+        ],
+        [
+          "Coral",
+          "LC",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Saddle Peak",
+      "lon": 93.02,
+      "lat": 13.15,
+      "tr": false,
+      "river": "North Andaman",
+      "veg": "Tropical evergreen; highest point of the islands",
+      "note": "Highest point of the Andaman & Nicobar Islands.",
+      "species": [
+        [
+          "Andaman Wild Pig",
+          "VU",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Saltwater Crocodile",
+          "LC",
+          []
+        ],
+        [
+          "Nicobar Pigeon",
+          "NT",
+          []
+        ]
+      ]
+    },
+    {
+      "name": "Campbell Bay",
+      "lon": 93.9,
+      "lat": 7.05,
+      "tr": false,
+      "bio": true,
+      "river": "Great Nicobar",
+      "veg": "Tropical evergreen; Great Nicobar Biosphere Reserve",
+      "note": "Great Nicobar Biosphere Reserve; southernmost India.",
+      "species": [
+        [
+          "Nicobar Megapode",
+          "VU",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Saltwater Crocodile",
+          "LC",
+          []
+        ],
+        [
+          "Nicobar Long-tailed Macaque",
+          "VU",
+          [
+            "end"
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "Galathea",
+      "lon": 93.85,
+      "lat": 6.9,
+      "tr": false,
+      "river": "Great Nicobar",
+      "veg": "Tropical evergreen & beach; Great Nicobar",
+      "note": "Great Nicobar; leatherback sea-turtle nesting beach.",
+      "species": [
+        [
+          "Leatherback Turtle",
+          "VU",
+          []
+        ],
+        [
+          "Nicobar Megapode",
+          "VU",
+          [
+            "end"
+          ]
+        ],
+        [
+          "Saltwater Crocodile",
+          "LC",
+          []
+        ]
+      ]
+    }
+  ]
+}
