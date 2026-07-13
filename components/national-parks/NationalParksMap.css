@@ -14,7 +14,7 @@
   --saffron: #d49a3a;
   --slate: #3e5c76;
   --river: #5e86a0;
-  --wet: #5a93a0;
+  --wet: #2c5f8a;
   --hill: #9c7a52;
   --sanct: #6a8f3f;
   --state: #ebe1cf;
@@ -395,9 +395,9 @@
   background: var(--saffron);
 }
 .np-chip-wet.on {
-  color: #3f6f7c;
-  border-color: rgba(90, 147, 160, 0.45);
-  background: rgba(90, 147, 160, 0.12);
+  color: #2c5f8a;
+  border-color: rgba(44, 95, 138, 0.45);
+  background: rgba(44, 95, 138, 0.12);
 }
 .np-chip-wet.on .np-sw {
   background: var(--wet);
@@ -680,14 +680,14 @@
 }
 .np-wet {
   fill: var(--wet);
-  fill-opacity: 0.55;
-  stroke: #47818e;
-  stroke-opacity: 0.5;
+  fill-opacity: 0.6;
+  stroke: #1c3f5c;
+  stroke-opacity: 0.55;
   stroke-width: 0.6;
   vector-effect: non-scaling-stroke;
 }
 .np-wetlabel {
-  fill: #47818e;
+  fill: #1c3f5c;
   font-style: italic;
   text-anchor: middle;
   paint-order: stroke;

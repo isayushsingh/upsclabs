@@ -106,6 +106,9 @@ export interface LabelInput {
   y: number;
   /** Marker radius — labels must clear this disc. */
   r: number;
+  /** This label's own font size — layers render at different sizes, so
+      declutter must measure each label with its own, not a shared one. */
+  fontSize: number;
   priority: number;
 }
 
@@ -153,7 +156,6 @@ const CANDIDATES: Candidate[] = [
  */
 export function placeLabels(
   labels: LabelInput[],
-  fontSize: number,
   gap: number
 ): Map<string, LabelPlacement> {
   const out = new Map<string, LabelPlacement>();
@@ -172,8 +174,8 @@ export function placeLabels(
   );
 
   for (const l of ordered) {
-    const w = estTextWidth(l.text, fontSize);
-    const h = fontSize;
+    const w = estTextWidth(l.text, l.fontSize);
+    const h = l.fontSize;
     let done = false;
 
     for (const c of CANDIDATES) {

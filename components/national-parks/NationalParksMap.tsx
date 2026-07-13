@@ -451,13 +451,18 @@ export default function NationalParksMap() {
 
   /** Pointer-down: starts a one-finger pan, or (on a second pointer) a pinch-zoom. */
   const onStagePointerDown = useCallback((e: React.PointerEvent) => {
-    if (!activeStateRef.current || e.button !== 0) return;
     // A fresh gesture starts here — any suppression flag left over from an
     // earlier drag (whose resulting click landed on a button/chip that never
-    // consumed it) must not bleed into this click.
+    // consumed it) must not bleed into this click. This must run even when
+    // there's no active state (the India overview): otherwise a leftover
+    // `movedRef=true` from a drag made just before hitting "Reset" can never
+    // clear, and the window-level pointerup listener (unscoped to activeState)
+    // keeps re-arming suppressClickRef on every subsequent click, silently
+    // swallowing every state click until the page is refreshed.
     suppressClickRef.current = false;
-    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     movedRef.current = false;
+    if (!activeStateRef.current || e.button !== 0) return;
+    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointersRef.current.size === 1) {
       panBaseRef.current = { x: e.clientX, y: e.clientY, vb: vbRef.current };
       pinchBaseRef.current = null;
@@ -537,9 +542,12 @@ export default function NationalParksMap() {
 
   // Non-passive wheel-to-zoom (toward the cursor), bound once to the SVG.
   // Trackpads fire dozens of wheel events per gesture, each with a small
-  // deltaY — scale the per-event factor by that magnitude (capped) so a
-  // light scroll nudges the view instead of compounding into a snap to the
-  // zoom limits.
+  // deltaY (often single digits), while mouse wheels fire a handful of large
+  // discrete jumps (deltaY ~100+). A linear normalization makes trackpad
+  // deltas register as a tiny sliver of the mouse's per-notch zoom, so the
+  // same physical scroll effort feels far weaker — a sqrt curve boosts small
+  // deltas disproportionately while leaving large ones roughly where they
+  // were, keeping both input types feeling similarly responsive.
   useEffect(() => {
     const el = svgRef.current;
     if (!el) return;
@@ -547,8 +555,8 @@ export default function NationalParksMap() {
       if (!activeStateRef.current) return;
       e.preventDefault();
       const [cx, cy] = pxToVb(e.clientX, e.clientY);
-      const mag = Math.min(Math.abs(e.deltaY), 60) / 60;
-      const factor = e.deltaY > 0 ? 1 + 0.1 * mag : 1 - 0.09 * mag;
+      const mag = Math.sqrt(Math.min(Math.abs(e.deltaY), 100) / 100);
+      const factor = e.deltaY > 0 ? 1 + 0.16 * mag : 1 - 0.14 * mag;
       zoomAround(cx, cy, factor, 0);
     };
     el.addEventListener("wheel", onWheel, { passive: false });
@@ -619,24 +627,6 @@ export default function NationalParksMap() {
     [points, vb]
   );
 
-  const placements = useMemo(() => {
-    // Masked points render a "?" instead of a name, so they don't enter declutter.
-    const maskedNow = (id: string) => mode === "recall" && !revealed.has(id);
-
-    const singles = clusters
-      .filter((c) => !isBubble(c))
-      .filter((c) => !maskedNow(c.members[0].id));
-    const labels: LabelInput[] = singles.map((c) => ({
-      id: c.id,
-      text: c.members[0].name,
-      x: c.x,
-      y: c.y,
-      r: R_FRAC * vb[2],
-      priority: c.members[0].priority,
-    }));
-    return placeLabels(labels, LFS_FRAC * vb[2], LGAP_FRAC * vb[2]);
-  }, [clusters, vb, mode, revealed]);
-
   /** In Recall mode every point (park and reserve) is masked until clicked. */
   const isMasked = useCallback(
     (id: string) => mode === "recall" && !revealed.has(id),
@@ -706,8 +696,8 @@ export default function NationalParksMap() {
       return {
         rivers: [] as { name: string; d: string; anchor: [number, number] }[],
         wetlands: [] as { id: string; name: string; xy: [number, number] }[],
-        terrain: [] as { name: string; sym: string; xy: [number, number] }[],
-        sanctuaries: [] as { name: string; xy: [number, number] }[],
+        terrain: [] as { id: string; name: string; sym: string; xy: [number, number] }[],
+        sanctuaries: [] as { id: string; name: string; xy: [number, number] }[],
       };
     const rivers = (RIVERS[activeState] ?? []).map((r) => {
       const pts = r.pts;
@@ -721,17 +711,85 @@ export default function NationalParksMap() {
       name: w.name,
       xy: projectPoint(PROJ, w.lon, w.lat),
     }));
-    const terrain = (TERRAIN[activeState] ?? []).map((t) => ({
+    const terrain = (TERRAIN[activeState] ?? []).map((t, i) => ({
+      id: `ter:${activeState}:${i}`,
       name: t.name,
       sym: t.sym,
       xy: projectPoint(PROJ, t.lon, t.lat),
     }));
-    const sanctuaries = (SANCTUARIES[activeState] ?? []).map((s) => ({
+    const sanctuaries = (SANCTUARIES[activeState] ?? []).map((s, i) => ({
+      id: `sanct:${activeState}:${i}`,
       name: s.name,
       xy: projectPoint(PROJ, s.lon, s.lat),
     }));
     return { rivers, wetlands, terrain, sanctuaries };
   }, [activeState]);
+
+  // Unified label declutter — every currently-visible point layer (parks,
+  // reserves, wetlands, sanctuaries, terrain) competes for label slots in one
+  // pass, so a wetland label never overlaps a park label even though their
+  // markers are drawn independently. Markers themselves never move — only
+  // labels shift, gaining a leader line back to the true point when they do.
+  const placements = useMemo(() => {
+    // Masked points render a "?" instead of a name, so they don't enter declutter.
+    const maskedNow = (id: string) => mode === "recall" && !revealed.has(id);
+
+    const singles = clusters
+      .filter((c) => !isBubble(c))
+      .filter((c) => !maskedNow(c.members[0].id));
+    const parkLabels: LabelInput[] = singles.map((c) => ({
+      id: c.id,
+      text: c.members[0].name,
+      x: c.x,
+      y: c.y,
+      r: R_FRAC * vb[2],
+      fontSize: LFS_FRAC * vb[2],
+      priority: c.members[0].priority,
+    }));
+
+    const wetLabels: LabelInput[] = layers.wetlands
+      ? faint.wetlands
+          .filter((w) => !maskedNow(w.id))
+          .map((w) => ({
+            id: w.id,
+            text: w.name,
+            x: w.xy[0],
+            y: w.xy[1],
+            r: DROP_FRAC * vb[2],
+            fontSize: WET_FRAC * vb[2],
+            priority: 0.5,
+          }))
+      : [];
+
+    const sanctLabels: LabelInput[] = layers.sanctuaries
+      ? faint.sanctuaries.map((s) => ({
+          id: s.id,
+          text: s.name,
+          x: s.xy[0],
+          y: s.xy[1],
+          r: SANCT_SQ_FRAC * vb[2],
+          fontSize: SANCT_FRAC * vb[2],
+          priority: 0.4,
+        }))
+      : [];
+
+    const terrainLabels: LabelInput[] = layers.terrain
+      ? faint.terrain.map((t) => ({
+          id: t.id,
+          text: t.sym ? `${t.sym} ${t.name}` : t.name,
+          x: t.xy[0],
+          y: t.xy[1],
+          r: 0,
+          fontSize: HILL_FRAC * vb[2],
+          priority: 0.2,
+        }))
+      : [];
+
+    return placeLabels(
+      [...parkLabels, ...wetLabels, ...sanctLabels, ...terrainLabels],
+      LGAP_FRAC * vb[2]
+    );
+  }, [clusters, vb, mode, revealed, layers.wetlands, layers.sanctuaries, layers.terrain, faint]);
 
   // Zoom-independent on-screen sizing.
   const R = R_FRAC * vb[2];
@@ -954,6 +1012,7 @@ export default function NationalParksMap() {
               {faint.wetlands.map((w) => {
                 const [cx, cy] = w.xy;
                 const masked = isMasked(w.id);
+                const pl = placements.get(w.id);
                 return (
                   <g
                     key={w.id}
@@ -970,15 +1029,41 @@ export default function NationalParksMap() {
                     aria-label={masked ? "Hidden wetland — click to reveal" : w.name}
                   >
                     <path d={dropletPath(cx, cy, DROP)} className="np-wet" />
-                    <text
-                      x={cx}
-                      y={cy + DROP + WET_FS}
-                      fontSize={WET_FS}
-                      textAnchor="middle"
-                      className={`np-wetlabel ${masked ? "np-mask" : ""}`}
-                    >
-                      {masked ? "?" : w.name}
-                    </text>
+                    {masked ? (
+                      <text
+                        x={cx}
+                        y={cy + DROP + WET_FS}
+                        fontSize={WET_FS}
+                        textAnchor="middle"
+                        className="np-wetlabel np-mask"
+                      >
+                        ?
+                      </text>
+                    ) : (
+                      pl &&
+                      !pl.hidden && (
+                        <>
+                          {pl.leader && (
+                            <line
+                              x1={cx}
+                              y1={cy}
+                              x2={pl.x}
+                              y2={pl.y - LEAD_GAP}
+                              className="np-lead"
+                            />
+                          )}
+                          <text
+                            x={pl.x}
+                            y={pl.y}
+                            fontSize={WET_FS}
+                            textAnchor={pl.textAnchor}
+                            className="np-wetlabel"
+                          >
+                            {w.name}
+                          </text>
+                        </>
+                      )
+                    )}
                   </g>
                 );
               })}
@@ -989,16 +1074,30 @@ export default function NationalParksMap() {
             <g className="np-terrain" aria-hidden="true">
               {faint.terrain.map((t) => {
                 const [cx, cy] = t.xy;
+                const pl = placements.get(t.id);
+                const text = t.sym ? `${t.sym} ${t.name}` : t.name;
+                if (!pl || pl.hidden) return null;
                 return (
-                  <text
-                    key={`ter-${t.name}`}
-                    x={cx}
-                    y={cy}
-                    fontSize={HILL_FS}
-                    className="np-hilllabel"
-                  >
-                    {t.sym ? `${t.sym} ${t.name}` : t.name}
-                  </text>
+                  <g key={t.id}>
+                    {pl.leader && (
+                      <line
+                        x1={cx}
+                        y1={cy}
+                        x2={pl.x}
+                        y2={pl.y - LEAD_GAP}
+                        className="np-lead"
+                      />
+                    )}
+                    <text
+                      x={pl.x}
+                      y={pl.y}
+                      fontSize={HILL_FS}
+                      textAnchor={pl.textAnchor}
+                      className="np-hilllabel"
+                    >
+                      {text}
+                    </text>
+                  </g>
                 );
               })}
             </g>
@@ -1008,8 +1107,9 @@ export default function NationalParksMap() {
             <g className="np-sanctuaries" aria-hidden="true">
               {faint.sanctuaries.map((s) => {
                 const [cx, cy] = s.xy;
+                const pl = placements.get(s.id);
                 return (
-                  <g key={`sanct-${s.name}`}>
+                  <g key={s.id}>
                     <rect
                       x={cx - SANCT_SQ}
                       y={cy - SANCT_SQ}
@@ -1017,14 +1117,28 @@ export default function NationalParksMap() {
                       height={SANCT_SQ * 2}
                       className="np-sanct"
                     />
-                    <text
-                      x={cx}
-                      y={cy + SANCT_SQ + SANCT_FS}
-                      fontSize={SANCT_FS}
-                      className="np-sanctlabel"
-                    >
-                      {s.name}
-                    </text>
+                    {pl && !pl.hidden && (
+                      <>
+                        {pl.leader && (
+                          <line
+                            x1={cx}
+                            y1={cy}
+                            x2={pl.x}
+                            y2={pl.y - LEAD_GAP}
+                            className="np-lead"
+                          />
+                        )}
+                        <text
+                          x={pl.x}
+                          y={pl.y}
+                          fontSize={SANCT_FS}
+                          textAnchor={pl.textAnchor}
+                          className="np-sanctlabel"
+                        >
+                          {s.name}
+                        </text>
+                      </>
+                    )}
                   </g>
                 );
               })}
