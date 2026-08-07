@@ -294,18 +294,20 @@
   margin-top: 18px;
   display: flex;
   align-items: flex-start;
-  gap: 22px;
+  border: 1px solid var(--line);
 }
 
 /* ── left sidebar (layer menu, reset) — flat, big, tap-friendly rows, no
    floating card/shadow. A normal document column, not an overlay pinned
    inside the map frame. ── */
 .np-sidebar {
-  flex: 0 0 224px;
-  width: 224px;
+  flex: 0 0 250px;
+  width: 250px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14px;
+  margin-top: 10px;
 }
 .np-mapcol {
   position: relative;
@@ -313,8 +315,10 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
+  border-left: 1px solid var(--line);
 }
 .np-layerbox {
+  width: 224px;
   background: transparent;
   border: 0;
   box-shadow: none;
@@ -325,7 +329,7 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  width: 100%;
+  width: 224px;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: rgba(194, 104, 63, 0.1);
@@ -370,7 +374,12 @@
     order: 2;
     width: 100%;
     flex: 0 0 auto;
+    align-items: stretch;
     margin-top: 4px;
+  }
+  .np-layerbox,
+  .np-lb-reset {
+    width: 100%;
   }
 }
 .np-lyr-cap {
