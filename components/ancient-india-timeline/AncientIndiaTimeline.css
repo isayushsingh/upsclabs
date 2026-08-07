@@ -1,15 +1,18 @@
 /* Ancient India atlas — bespoke styling (design tokens + SVG + timeline).
    Fonts are injected as CSS variables by next/font in app/layout.tsx. */
 .ait-root{
-  --ink:#23241d; --ink-soft:#5c5d52; --stone:#d7d1c1; --stone-edge:#b3ab97;
-  --paper:#e9e5d9; --paper-2:#e3dece; --line:#c8c1ae; --border:#6b6557;
+  /* Matches app/globals.css's current cream palette — this tool is
+     otherwise self-contained, but the base paper/ink tokens need to track
+     the site theme so there's no visible seam against the page background. */
+  --ink:#17170f; --ink-soft:#58564a; --stone:#ded9c6; --stone-edge:#c7bfa4;
+  --paper:#f2efe2; --paper-2:#eae5d2; --line:#ddd6bd; --border:#6f6a58;
   background:var(--paper); color:var(--ink);
   font-family:var(--font-inter),system-ui,sans-serif; min-height:100%;
   padding:34px clamp(16px,4vw,48px) 48px; box-sizing:border-box; max-width:880px; margin:0 auto;
 }
 *,*::before,*::after{box-sizing:border-box;}
 .ait-eyebrow{ font-family:var(--font-space-mono),monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; }
-.ait-title{ font-family:var(--font-fraunces),Georgia,serif; font-weight:500; font-size:clamp(30px,5vw,46px); line-height:1.02; letter-spacing:-.01em; margin:0 0 12px; }
+.ait-title{ font-family:var(--font-general-sans),var(--font-inter),sans-serif; font-weight:700; font-size:clamp(30px,5vw,46px); line-height:1.02; letter-spacing:-.02em; margin:16px 0 12px; }
 .ait-sub{ max-width:58ch; margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.55; }
 
 .ait-readout{ display:flex; align-items:stretch; gap:12px; margin:28px 0 14px; }

@@ -8,9 +8,9 @@ export default function FeaturedTools() {
   if (!tools.length) return null;
   return (
     <section className="ul-featured" id="featured">
-      <div className="ul-section-head">
-        <h2 className="ul-section-title">Featured Tools</h2>
-        <span className="ul-section-meta">the newest, ready to use</span>
+      <div className="ul-cov-head">
+        <span className="ul-cov-badge">The Newest, Ready to Use</span>
+        <h2 className="ul-cov-title">Featured Tools</h2>
       </div>
       <div className="ul-feat-list">
         {tools.map((t) => (

@@ -1,0 +1,659 @@
+/* Rivers of India — same parchment/pigment theme and sidebar layout as the
+   National Parks tool (riv-* classes, self-contained), so the two GS tools
+   read as one family: universal search, Learn/Recall mode pill, a Layers
+   box with toggle chips, reset, and a footnote legend, all in a fixed-width
+   left sidebar next to the map frame. */
+
+.riv-root {
+  --paper: #f2ece0;
+  --panel: #eae2d2;
+  --ink: #2a2520;
+  --ink-soft: #5c5d52;
+  --stone: #9a9082;
+  --line: #d9d0bf;
+  --terra: #c2683f;
+  --forest: #3f6b4e;
+  --slate: #3e5c76;
+  --river: #5e86a0;
+  --river-minor: #8fa9bd;
+  --hill: #9c7a52;
+  --state: #ebe1cf;
+  --state-hi: #e3d6bd;
+  --shadow: 0 1px 2px rgba(42, 37, 32, 0.06), 0 8px 24px rgba(42, 37, 32, 0.07);
+
+  --riv-serif: var(--font-fraunces, var(--font-display, ui-serif, Georgia, serif));
+  --riv-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
+
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 20px 44px;
+  color: var(--ink);
+  font-family: var(--riv-sans);
+}
+
+.riv-headtext {
+  min-width: 0;
+}
+.riv-title {
+  font-family: var(--riv-serif);
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+.riv-sub {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ── workspace: fixed sidebar + map column, same split as the parks tool ── */
+.riv-workspace {
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+.riv-sidebar {
+  flex: 0 0 232px;
+  width: 232px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.riv-mapcol {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .riv-workspace {
+    flex-direction: column;
+  }
+  .riv-mapcol {
+    order: 1;
+    width: 100%;
+  }
+  .riv-sidebar {
+    order: 2;
+    width: 100%;
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .riv-search {
+    flex: 1 1 100%;
+  }
+  .riv-modecard {
+    width: auto;
+    flex: 1 1 160px;
+  }
+  .riv-layerbox {
+    flex: 1 1 100%;
+    padding: 10px 11px 11px;
+  }
+  .riv-lb-reset {
+    flex: 1 1 160px;
+    width: auto;
+  }
+  .riv-footnote {
+    flex: 1 1 100%;
+  }
+}
+
+/* ── universal search ── */
+.riv-search {
+  position: relative;
+}
+.riv-search-box {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(251, 247, 238, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 13px;
+  box-shadow: var(--shadow);
+}
+.riv-search-ic {
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.riv-search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+}
+.riv-search-input::placeholder {
+  color: var(--stone);
+}
+.riv-search-clear {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--stone);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+.riv-search-clear:hover {
+  color: var(--ink);
+}
+.riv-search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 12;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: rgba(251, 247, 238, 0.98);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  max-height: 340px;
+  overflow-y: auto;
+}
+.riv-search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 7px 9px;
+  cursor: pointer;
+  font: inherit;
+}
+.riv-search-result:hover {
+  background: rgba(94, 134, 160, 0.09);
+}
+.riv-search-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.riv-search-meta {
+  font-size: 10.5px;
+  color: var(--stone);
+}
+.riv-search-empty {
+  padding: 9px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--stone);
+}
+
+/* ── mode toggle (Learn = slate, Recall = terracotta) ── */
+.riv-modecard {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  background: rgba(251, 247, 238, 0.96);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+.riv-mode {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6f6452;
+  padding: 8px 0;
+  border-radius: 999px;
+  transition: 0.18s;
+  white-space: nowrap;
+  flex: 1 1 0;
+}
+.riv-mode-on {
+  color: var(--paper);
+}
+.riv-mode-learn.riv-mode-on {
+  background: var(--slate);
+}
+.riv-mode-recall.riv-mode-on {
+  background: var(--terra);
+}
+
+/* ── layers box ── */
+.riv-layerbox {
+  background: rgba(251, 247, 238, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  padding: 12px 12px 13px;
+}
+.riv-lyr-cap {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  margin: 0 0 9px 2px;
+}
+.riv-lyr-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.riv-lyr-col .riv-chip {
+  width: 100%;
+  justify-content: flex-start;
+}
+.riv-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 11px 4px 7px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6f6452;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.riv-chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.riv-chip em {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--stone);
+  background: var(--panel);
+  border-radius: 999px;
+  padding: 2px 6px;
+  margin-left: auto;
+}
+.riv-sw {
+  width: 24px;
+  height: 14px;
+  border-radius: 999px;
+  background: #dbd2c1;
+  position: relative;
+  transition: 0.15s;
+  flex: 0 0 auto;
+}
+.riv-sw::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transition: 0.15s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.riv-chip.on .riv-sw::after {
+  left: 12px;
+}
+.riv-chip-riv.on {
+  color: #33506b;
+  border-color: rgba(94, 134, 160, 0.45);
+  background: rgba(94, 134, 160, 0.1);
+}
+.riv-chip-riv.on .riv-sw {
+  background: var(--river);
+}
+.riv-chip-mtn.on .riv-sw {
+  background: var(--hill);
+}
+
+.riv-systemselect {
+  margin-top: 10px;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* ── reset ── */
+.riv-lb-reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(194, 104, 63, 0.1);
+  color: var(--terra);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 9px 0;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.riv-lb-reset:hover {
+  background: rgba(194, 104, 63, 0.18);
+}
+.riv-lb-reset-ic {
+  font-size: 13px;
+}
+
+/* ── footnote legend ── */
+.riv-footnote {
+  padding-top: 4px;
+  border-top: 1px solid var(--line);
+}
+.riv-fn-cap {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  margin: 10px 0 8px 2px;
+}
+.riv-fn-rivers {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.riv-fn-rivers span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.riv-lg {
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+.riv-lg-major {
+  background: var(--river);
+  height: 2.4px;
+}
+.riv-lg-minor {
+  background: var(--river-minor);
+}
+
+/* ── map stage ── */
+.riv-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  overflow: hidden;
+  aspect-ratio: 1.1;
+}
+.riv-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+.riv-grab {
+  cursor: grab;
+}
+.riv-grab:active {
+  cursor: grabbing;
+}
+
+.riv-state {
+  fill: var(--state);
+  stroke: var(--line);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ── rivers: calm, understated lines — matches the parks tool's faint
+   river context layer (thin, translucent, italic labels), not a bold
+   highlighted line, so the tool reads as part of the same family. ── */
+.riv-rivers {
+  cursor: pointer;
+}
+.riv-river-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 12px;
+  vector-effect: non-scaling-stroke;
+  pointer-events: stroke;
+}
+.riv-river-line {
+  fill: none;
+  stroke: var(--river-minor);
+  stroke-width: 1px;
+  stroke-opacity: 0.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+  transition: stroke 0.15s, stroke-width 0.15s, stroke-opacity 0.15s;
+}
+.riv-major .riv-river-line {
+  stroke: var(--river);
+  stroke-width: 1.3px;
+  stroke-opacity: 0.75;
+}
+.riv-hover .riv-river-line {
+  stroke: var(--terra);
+  stroke-width: 2.4px;
+  stroke-opacity: 1;
+}
+.riv-masked .riv-river-line {
+  opacity: 0.85;
+}
+
+.riv-label {
+  fill: var(--river);
+  font-style: italic;
+  font-weight: 500;
+  opacity: 0.9;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  pointer-events: none;
+}
+.riv-label-mask {
+  fill: var(--stone);
+  font-style: normal;
+  font-weight: 700;
+  opacity: 1;
+}
+.riv-hover .riv-label {
+  fill: var(--terra);
+  opacity: 1;
+}
+
+.riv-lead {
+  stroke: var(--stone);
+  stroke-width: 0.6px;
+  stroke-dasharray: 2 2;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.riv-empty-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+}
+.riv-empty-hint p {
+  margin: 0;
+  padding: 10px 20px;
+  background: rgba(251, 247, 238, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* ── zoom controls ── */
+.riv-zoombtns {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.riv-zoom {
+  width: 36px;
+  height: 34px;
+  background: var(--panel);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+}
+.riv-zoom:last-child {
+  border-bottom: 0;
+}
+.riv-zoom:hover {
+  background: var(--state-hi);
+}
+
+/* ── detail card: floats over the map, doesn't push it around ── */
+.riv-card {
+  position: absolute;
+  z-index: 8;
+  top: 14px;
+  right: 14px;
+  width: 320px;
+  max-height: calc(100% - 28px);
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(251, 247, 238, 0.97);
+  box-shadow: 0 6px 30px rgba(42, 37, 32, 0.17);
+  padding: 16px 18px;
+}
+.riv-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.riv-card-titles {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.riv-card-title {
+  font-family: var(--riv-serif);
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+.riv-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--river);
+  background: rgba(94, 134, 160, 0.14);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+.riv-card-x {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--stone);
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.riv-card-x:hover {
+  color: var(--ink);
+}
+.riv-rows {
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.riv-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.riv-row dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.riv-row dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  /* On mobile the card is a normal block right after the map frame, not an
+     overlay floating on top of it — it pushes the sidebar further down the
+     page instead of covering the map. */
+  .riv-card {
+    position: static;
+    margin-top: 14px;
+    width: 100%;
+    max-height: none;
+  }
+}

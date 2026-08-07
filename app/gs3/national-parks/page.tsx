@@ -12,11 +12,13 @@ export default function Page() {
     <>
       <DesktopRecommendedModal toolName="This national parks & tiger reserves map" />
       <nav className="ul-breadcrumb np-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">UPSC Labs</Link>
-        <span>/</span>
-        <Link href="/gs1">GS3</Link>
-        <span>/</span>
-        <span className="ul-breadcrumb-cur">Protected Areas • Wetlands • BR • Mapping</span>
+        <span className="ul-breadcrumb-pill">
+          <Link href="/">UPSC Labs</Link>
+          <span>/</span>
+          <Link href="/gs3">GS3</Link>
+          <span>/</span>
+          <span className="ul-breadcrumb-cur">Protected Areas • Wetlands • BR • Mapping</span>
+        </span>
       </nav>
       <NationalParksMap />
     </>

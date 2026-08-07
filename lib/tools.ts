@@ -33,7 +33,7 @@ export const PAPERS: { id: Paper; topics: string }[] = [
   { id: "GS1", topics: "History · Geography" },
   { id: "GS2", topics: "Awaiting Presidential Assent. Coming Soon." },
   { id: "GS3", topics: "Environment" },
-//   { id: "GS4", topics: "Ethics · Integrity" },
+  { id: "GS4", topics: "Ethics · Integrity. Coming Soon." },
 ];
 
 export const TOOLS: Tool[] = [
@@ -62,6 +62,18 @@ export const TOOLS: Tool[] = [
     state: "live",
     href: "/gs3/national-parks",
     featured: true,
+    accent: "#3E5C76",
+    preview: "map",
+  },
+  {
+    slug: "rivers-of-india",
+    title: "Interactive Map: Rivers of India",
+    fullTitle: "Interactive Map: Rivers of India",
+    blurb:
+      "Active-recall map of India's major rivers — trace each course, then switch to Recall and name it from memory.",
+    paper: "GS1",
+    topic: "Geography",
+    state: "building",
     accent: "#3E5C76",
     preview: "map",
   },

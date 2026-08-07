@@ -48,7 +48,8 @@
    wraps onto a second line and pushes everything down. Truncate it with an
    ellipsis instead, matching the single-line breadcrumb every other tool
    has. Scoped to this page only via .np-breadcrumb, not the shared rule. */
-.np-breadcrumb {
+.np-breadcrumb .ul-breadcrumb-pill {
+  max-width: 100%;
   flex-wrap: nowrap;
 }
 .np-breadcrumb .ul-breadcrumb-cur {

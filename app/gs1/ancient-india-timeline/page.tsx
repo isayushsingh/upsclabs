@@ -12,11 +12,13 @@ export default function Page() {
     <>
       <DesktopRecommendedModal toolName="This ancient India dynastic timeline" />
       <nav className="ul-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">UPSC Labs</Link>
-        <span>/</span>
-        <Link href="/gs1">GS1</Link>
-        <span>/</span>
-        <span className="ul-breadcrumb-cur">Ancient India Timeline</span>
+        <span className="ul-breadcrumb-pill">
+          <Link href="/">UPSC Labs</Link>
+          <span>/</span>
+          <Link href="/gs1">GS1</Link>
+          <span>/</span>
+          <span className="ul-breadcrumb-cur">Ancient India Timeline</span>
+        </span>
       </nav>
       <AncientIndiaTimeline />
     </>
