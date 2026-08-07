@@ -731,14 +731,13 @@ a.ul-cov-img:hover {
 .ul-news-msg.ok { color: #4a6b50; }
 .ul-news-msg.error { color: #9a4a3c; }
 
-/* ── breadcrumb (tool pages) ──
-   .ul-breadcrumb is just the positioning column (matches the tool content's
-   own max-width/margin below it); .ul-breadcrumb-pill is the visible badge,
-   sized to hug its own text rather than stretching the full column width. */
-.ul-breadcrumb {
-  max-width: 880px;
+/* ── tool page header: breadcrumb + title + subtitle (ToolHeader.tsx) ──
+   One shared column width/alignment for every tool page — .ul-breadcrumb
+   itself carries no positioning of its own, since it's always nested here. */
+.ul-toolhead {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 22px clamp(16px, 4vw, 48px) 0;
+  padding: 22px clamp(16px, 4vw, 40px) 0;
 }
 .ul-breadcrumb-pill {
   display: inline-flex;
@@ -757,6 +756,22 @@ a.ul-cov-img:hover {
 .ul-breadcrumb a { color: var(--ink-soft); text-decoration: none; }
 .ul-breadcrumb a:hover { color: var(--ink); }
 .ul-breadcrumb-cur { color: var(--ink); }
+
+.ul-tool-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 14px 0 12px;
+}
+.ul-tool-sub {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 58ch;
+}
 
 /* ── footer: floating rounded panel, like the header pill ── */
 .ul-footer {

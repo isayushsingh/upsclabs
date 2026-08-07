@@ -31,24 +31,8 @@
   font-family: var(--riv-sans);
 }
 
-.riv-headtext {
-  min-width: 0;
-}
-.riv-title {
-  font-family: var(--riv-serif);
-  font-size: clamp(30px, 5vw, 46px);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
-  margin: 0 0 12px;
-}
-.riv-sub {
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  margin: 0;
-  max-width: 62ch;
-}
+/* Title/subtitle/breadcrumb now come from the shared ToolHeader component
+   (components/site/ToolHeader.tsx) — no longer rendered here. */
 
 /* ── workspace: fixed sidebar + map column, same split as the parks tool ── */
 .riv-workspace {

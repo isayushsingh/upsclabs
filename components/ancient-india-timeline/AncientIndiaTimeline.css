@@ -11,9 +11,8 @@
   padding:34px clamp(16px,4vw,48px) 48px; box-sizing:border-box; max-width:880px; margin:0 auto;
 }
 *,*::before,*::after{box-sizing:border-box;}
-.ait-eyebrow{ font-family:var(--font-space-mono),monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; }
-.ait-title{ font-family:var(--font-general-sans),var(--font-inter),sans-serif; font-weight:700; font-size:clamp(30px,5vw,46px); line-height:1.02; letter-spacing:-.02em; margin:16px 0 12px; }
-.ait-sub{ max-width:58ch; margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.55; }
+/* Title/subtitle/breadcrumb now come from the shared ToolHeader component
+   (components/site/ToolHeader.tsx) — no longer rendered here. */
 
 .ait-readout{ display:flex; align-items:stretch; gap:12px; margin:28px 0 14px; }
 .ait-readout-mid{ flex:1; min-width:0; }

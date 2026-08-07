@@ -1000,106 +1000,100 @@ export default function NationalParksMap() {
 
   return (
     <div className="np-root">
-        <div className="np-headrow">
-          <div className="np-headtext">
-            <h1 className="np-title">Protected Areas • Wetlands • Mapping</h1>
-            <p className="np-sub">
-              Pick a state, then reveal the parks. Data is provisional and
-              unverified — not for final revision.
-            </p>
-          </div>
+      {/* master controls: search + Learn/Recall, one row above the map —
+          not sidebar-bound, since both apply to the whole tool. */}
+      <div className="np-controlbar">
+        <div className="np-modecard" role="group" aria-label="Study mode">
+          <button
+            className={`np-mode np-mode-learn ${
+              mode === "learn" ? "np-mode-on" : ""
+            }`}
+            onClick={() => switchMode("learn")}
+            aria-pressed={mode === "learn"}
+          >
+            Learn Mode
+          </button>
+          <button
+            className={`np-mode np-mode-recall ${
+              mode === "recall" ? "np-mode-on" : ""
+            }`}
+            onClick={() => switchMode("recall")}
+            aria-pressed={mode === "recall"}
+          >
+            Recall Mode
+          </button>
         </div>
 
-      <div className="np-workspace">
-        {/* standalone left column — mode switch, layer menu, reset — lives
-            outside the map frame so it never overlaps markers/cards. */}
-        <aside className="np-sidebar">
-          <div className="np-search" role="search" ref={searchRef}>
-            <div className="np-search-box">
-              <span className="np-search-ic" aria-hidden="true">
-                ⚲
-              </span>
-              <input
-                type="text"
-                className="np-search-input"
-                placeholder="Search parks, reserves, wetlands…"
-                value={searchQuery}
-                onChange={(e) => {
-                  setSearchQuery(e.target.value);
-                  setSearchOpen(true);
+        <div className="np-search" role="search" ref={searchRef}>
+          <div className="np-search-box">
+            <span className="np-search-ic" aria-hidden="true">
+              ⚲
+            </span>
+            <input
+              type="text"
+              className="np-search-input"
+              placeholder="Search parks, reserves, wetlands…"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setSearchOpen(true);
+              }}
+              onFocus={() => {
+                if (searchQuery.trim()) setSearchOpen(true);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && searchResults.length > 0) {
+                  goToSearchResult(searchResults[0]);
+                } else if (e.key === "Escape") {
+                  setSearchQuery("");
+                  setSearchOpen(false);
+                }
+              }}
+              aria-label="Search parks, tiger reserves, wetlands and biosphere reserves"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="np-search-clear"
+                onClick={() => {
+                  setSearchQuery("");
+                  setSearchOpen(false);
                 }}
-                onFocus={() => {
-                  if (searchQuery.trim()) setSearchOpen(true);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && searchResults.length > 0) {
-                    goToSearchResult(searchResults[0]);
-                  } else if (e.key === "Escape") {
-                    setSearchQuery("");
-                    setSearchOpen(false);
-                  }
-                }}
-                aria-label="Search parks, tiger reserves, wetlands and biosphere reserves"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  className="np-search-clear"
-                  onClick={() => {
-                    setSearchQuery("");
-                    setSearchOpen(false);
-                  }}
-                  aria-label="Clear search"
-                >
-                  ×
-                </button>
-              )}
-            </div>
-            {searchQuery.trim() && searchOpen && (
-              <ul className="np-search-results">
-                {searchResults.length === 0 ? (
-                  <li className="np-search-empty">No matches</li>
-                ) : (
-                  searchResults.map((r) => (
-                    <li key={r.id}>
-                      <button
-                        type="button"
-                        className="np-search-result"
-                        onClick={() => goToSearchResult(r)}
-                      >
-                        <span className="np-search-name">{r.name}</span>
-                        <span className="np-search-meta">
-                          {SEARCH_TYPE_LABEL[r.type]} · {r.state}
-                        </span>
-                      </button>
-                    </li>
-                  ))
-                )}
-              </ul>
+                aria-label="Clear search"
+              >
+                ×
+              </button>
             )}
           </div>
+          {searchQuery.trim() && searchOpen && (
+            <ul className="np-search-results">
+              {searchResults.length === 0 ? (
+                <li className="np-search-empty">No matches</li>
+              ) : (
+                searchResults.map((r) => (
+                  <li key={r.id}>
+                    <button
+                      type="button"
+                      className="np-search-result"
+                      onClick={() => goToSearchResult(r)}
+                    >
+                      <span className="np-search-name">{r.name}</span>
+                      <span className="np-search-meta">
+                        {SEARCH_TYPE_LABEL[r.type]} · {r.state}
+                      </span>
+                    </button>
+                  </li>
+                ))
+              )}
+            </ul>
+          )}
+        </div>
+      </div>
 
-          <div className="np-modecard" role="group" aria-label="Study mode">
-            <button
-              className={`np-mode np-mode-learn ${
-                mode === "learn" ? "np-mode-on" : ""
-              }`}
-              onClick={() => switchMode("learn")}
-              aria-pressed={mode === "learn"}
-            >
-              Learn Mode
-            </button>
-            <button
-              className={`np-mode np-mode-recall ${
-                mode === "recall" ? "np-mode-on" : ""
-              }`}
-              onClick={() => switchMode("recall")}
-              aria-pressed={mode === "recall"}
-            >
-              Recall Mode
-            </button>
-          </div>
-
+      <div className="np-workspace">
+        {/* standalone left column — layer menu, reset — lives outside the
+            map frame so it never overlaps markers/cards. */}
+        <aside className="np-sidebar">
           <div className="np-layerbox">
             <span className="np-lyr-cap">Layers</span>
             <div className="np-lyr-col" role="group" aria-label="Map layers">
@@ -1167,43 +1161,6 @@ export default function NationalParksMap() {
             </span>
             Reset to All India
           </button>
-
-          {/* ── legends: marker key + IUCN key — bottom of the tool column ── */}
-          <div className="np-footnote">
-            <div className="np-fn-markers" aria-label="Marker key">
-              <span>
-                <i className="np-lg np-lg-np" />
-                National Park
-              </span>
-              <span>
-                <i className="np-lg np-lg-both" />
-                NP + Tiger Reserve
-              </span>
-              <span>
-                <i className="np-lg np-lg-amb" />
-                Tiger Reserve
-              </span>
-            </div>
-
-            <div className="np-fn-iucn" aria-label="IUCN Red List key">
-              <b>IUCN Status</b>
-              <div className="np-iucn-pills">
-                {(["CR", "EN", "VU", "NT", "LC"] as const).map((k) => (
-                  <span
-                    key={k}
-                    className={`np-iucn ${IUCN_DARK.has(k) ? "np-pill-dark" : ""}`}
-                    style={{ background: IUCN_COLOR[k] }}
-                  >
-                    {k}
-                  </span>
-                ))}
-              </div>
-              <span className="np-fn-flags">
-                <span>✦ endemic</span>
-                <span>◆ state animal</span>
-              </span>
-            </div>
-          </div>
         </aside>
 
         <div className="np-mapcol">
@@ -1639,6 +1596,44 @@ export default function NationalParksMap() {
             panelRef={cardRef}
           />
         )}
+        </div>
+      </div>
+
+      {/* ── legends: marker key + IUCN key — bottom of the whole page,
+          horizontal, not tucked under the sidebar. ── */}
+      <div className="np-footnote">
+        <div className="np-fn-markers" aria-label="Marker key">
+          <span>
+            <i className="np-lg np-lg-np" />
+            National Park
+          </span>
+          <span>
+            <i className="np-lg np-lg-both" />
+            NP + Tiger Reserve
+          </span>
+          <span>
+            <i className="np-lg np-lg-amb" />
+            Tiger Reserve
+          </span>
+        </div>
+
+        <div className="np-fn-iucn" aria-label="IUCN Red List key">
+          <b>IUCN Status</b>
+          <div className="np-iucn-pills">
+            {(["CR", "EN", "VU", "NT", "LC"] as const).map((k) => (
+              <span
+                key={k}
+                className={`np-iucn ${IUCN_DARK.has(k) ? "np-pill-dark" : ""}`}
+                style={{ background: IUCN_COLOR[k] }}
+              >
+                {k}
+              </span>
+            ))}
+          </div>
+          <span className="np-fn-flags">
+            <span>✦ endemic</span>
+            <span>◆ state animal</span>
+          </span>
         </div>
       </div>
     </div>

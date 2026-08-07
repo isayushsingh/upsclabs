@@ -226,14 +226,6 @@ export default function RiversOfIndiaMap() {
 
   return (
     <div className="riv-root">
-      <div className="riv-headtext">
-        <h1 className="riv-title">Rivers of India • Mapping</h1>
-        <p className="riv-sub">
-          Pick a river system, then reveal the rivers. Data is provisional
-          and unverified — not for final revision.
-        </p>
-      </div>
-
       <div className="riv-workspace">
         <aside className="riv-sidebar">
           <div className="riv-search" role="search" ref={searchRef}>

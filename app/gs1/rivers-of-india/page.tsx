@@ -1,6 +1,6 @@
-import Link from "next/link";
 import RiversOfIndiaMap from "@/components/rivers-of-india/RiversOfIndiaMap";
 import DesktopRecommendedModal from "@/components/site/DesktopRecommendedModal";
+import ToolHeader from "@/components/site/ToolHeader";
 
 export const metadata = {
   title: "Rivers of India · UPSC Labs",
@@ -11,15 +11,15 @@ export default function Page() {
   return (
     <>
       <DesktopRecommendedModal toolName="This rivers of India map" />
-      <nav className="ul-breadcrumb" aria-label="Breadcrumb">
-        <span className="ul-breadcrumb-pill">
-          <Link href="/">UPSC Labs</Link>
-          <span>/</span>
-          <Link href="/gs1">GS1</Link>
-          <span>/</span>
-          <span className="ul-breadcrumb-cur">Rivers of India</span>
-        </span>
-      </nav>
+      <ToolHeader
+        crumbs={[
+          { label: "UPSC Labs", href: "/" },
+          { label: "GS1", href: "/gs1" },
+          { label: "Rivers of India" },
+        ]}
+        title="Rivers of India • Mapping"
+        subtitle="Pick a river system, then reveal the rivers. Data is provisional and unverified — not for final revision."
+      />
       <RiversOfIndiaMap />
     </>
   );
