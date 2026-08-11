@@ -158,10 +158,32 @@ export const CANVAS_WIDTH: Record<ZoomLevel, number> = {
 // small dot; at "labeled" zoom it's a narrow single-line card, kept short
 // (not the two-line chip an earlier version used) specifically so the
 // lane-packing below doesn't need to stack rows very tall to fit it.
+// `CARD_WIDTH` is each zoom's *maximum* card width — at "labeled" zoom a
+// card is actually sized to its own title (see estimateCardWidth) so short
+// titles like "Surat Split" don't carry the same blank padding a long one
+// like "Government of India Act, 1858" needs; this constant is what a card
+// caps out at, and what edge padding is sized against.
 export const CARD_WIDTH: Record<ZoomLevel, number> = {
   overview: 8,
   labeled: 200,
 };
+/** Floor on a "labeled"-zoom card's width, so even a one-word title ("Kakori
+    Train Robbery") still reads as a proper card, not a sliver. */
+export const CARD_WIDTH_MIN = 108;
+
+// Rough per-character advances for the two fonts a card renders (Inter for
+// the title, monospace for the year) at their actual CSS font-sizes — good
+// enough to size a card without a DOM measurement pass, since the title is
+// still clamped with text-overflow:ellipsis as a safety net if this
+// estimate ever runs a little short.
+const TITLE_CHAR_PX = 6.1;
+const YEAR_CHAR_PX = 5.6;
+const CARD_CHROME_PX = 8 /* left padding + colour bar */ + 7 /* right padding */ + 5; /* year↔title gap */
+
+function estimateCardWidth(title: string): number {
+  const raw = CARD_CHROME_PX + 4 * YEAR_CHAR_PX + title.length * TITLE_CHAR_PX;
+  return Math.min(CARD_WIDTH.labeled, Math.max(CARD_WIDTH_MIN, Math.round(raw)));
+}
 export const CARD_HEIGHT: Record<ZoomLevel, number> = {
   overview: 8,
   labeled: 20,
@@ -180,6 +202,8 @@ export interface LaidOutEvent extends TimelineEvent {
   x: number;
   /** y centre in px */
   y: number;
+  /** this card's own render width in px (see estimateCardWidth) */
+  width: number;
 }
 
 export interface TimelineLayout {
@@ -207,28 +231,32 @@ export function layoutTimeline(
   sourceEvents: TimelineEvent[] = EVENTS
 ): TimelineLayout {
   const contentWidth = CANVAS_WIDTH[zoom];
-  const cardWidth = CARD_WIDTH[zoom];
+  const maxCardWidth = CARD_WIDTH[zoom];
   const cardHeight = CARD_HEIGHT[zoom];
   // Cards are centred on their x — without this margin, an event right at
   // the timeline's start/end has half its card hanging off the edge of the
-  // scrollable canvas, clipped by its overflow boundary.
-  const padX = cardWidth / 2 + EDGE_MARGIN;
+  // scrollable canvas, clipped by its overflow boundary. Sized against the
+  // *maximum* possible card width so it's enough no matter which event (long
+  // title or short) ends up being first/last.
+  const padX = maxCardWidth / 2 + EDGE_MARGIN;
 
   interface Placed {
     x: number;
     lane: number;
+    width: number;
   }
 
   const placedById = new Map<string, Placed>();
   const sorted = [...sourceEvents].sort((a, b) => a.year - b.year);
   const laneRightEdge: number[] = []; // right edge of the last card placed in each lane
   for (const e of sorted) {
+    const width = zoom === "overview" ? maxCardWidth : estimateCardWidth(e.title);
     const x = padX + yearToFrac(e.year) * contentWidth;
-    const leftEdge = x - cardWidth / 2;
+    const leftEdge = x - width / 2;
     let lane = laneRightEdge.findIndex((edge) => edge + CARD_GAP <= leftEdge);
     if (lane === -1) lane = laneRightEdge.length;
-    laneRightEdge[lane] = x + cardWidth / 2;
-    placedById.set(e.id, { x, lane });
+    laneRightEdge[lane] = x + width / 2;
+    placedById.set(e.id, { x, lane, width });
   }
   const laneCount = Math.max(1, laneRightEdge.length);
   const height = ERA_HEADER_HEIGHT + laneCount * (cardHeight + LANE_GAP) - LANE_GAP;
@@ -236,7 +264,7 @@ export function layoutTimeline(
   const events = sourceEvents.map((e) => {
     const placed = placedById.get(e.id)!;
     const y = ERA_HEADER_HEIGHT + placed.lane * (cardHeight + LANE_GAP) + cardHeight / 2;
-    return { ...e, x: placed.x, y };
+    return { ...e, x: placed.x, y, width: placed.width };
   });
 
   return { events, width: contentWidth + padX * 2, height };

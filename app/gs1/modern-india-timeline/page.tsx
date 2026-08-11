@@ -5,7 +5,7 @@ import ToolHeader from "@/components/site/ToolHeader";
 export const metadata = {
   title: "Modern India Timeline · UPSC Labs",
   description:
-    "Six parallel strands of the freedom struggle (1857–1947) on one zoomable timeline, with curated cause → effect links across strands.",
+    "230 milestones of the freedom struggle (1857–1947) on one zoomable, colour-coded timeline, with curated cause → effect links between them.",
 };
 
 export default function Page() {
@@ -18,8 +18,8 @@ export default function Page() {
           { label: "GS1", href: "/gs1" },
           { label: "Modern India Timeline" },
         ]}
-        title="Six strands, one struggle"
-        subtitle="Zoom from era to event. Filter a strand. Trace what caused what."
+        title="One struggle, every thread"
+        subtitle="Zoom from era to event. Colour marks the thread. Trace what caused what."
       />
       <ModernIndiaTimeline />
     </>

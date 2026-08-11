@@ -336,7 +336,7 @@ export default function ModernIndiaTimeline() {
                   {
                     left: ev.x,
                     top: ev.y,
-                    width: cardWidth,
+                    width: ev.width,
                     height: cardHeight,
                     "--sc": strand.color,
                   } as React.CSSProperties
