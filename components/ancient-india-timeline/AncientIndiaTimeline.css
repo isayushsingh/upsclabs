@@ -1,16 +1,21 @@
 /* Ancient India atlas — bespoke styling (design tokens + SVG + timeline).
    Fonts are injected as CSS variables by next/font in app/layout.tsx. */
 .ait-root{
-  --ink:#23241d; --ink-soft:#5c5d52; --stone:#d7d1c1; --stone-edge:#b3ab97;
-  --paper:#e9e5d9; --paper-2:#e3dece; --line:#c8c1ae; --border:#6b6557;
+  /* Matches app/globals.css's current cream palette — this tool is
+     otherwise self-contained, but the base paper/ink tokens need to track
+     the site theme so there's no visible seam against the page background. */
+  --ink:#17170f; --ink-soft:#58564a; --stone:#ded9c6; --stone-edge:#c7bfa4;
+  --paper:#f2efe2; --paper-2:#eae5d2; --line:#ddd6bd; --border:#6f6a58;
   background:var(--paper); color:var(--ink);
   font-family:var(--font-inter),system-ui,sans-serif; min-height:100%;
-  padding:34px clamp(16px,4vw,48px) 48px; box-sizing:border-box; max-width:880px; margin:0 auto;
+  /* Matches .ul-toolhead's own max-width + padding formula, so the timeline
+     rule/map below lines up edge-to-edge with the breadcrumb/title above
+     instead of sitting in a narrower, independently-centred column. */
+  padding:34px clamp(16px,4vw,40px) 48px; box-sizing:border-box; max-width:1280px; margin:0 auto;
 }
 *,*::before,*::after{box-sizing:border-box;}
-.ait-eyebrow{ font-family:var(--font-space-mono),monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; }
-.ait-title{ font-family:var(--font-fraunces),Georgia,serif; font-weight:500; font-size:clamp(30px,5vw,46px); line-height:1.02; letter-spacing:-.01em; margin:0 0 12px; }
-.ait-sub{ max-width:58ch; margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.55; }
+/* Title/subtitle/breadcrumb now come from the shared ToolHeader component
+   (components/site/ToolHeader.tsx) — no longer rendered here. */
 
 .ait-readout{ display:flex; align-items:stretch; gap:12px; margin:28px 0 14px; }
 .ait-readout-mid{ flex:1; min-width:0; }
@@ -41,7 +46,7 @@
 .ait-axis{ position:relative; height:16px; margin-top:7px; }
 .ait-tick{ position:absolute; transform:translateX(-50%); font-family:var(--font-space-mono),monospace; font-size:10px; color:var(--ink-soft); white-space:nowrap; }
 
-.ait-mapwrap{ position:relative; margin:16px 0 6px; }
+.ait-mapwrap{ max-width: 800px; position:relative; margin:0 auto; }
 .ait-svg{ width:100%; height:auto; display:block; }
 .ait-land{ fill:var(--stone); stroke:var(--stone-edge); stroke-width:1; stroke-linejoin:round; }
 .ait-border{ fill:none; stroke:var(--border); stroke-width:.9; stroke-dasharray:2 2.5; opacity:.55; }
@@ -53,7 +58,7 @@
 .ait-empty{ position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); text-align:center; display:flex; flex-direction:column; gap:3px; color:var(--ink-soft); font-size:14px; pointer-events:none; font-family:var(--font-fraunces),serif; font-style:italic; }
 .ait-empty-sub{ font-family:var(--font-space-mono),monospace; font-size:10px; letter-spacing:.08em; font-style:normal; }
 
-.ait-legend{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.ait-legend{ display:flex; flex-wrap:wrap; gap:8px; margin:0 auto;}
 .ait-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-inter),sans-serif; font-size:12.5px; color:var(--ink-soft); padding:5px 11px; border:1px solid var(--line); border-radius:999px; background:transparent; cursor:pointer; opacity:.5; transition:opacity .25s, border-color .25s; }
 .ait-chip.on{ opacity:1; color:var(--ink); border-color:var(--stone-edge); }
 .ait-chip:hover{ opacity:.85; }

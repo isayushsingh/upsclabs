@@ -1,0 +1,2944 @@
+[
+  {
+    "id": "e1",
+    "year": 1857,
+    "title": "Revolt of 1857",
+    "event": "The Revolt of 1857 breaks out, shaking the foundations of British rule in India.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      162,
+      175,
+      477
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e2",
+    "year": 1857,
+    "title": "Calcutta, Madras & Bombay Universities Founded",
+    "event": "Establishment of three premier universities at Calcutta, Madras, and Bombay.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      477
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e3",
+    "year": 1857,
+    "title": "Licensing Act, 1857",
+    "event": "The Licensing Act of 1857 is passed to impose emergency licensing restrictions on the press.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      352
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e4",
+    "year": 1858,
+    "title": "Government of India Act, 1858",
+    "event": "The Act for Better Government of India (1858) is passed, transferring administration from the East India Company to the British Crown.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      38,
+      173,
+      175,
+      330,
+      477
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e5",
+    "year": 1858,
+    "title": "Queen's Proclamation, 1858",
+    "event": "The Queen's Proclamation is announced, altering the imperial administrative structure and promising non-annexation of princely states.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      173,
+      175,
+      379
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e6",
+    "year": 1858,
+    "title": "Trial of Bahadur Shah Zafar",
+    "event": "Trial of the last Mughal Emperor, Bahadur Shah Zafar, in the Red Fort.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      504
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e7",
+    "year": 1859,
+    "title": "Indigo Revolt",
+    "event": "Outbreak of the Indigo Revolt in Bengal, led by Digambar and Bishnu Biswas against oppressive indigo planters.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      45,
+      46,
+      508
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e8",
+    "year": 1859,
+    "title": "Civil Procedure Code Drafted",
+    "event": "The Civil Procedure Code is prepared by the Law Commission.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      328
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e9",
+    "year": 1859,
+    "title": "The 'White Mutiny'",
+    "event": "The 'White Mutiny' breaks out as European troops under the Company resent transfer of their allegiance to the Crown.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      175,
+      477
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e10",
+    "year": 1860,
+    "title": "Indian Penal Code Compiled",
+    "event": "The Indian Penal Code is compiled by the Law Commission.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      328
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e11",
+    "year": 1861,
+    "title": "Indian Councils Act, 1861",
+    "event": "The Indian Councils Act of 1861 is enacted to introduce representative elements in the legislatures.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      173,
+      331,
+      477
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e12",
+    "year": 1861,
+    "title": "Indian Civil Service Act, 1861",
+    "event": "The Indian Civil Service Act of 1861 is passed to regulate the civil services.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      173,
+      331,
+      477
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e13",
+    "year": 1861,
+    "title": "Criminal Procedure Code Compiled",
+    "event": "The Criminal Procedure Code is compiled by the Law Commission.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      328
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e14",
+    "year": 1861,
+    "title": "Indian Police Act, 1861",
+    "event": "The Indian Police Act of 1861 is enacted, creating a formal imperialist police structure.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      331
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e15",
+    "year": 1862,
+    "title": "Indian Mirror & Bengalee Launched",
+    "event": "The first Indian daily paper in English, Indian Mirror, and the vernacular paper Bengalee are launched.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      513
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e16",
+    "year": 1863,
+    "title": "First Indian to Qualify ICS",
+    "event": "Satyendra Nath Tagore becomes the first Indian to qualify for the Indian Civil Service (ICS).",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      324,
+      325
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e17",
+    "year": 1865,
+    "title": "Calcutta, Bombay & Madras High Courts Formed",
+    "event": "The Supreme Court and the Sadar Adalats are merged into three High Courts at Calcutta, Bombay, and Madras.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      328,
+      478
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e18",
+    "year": 1865,
+    "title": "Bhutan War",
+    "event": "The Bhutan War takes place between the British Indian Government and Bhutan.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      478
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e19",
+    "year": 1866,
+    "title": "Brahmo Samaj Splits",
+    "event": "A split in the Brahmo Samaj results in the creation of the Brahmo Samaj of India (led by Keshab Chandra Sen) and the Adi Brahmo Samaj (led by Debendranath Tagore).",
+    "strand": "press-education-social-reform",
+    "citations": [
+      187,
+      497
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e20",
+    "year": 1866,
+    "title": "Deoband School Founded",
+    "event": "The Deoband School of Islamic Theology is established in Saharanpur, UP.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      501
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e21",
+    "year": 1867,
+    "title": "Registration Act, 1867",
+    "event": "The Registration Act of 1867 replaces Metcalfe's Press Act of 1835 as a regulatory measure.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      353
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e22",
+    "year": 1867,
+    "title": "Prarthana Samaj Founded",
+    "event": "The Prarthana Samaj is founded in Bombay by Atmaram Pandurang and Govind Ranade.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      500
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e23",
+    "year": 1868,
+    "title": "Madras Mail Launched",
+    "event": "The Madras Mail is established as the first evening newspaper in India.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      513
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e24",
+    "year": 1869,
+    "title": "Birth of Mahatma Gandhi",
+    "event": "Birth of Mohandas Karamchand Gandhi in Porbandar, Gujarat (October 2).",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      238
+    ],
+    "tier": "context"   
+  },
+  {
+    "id": "e25",
+    "year": 1870,
+    "title": "Poona Sarvajanik Sabha Founded",
+    "event": "The Poona Sarvajanik Sabha is founded to act as a bridge between the government and the people.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      204
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e26",
+    "year": 1870,
+    "title": "Indian Reform Association Founded",
+    "event": "The Indian Reform Association is founded in Calcutta by Keshab Chandra Sen to promote social reform.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      500
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e27",
+    "year": 1873,
+    "title": "Satyashodhak Samaj Founded",
+    "event": "Jyotirao Phule founds the Satyashodhak Samaj in Maharashtra to campaign against Brahminical supremacy.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      188,
+      506
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e28",
+    "year": 1873,
+    "title": "Pabna Agrarian Uprising",
+    "event": "The Pabna Agrarian Uprising breaks out in East Bengal as peasants form leagues to resist oppressive zamindars.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      46,
+      509
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e29",
+    "year": 1875,
+    "title": "Indian League Founded",
+    "event": "The Indian League is founded to stimulate nationalist feelings and political education.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      204
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e30",
+    "year": 1875,
+    "title": "Arya Samaj Founded",
+    "event": "The Arya Samaj is founded in Bombay by Swami Dayanand Saraswati, championing Vedic revivalism.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      500
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e31",
+    "year": 1875,
+    "title": "Aligarh School Founded",
+    "event": "The Aligarh School is founded by Syed Ahmed Khan, which later grows into the Muhammadan Anglo-Oriental College.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      501
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e32",
+    "year": 1875,
+    "title": "Theosophical Society Founded",
+    "event": "The Theosophical Society is founded in New York, later shifting its headquarters to Adyar, Madras.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      501
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e33",
+    "year": 1875,
+    "title": "Deccan Peasants' Uprising",
+    "event": "The Deccan Peasants' Uprising occurs in western India against high Ryotwari taxes and moneylenders.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      508
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e34",
+    "year": 1876,
+    "title": "Indian National Association Founded",
+    "event": "The Indian National Association (Indian Association of Calcutta) is founded by Surendranath Banerjea and Ananda Mohan Bose.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      204
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e35",
+    "year": 1876,
+    "title": "Royal Titles Act, 1876",
+    "event": "The Royal Titles Act of 1876 is passed, with Queen Victoria assuming the title of 'Kaiser-i-Hind' (Queen Empress of India).",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      379,
+      479
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e36",
+    "year": 1876,
+    "title": "ICS Age Limit Cut to 19",
+    "event": "Under Viceroy Lytton, the maximum age limit for the Indian Civil Services (ICS) examination is reduced from 21 to 19 years.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      202,
+      324,
+      325
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e37",
+    "year": 1877,
+    "title": "Delhi Durbar, 1877",
+    "event": "The grand Delhi Durbar is held by Lytton while the country is suffering under a severe famine.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      202
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e38",
+    "year": 1878,
+    "title": "Vernacular Press Act ('Gagging Act')",
+    "event": "The repressive Vernacular Press Act (popularly called the 'Gagging Act') is enacted to muzzle the native press.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      202,
+      479
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e39",
+    "year": 1878,
+    "title": "Indian Arms Act, 1878",
+    "event": "The Indian Arms Act of 1878 is passed, criminalizing the possession of weapons by Indians without a license.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      202,
+      479
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e40",
+    "year": 1878,
+    "title": "Statutory Civil Service Introduced",
+    "event": "Lytton introduces the Statutory Civil Service, a short-lived system reserved for high-family nominations.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      324,
+      331
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e41",
+    "year": 1878,
+    "title": "Pahariyas' Rebellion",
+    "event": "The Pahariyas' Rebellion breaks out in the Raj Mahal Hills under Raja Jagganath against British expansion.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      155,
+      157
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e42",
+    "year": 1879,
+    "title": "Ramosi Peasant Force Launched",
+    "event": "The Ramosi Peasant Force is launched in Maharashtra by Vasudev Balwant Phadke.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      229
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e43",
+    "year": 1879,
+    "title": "Second Afghan War",
+    "event": "The Second Afghan War (1878-80) intensifies under Lytton's Policy of 'Proud Reserve'.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      479
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e44",
+    "year": 1880,
+    "title": "Hicky's Bengal Gazette",
+    "event": "Hicky's Bengal Gazette is established as the first printed newspaper in India.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      74,
+      351
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e45",
+    "year": 1881,
+    "title": "First Indian Factory Act, 1881",
+    "event": "The first Indian Factory Act is passed by Lord Ripon to improve working conditions for factory labourers.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      479
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e46",
+    "year": 1881,
+    "title": "Kesari & Maharatta Launched",
+    "event": "Bal Gangadhar Tilak and others launch Kesari (Marathi daily) and Maharatta (English weekly).",
+    "strand": "press-education-social-reform",
+    "citations": [
+      514
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e47",
+    "year": 1882,
+    "title": "Vernacular Press Act Repealed",
+    "event": "Lord Ripon repeals the repressive Vernacular Press Act.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      479
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e48",
+    "year": 1882,
+    "title": "Anandamath Published",
+    "event": "Bankim Chandra Chatterjee publishes Anandamath, popularizing the song 'Vandemataram' and the Sanyasi Revolt.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      76
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e49",
+    "year": 1882,
+    "title": "Hunter Education Commission",
+    "event": "The Hunter Education Commission is appointed to review and improve primary and secondary education.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      331,
+      479
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e50",
+    "year": 1883,
+    "title": "Indian National Conference",
+    "event": "The first session of the Indian National Conference is held, serving as a precursor to the Congress.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      204
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e51",
+    "year": 1883,
+    "title": "Ilbert Bill Controversy",
+    "event": "The Ilbert Bill controversy erupts as Ripon's government attempts to give Indian magistrates jurisdiction over Europeans.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      202,
+      479
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e52",
+    "year": 1883,
+    "title": "Trial of Surendranath Banerjea",
+    "event": "Trial of Surendranath Banerjea for contempt of court, marking a key moment in political press activism.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      504
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e53",
+    "year": 1884,
+    "title": "Madras Mahajan Sabha Founded",
+    "event": "The Madras Mahajan Sabha is founded to coordinate provincial political activities.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      204
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e54",
+    "year": 1884,
+    "title": "Deccan Education Society Founded",
+    "event": "The Deccan Education Society is founded in Pune by Ranade, Chiplunkar, and Agarkar.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      501
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e55",
+    "year": 1885,
+    "title": "Indian National Congress Founded",
+    "event": "The Indian National Congress is founded by retired civil servant A.O. Hume, holding its first session in Bombay.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      204,
+      480
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e56",
+    "year": 1885,
+    "title": "Bombay Presidency Association Founded",
+    "event": "The Bombay Presidency Association is founded by Pherozeshah Mehta, K.T. Telang, and Badruddin Tyabji.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      204
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e57",
+    "year": 1885,
+    "title": "Third Burmese War",
+    "event": "The Third Burmese War breaks out, leading to the complete annexation of Upper Burma.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      148,
+      480
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e58",
+    "year": 1885,
+    "title": "Seva Sadan Established",
+    "event": "The Seva Sadan is established in Bombay by Behramji Malabari to support women and children.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      501
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e59",
+    "year": 1887,
+    "title": "Dev Samaj Founded",
+    "event": "The Dev Samaj is founded in Lahore by Shiv Narayan Agnihotri as a social and religious reform society.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      194,
+      501
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e60",
+    "year": 1887,
+    "title": "Indian National Social Conference",
+    "event": "The Indian National Social Conference is founded by M.G. Ranade and Raghunath Rao.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      501
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e61",
+    "year": 1887,
+    "title": "Dufferin's Attack on Congress",
+    "event": "Viceroy Dufferin and colonial authorities launch a frontal attack on the newly formed Congress.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      305
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e62",
+    "year": 1889,
+    "title": "Ahmadiya Movement Founded",
+    "event": "The Ahmadiya Movement is founded by Mirza Ghulam Ahmad in Qadian, Punjab.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      502
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e63",
+    "year": 1891,
+    "title": "Second Factory Act, 1891",
+    "event": "The second Factory Act is passed, further regulating working hours and conditions.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      480
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e64",
+    "year": 1892,
+    "title": "Indian Councils Act, 1892",
+    "event": "The Indian Councils Act of 1892 is enacted, expanding legislative council memberships and introducing indirect elections.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      39,
+      331,
+      481
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e65",
+    "year": 1892,
+    "title": "Madras Hindu Association Founded",
+    "event": "The Madras Hindu Association is founded by Viresalingam Pantulu for social reform and education.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      502
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e66",
+    "year": 1893,
+    "title": "Durand Commission",
+    "event": "The Durand Commission is set up under Lansdowne to define the boundary line between British India and Afghanistan.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      481
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e67",
+    "year": 1895,
+    "title": "Constitution of India Bill (Tilak)",
+    "event": "The Constitution of India Bill (Home Rule Bill), inspired by Bal Gangadhar Tilak, is introduced to demand basic human rights.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      387
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e68",
+    "year": 1897,
+    "title": "Chapekar Brothers Assassinate Rand",
+    "event": "The Chapekar brothers assassinate British officials Rand (the plague commissioner of Poona) and Lt. Ayerst in Maharashtra.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      229,
+      481
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e69",
+    "year": 1897,
+    "title": "Ramakrishna Mission Founded",
+    "event": "Swami Vivekananda founds the Ramakrishna Mission to carry out humanitarian and spiritual work.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      502
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e70",
+    "year": 1897,
+    "title": "Kaivartas' Movement Begins",
+    "event": "The Kaivartas' (later Mahishyas) Movement begins in Midnapore, Bengal.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      507
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e71",
+    "year": 1899,
+    "title": "Mitra Mela Founded",
+    "event": "The secret revolutionary society Mitra Mela is founded by Savarkar and his brother in Maharashtra.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      224,
+      229,
+      464
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e72",
+    "year": 1899,
+    "title": "Curzon Appointed Viceroy",
+    "event": "Lord Curzon is appointed as Viceroy of India, initiating highly centralizing and reactionary policies.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      146,
+      481
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e73",
+    "year": 1902,
+    "title": "Police Commission (Frazer)",
+    "event": "Curzon appoints the Police Commission under Sir Andrew Frazer to review police administration.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      331,
+      481
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e74",
+    "year": 1902,
+    "title": "Universities Commission",
+    "event": "The Universities Commission is appointed by Curzon to recommend changes in university education.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      481
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e75",
+    "year": 1902,
+    "title": "Bharat Dharma Mahamandala Founded",
+    "event": "The Bharat Dharma Mahamandala is established in Benaras by Madan Mohan Malaviya and others.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      503
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e76",
+    "year": 1903,
+    "title": "Anti-Partition Campaign Begins",
+    "event": "The Anti-Partition Campaign is launched under Moderate leadership (Surendranath Banerjea, K.K. Mitra, etc.) in Bengal.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      21,
+      219
+    ],
+    "leadsTo": [
+      "e82"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e77",
+    "year": 1904,
+    "title": "Indian Universities Act, 1904",
+    "event": "The Indian Universities Act is passed, increasing government control over universities.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      45,
+      481
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e78",
+    "year": 1904,
+    "title": "Ancient Monuments Preservation Act",
+    "event": "The Ancient Monuments Preservation Act of 1904 is enacted by Curzon.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      481
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e79",
+    "year": 1904,
+    "title": "Mitra Mela Merges into Abhinav Bharat",
+    "event": "The Mitra Mela secret society merges with Abhinav Bharat, modeled on Mazzini's 'Young Italy'.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      224,
+      229
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e80",
+    "year": 1904,
+    "title": "Younghusband Mission to Lhasa",
+    "event": "Colonel Younghusband leads a British military mission to Lhasa, Tibet.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      481
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e81",
+    "year": 1904,
+    "title": "Desher Katha Published",
+    "event": "Desher Katha is published in Bengali by Sakharam Ganesh Deuskar, popularizing the economic critiques of Naoroji and Dutt.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      81,
+      461
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e82",
+    "year": 1905,
+    "title": "Partition of Bengal",
+    "event": "The Partition of Bengal is formally implemented by Curzon to divide the nationalist stronghold (October 16).",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      21,
+      481
+    ],
+    "causedBy": [
+      "e76"
+    ],
+    "leadsTo": [
+      "e83",
+      "e93"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e83",
+    "year": 1905,
+    "title": "Swadeshi & Boycott Movement",
+    "event": "The formal proclamation of the Swadeshi and Boycott Movement is made, urging self-reliance and national education.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      211
+    ],
+    "causedBy": [
+      "e82"
+    ],
+    "leadsTo": [
+      "e90",
+      "e91"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e84",
+    "year": 1905,
+    "title": "Servants of India Society Founded",
+    "event": "Gopal Krishna Gokhale founds the Servants of India Society to train national missionaries and workers.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      192,
+      503
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e85",
+    "year": 1905,
+    "title": "Night School for Untouchables",
+    "event": "Vitthal Ramji Shinde establishes a night school for the children of untouchables in Pune.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      190
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e86",
+    "year": 1906,
+    "title": "All India Muslim League Founded",
+    "event": "The All India Muslim League is founded in Dacca by the Nawab of Dacca and the Aga Khan.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      306,
+      482
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e87",
+    "year": 1906,
+    "title": "Congress Declares 'Swaraj' as Goal",
+    "event": "The Calcutta Session of Congress, presided over by Dadabhai Naoroji, declares 'Swaraj' as the ultimate goal.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      212
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e88",
+    "year": 1906,
+    "title": "Depressed Classes Mission Founded",
+    "event": "Shinde establishes the Depressed Classes Mission in Bombay to work for Dalit upliftment and eliminate untouchability.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      190
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e89",
+    "year": 1906,
+    "title": "Indian Millhands' Union Formed",
+    "event": "Ashwini Coomar Banerjee leads jute mill workers to form the Indian Millhands' Union at Budge-Budge.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      463
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e90",
+    "year": 1906,
+    "title": "Yugantar, Sandhya & Kal Launched",
+    "event": "Revolutionary nationalist journals Yugantar, Sandhya, and Kal are launched in Bengal and Maharashtra.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      463,
+      514
+    ],
+    "causedBy": [
+      "e83"
+    ],
+    "leadsTo": [
+      "e94",
+      "e95",
+      "e96"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e91",
+    "year": 1907,
+    "title": "Surat Split",
+    "event": "The Surat Split occurs as the Indian National Congress divides into Moderates and Extremists over techniques of struggle.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      22,
+      212,
+      482
+    ],
+    "causedBy": [
+      "e83"
+    ],
+    "leadsTo": [
+      "e98"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e92",
+    "year": 1907,
+    "title": "'Home Political' Files Begun",
+    "event": "The Reforms Office starts a new series of files, 'Home Political', to deal with political and communal issues.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      64
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e93",
+    "year": 1907,
+    "title": "Seditious Meetings Act, 1907",
+    "event": "The Seditious Meetings Act is enacted to suppress anti-partition Swadeshi protests.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      220
+    ],
+    "causedBy": [
+      "e82"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e94",
+    "year": 1908,
+    "title": "Alipore Conspiracy Case",
+    "event": "Trial of Aurobindo Ghosh, Barindra Kumar Ghosh, and 36 others in the Alipore Conspiracy Case following bomb making raids.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      504
+    ],
+    "causedBy": [
+      "e90"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e95",
+    "year": 1908,
+    "title": "Khudiram Bose's Muzaffarpur Bombing",
+    "event": "Khudiram Bose and Prafulla Chaki assassinate two British women in a bomb attack meant for the Muzaffarpur Magistrate.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      464
+    ],
+    "causedBy": [
+      "e90"
+    ],
+    "leadsTo": [
+      "e97"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e96",
+    "year": 1908,
+    "title": "Barrah Dacoity",
+    "event": "The Barrah dacoity is organized by Dacca Anushilan Samiti under Pulin Das to raise revolutionary funds.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      223,
+      464
+    ],
+    "causedBy": [
+      "e90"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e97",
+    "year": 1908,
+    "title": "Incitement & Explosives Acts, 1908",
+    "event": "The Indian Newspapers (Incitement to Offences) Act and the Explosive Substances Act are passed to curb revolutionary activities.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      220
+    ],
+    "causedBy": [
+      "e95"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e98",
+    "year": 1909,
+    "title": "Morley-Minto Reforms, 1909",
+    "event": "The Morley-Minto Reforms (Indian Councils Act 1909) are passed, introducing separate electorates for Muslims.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      22,
+      39,
+      220,
+      306
+    ],
+    "causedBy": [
+      "e91"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e99",
+    "year": 1909,
+    "title": "First Indian on Viceroy's Council",
+    "event": "Satyendra Sinha is appointed as the first Indian member of the Viceroy's Executive Council.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      217,
+      220
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e100",
+    "year": 1909,
+    "title": "Gandhi Writes Hind Swaraj",
+    "event": "Mahatma Gandhi writes Hind Swaraj, outlining his political theory, critique of modern civilization, and concept of Swaraj.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      278
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e101",
+    "year": 1909,
+    "title": "Kanhere Assassinates Jackson",
+    "event": "Anant Lakshman Kanhere, a member of Abhinav Bharat, assassinates Jackson, the Collector of Nasik.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      224,
+      229
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e102",
+    "year": 1909,
+    "title": "Dhingra Assassinates Curzon-Wyllie",
+    "event": "Madan Lal Dhingra assassinates Curzon-Wyllie in London; he is subsequently sentenced to death.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      230,
+      505
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e103",
+    "year": 1909,
+    "title": "Poona Seva Sadan Founded",
+    "event": "The Poona Seva Sadan is founded by Ramabai Ranade and G.K. Devadhar.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      503
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e104",
+    "year": 1909,
+    "title": "Punjab Hindu Sabha Founded",
+    "event": "The Punjab Hindu Sabha is founded by U.N. Mukherji and Lal Chand.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      306
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e105",
+    "year": 1910,
+    "title": "Indian Press Act, 1910",
+    "event": "The Indian Press Act of 1910 is enacted, imposing heavy security deposits on nationalist newspapers.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      220
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e106",
+    "year": 1910,
+    "title": "Bharat Stree Mahamandal Founded",
+    "event": "Sarla Devi Chaudhurani establishes the Bharat Stree Mahamandal in Allahabad, the first major Indian women's organization.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      179,
+      503
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e107",
+    "year": 1910,
+    "title": "Nishkam Karma Math Founded",
+    "event": "Dhondo Keshav Karve establishes the Nishkam Karma Math (Monastery of Disinterested Work) in Pune.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      503
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e108",
+    "year": 1911,
+    "title": "Capital Shifts to Delhi",
+    "event": "The Coronation Durbar of King George V is held in Delhi; the capital of India is officially transferred from Calcutta to Delhi.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      483
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e109",
+    "year": 1911,
+    "title": "Partition of Bengal Annulled",
+    "event": "The Partition of Bengal is annulled in response to intense, sustained Swadeshi boycotts and protests.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      22,
+      483
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e110",
+    "year": 1911,
+    "title": "Hitavada Begins Publication",
+    "event": "The Hitavada starts publication in Nagpur to project the views of the Servants of India Society.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      192
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e111",
+    "year": 1911,
+    "title": "Social Service League Founded",
+    "event": "The Social Service League is founded by N.M. Joshi in Bombay.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      503
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e112",
+    "year": 1913,
+    "title": "Ghadr Party Founded",
+    "event": "The Ghadr Party is established in San Francisco by Lala Hardayal and other Indian immigrants to plot armed revolution.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      226,
+      230
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e113",
+    "year": 1913,
+    "title": "Education Policy Resolution, 1913",
+    "event": "The British Indian Government issues its Resolution on Education Policy, increasing grants for vernacular schools.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      45,
+      358
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e114",
+    "year": 1913,
+    "title": "Bombay Chronicle Founded",
+    "event": "The Bombay Chronicle daily newspaper is founded by Pherozeshah Mehta.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      515
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e115",
+    "year": 1914,
+    "title": "Outbreak of World War I",
+    "event": "Outbreak of the First World War; Indian nationalists respond with varying levels of conditional support.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      231
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e116",
+    "year": 1914,
+    "title": "Gandhi Prepares to Leave South Africa",
+    "event": "Mahatma Gandhi stays in South Africa until late in the year, preparing to return to India after concluding negotiations.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      238
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e117",
+    "year": 1914,
+    "title": "Seva Samiti Founded",
+    "event": "The Seva Samiti is founded in Allahabad by Hridayanath Kunzru.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      503
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e118",
+    "year": 1915,
+    "title": "Ghadr Revolt Foiled",
+    "event": "Ghadrite plans for a simultaneous armed revolt on February 21 in India are foiled due to treachery.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      230
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e119",
+    "year": 1915,
+    "title": "Hindu Mahasabha's First Session",
+    "event": "The first session of the All India Hindu Mahasabha is held under the aegis of the Maharaja of Kasim Bazar.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      306,
+      483
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e120",
+    "year": 1915,
+    "title": "Defence of India Act, 1915",
+    "event": "The Defence of India Act is passed, giving the government sweeping powers of detention without trial.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      230,
+      242
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e121",
+    "year": 1916,
+    "title": "Lucknow Pact",
+    "event": "The Lucknow Session of Congress marks the reunion of Moderates and Extremists and the signing of the Lucknow Pact with the Muslim League.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      23,
+      483
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e122",
+    "year": 1916,
+    "title": "Home Rule Leagues Launched",
+    "event": "Bal Gangadhar Tilak and Annie Besant launch their respective Home Rule Leagues.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      23,
+      483
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e123",
+    "year": 1916,
+    "title": "First Women's University (Poona)",
+    "event": "The first Women's University is established at Poona by Dhondo Keshav Karve.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      484
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e124",
+    "year": 1917,
+    "title": "Champaran Satyagraha",
+    "event": "Mahatma Gandhi launches the Champaran Satyagraha in Bihar, his first civil disobedience movement in India, fighting the indigo 'tin-kathia' system.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      25,
+      484
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e125",
+    "year": 1917,
+    "title": "Montagu's 'Responsible Government' Declaration",
+    "event": "Edwin Montagu, Secretary of State for India, makes his historic declaration in Parliament on 'responsible government' as the goal of British rule.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      24,
+      234
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e126",
+    "year": 1917,
+    "title": "Sadler University Commission",
+    "event": "The Sadler University Commission is appointed to recommend reforms in educational policy.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      45,
+      484
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e127",
+    "year": 1917,
+    "title": "Indian Women's Association Founded",
+    "event": "The Indian Women's Association is founded in Madras by Margaret Cousins and Annie Besant.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      503
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e128",
+    "year": 1918,
+    "title": "Ahmedabad Mill Strike",
+    "event": "Gandhi leads the Ahmedabad Mill Strike, utilizing a hunger strike as a weapon of protest for the first time in India.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      25,
+      484
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e129",
+    "year": 1918,
+    "title": "Kheda Satyagraha",
+    "event": "Gandhi leads the Kheda Satyagraha (first non-cooperation) in Gujarat, advising farmers to withhold land revenue after crop failure.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      25,
+      484
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e130",
+    "year": 1918,
+    "title": "Montagu-Chelmsford Reforms Announced",
+    "event": "The Montagu-Chelmsford Reforms (Montford Report) are announced, proposing a system of dyarchy in the provinces.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      237
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e131",
+    "year": 1919,
+    "title": "Rowlatt Act",
+    "event": "The Anarchical and Revolutionary Crimes Act (Rowlatt Act) is enacted, allowing trial without jury and deportation of suspects.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      25,
+      242,
+      484
+    ],
+    "leadsTo": [
+      "e132"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e132",
+    "year": 1919,
+    "title": "Jallianwala Bagh Massacre",
+    "event": "The Jallianwala Bagh Massacre occurs in Amritsar (April 13) as Brigadier-General Dyer orders troops to fire on an unarmed crowd.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      25,
+      244,
+      484
+    ],
+    "causedBy": [
+      "e131"
+    ],
+    "leadsTo": [
+      "e135"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e133",
+    "year": 1919,
+    "title": "Government of India Act, 1919",
+    "event": "The Government of India Act, 1919 is passed to implement the Montford Reforms, establishing dyarchy in provinces.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      24,
+      39,
+      237,
+      322
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e134",
+    "year": 1919,
+    "title": "Evidence to Southborough Committee",
+    "event": "Vitthal Ramji Shinde gives evidence before the Southborough Franchise Committee, demanding special representation for untouchables.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      191
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e135",
+    "year": 1920,
+    "title": "Non-Cooperation & Khilafat Movements",
+    "event": "The Non-Cooperation and Khilafat Movements are launched jointly to protest against Punjab wrongs, the Treaty of Sevres, and demand Swaraj.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      26,
+      484
+    ],
+    "causedBy": [
+      "e132"
+    ],
+    "leadsTo": [
+      "e142"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e136",
+    "year": 1920,
+    "title": "AITUC Founded",
+    "event": "The All India Trade Union Congress (AITUC) is founded to organize the growing Indian working class.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      47
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e137",
+    "year": 1920,
+    "title": "Hindustan Times Launched",
+    "event": "The Hindustan Times daily newspaper is launched in Delhi.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      515
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e138",
+    "year": 1920,
+    "title": "Nagpur Session: New Congress Constitution",
+    "event": "The Nagpur Congress Session adopts a new constitution for the Congress, aiming for Swaraj through peaceful means.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      494
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e139",
+    "year": 1920,
+    "title": "Death of Bal Gangadhar Tilak",
+    "event": "Death of Bal Gangadhar Tilak on August 1, the day the Non-Cooperation Movement was launched.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      484
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e140",
+    "year": 1921,
+    "title": "Moplah Rebellion",
+    "event": "The Moplah Rebellion breaks out in Malabar, Kerala, as a peasant uprising that later takes on communal overtones.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      46,
+      485
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e141",
+    "year": 1921,
+    "title": "Buckingham & Carnatic Mills Strike",
+    "event": "Labour strikes break out at the Buckingham and Carnatic textile mills in Madras under the leadership of Thiru Vika.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      466
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e142",
+    "year": 1922,
+    "title": "Chauri Chaura Incident",
+    "event": "The Chauri Chaura incident (Feb 5) occurs as an agitated mob burns a police station; Gandhi withdraws the Non-Cooperation Movement.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      250,
+      485
+    ],
+    "causedBy": [
+      "e135"
+    ],
+    "leadsTo": [
+      "e143"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e143",
+    "year": 1922,
+    "title": "Gaya Session Rejects Council Entry",
+    "event": "The Gaya Session of Congress rejects the Swarajist proposal for entering legislative councils; C.R. Das and Motilal Nehru resign.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      251,
+      485
+    ],
+    "causedBy": [
+      "e142"
+    ],
+    "leadsTo": [
+      "e145"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e144",
+    "year": 1922,
+    "title": "Gandhi's 'Great Trial' of 1922",
+    "event": "Gandhi is arrested and sentenced to six years' imprisonment in the Great Trial of 1922.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      250,
+      505
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e145",
+    "year": 1923,
+    "title": "Swarajya Party Formed",
+    "event": "C.R. Das and Motilal Nehru form the Congress-Khilafat Swarajya Party (Swarajist Party) to contest elections and block councils from within.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      251,
+      485
+    ],
+    "causedBy": [
+      "e143"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e146",
+    "year": 1923,
+    "title": "Milap Urdu Daily Launched",
+    "event": "The Milap Urdu daily newspaper is launched in Lahore.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      515
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e147",
+    "year": 1924,
+    "title": "Kanpur Bolshevik Conspiracy Case",
+    "event": "The Kanpur Bolshevik Conspiracy Case begins, resulting in the imprisonment of communist leaders S.A. Dange and Muzaffar Ahmed.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      253
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e148",
+    "year": 1924,
+    "title": "Vaikom Satyagraha",
+    "event": "The Vaikom Satyagraha is launched in Travancore, Kerala, demanding that temple roads be opened to untouchables.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      195
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e149",
+    "year": 1924,
+    "title": "Gandhi's Only Congress Presidency",
+    "event": "Gandhi presides over his first and only Congress Session at Belgaum.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      493
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e150",
+    "year": 1924,
+    "title": "Ambedkar Launches Depressed Classes Movement",
+    "event": "B.R. Ambedkar launches the Depressed Classes (Mahars) Movement to demand civil rights and equality.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      507
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e151",
+    "year": 1925,
+    "title": "Communist Party of India Founded",
+    "event": "The Indian Communist Conference is held in Kanpur, formalizing the foundation of the Communist Party of India (CPI).",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      253
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e152",
+    "year": 1925,
+    "title": "Kakori Train Robbery",
+    "event": "The Kakori train robbery is executed by the Hindustan Republican Association (HRA) near Lucknow.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      257,
+      485
+    ],
+    "leadsTo": [
+      "e163"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e153",
+    "year": 1926,
+    "title": "Indian Trade Union Act, 1926",
+    "event": "The Indian Trade Union Act, 1926 is passed, providing legal recognition and registration to trade unions.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      47
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e154",
+    "year": 1926,
+    "title": "Kirti Journal Launched",
+    "event": "The Kirti journal is launched in Punjab to propagate Marxist and socialist ideas.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      515
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e155",
+    "year": 1926,
+    "title": "Assassination of Swami Shraddhanand",
+    "event": "Assassination of Swami Shraddhanand by a communal fanatic.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      485
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e156",
+    "year": 1927,
+    "title": "Simon Commission Appointed",
+    "event": "The Simon Commission (Indian Statutory Commission) is appointed by the British Government with no Indian members.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      28,
+      259
+    ],
+    "leadsTo": [
+      "e160"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e157",
+    "year": 1927,
+    "title": "All India Women's Conference Founded",
+    "event": "The All India Women's Conference (AIWC) is established to promote women's education and socio-political status.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      179
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e158",
+    "year": 1927,
+    "title": "Harcourt Butler Indian States Commission",
+    "event": "The Harcourt Butler Indian States Commission is appointed to study the relations between the Crown and princely states.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      28,
+      486
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e159",
+    "year": 1927,
+    "title": "Ambedkar Starts Bahishkrit Bharat",
+    "event": "B.R. Ambedkar starts the weekly journal Bahishkrit Bharat to advocate for the rights of the depressed classes.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      515
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e160",
+    "year": 1928,
+    "title": "'Simon Go Back' Protests",
+    "event": "The Simon Commission arrives in India, facing widespread black-flag protests and chants of 'Simon Go Back'.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      28,
+      486
+    ],
+    "causedBy": [
+      "e156"
+    ],
+    "leadsTo": [
+      "e161"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e161",
+    "year": 1928,
+    "title": "Nehru Report",
+    "event": "The Nehru Report is drafted by an all-parties committee headed by Motilal Nehru, outlining a constitution with Dominion Status.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      28,
+      261,
+      486
+    ],
+    "causedBy": [
+      "e160"
+    ],
+    "leadsTo": [
+      "e165"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e162",
+    "year": 1928,
+    "title": "Bardoli Satyagraha",
+    "event": "The Bardoli Satyagraha is launched in Surat, Gujarat, against a 22 percent revenue hike, led successfully by Vallabhbhai Patel.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      46,
+      509
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e163",
+    "year": 1928,
+    "title": "HRA Becomes HSRA",
+    "event": "The HRA is reorganized into the Hindustan Socialist Republican Association (HSRA) under the leadership of Chandrashekhar Azad.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      257
+    ],
+    "causedBy": [
+      "e152"
+    ],
+    "leadsTo": [
+      "e164"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e164",
+    "year": 1928,
+    "title": "Assassination of Saunders",
+    "event": "HSRA members Bhagat Singh, Rajguru, and Sukhdev assassinate police officer Saunders to avenge Lala Lajpat Rai's death.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      258
+    ],
+    "causedBy": [
+      "e163"
+    ],
+    "leadsTo": [
+      "e178"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e165",
+    "year": 1929,
+    "title": "Lahore Session: 'Purna Swaraj' Adopted",
+    "event": "The Lahore Session of the Indian National Congress, under Jawaharlal Nehru's presidency, adopts 'Purna Swaraj' (Complete Independence) as its goal.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      29,
+      494
+    ],
+    "causedBy": [
+      "e161"
+    ],
+    "leadsTo": [
+      "e170",
+      "e171"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e166",
+    "year": 1929,
+    "title": "Meerut Conspiracy Case",
+    "event": "Government arrests 31 prominent labour and communist leaders, launching the three-and-a-half-year Meerut Conspiracy Case trial.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      253,
+      368,
+      505
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e167",
+    "year": 1929,
+    "title": "Bhagat Singh's Assembly Bombing",
+    "event": "Bhagat Singh and Batukeshwar Dutt throw a bomb in the Central Legislative Assembly to protest repressive bills.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      258,
+      505
+    ],
+    "leadsTo": [
+      "e178"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e168",
+    "year": 1929,
+    "title": "Irwin's Dominion Status Declaration",
+    "event": "Viceroy Lord Irwin issues a declaration stating that Dominion Status is the logical sequel to India's constitutional progress.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      29
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e169",
+    "year": 1929,
+    "title": "Hartog Committee Report",
+    "event": "The Hartog Committee presents its report, highlighting a gloomy picture and high wastage in primary education.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      45,
+      358
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e170",
+    "year": 1930,
+    "title": "Purna Swaraj Independence Pledge",
+    "event": "The historic Purna Swaraj Independence Pledge is publicly taken all over India on January 26.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      29
+    ],
+    "causedBy": [
+      "e165"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e171",
+    "year": 1930,
+    "title": "Gandhi's 11 Demands to Irwin",
+    "event": "Gandhi presents his 11 Demands to Viceroy Lord Irwin, giving an ultimatum before starting mass struggle.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      30,
+      264
+    ],
+    "causedBy": [
+      "e165"
+    ],
+    "leadsTo": [
+      "e172"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e172",
+    "year": 1930,
+    "title": "Salt Satyagraha (Dandi March)",
+    "event": "Gandhi launches the Salt Satyagraha with the Dandi March (March 12 – April 6), initiating the Civil Disobedience Movement.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      30,
+      494
+    ],
+    "causedBy": [
+      "e171"
+    ],
+    "leadsTo": [
+      "e174"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e173",
+    "year": 1930,
+    "title": "Chittagong Armoury Raid",
+    "event": "The Chittagong Armoury Raid is carried out by Surya Sen and 65 activists under the Indian Republican Army banner.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      255,
+      258
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e174",
+    "year": 1930,
+    "title": "First Round Table Conference",
+    "event": "The First Round Table Conference meets in London; it is boycotted by the Congress.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      30,
+      268
+    ],
+    "causedBy": [
+      "e172"
+    ],
+    "leadsTo": [
+      "e176"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e175",
+    "year": 1930,
+    "title": "Sarda Act (Child Marriage Restraint)",
+    "event": "The Sarda Act (Child Marriage Restraint Act) is passed, raising the age of marriage.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      198
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e176",
+    "year": 1931,
+    "title": "Gandhi-Irwin Pact",
+    "event": "The Gandhi-Irwin Pact is signed, suspending Civil Disobedience and allowing Congress participation in the next RTC.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      30,
+      266,
+      486
+    ],
+    "causedBy": [
+      "e174"
+    ],
+    "leadsTo": [
+      "e179"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e177",
+    "year": 1931,
+    "title": "Karachi Session: Fundamental Rights Resolution",
+    "event": "The Karachi Session of Congress endorses the Gandhi-Irwin Pact and passes a resolution on Fundamental Rights and Economic Programme.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      30,
+      495
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e178",
+    "year": 1931,
+    "title": "Bhagat Singh, Rajguru & Sukhdev Hanged",
+    "event": "Bhagat Singh, Rajguru, and Sukhdev are hanged on March 23 in Lahore jail.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      258,
+      276
+    ],
+    "causedBy": [
+      "e164",
+      "e167"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e179",
+    "year": 1931,
+    "title": "Second Round Table Conference",
+    "event": "The Second Round Table Conference is held in London; Gandhi attends as the sole representative of the Congress.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      30,
+      487
+    ],
+    "causedBy": [
+      "e176"
+    ],
+    "leadsTo": [
+      "e180"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e180",
+    "year": 1932,
+    "title": "Communal Award",
+    "event": "British Prime Minister Ramsay MacDonald announces the Communal Award, granting separate electorates to depressed classes.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      31,
+      487
+    ],
+    "causedBy": [
+      "e179"
+    ],
+    "leadsTo": [
+      "e181"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e181",
+    "year": 1932,
+    "title": "Poona Pact",
+    "event": "Gandhi goes on a fast unto death in Yeravada jail, ending with the Poona Pact which grants reserved seats instead of separate electorates.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      31,
+      487
+    ],
+    "causedBy": [
+      "e180"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e182",
+    "year": 1932,
+    "title": "Third Round Table Conference",
+    "event": "The Third Round Table Conference is held in London, boycotted by the Congress.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      30,
+      487
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e183",
+    "year": 1932,
+    "title": "NWFP Made a Governor's Province",
+    "event": "The North-West Frontier Province (NWFP) is constituted as a governor's province.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      146
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e184",
+    "year": 1933,
+    "title": "Individual Civil Disobedience Resumes",
+    "event": "Resumption of the Civil Disobedience Movement in the form of Individual Civil Disobedience.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      487
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e185",
+    "year": 1933,
+    "title": "India Peasants' Institute Founded",
+    "event": "N.G. Ranga establishes the India Peasants' Institute to train peasant activists.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      364
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e186",
+    "year": 1934,
+    "title": "Civil Disobedience Movement Withdrawn",
+    "event": "The Civil Disobedience Movement is formally withdrawn by the Congress.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      494
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e187",
+    "year": 1934,
+    "title": "Congress Socialist Party Formed",
+    "event": "The Congress Socialist Party (CSP) is formed within the Congress by Acharya Narendra Dev and Jayaprakash Narayan.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      399,
+      487
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e188",
+    "year": 1935,
+    "title": "Government of India Act, 1935",
+    "event": "The Government of India Act, 1935 is passed, proposing provincial autonomy, dyarchy at the centre, and an all-India federation.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      32,
+      39,
+      314,
+      322,
+      487
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e189",
+    "year": 1935,
+    "title": "Burma Separated from India",
+    "event": "Burma is officially separated from British India under the provisions of the 1935 Act.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      488
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e190",
+    "year": 1936,
+    "title": "All India Kisan Sabha Founded",
+    "event": "The All India Kisan Sabha (Kisan Congress) is established in Lucknow, with Sahjanand Saraswati as President.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      46,
+      487
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e191",
+    "year": 1936,
+    "title": "Bakasht Movement Begins",
+    "event": "The Bakasht Movement begins in Bihar under the Kisan Sabha against landlord occupancy policies.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      46,
+      510
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e192",
+    "year": 1937,
+    "title": "Provincial Elections; Congress Wins",
+    "event": "General elections are held for provincial assemblies; Congress wins a majority and forms ministries in eight provinces.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      32,
+      487,
+      488
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e193",
+    "year": 1937,
+    "title": "Wardha Scheme (Nai Talim)",
+    "event": "The Zakir Hussain Committee formulates the Wardha Scheme of Basic Education (Nai Talim) based on Gandhian principles.",
+    "strand": "press-education-social-reform",
+    "citations": [
+      45,
+      357
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e194",
+    "year": 1938,
+    "title": "Haripura Session (Bose Presides)",
+    "event": "The Haripura Session of the Congress is held under the presidency of Subhas Chandra Bose.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      33,
+      488
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e195",
+    "year": 1938,
+    "title": "National Planning Committee Formed",
+    "event": "The Congress establishes the National Planning Committee, chaired by Jawaharlal Nehru, to draft industrialization plans.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      401,
+      495
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e196",
+    "year": 1939,
+    "title": "Outbreak of World War II",
+    "event": "Outbreak of World War II; the Viceroy associates India in the war without consulting Indian representatives.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      381,
+      488
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e197",
+    "year": 1939,
+    "title": "Congress Ministries Resign",
+    "event": "All provincial Congress ministries resign in protest against India's unilateral involvement in World War II.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      34,
+      488
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e198",
+    "year": 1939,
+    "title": "Tripuri Session; Bose Forms Forward Bloc",
+    "event": "The Tripuri Session of Congress is held; Subhas Bose resigns as President due to ideological conflicts with Gandhi and forms the Forward Bloc.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      33,
+      488,
+      495
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e199",
+    "year": 1940,
+    "title": "Muslim League's Lahore Resolution",
+    "event": "The Muslim League passes its Lahore Resolution demanding independent, sovereign states in Muslim-majority regions.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      283,
+      488
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e200",
+    "year": 1940,
+    "title": "The 'August Offer'",
+    "event": "Viceroy Linlithgow announces the 'August Offer', promising a representative constituent assembly and dominion status after the war.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      34,
+      283,
+      488
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e201",
+    "year": 1940,
+    "title": "Individual Satyagraha Launched",
+    "event": "The Congress launches Individual Satyagraha to assert freedom of speech, with Vinoba Bhave as the first satyagrahi.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      34,
+      488
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e202",
+    "year": 1940,
+    "title": "Anti-Compromise Conference (Ramgarh)",
+    "event": "Subhas Bose convenes the Anti-Compromise Conference at Ramgarh to oppose imperialist war contributions.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      290
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e203",
+    "year": 1941,
+    "title": "Subhas Bose's Great Escape",
+    "event": "Subhas Chandra Bose escapes from surveillance at his house in Calcutta to mobilize armed support from abroad.",
+    "strand": "revolutionary-movements",
+    "citations": [
+      488
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e204",
+    "year": 1942,
+    "title": "Cripps Mission",
+    "event": "The Cripps Mission arrives in India; its draft proposals are rejected by the Congress and Muslim League.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      34,
+      488
+    ],
+    "leadsTo": [
+      "e205"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e205",
+    "year": 1942,
+    "title": "'Quit India' Resolution",
+    "event": "The All India Congress Committee passes the 'Quit India' Resolution (August 8); all prominent leaders are arrested the next morning.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      34,
+      35,
+      292,
+      489
+    ],
+    "causedBy": [
+      "e204"
+    ],
+    "leadsTo": [
+      "e207"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e206",
+    "year": 1942,
+    "title": "INA's First Phase (Mohan Singh)",
+    "event": "Captain Mohan Singh establishes the first phase of the Indian National Army (INA) in Singapore with Japanese support.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      35,
+      291
+    ],
+    "leadsTo": [
+      "e210"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e207",
+    "year": 1942,
+    "title": "Parallel Governments Formed",
+    "event": "Parallel governments are formed in Ballia (UP), Tamluk (Bengal), and Satara (Maharashtra) during the Quit India upsurge.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      292
+    ],
+    "causedBy": [
+      "e205"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e208",
+    "year": 1943,
+    "title": "Bengal Famine",
+    "event": "A devastating famine strikes Bengal, causing severe loss of life.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      35
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e209",
+    "year": 1943,
+    "title": "Gandhi's 21-Day Prison Fast",
+    "event": "Mahatma Gandhi undergoes a 21-day fast in prison (February) against state repression of the Quit India movement.",
+    "strand": "mass-struggle-gandhian",
+    "citations": [
+      35,
+      292
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e210",
+    "year": 1943,
+    "title": "Bose Takes Command of the INA",
+    "event": "Subhas Chandra Bose arrives in Singapore and takes over control of the Indian Independence League and the INA.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      291
+    ],
+    "causedBy": [
+      "e206"
+    ],
+    "leadsTo": [
+      "e215"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e211",
+    "year": 1944,
+    "title": "C.R. Formula",
+    "event": "C. Rajagopalachari publishes the CR Formula to resolve the constitutional deadlock on the basis of a post-war plebiscite.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      35,
+      293,
+      490
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e212",
+    "year": 1944,
+    "title": "Desai-Liaqat Pact Proposals",
+    "event": "The Desai-Liaqat Pact proposals are discussed, proposing equal representation for Congress and League in the executive.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      35,
+      293
+    ],
+    "tier": "context"
+  },
+  {
+    "id": "e213",
+    "year": 1945,
+    "title": "Wavell Plan & Shimla Conference",
+    "event": "Viceroy Lord Wavell announces the Wavell Plan and convenes the Shimla Conference; talks break down over League veto claims.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      35,
+      293,
+      490
+    ],
+    "leadsTo": [
+      "e218"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e214",
+    "year": 1945,
+    "title": "End of World War II",
+    "event": "End of the Second World War as Japan surrenders.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      35,
+      289,
+      490
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e215",
+    "year": 1945,
+    "title": "INA Trials Begin (Red Fort)",
+    "event": "The first public trial of INA officers (Shah Nawaz Khan, Prem Sahgal, Gurbaksh Dhillon) opens in the Red Fort, New Delhi.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      35,
+      296,
+      505
+    ],
+    "causedBy": [
+      "e210"
+    ],
+    "leadsTo": [
+      "e216",
+      "e217"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e216",
+    "year": 1945,
+    "title": "Congress Backs the INA Prisoners",
+    "event": "The first post-war Congress session is held in Bombay, declaring absolute support for the INA prisoners' cause.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      296
+    ],
+    "causedBy": [
+      "e215"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e217",
+    "year": 1946,
+    "title": "Royal Indian Navy (RIN) Mutiny",
+    "event": "Over 1,100 Royal Indian Navy (RIN) ratings go on strike on HMIS Talwar, triggering a massive, supportive working-class strike wave.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      294,
+      297
+    ],
+    "causedBy": [
+      "e215"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e218",
+    "year": 1946,
+    "title": "Cabinet Mission",
+    "event": "The Cabinet Mission arrives in New Delhi and recommends the Cabinet Mission Plan, proposing a three-tier federal structure.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      36,
+      388,
+      490
+    ],
+    "causedBy": [
+      "e213"
+    ],
+    "leadsTo": [
+      "e219"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e219",
+    "year": 1946,
+    "title": "Direct Action Day",
+    "event": "The Muslim League calls for 'Direct Action Day' (August 16) to achieve Pakistan, leading to the Calcutta Killings and communal riots.",
+    "strand": "nationalist-orgs-political-forums",
+    "citations": [
+      36,
+      299,
+      490
+    ],
+    "causedBy": [
+      "e218"
+    ],
+    "leadsTo": [
+      "e225"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e220",
+    "year": 1946,
+    "title": "Interim Government Sworn In",
+    "event": "The Interim Government, headed by Jawaharlal Nehru as Vice President of the Executive Council, is sworn in.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      36,
+      300,
+      490
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e221",
+    "year": 1946,
+    "title": "Telangana Peasant Insurrection",
+    "event": "The armed Telangana Peasant Insurrection is launched in Nalgonda, Hyderabad state, against oppressive deshmukhs.",
+    "strand": "revolts-uprisings",
+    "citations": [
+      365,
+      510
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e222",
+    "year": 1946,
+    "title": "Constituent Assembly's First Meeting",
+    "event": "The Constituent Assembly of India holds its historic first meeting to frame a constitution (December 9).",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      385,
+      386
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e223",
+    "year": 1947,
+    "title": "Attlee's Transfer-of-Power Deadline",
+    "event": "British Prime Minister Clement Attlee announces a deadline of June 30, 1948, for the transfer of power and British departure from India.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      37,
+      308,
+      491
+    ],
+    "leadsTo": [
+      "e224"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e224",
+    "year": 1947,
+    "title": "Mountbatten Sworn In as Viceroy",
+    "event": "Lord Mountbatten is sworn in as the last Viceroy of British India to oversee the transfer of power.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      37,
+      309
+    ],
+    "causedBy": [
+      "e223"
+    ],
+    "leadsTo": [
+      "e225"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e225",
+    "year": 1947,
+    "title": "Mountbatten Plan (June 3 Plan)",
+    "event": "The Mountbatten Plan (June 3 Plan) is announced, proposing immediate partition and transfer of power on dominion status basis.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      37,
+      310,
+      491
+    ],
+    "causedBy": [
+      "e219",
+      "e224"
+    ],
+    "leadsTo": [
+      "e226",
+      "e227"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e226",
+    "year": 1947,
+    "title": "Indian Independence Act, 1947",
+    "event": "The British Parliament passes the Indian Independence Act of 1947, receiving royal assent on July 18.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      37,
+      313,
+      319
+    ],
+    "causedBy": [
+      "e225"
+    ],
+    "leadsTo": [
+      "e228",
+      "e229"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e227",
+    "year": 1947,
+    "title": "Radcliffe Boundary Commissions",
+    "event": "The boundary commissions under Sir Cyril Radcliffe are appointed to partition Punjab and Bengal.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      310,
+      313,
+      371
+    ],
+    "causedBy": [
+      "e225"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e228",
+    "year": 1947,
+    "title": "Creation of Pakistan",
+    "event": "Creation of the independent dominion of Pakistan on August 14.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      314
+    ],
+    "causedBy": [
+      "e226"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e229",
+    "year": 1947,
+    "title": "Indian Independence",
+    "event": "Creation of the independent dominion of India on August 15, ending nearly two centuries of British rule.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      37,
+      314,
+      370
+    ],
+    "causedBy": [
+      "e226"
+    ],
+    "tier": "core"
+  },
+  {
+    "id": "e230",
+    "year": 1947,
+    "title": "Princely States Begin Acceding",
+    "event": "Under Sardar Patel, the first phase of princely states' integration is completed as 136 states sign Instruments of Accession.",
+    "strand": "administrative-imperial-policy",
+    "citations": [
+      317
+    ],
+    "tier": "core"
+  }
+]

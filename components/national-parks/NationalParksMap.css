@@ -28,27 +28,26 @@
   --np-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
   --np-mono: var(--font-space-mono, var(--font-mono, ui-monospace, "SFMono-Regular", monospace));
 
-  max-width: 1400px;
+  /* Matches .ul-header-inner/.ul-main's own max-width + padding formula, so
+     the breadcrumb/title/content column lines up with the nav bar above it
+     instead of stretching to a different, wider edge. */
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 24px 20px 44px;
+  padding: 24px clamp(16px, 4vw, 40px) 44px;
   color: var(--ink);
   font-family: var(--np-sans);
 }
 
-/* Breadcrumb sits outside .np-root (rendered by the page, not this
-   component) but must line up with it — .ul-breadcrumb in site.css is
-   sized for the narrower timeline tool, so widen + repad to match here. */
-.np-breadcrumb {
-  max-width: 1400px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-/* The current-page breadcrumb segment ("National Parks, Tiger Reserves
-   Interactive Map") is much longer than other tools' — on narrow screens it
-   wraps onto a second line and pushes everything down. Truncate it with an
-   ellipsis instead, matching the single-line breadcrumb every other tool
-   has. Scoped to this page only via .np-breadcrumb, not the shared rule. */
-.np-breadcrumb {
+/* Breadcrumb sits outside .np-root (rendered by ToolHeader via the page,
+   not this component) — .ul-toolhead already matches this column's own
+   max-width/padding, so only the truncation tweak below is needed here.
+   The current-page segment ("Protected Areas • Wetlands • BR • Mapping")
+   is much longer than other tools' — on narrow screens it wraps onto a
+   second line and pushes everything down. Truncate it with an ellipsis
+   instead, matching the single-line breadcrumb every other tool has.
+   Scoped to this page only via .np-breadcrumb, not the shared rule. */
+.np-breadcrumb .ul-breadcrumb-pill {
+  max-width: 100%;
   flex-wrap: nowrap;
 }
 .np-breadcrumb .ul-breadcrumb-cur {
@@ -58,49 +57,32 @@
   min-width: 0;
 }
 
-/* ── header ── */
-.np-crumb {
+/* Title/subtitle/breadcrumb now come from the shared ToolHeader component
+   (components/site/ToolHeader.tsx) — no longer rendered here. */
+
+/* ── master controls: search + Learn/Recall, one row above the map ── */
+.np-controlbar {
   display: flex;
-  gap: 8px;
   align-items: center;
-  font-family: var(--np-mono);
-  font-size: 12.5px;
-  letter-spacing: 0.02em;
-  color: var(--stone);
+  gap: 12px;
+  margin-top: 20px;
 }
-.np-crumb b {
-  color: var(--ink);
-  font-weight: 500;
-}
-.np-title {
-  font-family: var(--np-serif);
-  font-size: clamp(30px, 5vw, 46px);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
-  margin: 0 0 12px;
-}
-.np-sub {
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--ink-soft, #5c5d52);
-  margin: 0;
-  max-width: 58ch;
-}
-.np-headrow {
-  display: flex;
-  gap: 12px 24px;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-.np-headtext {
+.np-controlbar .np-search {
+  flex: 0 1 450px;
   min-width: 0;
-  flex: 1 1 340px;
 }
-.np-headtext .np-title {
-  margin-top: 0;
+.np-controlbar .np-modecard {
+  flex: 0 0 auto;
+  min-width: 225px;
+}
+@media (max-width: 700px) {
+  .np-controlbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .np-controlbar .np-modecard {
+    min-width: 0;
+  }
 }
 
 /* ── universal search: parks, reserves, wetlands, biosphere reserves ── */
@@ -312,20 +294,20 @@
   margin-top: 18px;
   display: flex;
   align-items: flex-start;
-  gap: 22px;
+  border: 1px solid var(--line);
 }
 
-/* ── left sidebar (mode switch, layer menu, reset) — a normal document
-   column now, not an overlay pinned inside the map frame. ── */
+/* ── left sidebar (layer menu, reset) — flat, big, tap-friendly rows, no
+   floating card/shadow. A normal document column, not an overlay pinned
+   inside the map frame. ── */
 .np-sidebar {
-  flex: 0 0 232px;
-  width: 232px;
+  flex: 0 0 250px;
+  width: 250px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-.np-sidebar .np-modecard {
-  width: 100%;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
 }
 .np-mapcol {
   position: relative;
@@ -333,34 +315,35 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
+  border-left: 1px solid var(--line);
 }
 .np-layerbox {
-  background: rgba(251, 247, 238, 0.96);
-  border: 1px solid var(--line);
-  border-radius: 13px;
-  box-shadow: var(--shadow);
-  padding: 12px 12px 13px;
+  width: 224px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
 }
 .np-lb-reset {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-  width: 100%;
+  width: 224px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 10px;
   background: rgba(194, 104, 63, 0.1);
   color: var(--terra);
   font: inherit;
   font-size: 13px;
   font-weight: 700;
-  padding: 11px 14px;
+  padding: 12px 14px;
   cursor: pointer;
   transition: 0.15s;
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 .np-lb-reset-ic {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
 }
 .np-lb-reset:hover {
@@ -373,12 +356,13 @@
 }
 @media (max-width: 899px) {
   /* Small screens: the map renders first (full width, immediately visible,
-     zoom buttons still overlaid on it) and the menu — mode switch, layers,
-     reset — follows underneath in the normal document flow. Neither
-     overlaying the map nor pushing it below a tall menu works well here.
-     This must come after the base .np-sidebar/.np-mapcol/.np-layerbox rules
-     above — same specificity, so source order decides, and a media query
-     does not automatically win against a later plain rule. */
+     zoom buttons still overlaid on it) and the menu — layers, reset —
+     follows underneath in the normal document flow, still full-width
+     flat rows (this design is meant to be tap-friendly on tablets, not
+     shrunk into a wrapping row of small chips). This must come after the
+     base .np-sidebar/.np-mapcol rules above — same specificity, so source
+     order decides, and a media query does not automatically win against a
+     later plain rule. */
   .np-workspace {
     flex-direction: column;
   }
@@ -390,65 +374,52 @@
     order: 2;
     width: 100%;
     flex: 0 0 auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
+    align-items: stretch;
+    margin-top: 4px;
   }
-  .np-search {
-    flex: 1 1 100%;
-  }
-  .np-sidebar .np-modecard {
-    width: auto;
-    flex: 1 1 160px;
-  }
-  .np-layerbox {
-    flex: 1 1 100%;
-    padding: 10px 11px 11px;
-  }
-  .np-lyr-col {
-    gap: 6px;
-  }
+  .np-layerbox,
   .np-lb-reset {
-    flex: 1 1 160px;
-    width: auto;
+    width: 100%;
   }
-}
-.np-lyr-col .np-chip {
-  width: 100%;
-  justify-content: flex-start;
 }
 .np-lyr-cap {
   display: block;
-  font-size: 10.5px;
+  font-family: var(--np-mono);
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--stone);
-  margin: 0 0 9px 2px;
+  letter-spacing: 0.1em;
+  color: #6f6452;
+  margin: 0 0 10px 2px;
 }
 .np-chip:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
+/* "Flat" and "straight" per the redesign brief: a rectangular row (not a
+   pill), bigger padding/type/switch so it's an easy tap target on a
+   tablet, no drop shadow — filling the sidebar edge-to-edge. */
 .np-chip {
-  display: inline-flex;
+  display: flex;
+  width: 100%;
   align-items: center;
-  gap: 6px;
+  justify-content: flex-start;
+  gap: 10px;
   border: 1px solid var(--line);
   background: #fff;
-  border-radius: 999px;
-  padding: 4px 11px 4px 7px;
+  border-radius: 9px;
+  padding: 11px 13px;
   font: inherit;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #6f6452;
   cursor: pointer;
   transition: 0.15s;
+  box-shadow: none;
 }
 .np-sw {
-  width: 24px;
-  height: 14px;
+  width: 28px;
+  height: 16px;
   border-radius: 999px;
   background: #dbd2c1;
   position: relative;
@@ -460,15 +431,15 @@
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #fff;
   transition: 0.15s;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 .np-chip.on .np-sw::after {
-  left: 12px;
+  left: 14px;
 }
 .np-chip-np.on {
   color: #274a36;
@@ -1175,27 +1146,28 @@
   }
 }
 
-/* ── footnote legends — bottom of the left tool column, stacked and
-   left-aligned to fit the narrow sidebar. ── */
+/* ── footnote legends — bottom of the whole page, horizontal. ── */
 .np-footnote {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 2px;
-  padding-top: 12px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 32px;
+  margin-top: 28px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
-  font-size: 10.5px;
+  font-size: 11px;
   color: #6f6452;
 }
 .np-fn-iucn {
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
 }
 .np-fn-iucn > b {
-  font-size: 9px;
+  font-size: 9.5px;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: var(--stone);
@@ -1203,14 +1175,15 @@
 }
 .np-fn-flags {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
+  flex-direction: row;
+  gap: 12px;
   color: var(--stone);
 }
 .np-fn-markers {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 .np-fn-markers span {
   display: inline-flex;
@@ -1218,13 +1191,13 @@
   gap: 6px;
   white-space: nowrap;
 }
-@media (max-width: 899px) {
+@media (max-width: 620px) {
   .np-footnote {
-    flex: 1 1 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 10px;
+  }
+  .np-fn-iucn {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

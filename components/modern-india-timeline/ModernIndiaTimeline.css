@@ -1,0 +1,110 @@
+/* Modern India Timeline (1857–1947) — swimlanes + era-snapped zoom + a
+   curated causal-link overlay. Tokens mirror the ancient-india-timeline's
+   scoped copies so this stays self-contained against the site's cream page. */
+.mit-root{
+  --ink:#17170f; --ink-soft:#58564a; --stone-edge:#c7bfa4;
+  --paper:#f2efe2; --paper-2:#eae5d2; --paper-3:#f7f4e9; --line:#ddd6bd;
+  background:var(--paper); color:var(--ink);
+  font-family:var(--font-inter),system-ui,sans-serif; min-height:100%;
+  padding:34px clamp(16px,4vw,40px) 48px; box-sizing:border-box; max-width:1280px; margin:0 auto;
+}
+.mit-root *,.mit-root *::before,.mit-root *::after{ box-sizing:border-box; }
+
+/* ── controls: strand filter chips + zoom stepper ── */
+.mit-controls{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin:26px 0 16px; }
+.mit-strandbar{ display:flex; flex-wrap:wrap; gap:8px; flex:1; min-width:0; }
+.mit-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-inter),sans-serif; font-size:12.5px; color:var(--ink-soft); padding:5px 11px; border:1px solid var(--line); border-radius:999px; background:var(--paper-3); cursor:pointer; opacity:.55; transition:opacity .2s, border-color .2s, background .2s; }
+.mit-chip.on{ opacity:1; color:var(--ink); border-color:var(--stone-edge); background:#fff; }
+.mit-chip:hover{ opacity:.9; }
+.mit-chip-all{ font-weight:600; }
+.mit-swatch{ width:10px; height:10px; border-radius:3px; flex:0 0 auto; }
+
+.mit-tier-toggle{ flex:0 0 auto; font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.04em; padding:6px 12px; border:1px solid var(--stone-edge); border-radius:6px; background:var(--paper-2); color:var(--ink); cursor:pointer; white-space:nowrap; }
+.mit-tier-toggle:hover{ background:#dcd6c6; }
+
+.mit-zoom{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.mit-zbtn{ width:30px; height:30px; border-radius:6px; border:1px solid var(--stone-edge); background:var(--paper-2); color:var(--ink); font-size:16px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.mit-zbtn:hover:not(:disabled){ background:#dcd6c6; }
+.mit-zbtn:disabled{ opacity:.35; cursor:default; }
+.mit-zlabel{ font-family:var(--font-space-mono),monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); min-width:82px; text-align:center; }
+
+/* ── scroll canvas ── */
+.mit-scroll{
+  position:relative; overflow-x:auto; overflow-y:hidden; border:1px solid var(--line); border-radius:8px;
+  background:var(--paper-3); cursor:grab; user-select:none; -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+}
+.mit-scroll:active{ cursor:grabbing; }
+.mit-canvas{ position:relative; }
+
+.mit-eras{ position:absolute; top:0; left:0; right:0; pointer-events:none; }
+.mit-era-band{ position:absolute; top:0; bottom:0; border-right:1px dashed var(--line); }
+.mit-era-band:nth-child(odd){ background:rgba(0,0,0,.018); }
+/* Pinned to a reserved strip above every card lane (layoutTimeline adds
+   ERA_HEADER_HEIGHT of empty space at the top expressly for this), so the
+   era name is always a clear header, never interleaved with or covered by
+   the cards under it. */
+.mit-era-header{ position:absolute; top:0; left:0; right:0; height:28px; padding:6px 10px 0; border-bottom:1px solid var(--line); overflow:hidden; }
+.mit-era-label{ display:block; font-family:var(--font-fraunces),serif; font-style:italic; font-size:12.5px; color:var(--ink-soft); opacity:.85; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
+.mit-era-range{ display:block; font-family:var(--font-space-mono),monospace; font-size:9.5px; letter-spacing:.06em; color:var(--ink-soft); opacity:.55; margin-top:1px; }
+
+.mit-links{ position:absolute; top:0; left:0; pointer-events:none; overflow:visible; }
+.mit-link{ fill:none; stroke-width:1.6; }
+.mit-link-in{ stroke:#23268C; opacity:.7; }
+.mit-link-out{ stroke:#8C2F39; opacity:.7; }
+.mit-arrow-fill-in{ fill:#23268C; }
+.mit-arrow-fill-out{ fill:#8C2F39; }
+
+/* ── event cards ──
+   Every event is always its own element, always showing its year + title
+   on one line — never merged into a cluster (a merged marker has no single
+   correct (x, y) for a causal-link arrow to land on) and never collapsed to
+   a bare mark either (no hover/tap needed to read what it is). Kept to one
+   line, not two, specifically so a dense row's lane-stack doesn't get tall —
+   see the sizing comment in modernIndia.ts. At "overview" zoom (zoomed out
+   for the whole 90-year shape) it's still a plain dot. */
+.mit-card{ position:absolute; transform:translate(-50%,-50%); border:1px solid var(--stone-edge); background:#fff; cursor:pointer; text-align:left; font-family:var(--font-inter),sans-serif; color:var(--ink); padding:0; z-index:1; overflow:hidden; }
+.mit-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--sc); }
+.mit-card.is-dim{ opacity:.25; }
+.mit-card:hover{ box-shadow:0 2px 6px rgba(0,0,0,.14); z-index:5; }
+.mit-card.is-active{ box-shadow:0 0 0 2px var(--sc); z-index:6; }
+.mit-card.is-linked{ box-shadow:0 0 0 2px rgba(0,0,0,.3); z-index:5; }
+
+.mit-card-overview{ border-radius:50%; padding:0; border-color:var(--sc); background:var(--sc); }
+.mit-card-overview::before{ display:none; }
+.mit-card-overview.is-active,.mit-card-overview.is-linked{ width:13px !important; height:13px !important; }
+
+.mit-card-labeled{ border-radius:3px; display:flex; align-items:center; }
+.mit-card-line{ display:flex; align-items:baseline; gap:5px; padding:0 7px 0 8px; overflow:hidden; white-space:nowrap; }
+.mit-card-year{ flex:0 0 auto; font-family:var(--font-space-mono),monospace; font-size:9px; font-weight:700; color:var(--ink-soft); }
+.mit-card-title{ flex:1 1 auto; font-size:11px; line-height:1; overflow:hidden; text-overflow:ellipsis; }
+
+/* ── minimap scrubber ── */
+.mit-minimap{ position:relative; height:30px; margin-top:8px; border:1px solid var(--line); border-radius:5px; background:var(--paper-2); cursor:pointer; overflow:hidden; touch-action:none; }
+.mit-mm-band{ position:absolute; top:0; bottom:0; border-right:1px solid var(--line); display:flex; align-items:center; justify-content:center; }
+.mit-mm-band:nth-child(odd){ background:rgba(0,0,0,.03); }
+.mit-mm-band span{ font-family:var(--font-space-mono),monospace; font-size:8.5px; color:var(--ink-soft); opacity:.65; }
+.mit-mm-view{ position:absolute; top:0; bottom:0; background:rgba(35,38,140,.14); border:1.5px solid #23268C; border-radius:3px; pointer-events:none; }
+
+/* ── detail panel / hint ── */
+.mit-panel{ position:relative; margin-top:16px; padding:16px 44px 16px 18px; border:1px solid var(--stone-edge); border-radius:8px; background:#fff; }
+.mit-panel-close{ position:absolute; top:10px; right:12px; width:26px; height:26px; border:none; background:transparent; font-size:18px; line-height:1; color:var(--ink-soft); cursor:pointer; }
+.mit-panel-close:hover{ color:var(--ink); }
+.mit-panel-strand{ display:flex; align-items:center; gap: 7px; font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; }
+.mit-panel-year{ font-family:var(--font-space-mono),monospace; font-weight:700; font-size:13px; color:var(--ink-soft); margin-top:6px; }
+.mit-panel-title{ font-family:var(--font-fraunces),serif; font-weight:600; font-size:22px; margin:2px 0 0; }
+.mit-panel-text{ margin:8px 0 0; font-size:14.5px; line-height:1.55; max-width:74ch; }
+.mit-panel-links{ display:flex; flex-direction:column; gap:8px; margin-top:12px; padding-top:12px; border-top:1px solid var(--line); }
+.mit-panel-linkgroup{ display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.mit-panel-linklabel{ font-family:var(--font-space-mono),monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-right:2px; }
+.mit-panel-linkchip{ font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; background:var(--paper-3); color:var(--ink); cursor:pointer; }
+.mit-panel-linkchip:hover{ border-color:var(--stone-edge); background:#fff; }
+.mit-panel-nolinks{ margin:12px 0 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
+.mit-hint{ margin:14px 2px 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
+
+.mit-foot{ margin-top:22px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.04em; color:var(--ink-soft); }
+
+@media (max-width:640px){
+  .mit-era-label{ font-size:10.5px; }
+  .mit-zlabel{ min-width:0; }
+}

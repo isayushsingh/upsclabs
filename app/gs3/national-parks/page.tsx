@@ -1,6 +1,6 @@
-import Link from "next/link";
 import NationalParksMap from "@/components/national-parks/NationalParksMap";
 import DesktopRecommendedModal from "@/components/site/DesktopRecommendedModal";
+import ToolHeader from "@/components/site/ToolHeader";
 
 export const metadata = {
   title: "",
@@ -11,13 +11,16 @@ export default function Page() {
   return (
     <>
       <DesktopRecommendedModal toolName="This national parks & tiger reserves map" />
-      <nav className="ul-breadcrumb np-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">UPSC Labs</Link>
-        <span>/</span>
-        <Link href="/gs1">GS3</Link>
-        <span>/</span>
-        <span className="ul-breadcrumb-cur">Protected Areas • Wetlands • BR • Mapping</span>
-      </nav>
+      <ToolHeader
+        crumbs={[
+          { label: "UPSC Labs", href: "/" },
+          { label: "GS3", href: "/gs3" },
+          { label: "Protected Areas • Wetlands • BR • Mapping" },
+        ]}
+        title="Protected Areas • Wetlands • Mapping"
+        subtitle="Select a state to explore"
+        breadcrumbClassName="np-breadcrumb"
+      />
       <NationalParksMap />
     </>
   );

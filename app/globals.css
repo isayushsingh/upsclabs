@@ -1,22 +1,26 @@
 @import "tailwindcss";
 
-/* ── shared brand tokens (used by the site shell; the timeline tool
-   defines its own scoped copies so it stays self-contained) ── */
+/* ── shared brand tokens (used by the site shell; the timeline/map tools
+   define their own scoped copies so they stay self-contained) ──
+   Cream / lime / navy palette — see components/site/site.css for how the
+   header, hero and carousel apply these. */
 :root {
-  --ink: #23241d;
-  --ink-soft: #5c5d52;
-  --stone: #d7d1c1;
-  --stone-edge: #b3ab97;
-  --paper: #e9e5d9;
-  --paper-2: #e3dece;
-  --paper-3: #efeae0;
-  --line: #c8c1ae;
+  --ink: #17170f;
+  --ink-soft: #58564a;
+  --stone: #ded9c6;
+  --stone-edge: #c7bfa4;
+  --paper: #f2efe2;
+  --paper-2: #eae5d2;
+  --paper-3: #f7f4e9;
+  --line: #ddd6bd;
   /* status + action accents */
-  --live: #3e5c76;
-  --building: #5f7e6b;
+  --live: #23268c; /* navy — active nav pill, "live" tag fills */
+  --live-dark: #191b66;
+  --building: #6b7a3f;
   --planned: #b3ab97;
-  --action: #a6603f; /* muted terracotta — CTAs & live badges */
-  --action-dark: #8c4e30;
+  --action: #d8f24e; /* lime — primary CTAs, badges */
+  --action-dark: #c3dc3c;
+  --action-ink: #16170d; /* text drawn on top of the lime accent */
   color-scheme: light;
 }
 

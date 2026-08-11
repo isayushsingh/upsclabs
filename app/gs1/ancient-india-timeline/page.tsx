@@ -1,6 +1,6 @@
-import Link from "next/link";
 import AncientIndiaTimeline from "@/components/ancient-india-timeline/AncientIndiaTimeline";
 import DesktopRecommendedModal from "@/components/site/DesktopRecommendedModal";
+import ToolHeader from "@/components/site/ToolHeader";
 
 export const metadata = {
   title: "Ancient India Dynastic Timeline · UPSC Labs",
@@ -11,13 +11,15 @@ export default function Page() {
   return (
     <>
       <DesktopRecommendedModal toolName="This ancient India dynastic timeline" />
-      <nav className="ul-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">UPSC Labs</Link>
-        <span>/</span>
-        <Link href="/gs1">GS1</Link>
-        <span>/</span>
-        <span className="ul-breadcrumb-cur">Ancient India Timeline</span>
-      </nav>
+      <ToolHeader
+        crumbs={[
+          { label: "UPSC Labs", href: "/" },
+          { label: "GS1", href: "/gs1" },
+          { label: "Ancient India Timeline" },
+        ]}
+        title="Who ruled, and where"
+        subtitle="Step kingdom by kingdom with the arrows, or drag the rule."
+      />
       <AncientIndiaTimeline />
     </>
   );
