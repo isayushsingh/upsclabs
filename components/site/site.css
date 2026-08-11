@@ -246,7 +246,7 @@
 .ul-carousel-card {
   position: relative;
   flex: 0 0 auto;
-  width: clamp(200px, 20vw, 280px);
+  width: clamp(300px, 20vw, 280px);
   aspect-ratio: 0.82;
   border-radius: 20px;
   overflow: hidden;

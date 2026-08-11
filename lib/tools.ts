@@ -39,7 +39,7 @@ export const PAPERS: { id: Paper; topics: string }[] = [
 export const TOOLS: Tool[] = [
   {
     slug: "ancient-india-timeline",
-    title: "Dynastic Timeline",
+    title: "Ancient India Timeline",
     fullTitle: "Ancient India Dynastic Timeline",
     blurb:
       "Scrub four millennia and watch dynasties rise, overlap, and fall on a map of South Asia.",
@@ -52,8 +52,22 @@ export const TOOLS: Tool[] = [
     preview: "timeline",
   },
   {
+    slug: "modern-india-timeline",
+    title: "Modern India Timeline",
+    fullTitle: "Modern India Timeline (1857–1947)",
+    blurb:
+      "Six parallel strands of the freedom struggle on one zoomable timeline — filter by strand, trace curated cause → effect links across them.",
+    paper: "GS1",
+    topic: "History",
+    state: "live",
+    href: "/gs1/modern-india-timeline",
+    featured: true,
+    accent: "#23268C",
+    preview: "timeline",
+  },
+  {
     slug: "national-parks",
-    title: "Interactive Map: Protected Areas & Wetlands",
+    title: "Map: Protected Areas & Wetlands",
     fullTitle: "Interactive Map: Protected Areas & Wetlands",
     blurb:
         "Active-recall map of India's national parks & tiger reserves, with wetland, river and terrain layers and a Learn ⇄ Recall toggle.",

@@ -16,9 +16,9 @@ export default function WhoWeAre() {
       </div>
       <p className="ul-purpose-statement">
         From first-time aspirants just opening the NCERTs to veterans
-        revising for their fifth attempt <Chip src="/images/purpose/chip-1.jpg" />,
+        revising for their fifth attempt <Chip src="/images/purpose/chip-1.png" />,
         we build every tool around one idea — the syllabus sticks when you
-        interact with it <Chip src="/images/purpose/chip-2.jpg" />, not when
+        interact with it <Chip src="/images/purpose/chip-2.png" />, not when
         you just re-read it.
       </p>
     </section>
