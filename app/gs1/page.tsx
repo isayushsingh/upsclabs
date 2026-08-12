@@ -1,11 +1,13 @@
 import { TOOLS } from "@/lib/tools";
 import ToolCard from "@/components/site/ToolCard";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "GS1 · History, Geography & Society · UPSC Labs",
-  description: "Interactive tools for UPSC General Studies Paper I.",
-};
+export const metadata = pageMetadata({
+  title: "GS1 · History, Geography & Society",
+  description:
+    "Interactive tools for UPSC General Studies Paper I — Ancient and Modern India timelines you can scrub, zoom, and revise with active recall.",
+  path: "/gs1",
+});
 
 export default function GS1Page() {
   const tools = TOOLS.filter((t) => t.paper === "GS1");
