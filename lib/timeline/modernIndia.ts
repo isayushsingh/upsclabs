@@ -138,7 +138,13 @@ export const YEARS: number[] = Array.from({ length: T_MAX - T_MIN + 1 }, (_, i) 
 
 export const COLUMN_WIDTH = 210;
 export const COLUMN_GAP = 8;
-export const CARD_HEIGHT = 34;
+// Every card gets the same fixed height, wrap or no — because the vertical
+// stacking below places the next card exactly CARD_HEIGHT+CARD_GAP_Y lower
+// than the last one, a card that actually needed more room (say, its title
+// wrapped to two lines) would silently overlap the one below it. Sized for
+// up to two lines at the card's own font size (a title beyond that still
+// clips with an ellipsis, same safety net as before — see .mit-card-title).
+export const CARD_HEIGHT = 44;
 /** Vertical gap between two cards stacked in the same year's column. */
 export const CARD_GAP_Y = 10;
 /** Margin either side of the first/last column, so nothing clips the canvas edge. */

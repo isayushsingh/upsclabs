@@ -12,6 +12,7 @@ import {
   type TimelineEvent,
   type LaidOutEvent,
   type Era,
+  type ColumnMeta,
 } from "@/lib/timeline/modernIndia";
 import "./ModernIndiaTimeline.css";
 
@@ -53,32 +54,21 @@ export default function ModernIndiaTimeline() {
     () => (showContext ? EVENTS : EVENTS.filter((e) => e.tier === "core")),
     [showContext]
   );
-  const learnLayout = useMemo(() => layoutTimeline(visibleEvents), [visibleEvents]);
+  const layout = useMemo(() => layoutTimeline(visibleEvents), [visibleEvents]);
+  const width = layout.width;
+  const canvasHeight = layout.height;
 
-  // ── Revise mode state ──
-  const [reviseEraId, setReviseEraId] = useState<string | null>(null);
+  // ── Revise mode state ── scoped to *whatever's on screen* when you hit
+  // the button, not a whole era — see enterRevise below. The canvas itself
+  // never changes shape between modes: revise just hides the cards for the
+  // captured years (they move into the tray) while everything outside that
+  // set stays exactly as it was in Learn.
+  const [reviseYears, setReviseYears] = useState<Set<number> | null>(null);
   const [reviseQueue, setReviseQueue] = useState<string[]>([]);
   const [revisePlaced, setRevisePlaced] = useState<Set<string>>(new Set());
   const [reviseSelected, setReviseSelected] = useState<string | null>(null);
   const [reviseStats, setReviseStats] = useState({ correct: 0, attempts: 0 });
   const [wrongFlashYear, setWrongFlashYear] = useState<number | null>(null);
-  const activeEra = reviseEraId ? ERAS.find((e) => e.id === reviseEraId) ?? null : null;
-
-  // A revise round only ever shows *that era's* years — not the full
-  // 90-year strip — so "unscramble" means the whole visible timeline, not
-  // just whatever happened to be in view when you started scrolling.
-  const eraEvents = useMemo(
-    () => (activeEra ? visibleEvents.filter((e) => e.year >= activeEra.start && e.year < activeEra.end) : []),
-    [activeEra, visibleEvents]
-  );
-  const reviseLayout = useMemo(
-    () => (activeEra ? layoutTimeline(eraEvents) : null),
-    [activeEra, eraEvents]
-  );
-
-  const layout = mode === "revise" && reviseLayout ? reviseLayout : learnLayout;
-  const width = layout.width;
-  const canvasHeight = layout.height;
 
   // Drag-to-pan for mouse/pen; touch keeps native scrolling. Declared before
   // the scroll/snap wiring below so the idle-snap can check "are we still
@@ -102,15 +92,19 @@ export default function ModernIndiaTimeline() {
     panState.current = null;
   };
 
-  // Which column currently sits closest to the centre of the viewport.
-  const centerColIndex = useCallback(() => {
+  // Which column's *left edge* is closest to the current scroll position —
+  // the settle target aligns a year's left edge flush with the viewport's
+  // left edge (rather than centring it), so once settled there's no sliver
+  // of the previous/next year showing at either edge, and "what's on
+  // screen" becomes a clean, computable set of whole columns (see
+  // enterRevise) instead of a fuzzy centred window.
+  const nearestColIndex = useCallback(() => {
     const el = scrollRef.current;
     if (!el || !layout.columns.length) return 0;
-    const centerX = el.scrollLeft + el.clientWidth / 2;
     let best = 0;
     let bestDist = Infinity;
     layout.columns.forEach((col, i) => {
-      const d = Math.abs(col.left + COLUMN_WIDTH / 2 - centerX);
+      const d = Math.abs(col.left - el.scrollLeft);
       if (d < bestDist) {
         bestDist = d;
         best = i;
@@ -124,8 +118,27 @@ export default function ModernIndiaTimeline() {
       const el = scrollRef.current;
       const col = layout.columns[Math.max(0, Math.min(layout.columns.length - 1, i))];
       if (!el || !col) return;
-      const target = col.left + COLUMN_WIDTH / 2 - el.clientWidth / 2;
-      el.scrollTo({ left: Math.max(0, target), behavior });
+      el.scrollTo({ left: Math.max(0, col.left), behavior });
+    },
+    [layout.columns]
+  );
+
+  // Every column whose *entire* width fits inside the viewport, starting
+  // from a given column — i.e. what's genuinely, fully "on screen", not
+  // sliced off at an edge. Always returns at least one column so a viewport
+  // narrower than a single column still has something to revise.
+  const fullyVisibleFrom = useCallback(
+    (startIdx: number, viewportWidth: number): ColumnMeta[] => {
+      const cols = layout.columns;
+      const start = cols[startIdx];
+      if (!start) return [];
+      const result: ColumnMeta[] = [];
+      for (let i = startIdx; i < cols.length; i++) {
+        const rightEdge = cols[i].left + COLUMN_WIDTH - start.left;
+        if (rightEdge > viewportWidth && result.length > 0) break;
+        result.push(cols[i]);
+      }
+      return result;
     },
     [layout.columns]
   );
@@ -143,9 +156,9 @@ export default function ModernIndiaTimeline() {
     if (idleSnapTimer.current) clearTimeout(idleSnapTimer.current);
     idleSnapTimer.current = setTimeout(() => {
       if (panState.current) return; // still actively dragging — don't fight it
-      scrollToColIndex(centerColIndex());
+      scrollToColIndex(nearestColIndex());
     }, 160);
-  }, [centerColIndex, scrollToColIndex]);
+  }, [nearestColIndex, scrollToColIndex]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -166,12 +179,6 @@ export default function ModernIndiaTimeline() {
     };
   }, [mode, scheduleIdleSnap]);
 
-  // Starting (or replaying) a revise round swaps in a brand-new, much
-  // narrower canvas (just that era) — always open it scrolled to its start.
-  useEffect(() => {
-    if (mode === "revise" && reviseEraId) scrollRef.current?.scrollTo({ left: 0 });
-  }, [mode, reviseEraId]);
-
   // A plain (non-shift, non-ctrl) vertical wheel gesture pans the strip
   // horizontally — this is a horizontal timeline, so a mouse wheel should
   // move it. A trackpad's own horizontal swipe (deltaX) is left alone and
@@ -189,7 +196,7 @@ export default function ModernIndiaTimeline() {
     const el = scrollRef.current;
     if (!el) return;
     const perPage = Math.max(1, Math.round(el.clientWidth / (COLUMN_WIDTH + COLUMN_GAP)));
-    scrollToColIndex(centerColIndex() + dir * perPage);
+    scrollToColIndex(nearestColIndex() + dir * perPage);
   };
 
   const laidById = useMemo(() => new Map(layout.events.map((e) => [e.id, e])), [layout.events]);
@@ -272,17 +279,32 @@ export default function ModernIndiaTimeline() {
     seekFromClientX(e.clientX);
   };
 
-  const startRevise = (era: Era) => {
-    const ids = visibleEvents.filter((e) => e.year >= era.start && e.year < era.end).map((e) => e.id);
-    setReviseEraId(era.id);
+  // Captures exactly the years fully visible right now — not a whole era —
+  // scrambles their events into the tray, and leaves every other column on
+  // the canvas exactly as Learn mode shows it.
+  const beginRevise = (years: Set<number>) => {
+    const ids = visibleEvents.filter((e) => years.has(e.year)).map((e) => e.id);
+    setReviseYears(years);
     setReviseQueue(shuffled(ids));
     setRevisePlaced(new Set());
     setReviseSelected(null);
     setReviseStats({ correct: 0, attempts: 0 });
   };
+
+  const enterRevise = () => {
+    const el = scrollRef.current;
+    if (!el || !layout.columns.length) return;
+    // Settle flush to a column boundary first, in case the view is
+    // mid-scroll, so "what's on screen" is well-defined.
+    const startIdx = nearestColIndex();
+    el.scrollLeft = layout.columns[startIdx].left;
+    const cols = fullyVisibleFrom(startIdx, el.clientWidth);
+    beginRevise(new Set(cols.map((c) => c.year)));
+    setMode("revise");
+  };
   const exitRevise = () => {
     setMode("learn");
-    setReviseEraId(null);
+    setReviseYears(null);
   };
 
   const placeCard = (targetYear: number) => {
@@ -303,17 +325,22 @@ export default function ModernIndiaTimeline() {
     () => reviseQueue.map((id) => EVENTS_BY_ID[id]).filter(Boolean),
     [reviseQueue]
   );
-  const reviseDone = mode === "revise" && activeEra && reviseQueue.length === 0;
+  const reviseDone = mode === "revise" && reviseYears != null && reviseQueue.length === 0;
 
   const renderCard = (ev: TimelineEvent & { x: number; y: number }) => {
     const isActive = ev.id === activeId;
     const isLinked = linkedIds.has(ev.id);
+    // Only cards that were actually just placed back (i.e. part of this
+    // revise round) get the "pop back in" treatment — a card outside the
+    // revise set never left, so it shouldn't animate just because the mode
+    // toggled.
+    const justPlaced = mode === "revise" && reviseYears?.has(ev.year);
     return (
       <button
         key={ev.id}
         data-card
         className={`mit-card ${isActive ? "is-active" : ""} ${isLinked ? "is-linked" : ""} ${
-          mode === "revise" ? "is-placed" : ""
+          justPlaced ? "is-placed" : ""
         }`}
         style={{ left: ev.x, top: ev.y, width: COLUMN_WIDTH - 16 }}
         onClick={mode === "learn" ? () => setActiveId((cur) => (cur === ev.id ? null : ev.id)) : undefined}
@@ -324,6 +351,12 @@ export default function ModernIndiaTimeline() {
     );
   };
 
+  const reviseYearsLabel = (() => {
+    if (!reviseYears || !reviseYears.size) return "";
+    const ys = [...reviseYears].sort((a, b) => a - b);
+    return ys.length > 1 ? `${ys[0]}–${ys[ys.length - 1]}` : `${ys[0]}`;
+  })();
+
   return (
     <div className="mit-root">
       <section className="mit-controls">
@@ -331,92 +364,30 @@ export default function ModernIndiaTimeline() {
           <button className={`mit-mode-btn ${mode === "learn" ? "on" : ""}`} onClick={() => setMode("learn")}>
             Learn
           </button>
-          <button className={`mit-mode-btn ${mode === "revise" ? "on" : ""}`} onClick={() => setMode("revise")}>
+          <button className={`mit-mode-btn ${mode === "revise" ? "on" : ""}`} onClick={enterRevise}>
             Revise
           </button>
         </div>
-        {mode === "learn" ? (
-          <>
-            <button
-              className="mit-tier-toggle"
-              onClick={() => setShowContext((v) => !v)}
-              title={
-                showContext
-                  ? `Hide the ${EVENTS.length - CORE_COUNT} second-tier events again`
-                  : `Also show ${EVENTS.length - CORE_COUNT} second-tier events (individual newspapers, codification housekeeping, minor reform societies)`
-              }
-            >
-              {showContext ? `Showing all ${EVENTS.length}` : `Core ${CORE_COUNT} only`}
-            </button>
-            <div className="mit-pager" role="group" aria-label="Scroll years">
-              <button className="mit-zbtn" onClick={() => pageBy(-1)} aria-label="Earlier years">
-                ← Earlier
-              </button>
-              <button className="mit-zbtn" onClick={() => pageBy(1)} aria-label="Later years">
-                Later →
-              </button>
-            </div>
-          </>
-        ) : (
-          <div className="mit-erabar" role="group" aria-label="Choose an era to revise">
-            {ERAS.map((era) => (
-              <button
-                key={era.id}
-                className={`mit-chip ${reviseEraId === era.id ? "on" : ""}`}
-                onClick={() => startRevise(era)}
-              >
-                {era.name}
-                <span className="mit-era-chip-range">{era.short}</span>
-              </button>
-            ))}
-          </div>
-        )}
-      </section>
-
-      {mode === "revise" && (
-        <div className="mit-revise-bar">
-          {!activeEra ? (
-            <p className="mit-hint">Pick an era above to start a round.</p>
-          ) : reviseDone ? (
-            <div className="mit-revise-done">
-              <strong>
-                {reviseStats.correct}/{reviseStats.attempts} correct — {activeEra.name} placed.
-              </strong>
-              <button className="mit-tier-toggle" onClick={() => startRevise(activeEra)}>
-                Play again
-              </button>
-              <button className="mit-tier-toggle" onClick={exitRevise}>
-                Back to Learn
-              </button>
-            </div>
-          ) : (
-            <>
-              <div className="mit-revise-status">
-                <span>
-                  {activeEra.name} · {revisePlaced.size}/{revisePlaced.size + reviseQueue.length} placed
-                  {reviseStats.attempts > 0 && ` · ${reviseStats.correct}/${reviseStats.attempts} correct`}
-                </span>
-              </div>
-              <div className="mit-tray" role="group" aria-label="Events to place">
-                {reviseTrayEvents.map((ev) => (
-                  <button
-                    key={ev.id}
-                    className={`mit-tray-card ${reviseSelected === ev.id ? "is-selected" : ""}`}
-                    onClick={() => setReviseSelected((cur) => (cur === ev.id ? null : ev.id))}
-                  >
-                    {ev.title}
-                  </button>
-                ))}
-              </div>
-              <p className="mit-hint">
-                {reviseSelected
-                  ? "Now tap the year column you think it belongs to."
-                  : "Tap a card above, then tap its year below."}
-              </p>
-            </>
-          )}
+        <button
+          className="mit-tier-toggle"
+          onClick={() => setShowContext((v) => !v)}
+          title={
+            showContext
+              ? `Hide the ${EVENTS.length - CORE_COUNT} second-tier events again`
+              : `Also show ${EVENTS.length - CORE_COUNT} second-tier events (individual newspapers, codification housekeeping, minor reform societies)`
+          }
+        >
+          {showContext ? `Showing all ${EVENTS.length}` : `Core ${CORE_COUNT} only`}
+        </button>
+        <div className="mit-pager" role="group" aria-label="Scroll years">
+          <button className="mit-zbtn" onClick={() => pageBy(-1)} aria-label="Earlier years">
+            ← Earlier
+          </button>
+          <button className="mit-zbtn" onClick={() => pageBy(1)} aria-label="Later years">
+            Later →
+          </button>
         </div>
-      )}
+      </section>
 
       <div
         className="mit-scroll"
@@ -428,26 +399,29 @@ export default function ModernIndiaTimeline() {
         onPointerLeave={endPan}
       >
         <div className="mit-canvas" style={{ width, height: canvasHeight }}>
-          {layout.columns.map((col, i) => (
-            <div
-              key={col.year}
-              data-card={mode === "revise" && reviseSelected ? "true" : undefined}
-              className={`mit-col ${i % 2 === 1 ? "alt" : ""} ${
-                mode === "revise" && reviseSelected ? "is-target" : ""
-              } ${wrongFlashYear === col.year ? "is-wrong" : ""}`}
-              style={{ left: col.left, width: COLUMN_WIDTH, height: canvasHeight }}
-              onClick={mode === "revise" && reviseSelected ? () => placeCard(col.year) : undefined}
-              role={mode === "revise" && reviseSelected ? "button" : undefined}
-            >
-              {col.eraStart && (
-                <div className="mit-era-header">
-                  <span className="mit-era-label">{col.eraStart.name}</span>
-                  <span className="mit-era-range">{col.eraStart.short}</span>
-                </div>
-              )}
-              <span className="mit-col-year">{col.year}</span>
-            </div>
-          ))}
+          {layout.columns.map((col, i) => {
+            const isReviseTarget = mode === "revise" && reviseYears?.has(col.year) && !!reviseSelected;
+            return (
+              <div
+                key={col.year}
+                data-card={isReviseTarget ? "true" : undefined}
+                className={`mit-col ${i % 2 === 1 ? "alt" : ""} ${isReviseTarget ? "is-target" : ""} ${
+                  wrongFlashYear === col.year ? "is-wrong" : ""
+                }`}
+                style={{ left: col.left, width: COLUMN_WIDTH, height: canvasHeight }}
+                onClick={isReviseTarget ? () => placeCard(col.year) : undefined}
+                role={isReviseTarget ? "button" : undefined}
+              >
+                {col.eraStart && (
+                  <div className="mit-era-header">
+                    {/* <span className="mit-era-label">{col.eraStart.name}</span> */}
+                    {/* <span className="mit-era-range">{col.eraStart.short}</span> */}
+                  </div>
+                )}
+                <span className="mit-col-year">{col.year}</span>
+              </div>
+            );
+          })}
 
           <svg className="mit-links" width={width} height={canvasHeight} aria-hidden="true">
             <defs>
@@ -495,11 +469,61 @@ export default function ModernIndiaTimeline() {
           </svg>
 
           {layout.events.map((ev) => {
-            if (mode === "revise" && !revisePlaced.has(ev.id)) return null;
+            // Only the captured years' cards ever leave the canvas — an
+            // event outside the revise set stays exactly as Learn shows it.
+            const inRevise = mode === "revise" && reviseYears?.has(ev.year);
+            if (inRevise && !revisePlaced.has(ev.id)) return null;
             return renderCard(ev);
           })}
         </div>
       </div>
+
+      {mode === "revise" && reviseYears && (
+        <div className="mit-revise-bar">
+          {reviseDone ? (
+            <div className="mit-revise-done">
+              <strong>
+                {reviseStats.correct}/{reviseStats.attempts} correct — {reviseYearsLabel} placed.
+              </strong>
+              <button className="mit-tier-toggle" onClick={() => beginRevise(reviseYears)}>
+                Play again
+              </button>
+              <button className="mit-tier-toggle" onClick={exitRevise}>
+                Back to Learn
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="mit-revise-status">
+                <span>
+                  {reviseYearsLabel} · {revisePlaced.size}/{revisePlaced.size + reviseQueue.length} placed
+                  {reviseStats.attempts > 0 && ` · ${reviseStats.correct}/${reviseStats.attempts} correct`}
+                </span>
+                <button className="mit-tier-toggle" onClick={exitRevise}>
+                  Back to Learn
+                </button>
+              </div>
+              <div className="mit-tray" role="group" aria-label="Events to place">
+                {reviseTrayEvents.map((ev, i) => (
+                  <button
+                    key={ev.id}
+                    className={`mit-tray-card ${reviseSelected === ev.id ? "is-selected" : ""}`}
+                    style={{ animationDelay: `${i * 18}ms` } as React.CSSProperties}
+                    onClick={() => setReviseSelected((cur) => (cur === ev.id ? null : ev.id))}
+                  >
+                    {ev.title}
+                  </button>
+                ))}
+              </div>
+              <p className="mit-hint">
+                {reviseSelected
+                  ? "Now tap the year column you think it belongs to."
+                  : "Tap a card above, then tap its year below."}
+              </p>
+            </>
+          )}
+        </div>
+      )}
 
       {mode === "learn" && (
         <div
