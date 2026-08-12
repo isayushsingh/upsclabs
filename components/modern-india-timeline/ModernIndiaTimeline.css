@@ -132,16 +132,39 @@
 .mit-panel-close:hover{ color:var(--ink); }
 .mit-panel-year{ font-family:var(--font-space-mono),monospace; font-weight:700; font-size:13px; color:var(--ink-soft); }
 .mit-panel-title{ font-family:var(--font-fraunces),serif; font-weight:600; font-size:22px; margin:2px 0 0; }
-.mit-panel-text{ margin:8px 0 0; font-size:14.5px; line-height:1.55; max-width:74ch; }
+.mit-panel-text{ margin:8px 0 0; font-size:14.5px; line-height:1.55; max-width:100ch; }
 .mit-panel-links{ display:flex; flex-direction:column; gap:8px; margin-top:12px; padding-top:12px; border-top:1px solid var(--line); }
 .mit-panel-linkgroup{ display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
 .mit-panel-linklabel{ font-family:var(--font-space-mono),monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-right:2px; }
 .mit-panel-linkchip{ font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; background:var(--paper-3); color:var(--ink); cursor:pointer; }
 .mit-panel-linkchip:hover{ border-color:var(--stone-edge); background:#fff; }
 .mit-panel-nolinks{ margin:12px 0 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
-.mit-hint{ margin:14px 2px 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
+.mit-hint{ margin:1px 0px 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
 
 .mit-foot{ margin-top:22px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.04em; color:var(--ink-soft); }
+
+/* ── suggestion form: report a missing/wrong event, email-only (see
+   app/api/suggest) — no account, no public board, nothing submitted here
+   is ever rendered back into a page. ── */
+.mit-suggest{ margin-top:18px; padding:18px 20px; border:1px solid var(--stone-edge); border-radius:10px; background:var(--paper-3); }
+.mit-suggest-eyebrow{ display:block; font-weight: 700; font-family:var(--font-space-mono),monospace; font-size:15.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); }
+.mit-suggest-sub{ margin:5px 0 0; font-size:13px; line-height:1.5; color:var(--ink-soft); max-width: 100ch; }
+.mit-suggest-form{ margin-top:14px; }
+.mit-suggest-textarea{ width:100%; resize:vertical; min-height:64px; padding:10px 12px; border:1px solid var(--line); border-radius:7px; background:#fff; color:var(--ink); font-family:var(--font-inter),sans-serif; font-size:13.5px; line-height:1.5; }
+.mit-suggest-textarea:focus{ outline:none; border-color:var(--accent); }
+/* Honeypot — off-screen and unreachable for a real visitor tabbing or
+   reading the form normally, but still present in the DOM for a bot that
+   fills every field it can find. */
+.mit-suggest-hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
+.mit-suggest-row{ display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+.mit-suggest-row input{ flex:1; min-width:200px; padding:9px 12px; border:1px solid var(--line); border-radius:7px; background:#fff; color:var(--ink); font-family:var(--font-inter),sans-serif; font-size:13px; }
+.mit-suggest-row input:focus{ outline:none; border-color:var(--accent); }
+.mit-suggest-row button{ padding:9px 18px; border:none; border-radius:7px; background:var(--accent); color:#fff; font-family:var(--font-inter),sans-serif; font-size:13px; font-weight:600; cursor:pointer; }
+.mit-suggest-row button:hover:not(:disabled){ filter:brightness(1.1); }
+.mit-suggest-row button:disabled{ opacity:.55; cursor:default; }
+.mit-suggest-msg{ margin:9px 0 0; font-size:12.5px; }
+.mit-suggest-msg.ok{ color:#3F6B4A; }
+.mit-suggest-msg.error{ color:var(--bad); }
 
 /* Phones get a denser layout, not just smaller text — the component swaps
    to Density:"compact" pixel constants below this same 640px breakpoint

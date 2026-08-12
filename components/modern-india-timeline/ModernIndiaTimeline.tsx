@@ -15,6 +15,7 @@ import {
   type ColumnMeta,
   type Density,
 } from "@/lib/timeline/modernIndia";
+import SuggestionForm from "./SuggestionForm";
 import "./ModernIndiaTimeline.css";
 
 type Mode = "learn" | "revise";
@@ -412,6 +413,10 @@ export default function ModernIndiaTimeline() {
             Later →
           </button>
         </div>
+        <p className="mit-hint">
+            Tap any milestone to open its full detail below and trace what caused it — and what it
+            caused.
+          </p>
       </section>
 
       <div
@@ -607,15 +612,15 @@ export default function ModernIndiaTimeline() {
           </div>
         ) : (
           <p className="mit-hint">
-            Tap any milestone to open its full detail below and trace what caused it — and what it
-            caused.
           </p>
         ))}
-
+      <SuggestionForm />
       <footer className="mit-foot">
         Source: &ldquo;A Brief History of Modern India&rdquo; (Rajiv Ahir / Spectrum Books) ·{" "}
         {EVENTS.length} milestones, 1857–1947
       </footer>
+
+      
     </div>
   );
 }
