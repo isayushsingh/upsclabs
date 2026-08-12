@@ -143,6 +143,19 @@
 
 .mit-foot{ margin-top:22px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.04em; color:var(--ink-soft); }
 
+/* Phones get a denser layout, not just smaller text — the component swaps
+   to Density:"compact" pixel constants below this same 640px breakpoint
+   (COLUMN_WIDTH/CARD_HEIGHT/etc. in modernIndia.ts), which is the part CSS
+   alone can't do since column/card positions are inline styles computed by
+   the layout engine. These rules are the other half: font sizes and
+   padding scaled down to fit the smaller boxes that JS is now producing,
+   so more years are visible at once on a first, mobile-first impression. */
 @media (max-width:640px){
-  .mit-era-label{ font-size:11px; }
+  .mit-card{ height:34px; padding:4px 8px; border-radius:4px; }
+  .mit-card::before{ width:3px; }
+  .mit-card-title{ font-size:10.5px; line-height:1.15; padding-left:3px; -webkit-line-clamp:3; }
+  .mit-col-year{ left:6px; top:11px; font-size:10.5px; }
+  .mit-era-header{ left:6px; height:18px; padding-top:2px; }
+  .mit-era-label{ font-size:9px; }
+  .mit-era-range{ font-size:7px; margin-left:4px; }
 }

@@ -136,23 +136,32 @@ export const T_MAX = 1947;
     column list depends on the current tier filter. */
 export const YEARS: number[] = Array.from({ length: T_MAX - T_MIN + 1 }, (_, i) => T_MIN + i);
 
-export const COLUMN_WIDTH = 210;
-export const COLUMN_GAP = 8;
+// Two sizes, not one — "comfortable" is the desktop/tablet layout, unchanged
+// from before. "compact" exists because the layout engine bakes pixel
+// positions straight into inline styles (ev.x, col.left…), so no CSS media
+// query can shrink it: a phone stuck with desktop-sized columns showed only
+// ~1.5 years at once. Most traffic here is mobile-first browsing before
+// someone comes back on a laptop, so the first impression matters — compact
+// aims for ~3 full years on a ~390px phone instead of ~1.
+export type Density = "comfortable" | "compact";
+
+export const COLUMN_WIDTH: Record<Density, number> = { comfortable: 210, compact: 118 };
+export const COLUMN_GAP: Record<Density, number> = { comfortable: 8, compact: 5 };
 // Every card gets the same fixed height, wrap or no — because the vertical
 // stacking below places the next card exactly CARD_HEIGHT+CARD_GAP_Y lower
 // than the last one, a card that actually needed more room (say, its title
 // wrapped to two lines) would silently overlap the one below it. Sized for
 // up to two lines at the card's own font size (a title beyond that still
 // clips with an ellipsis, same safety net as before — see .mit-card-title).
-export const CARD_HEIGHT = 44;
+export const CARD_HEIGHT: Record<Density, number> = { comfortable: 44, compact: 34 };
 /** Vertical gap between two cards stacked in the same year's column. */
-export const CARD_GAP_Y = 10;
+export const CARD_GAP_Y: Record<Density, number> = { comfortable: 10, compact: 6 };
 /** Margin either side of the first/last column, so nothing clips the canvas edge. */
-export const EDGE_MARGIN = 10;
+export const EDGE_MARGIN: Record<Density, number> = { comfortable: 10, compact: 6 };
 /** Reserved strip at the top of every column for its year (and, on an
     era's first column, the era name) — cards never start until below this,
     so a label never competes with a card for the same pixels. */
-export const HEADER_HEIGHT = 46;
+export const HEADER_HEIGHT: Record<Density, number> = { comfortable: 46, compact: 30 };
 
 export interface LaidOutEvent extends TimelineEvent {
   /** x centre in px — the centre of its year's column */
@@ -194,7 +203,17 @@ export interface TimelineLayout {
  * card-stacks capped by the single busiest year (at most 8 events, ~290px)
  * rather than the busiest *stretch*.
  */
-export function layoutTimeline(sourceEvents: TimelineEvent[] = EVENTS): TimelineLayout {
+export function layoutTimeline(
+  sourceEvents: TimelineEvent[] = EVENTS,
+  density: Density = "comfortable"
+): TimelineLayout {
+  const columnWidth = COLUMN_WIDTH[density];
+  const columnGap = COLUMN_GAP[density];
+  const cardHeight = CARD_HEIGHT[density];
+  const cardGapY = CARD_GAP_Y[density];
+  const edgeMargin = EDGE_MARGIN[density];
+  const headerHeight = HEADER_HEIGHT[density];
+
   const byYear = new Map<number, TimelineEvent[]>();
   for (const e of sourceEvents) {
     const arr = byYear.get(e.year) ?? [];
@@ -215,24 +234,24 @@ export function layoutTimeline(sourceEvents: TimelineEvent[] = EVENTS): Timeline
   let maxCount = 1;
   const xForYear = new Map<number, number>();
   const columns: ColumnMeta[] = activeYears.map((year, i) => {
-    const left = EDGE_MARGIN + i * (COLUMN_WIDTH + COLUMN_GAP);
+    const left = edgeMargin + i * (columnWidth + columnGap);
     const count = byYear.get(year)!.length;
     maxCount = Math.max(maxCount, count);
-    xForYear.set(year, left + COLUMN_WIDTH / 2);
+    xForYear.set(year, left + columnWidth / 2);
     return { year, left, count, eraStart: eraForCol.get(year) };
   });
 
-  const height = HEADER_HEIGHT + maxCount * (CARD_HEIGHT + CARD_GAP_Y) - CARD_GAP_Y;
+  const height = headerHeight + maxCount * (cardHeight + cardGapY) - cardGapY;
   const width =
     activeYears.length === 0
-      ? EDGE_MARGIN * 2
-      : EDGE_MARGIN * 2 + activeYears.length * (COLUMN_WIDTH + COLUMN_GAP) - COLUMN_GAP;
+      ? edgeMargin * 2
+      : edgeMargin * 2 + activeYears.length * (columnWidth + columnGap) - columnGap;
 
   const events: LaidOutEvent[] = [];
   for (const year of activeYears) {
     const x = xForYear.get(year)!;
     byYear.get(year)!.forEach((e, i) => {
-      const y = HEADER_HEIGHT + i * (CARD_HEIGHT + CARD_GAP_Y) + CARD_HEIGHT / 2;
+      const y = headerHeight + i * (cardHeight + cardGapY) + cardHeight / 2;
       events.push({ ...e, x, y });
     });
   }

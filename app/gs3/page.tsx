@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import { TOOLS } from "@/lib/tools";
 import ToolCard from "@/components/site/ToolCard";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "GS3 · Environment & Ecology · UPSC Labs",
-  description: "Interactive tools for UPSC General Studies Paper III.",
-};
+export const metadata = pageMetadata({
+  title: "GS3 · Environment & Ecology",
+  description:
+    "Interactive tools for UPSC General Studies Paper III — an active-recall map of India's national parks, tiger reserves, and protected areas.",
+  path: "/gs3",
+});
 
 export default function GS3Page() {
   const tools = TOOLS.filter((t) => t.paper === "GS3");

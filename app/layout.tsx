@@ -7,6 +7,7 @@ import "./globals.css";
 import "@/components/site/site.css";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -28,10 +29,55 @@ const generalSans = localFont({
   display: "swap",
 });
 
+const DEFAULT_TITLE = "UPSC Labs · Interactive Tools for Civil Services Exam Prep";
+const DEFAULT_DESCRIPTION =
+  "Free interactive tools for UPSC civil services preparation — a dynastic timeline you scrub through on a map, an active-recall map of India's national parks and protected areas, a cause-and-effect timeline of Modern India (1857–1947), and more across the General Studies syllabus.";
+
 export const metadata: Metadata = {
-  title: "UPSC Labs · Interactive Tools for Civil Services",
-  description:
-    "Visual, interactive tools for UPSC civil services preparation — timelines, maps, and active-recall utilities across the General Studies syllabus.",
+  // Everything else in this file computes absolute URLs from this — without
+  // it, Open Graph images, canonical links, and sitemap/robots entries
+  // silently resolve to relative or wrong paths.
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    // Individual pages set title:"Ancient India Timeline" etc. and this
+    // template appends the brand, so every <title> and OG title stays
+    // "<page> · UPSC Labs" without repeating the suffix on every route.
+    template: `%s · ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  keywords: [
+    "UPSC preparation",
+    "UPSC interactive tools",
+    "Indian history timeline",
+    "Modern India timeline",
+    "Ancient India dynasties map",
+    "National parks map India",
+    "UPSC GS1 GS3",
+    "civil services exam prep",
+    "active recall UPSC",
+  ],
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME }],
+  icons: {
+    icon: "/logo_ink.png",
+    apple: "/logo_ink.png",
+  },
+  openGraph: {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    images: [{ url: "/logo_transparent.png" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: ["/logo_transparent.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -56,7 +56,7 @@ export const TOOLS: Tool[] = [
     title: "Modern India Timeline",
     fullTitle: "Modern India Timeline (1857–1947)",
     blurb:
-      "230 milestones of the freedom struggle on one zoomable, colour-coded timeline — trace curated cause → effect links between them.",
+      "230 milestones of the freedom struggle on a year-by-year timeline — trace curated cause → effect links between them, then revise with active recall.",
     paper: "GS1",
     topic: "History",
     state: "live",
