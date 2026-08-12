@@ -145,26 +145,9 @@
 
 /* ── suggestion form: report a missing/wrong event, email-only (see
    app/api/suggest) — no account, no public board, nothing submitted here
-   is ever rendered back into a page. ── */
-.mit-suggest{ margin-top:18px; padding:18px 20px; border:1px solid var(--stone-edge); border-radius:10px; background:var(--paper-3); }
-.mit-suggest-eyebrow{ display:block; font-weight: 700; font-family:var(--font-space-mono),monospace; font-size:15.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); }
-.mit-suggest-sub{ margin:5px 0 0; font-size:13px; line-height:1.5; color:var(--ink-soft); max-width: 100ch; }
-.mit-suggest-form{ margin-top:14px; }
-.mit-suggest-textarea{ width:100%; resize:vertical; min-height:64px; padding:10px 12px; border:1px solid var(--line); border-radius:7px; background:#fff; color:var(--ink); font-family:var(--font-inter),sans-serif; font-size:13.5px; line-height:1.5; }
-.mit-suggest-textarea:focus{ outline:none; border-color:var(--accent); }
-/* Honeypot — off-screen and unreachable for a real visitor tabbing or
-   reading the form normally, but still present in the DOM for a bot that
-   fills every field it can find. */
-.mit-suggest-hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
-.mit-suggest-row{ display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
-.mit-suggest-row input{ flex:1; min-width:200px; padding:9px 12px; border:1px solid var(--line); border-radius:7px; background:#fff; color:var(--ink); font-family:var(--font-inter),sans-serif; font-size:13px; }
-.mit-suggest-row input:focus{ outline:none; border-color:var(--accent); }
-.mit-suggest-row button{ padding:9px 18px; border:none; border-radius:7px; background:var(--accent); color:#fff; font-family:var(--font-inter),sans-serif; font-size:13px; font-weight:600; cursor:pointer; }
-.mit-suggest-row button:hover:not(:disabled){ filter:brightness(1.1); }
-.mit-suggest-row button:disabled{ opacity:.55; cursor:default; }
-.mit-suggest-msg{ margin:9px 0 0; font-size:12.5px; }
-.mit-suggest-msg.ok{ color:#3F6B4A; }
-.mit-suggest-msg.error{ color:var(--bad); }
+   is ever rendered back into a page. Styles now live in
+   SuggestionForm.css, imported by the component itself so it's reusable
+   outside this tool (see components/orgs/OrgWorldMap.tsx). ── */
 
 /* Phones get a denser layout, not just smaller text — the component swaps
    to Density:"compact" pixel constants below this same 640px breakpoint

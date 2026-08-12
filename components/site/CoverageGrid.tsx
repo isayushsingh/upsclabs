@@ -5,6 +5,7 @@ import PlaceholderImage from "./PlaceholderImage";
 // Only papers with a dedicated section page get a real "view all" link.
 const PAPER_HREF: Partial<Record<Paper, string>> = {
   GS1: "/gs1",
+  GS2: "/gs2",
   GS3: "/gs3",
 };
 
