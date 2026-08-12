@@ -31,7 +31,7 @@ export interface Tool {
 
 export const PAPERS: { id: Paper; topics: string }[] = [
   { id: "GS1", topics: "History · Geography" },
-  { id: "GS2", topics: "Awaiting Presidential Assent. Coming Soon." },
+  { id: "GS2", topics: "Polity · International Relations" },
   { id: "GS3", topics: "Environment" },
   { id: "GS4", topics: "Ethics · Integrity. Coming Soon." },
 ];
@@ -103,6 +103,20 @@ export const TOOLS: Tool[] = [
     href: "/gs1/world-map",
     featured: true,
     accent: "#3E5C76",
+    preview: "map",
+  },
+  {
+    slug: "international-organizations",
+    title: "International Orgs. Mapping",
+    fullTitle: "Interactive Map: International Organizations & Their Members",
+    blurb:
+      "Pick an organization — G7, G20, OECD, GCC, BIMSTEC and 14 more — and watch its member countries light up on the world map, with a Learn ⇄ Recall toggle.",
+    paper: "GS2",
+    topic: "International Relations",
+    state: "live",
+    href: "/gs2/international-organizations",
+    featured: true,
+    accent: "#2255A0",
     preview: "map",
   },
 ];

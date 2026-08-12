@@ -1,0 +1,641 @@
+/* International Organizations map — same parchment/pigment theme as the
+   parks and world-map tools, namespaced "io-" throughout. Unlike those two,
+   only one "layer" (the selected org) is ever painted at once, so the
+   palette question isn't "do N layers read apart" but "does this org's
+   single color read against the neutral basemap" — hence one accent color
+   per org rather than a shared fixed layer palette. */
+
+.io-root {
+  --io-paper: #f2ece0;
+  --io-panel: #e3d9c4;
+  --io-ink: #2a2520;
+  --io-stone: #9a9082;
+  --io-line: #d9d0bf;
+  --io-shadow: 0 1px 2px rgba(42, 37, 32, 0.06), 0 8px 24px rgba(42, 37, 32, 0.07);
+
+  --io-serif: var(--font-fraunces, var(--font-display, ui-serif, Georgia, serif));
+  --io-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
+
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 4vw, 40px) 44px;
+  color: var(--io-ink);
+  font-family: var(--io-sans);
+}
+
+/* ── top row: Learn/Recall then search — same order and proportions as the
+   National Parks tool's control bar, so the two read as one series rather
+   than each tool inventing its own layout. ── */
+.io-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.io-search {
+  position: relative;
+  flex: 0 1 450px;
+  min-width: 0;
+}
+@media (max-width: 700px) {
+  .io-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .io-modecard {
+    min-width: 0;
+  }
+  /* flex-basis tracks the main axis, which flips to vertical once
+     .io-controls goes column above — without this reset, the 450px from
+     the row layout became a *height*, ballooning the search pill and
+     leaving its icon stranded in a tall empty box. */
+  .io-search {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+.io-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  color: var(--io-stone);
+  pointer-events: none;
+}
+.io-search input {
+  width: 100%;
+  border: 1px solid var(--io-line);
+  background: rgba(251, 247, 238, 0.9);
+  border-radius: 999px;
+  padding: 9px 34px;
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--io-ink);
+}
+.io-search input:focus {
+  outline: 2px solid #2255a0;
+  outline-offset: 1px;
+}
+.io-search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--io-stone);
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ── search-results dropdown — the only way to reach an org on mobile,
+   an optional shortcut on desktop (same list the pills already show). ── */
+.io-search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 12;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: rgba(251, 247, 238, 0.98);
+  border: 1px solid var(--io-line);
+  border-radius: 13px;
+  box-shadow: var(--io-shadow);
+  max-height: 340px;
+  overflow-y: auto;
+}
+.io-search-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 8px 9px;
+  cursor: pointer;
+  font: inherit;
+}
+.io-search-result:hover {
+  background: rgba(42, 37, 32, 0.06);
+}
+.io-search-result-swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.io-search-result-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--io-ink);
+}
+.io-search-result-meta {
+  margin-left: auto;
+  font-size: 10.5px;
+  color: var(--io-stone);
+  white-space: nowrap;
+}
+.io-search-empty {
+  padding: 9px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--io-stone);
+}
+
+.io-modecard {
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-width: 225px;
+  border: 1px solid var(--io-line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(251, 247, 238, 0.9);
+}
+.io-mode {
+  flex: 1 1 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 16px;
+  color: #6f6452;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.io-mode-learn.io-mode-on {
+  background: #3e5c76;
+  color: #fff;
+}
+.io-mode-recall.io-mode-on {
+  background: #9a3f4a;
+  color: #fff;
+}
+
+/* ── category tabs — desktop/tablet only. Showing every category's pill
+   row stacked at once (the old layout) meant scanning past 5-6 rows and
+   ~25 pills just to find one org; a tab selects a category and only that
+   category's pills render below, so the map sits higher on the page and
+   scanning is one row instead of six. Mobile skips this entirely — see
+   the media query below — the search dropdown is the only picker there. ── */
+.io-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-bottom: 14px;
+  padding: 4px;
+  background: rgba(251, 247, 238, 0.7);
+  border: 1px solid var(--io-line);
+  border-radius: 12px;
+}
+.io-tab {
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #6f6452;
+  padding: 8px 13px;
+  cursor: pointer;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.io-tab:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--io-ink);
+}
+.io-tab-on,
+.io-tab-on:hover {
+  background: var(--io-ink);
+  color: #fff;
+}
+
+.io-pillgroups {
+  margin-bottom: 18px;
+}
+.io-pillrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.io-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--io-line);
+  background: rgba(251, 247, 238, 0.9);
+  border-radius: 999px;
+  padding: 7px 13px 7px 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6f6452;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.io-pill:hover {
+  background: #fff;
+  border-color: var(--io-stone);
+}
+.io-pill-on,
+.io-pill-on:hover {
+  border-color: transparent;
+  background: var(--io-ink);
+  color: #fff;
+}
+.io-pill-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.io-pill-count {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+/* ── selected-org header ── */
+.io-orghead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--io-line);
+  padding-top: 14px;
+  margin-bottom: 14px;
+}
+.io-orghead h2 {
+  font-family: var(--io-serif);
+  font-size: clamp(19px, 2.7vw, 24px);
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.io-orghead p {
+  margin: 0;
+  font-size: 14px;
+  color: #6f6452;
+  max-width: 100ch;
+}
+.io-continents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 50px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 100ch;
+}
+.io-continents li {
+  flex: 0 0 auto;
+}
+/* Count-only by default ("Africa: 55") — a UPSC student mostly wants the
+   number at a glance, but the full roster is one click away via native
+   <details>, not a second UI to build and style from scratch. */
+.io-continent-detail summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #6f6452;
+  list-style: none;
+}
+.io-continent-detail summary::-webkit-details-marker {
+  display: none;
+}
+.io-continent-detail summary::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--io-stone);
+  flex: 0 0 auto;
+}
+.io-continent-detail summary::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-right: 1.5px solid var(--io-stone);
+  border-bottom: 1.5px solid var(--io-stone);
+  transform: rotate(-45deg);
+  margin-top: -3px;
+  transition: transform 0.15s;
+  flex: 0 0 auto;
+}
+.io-continent-detail[open] summary::after {
+  transform: rotate(45deg);
+  margin-top: 0;
+}
+.io-continent-detail:hover summary,
+.io-continent-detail[open] summary {
+  color: var(--io-ink);
+}
+.io-continent-names {
+  margin: 4px 0 0 11px;
+  padding: 0;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--io-stone);
+  max-width: 44ch;
+}
+.io-recallstat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.io-revealall {
+  border: 1px solid var(--io-line);
+  background: rgba(251, 247, 238, 0.9);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6f6452;
+  cursor: pointer;
+}
+.io-revealall:hover {
+  background: #fff;
+}
+
+/* ── map ── */
+.io-mapwrap {
+  position: relative;
+  border: 1px solid var(--io-line);
+  border-radius: 16px;
+  background: var(--io-paper);
+  box-shadow: var(--io-shadow);
+  overflow: hidden;
+}
+.io-mapwrap {
+  aspect-ratio: 1.92;
+}
+.io-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+.io-grab {
+  cursor: grab;
+}
+.io-grab:active {
+  cursor: grabbing;
+}
+/* Light pastel blue, clearly apart from the land's warm tan — the previous
+   ocean tone (#e7ddc9) sat one shade off the land fill, so at a glance the
+   whole map read as a single undifferentiated blob. */
+.io-ocean {
+  fill: #d7e7f0;
+}
+.io-country {
+  cursor: pointer;
+  transition: fill 0.2s, fill-opacity 0.2s, stroke 0.15s;
+  /* No focus ring on click: these paths are pointer-only (search/pills
+     already cover keyboard access), and browsers that focus a clicked
+     tabindex-able element by default were drawing their native ring —
+     visually a wide blue-and-white rectangle — around whatever was clicked. */
+  outline: none;
+}
+.io-country:hover {
+  stroke: var(--io-ink);
+  stroke-width: 1.2;
+}
+.io-country-label {
+  fill: var(--io-ink);
+  opacity: 0.75;
+  text-anchor: middle;
+  pointer-events: none;
+  font-family: var(--io-sans);
+  font-weight: 500;
+  paint-order: stroke;
+  stroke: var(--io-paper);
+  stroke-width: 1px;
+  stroke-linejoin: round;
+}
+.io-founding-badge {
+  pointer-events: none;
+}
+.io-founding-badge circle {
+  fill: #ffb703;
+  stroke: var(--io-ink);
+  stroke-width: 0.6;
+}
+.io-founding-badge text {
+  fill: var(--io-ink);
+  font-family: var(--io-sans);
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+/* ── zoom buttons ── */
+.io-zoombtns {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--io-shadow);
+  border: 1px solid var(--io-line);
+}
+.io-zoom {
+  width: 36px;
+  height: 34px;
+  background: var(--io-panel);
+  border: 0;
+  border-bottom: 1px solid var(--io-line);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--io-ink);
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.io-zoom:last-child {
+  border-bottom: 0;
+}
+.io-zoom:hover {
+  background: #efe7d6;
+}
+
+/* ── legend (bottom-right — bottom-left is the zoom buttons) ── */
+.io-legend {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: rgba(251, 247, 238, 0.92);
+  border: 1px solid var(--io-line);
+  border-radius: 10px;
+  padding: 7px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #6f6452;
+}
+.io-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.io-legend-swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.io-legend-observer {
+  opacity: 0.4;
+  border: 1.5px dashed;
+}
+.io-legend-partner {
+  background: transparent;
+  border: 1.5px dotted;
+}
+.io-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffb703;
+  border: 1px solid var(--io-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--io-ink);
+}
+
+/* Mobile-only stand-in for .io-legend, rendered after .io-mapwrap in normal
+   flow (see OrgWorldMap.tsx) — hidden by default, swapped in below 700px
+   in the same breakpoint that hides .io-legend itself. */
+.io-legend-mobile {
+  display: none;
+}
+
+/* ── country detail card ── */
+.io-card {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 240px;
+  max-width: calc(100% - 28px);
+  background: #fbf7ee;
+  border: 1px solid var(--io-line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: var(--io-shadow);
+}
+.io-card-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  border: none;
+  background: none;
+  font-size: 17px;
+  line-height: 1;
+  color: var(--io-stone);
+  cursor: pointer;
+  padding: 4px;
+}
+.io-card-name {
+  font-family: var(--io-serif);
+  font-size: 16px;
+  font-weight: 600;
+  padding-right: 16px;
+}
+.io-card-body {
+  margin-top: 4px;
+}
+.io-card-tier {
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.io-card-note {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #6f6452;
+}
+.io-card-not {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--io-stone);
+}
+.io-card-hidden {
+  font-size: 12.5px;
+  color: var(--io-stone);
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .io-card {
+    left: 14px;
+    right: 14px;
+    width: auto;
+  }
+  /* Search dropdown is the only org picker on mobile — see .io-search's
+     "searchOpen" dropdown in OrgWorldMap.tsx. */
+  .io-tabs,
+  .io-pillgroups {
+    display: none;
+  }
+  /* The overlay legend is sized for a laptop-width map; on a phone-width
+     one it would cover a real fraction of the map itself, so it's swapped
+     for the smaller static copy below the map instead (io-legend-mobile). */
+  .io-legend {
+    display: none;
+  }
+  .io-legend-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #6f6452;
+  }
+  .io-legend-mobile span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+/* ── suggestion form (shared components/modern-india-timeline/SuggestionForm)
+   — that component's CSS lives in ModernIndiaTimeline.css and only sets two
+   of its custom properties (--accent, --bad) locally rather than globally;
+   this scope supplies them so the form doesn't inherit undefined variables
+   outside its home tool. ── */
+.io-suggest-scope {
+  --accent: #2255a0;
+  --bad: #9a3f4a;
+  margin-top: 20px;
+}
