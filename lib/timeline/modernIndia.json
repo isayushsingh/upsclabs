@@ -37,7 +37,7 @@
   {
     "id": "e4",
     "year": 1858,
-    "title": "Government of India Act, 1858",
+    "title": "GoI Act, 1858",
     "event": "The Act for Better Government of India (1858) is passed, transferring administration from the East India Company to the British Crown.",
     "strand": "administrative-imperial-policy",
     "citations": [
@@ -71,7 +71,7 @@
     "citations": [
       504
     ],
-    "tier": "context"
+    "tier": "core"
   },
   {
     "id": "e7",
@@ -235,7 +235,7 @@
     "citations": [
       501
     ],
-    "tier": "context"
+    "tier": "core"
   },
   {
     "id": "e21",
@@ -279,7 +279,7 @@
     "citations": [
       238
     ],
-    "tier": "context"   
+    "tier": "core"
   },
   {
     "id": "e25",
@@ -358,7 +358,7 @@
     "citations": [
       501
     ],
-    "tier": "context"
+    "tier": "core"
   },
   {
     "id": "e32",
@@ -369,7 +369,7 @@
     "citations": [
       501
     ],
-    "tier": "context"
+    "tier": "core"
   },
   {
     "id": "e33",
@@ -380,7 +380,7 @@
     "citations": [
       508
     ],
-    "tier": "context"
+    "tier": "core"
   },
   {
     "id": "e34",
@@ -416,7 +416,7 @@
       324,
       325
     ],
-    "tier": "context"
+    "tier": "core"
   },
   {
     "id": "e37",
@@ -1638,7 +1638,7 @@
     "citations": [
       47
     ],
-    "tier": "context"
+    "tier": "core"
   },
   {
     "id": "e137",
