@@ -1,0 +1,51 @@
+{
+  "south-america": {
+    "Peru": [
+      { "name": "Lake Titicaca", "lon": -69.33, "lat": -15.92, "note": "Highest navigable lake in the world (~3,812 m); shared with Bolivia, sacred in Inca cosmology." }
+    ],
+    "Bolivia": [
+      { "name": "Lake Titicaca", "lon": -69.0, "lat": -16.1, "note": "Highest navigable lake in the world (~3,812 m); shared with Peru, sacred in Inca cosmology." }
+    ],
+    "Venezuela": [
+      { "name": "Lake Maracaibo", "lon": -71.65, "lat": 9.85, "note": "Largest lake in South America; a brackish tidal bay at its mouth — centre of Venezuela's oil industry." }
+    ]
+  },
+  "north-america": {
+    "Canada": [
+      { "name": "Great Bear Lake", "lon": -120.6, "lat": 65.83, "note": "Largest lake entirely within Canada; deep in the Northwest Territories." }
+    ],
+    "United States": [
+      { "name": "Lake Superior", "lon": -87.5, "lat": 47.7, "note": "Largest of the Great Lakes by area — shared with Canada, on the US–Canada border." }
+    ]
+  },
+  "africa": {
+    "Kenya": [
+      { "name": "Lake Victoria", "lon": 34.5, "lat": -1.0, "note": "Africa's largest lake by area; source of the White Nile, shared with Uganda and Tanzania." }
+    ],
+    "Chad": [
+      { "name": "Lake Chad", "lon": 14.1, "lat": 13.2, "note": "Shrunk by over 90% since the 1960s — a textbook case of desertification, shared by four countries." }
+    ]
+  },
+  "europe": {
+    "Russia (European)": [
+      { "name": "Lake Ladoga", "lon": 31.5, "lat": 61.0, "note": "Largest lake in Europe; supplied the 'Road of Life' into besieged Leningrad in WWII." }
+    ],
+    "Switzerland": [
+      { "name": "Lake Geneva", "lon": 6.6, "lat": 46.45, "note": "Crescent-shaped Alpine lake shared with France; Geneva sits at its southwestern tip." }
+    ]
+  },
+  "asia": {
+    "Kazakhstan": [
+      { "name": "Caspian Sea", "lon": 51, "lat": 42, "note": "World's largest inland body of water — technically a sea, bordered by five countries." },
+      { "name": "Aral Sea (remnant)", "lon": 60, "lat": 45, "note": "Shrunk drastically since the 1960s after Soviet-era irrigation diverted its feeder rivers." }
+    ],
+    "Nepal": [
+      { "name": "Rara Lake", "lon": 82.08, "lat": 29.53, "note": "Nepal's largest lake, in a remote Himalayan national park." }
+    ]
+  },
+  "australia-oceania": {
+    "Australia": [
+      { "name": "Lake Eyre", "lon": 137.36, "lat": -28.5, "note": "Australia's lowest point and largest lake — usually a dry salt pan, filling only in rare floods." }
+    ]
+  }
+}

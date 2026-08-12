@@ -1,0 +1,8 @@
+[
+  { "id": "south-america", "label": "South America", "ready": true },
+  { "id": "north-america", "label": "North America", "ready": true },
+  { "id": "africa", "label": "Africa", "ready": true },
+  { "id": "europe", "label": "Europe", "ready": true },
+  { "id": "asia", "label": "Asia", "ready": true },
+  { "id": "australia-oceania", "label": "Australia & Oceania", "ready": true }
+]

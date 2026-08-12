@@ -67,7 +67,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "national-parks",
-    title: "Map: Protected Areas & Wetlands",
+    title: "Protected Areas & Wetlands Mapping",
     fullTitle: "Interactive Map: Protected Areas & Wetlands",
     blurb:
         "Active-recall map of India's national parks & tiger reserves, with wetland, river and terrain layers and a Learn ⇄ Recall toggle.",
@@ -88,6 +88,20 @@ export const TOOLS: Tool[] = [
     paper: "GS1",
     topic: "Geography",
     state: "building",
+    accent: "#3E5C76",
+    preview: "map",
+  },
+  {
+    slug: "world-map",
+    title: "Interactive World Mapping",
+    fullTitle: "Interactive World Map: Political & Physical Geography",
+    blurb:
+      "Active-recall map of the world, continent by continent — capitals, cities, rivers, lakes, mountains, volcanoes and physical features, with a Learn ⇄ Recall toggle. Still work in progress — country borders are placeholders for now.",
+    paper: "GS1",
+    topic: "Geography",
+    state: "live",
+    href: "/gs1/world-map",
+    featured: true,
     accent: "#3E5C76",
     preview: "map",
   },

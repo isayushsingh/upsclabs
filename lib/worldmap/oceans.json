@@ -1,0 +1,42 @@
+{
+  "south-america": [
+    { "name": "Pacific Ocean", "lon": -89, "lat": -30, "kind": "ocean" },
+    { "name": "Atlantic Ocean", "lon": -30, "lat": -18, "kind": "ocean" },
+    { "name": "Caribbean Sea", "lon": -70, "lat": 15.5, "kind": "sea" },
+    { "name": "Drake Passage", "lon": -68, "lat": -58.5, "kind": "sea" }
+  ],
+  "north-america": [
+    { "name": "Pacific Ocean", "lon": -140, "lat": 35, "kind": "ocean" },
+    { "name": "Atlantic Ocean", "lon": -57, "lat": 35, "kind": "ocean" },
+    { "name": "Arctic Ocean", "lon": -95, "lat": 76, "kind": "ocean" },
+    { "name": "Gulf of Mexico", "lon": -90, "lat": 24, "kind": "sea" },
+    { "name": "Caribbean Sea", "lon": -75, "lat": 15, "kind": "sea" }
+  ],
+  "africa": [
+    { "name": "Atlantic Ocean", "lon": -15, "lat": 0, "kind": "ocean" },
+    { "name": "Indian Ocean", "lon": 48, "lat": -15, "kind": "ocean" },
+    { "name": "Mediterranean Sea", "lon": 15, "lat": 36, "kind": "sea" },
+    { "name": "Red Sea", "lon": 38, "lat": 20, "kind": "sea" },
+    { "name": "Gulf of Guinea", "lon": 4, "lat": 2, "kind": "sea" }
+  ],
+  "europe": [
+    { "name": "Atlantic Ocean", "lon": -9, "lat": 45, "kind": "ocean" },
+    { "name": "Mediterranean Sea", "lon": 15, "lat": 36, "kind": "sea" },
+    { "name": "North Sea", "lon": 3, "lat": 56, "kind": "sea" },
+    { "name": "Baltic Sea", "lon": 19, "lat": 58, "kind": "sea" },
+    { "name": "Black Sea", "lon": 34, "lat": 43, "kind": "sea" }
+  ],
+  "asia": [
+    { "name": "Arabian Sea", "lon": 65, "lat": 15, "kind": "sea" },
+    { "name": "Bay of Bengal", "lon": 88, "lat": 15, "kind": "sea" },
+    { "name": "South China Sea", "lon": 114, "lat": 12, "kind": "sea" },
+    { "name": "Pacific Ocean", "lon": 140, "lat": 30, "kind": "ocean" },
+    { "name": "Persian Gulf", "lon": 52, "lat": 27, "kind": "sea" }
+  ],
+  "australia-oceania": [
+    { "name": "Indian Ocean", "lon": 112, "lat": -25, "kind": "ocean" },
+    { "name": "Pacific Ocean", "lon": 175, "lat": -20, "kind": "ocean" },
+    { "name": "Tasman Sea", "lon": 160, "lat": -40, "kind": "sea" },
+    { "name": "Coral Sea", "lon": 152, "lat": -15, "kind": "sea" }
+  ]
+}
