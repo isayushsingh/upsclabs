@@ -49,7 +49,7 @@ export default function CoverageGrid() {
                 <>
                   {/* <h3 className="ul-cov-paper">{p.id}</h3> */}
                   <div className="ul-cov-pills">
-                    {live.slice(0, 2).map((t) => (
+                    {live.slice(0, 3).map((t) => (
                       <Link key={t.slug} href={t.href!} className="ul-cov-pill">
                         {t.title + ' ->'}
                       </Link>

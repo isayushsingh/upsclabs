@@ -1,0 +1,900 @@
+/* World Mapping — sibling tool to the National Parks map, same parchment/
+   pigment theme (calm, easy on the eyes) so the two feel like one series.
+   Namespace is "wm-" throughout; layer palette is distinct from "np-"
+   (political = slate/terra, water = sea blue, peaks = clay, terrain = sand/
+   moss/olive) so continents don't visually read as a re-skin of India. */
+
+.wm-root {
+  --paper: #f2ece0;
+  --panel: #eae2d2;
+  --ink: #2a2520;
+  --stone: #9a9082;
+  --line: #d9d0bf;
+  --terra: #c2683f;
+  --slate: #3e5c76;
+  --capital: #9a3f4a;
+  --city: #3e5c76;
+  --sea: #4779a3;
+  --lake: #2c5f8a;
+  --peak: #7d5f3c;
+  --volcano: #b3402f;
+  --desert: #c2953f;
+  --plateau: #8a6a45;
+  --grassland: #5f8a3f;
+  --shadow: 0 1px 2px rgba(42, 37, 32, 0.06), 0 8px 24px rgba(42, 37, 32, 0.07);
+
+  --wm-serif: var(--font-fraunces, var(--font-display, ui-serif, Georgia, serif));
+  --wm-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
+  --wm-mono: var(--font-space-mono, var(--font-mono, ui-monospace, "SFMono-Regular", monospace));
+
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 4vw, 40px) 44px;
+  color: var(--ink);
+  font-family: var(--wm-sans);
+}
+
+/* ── continent selector: pills above everything else, page-level ── */
+.wm-continentbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.wm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: rgba(251, 247, 238, 0.9);
+  border-radius: 999px;
+  padding: 8px 15px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6f6452;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.wm-pill:hover:not(:disabled) {
+  background: #fff;
+  border-color: var(--slate);
+}
+.wm-pill-on {
+  color: #fff;
+  background: var(--slate);
+  border-color: var(--slate);
+}
+.wm-pill-soon {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.wm-pill-tag {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(42, 37, 32, 0.08);
+  border-radius: 999px;
+  padding: 1.5px 6px;
+}
+
+/* ── master controls: search + Learn/Recall, one row above the map ── */
+.wm-controlbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+.wm-controlbar .wm-search {
+  flex: 0 1 450px;
+  min-width: 0;
+}
+.wm-controlbar .wm-modecard {
+  flex: 0 0 auto;
+  min-width: 225px;
+}
+@media (max-width: 700px) {
+  .wm-controlbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .wm-controlbar .wm-modecard {
+    min-width: 0;
+  }
+}
+
+/* ── universal search ── */
+.wm-search {
+  position: relative;
+}
+.wm-search-box {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(251, 247, 238, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 13px;
+  box-shadow: var(--shadow);
+}
+.wm-search-ic {
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.wm-search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+}
+.wm-search-input::placeholder {
+  color: var(--stone);
+}
+.wm-search-clear {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--stone);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+.wm-search-clear:hover {
+  color: var(--ink);
+}
+.wm-search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 12;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: rgba(251, 247, 238, 0.98);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  max-height: 340px;
+  overflow-y: auto;
+}
+.wm-search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 7px 9px;
+  cursor: pointer;
+  font: inherit;
+}
+.wm-search-result:hover {
+  background: rgba(62, 92, 118, 0.09);
+}
+.wm-search-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.wm-search-meta {
+  font-size: 10.5px;
+  color: var(--stone);
+}
+.wm-search-empty {
+  padding: 9px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--stone);
+}
+
+/* ── mode toggle (Learn = slate, Recall = terracotta) ── */
+.wm-modecard {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  background: rgba(251, 247, 238, 0.96);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  box-shadow: var(--shadow);
+}
+.wm-mode {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #6f6452;
+  padding: 8px 0;
+  border-radius: 999px;
+  transition: 0.18s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1 1 0;
+}
+.wm-mode-on {
+  color: var(--paper);
+}
+.wm-mode-learn.wm-mode-on {
+  background: var(--slate);
+}
+.wm-mode-recall.wm-mode-on {
+  background: var(--terra);
+}
+
+/* ── map panel ── */
+.wm-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  overflow: hidden;
+  aspect-ratio: 1.1;
+}
+.wm-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+.wm-grab {
+  cursor: grab;
+}
+.wm-grab:active {
+  cursor: grabbing;
+}
+.wm-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 0 32px;
+  gap: 6px;
+}
+.wm-soon-h {
+  font-family: var(--wm-serif);
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+}
+.wm-soon-b {
+  font-size: 13.5px;
+  color: var(--stone);
+  margin: 0;
+  max-width: 380px;
+}
+
+/* ── countries ── */
+.wm-country {
+  fill: #efe8db;
+  stroke: var(--line);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.25s;
+}
+.wm-has-data {
+  fill: var(--panel);
+  cursor: pointer;
+}
+.wm-has-data:hover {
+  fill: #e3d6bd;
+}
+.wm-active {
+  fill: #e3d6bd;
+  stroke: var(--slate);
+  stroke-width: 1;
+}
+.wm-countrylabels {
+  pointer-events: none;
+}
+.wm-countrylabel {
+  fill: #5f574a;
+  font-style: italic;
+  font-weight: 500;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ── oceans/seas: always-on orientation layer, faint + non-interactive ── */
+.wm-water {
+  pointer-events: none;
+}
+.wm-waterlabel {
+  fill: var(--sea);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ── workspace: standalone left sidebar + map column ── */
+.wm-workspace {
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+}
+.wm-sidebar {
+  flex: 0 0 250px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+.wm-mapcol {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line);
+}
+.wm-layerbox {
+  width: 224px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.wm-lb-reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 224px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(194, 104, 63, 0.1);
+  color: var(--terra);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: 0.15s;
+  box-shadow: none;
+}
+.wm-lb-reset-ic {
+  font-size: 16px;
+  line-height: 1;
+}
+.wm-lb-reset:hover {
+  background: rgba(194, 104, 63, 0.18);
+}
+.wm-lyr-col {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+@media (max-width: 899px) {
+  .wm-workspace {
+    flex-direction: column;
+  }
+  .wm-mapcol {
+    order: 1;
+    width: 100%;
+  }
+  .wm-sidebar {
+    order: 2;
+    width: 100%;
+    flex: 0 0 auto;
+    align-items: stretch;
+    margin-top: 4px;
+  }
+  .wm-layerbox,
+  .wm-lb-reset {
+    width: 100%;
+  }
+}
+.wm-lyr-cap {
+  display: block;
+  font-family: var(--wm-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6f6452;
+  margin: 0 0 10px 2px;
+}
+.wm-chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.wm-chip {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 9px;
+  padding: 11px 13px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6f6452;
+  cursor: pointer;
+  transition: 0.15s;
+  box-shadow: none;
+}
+.wm-sw {
+  width: 28px;
+  height: 16px;
+  border-radius: 999px;
+  background: #dbd2c1;
+  position: relative;
+  transition: 0.15s;
+  flex: 0 0 auto;
+}
+.wm-sw::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  transition: 0.15s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.wm-chip.on .wm-sw::after {
+  left: 14px;
+}
+.wm-chip-pol.on {
+  color: #2c4a63;
+  border-color: rgba(62, 92, 118, 0.4);
+  background: rgba(62, 92, 118, 0.09);
+}
+.wm-chip-pol.on .wm-sw {
+  background: var(--slate);
+}
+.wm-chip-riv.on {
+  color: #2c5f8a;
+  border-color: rgba(44, 95, 138, 0.45);
+  background: rgba(44, 95, 138, 0.1);
+}
+.wm-chip-riv.on .wm-sw {
+  background: var(--lake);
+}
+.wm-chip-mtn.on {
+  color: #6b4e2e;
+  border-color: rgba(125, 95, 60, 0.45);
+  background: rgba(125, 95, 60, 0.12);
+}
+.wm-chip-mtn.on .wm-sw {
+  background: var(--peak);
+}
+.wm-chip-ter.on {
+  color: #4c6b2b;
+  border-color: rgba(95, 138, 63, 0.45);
+  background: rgba(95, 138, 63, 0.12);
+}
+.wm-chip-ter.on .wm-sw {
+  background: var(--grassland);
+}
+
+/* ── zoom buttons ── */
+.wm-zoombtns {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.wm-zoom {
+  width: 36px;
+  height: 34px;
+  background: var(--panel);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wm-zoom:last-child {
+  border-bottom: 0;
+}
+.wm-zoom:hover {
+  background: #efe7d6;
+}
+
+/* ── markers ── */
+.wm-markers {
+  pointer-events: none;
+}
+.wm-mrk-g {
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+}
+.wm-touch-target {
+  fill: transparent;
+  stroke: none;
+  pointer-events: all;
+}
+.wm-mrk {
+  stroke: #fbf7ee;
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+}
+.wm-mrk-city {
+  fill: var(--city);
+}
+.wm-mrk-capital {
+  fill: var(--capital);
+}
+.wm-mrk-capital-dot {
+  fill: #fbf7ee;
+  pointer-events: none;
+}
+.wm-mrk-g:hover .wm-mrk {
+  stroke: #fff;
+  stroke-width: 2;
+}
+.wm-mrk-g:focus-visible .wm-mrk {
+  stroke: var(--terra);
+  stroke-width: 2.2;
+}
+.wm-mrk-sel .wm-mrk {
+  stroke: var(--terra);
+  stroke-width: 2.2;
+}
+.wm-mrklabel {
+  fill: var(--ink);
+  font-weight: 600;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+}
+.wm-mask {
+  fill: var(--stone);
+  font-weight: 700;
+}
+
+/* ── counted cluster bubble ── */
+.wm-bubble-g {
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+}
+.wm-bubble {
+  fill: #fbf7ee;
+  stroke: var(--slate);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+.wm-bubble-g:hover .wm-bubble {
+  fill: #fff;
+  stroke-width: 2;
+}
+.wm-bubble-g:focus-visible .wm-bubble {
+  stroke: var(--terra);
+  stroke-width: 2;
+}
+.wm-bubble-count {
+  fill: var(--slate);
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+.wm-lead {
+  stroke: var(--stone);
+  stroke-width: 0.7;
+  stroke-opacity: 0.5;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ── faint context layers: rivers, lakes, peaks, terrain ── */
+.wm-rivers,
+.wm-peaks,
+.wm-terrain {
+  pointer-events: none;
+}
+.wm-river {
+  fill: none;
+  stroke: var(--lake);
+  stroke-width: 1;
+  stroke-opacity: 0.55;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.wm-riverlabel {
+  fill: var(--lake);
+  font-style: italic;
+  opacity: 0.9;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.wm-lake-g {
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+}
+.wm-lake-g:hover .wm-lake {
+  stroke-width: 1.1;
+}
+.wm-lake {
+  fill: var(--lake);
+  fill-opacity: 0.6;
+  stroke: #1c3f5c;
+  stroke-opacity: 0.55;
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+.wm-lakelabel {
+  fill: #1c3f5c;
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.wm-peak {
+  fill: var(--peak);
+  stroke: #fbf7ee;
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+.wm-peak-volcano {
+  fill: var(--volcano);
+}
+.wm-peaklabel {
+  fill: var(--peak);
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.wm-terrainlabel {
+  font-style: italic;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+.wm-terrain-desert {
+  fill: var(--desert);
+}
+.wm-terrain-plateau {
+  fill: var(--plateau);
+}
+.wm-terrain-grassland {
+  fill: var(--grassland);
+}
+
+/* ── card (side panel ≥900px, bottom sheet below) ── */
+.wm-card {
+  position: absolute;
+  z-index: 8;
+  background: #fbf7ee;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 6px 30px rgba(42, 37, 32, 0.17);
+  overflow-y: auto;
+  top: 62px;
+  right: 14px;
+  width: 320px;
+  max-height: calc(100% - 80px);
+}
+.wm-card-head {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 13px 16px 11px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #f4eee1, #fbf7ee);
+}
+.wm-card-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex: none;
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.wm-dot-cap {
+  background: var(--capital);
+}
+.wm-dot-city {
+  background: var(--city);
+}
+.wm-card-titles {
+  flex: 1;
+  min-width: 0;
+}
+.wm-card-title {
+  font-family: var(--wm-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.15;
+}
+.wm-card-sub {
+  font-size: 12px;
+  color: var(--stone);
+  margin-top: 3px;
+}
+.wm-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+.wm-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 2px 9px;
+  border: 1px solid;
+  line-height: 1.5;
+}
+.wm-tag-cap {
+  color: #7a2f38;
+  background: rgba(154, 63, 74, 0.12);
+  border-color: rgba(154, 63, 74, 0.45);
+}
+.wm-tag-city {
+  color: #2c4a63;
+  background: rgba(62, 92, 118, 0.12);
+  border-color: rgba(62, 92, 118, 0.45);
+}
+.wm-card-x {
+  font: inherit;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--stone);
+  background: #fbf7ee;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  flex: none;
+}
+.wm-card-x:hover {
+  background: #fff;
+  color: var(--ink);
+}
+.wm-rows {
+  margin: 0;
+  padding: 12px 16px 14px;
+}
+.wm-row {
+  padding: 4px 0;
+}
+.wm-row dt {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 4px;
+}
+.wm-row dd {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .wm-card {
+    position: static;
+    margin-top: 14px;
+    width: 100%;
+    max-height: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wm-country,
+  .wm-chip,
+  .wm-sw,
+  .wm-sw::after,
+  .wm-mode,
+  .wm-pill {
+    transition: none;
+  }
+}
+
+/* ── footnote legend — bottom of the whole page, horizontal ── */
+.wm-footnote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: #6f6452;
+}
+.wm-fn-markers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.wm-fn-markers span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.wm-lg {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border: 1.2px solid #fff;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+.wm-lg-cap {
+  background: var(--capital);
+}
+.wm-lg-city {
+  background: var(--city);
+}
+.wm-lg-lake {
+  background: var(--lake);
+}
+.wm-lg-peak {
+  background: var(--peak);
+  border-radius: 2px;
+}
+.wm-lg-volcano {
+  background: var(--volcano);
+  border-radius: 2px;
+}
