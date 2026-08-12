@@ -13,10 +13,18 @@ import {
   type LaidOutEvent,
   type Era,
   type ColumnMeta,
+  type Density,
 } from "@/lib/timeline/modernIndia";
 import "./ModernIndiaTimeline.css";
 
 type Mode = "learn" | "revise";
+
+// Matches the CSS mobile breakpoint used throughout the rest of this
+// component's stylesheet (see @media (max-width:640px) in the .css file) —
+// keep the two in sync, since this is what decides which pixel constants
+// the layout engine uses (see Density in modernIndia.ts), while the CSS
+// breakpoint only handles font-size/padding, which inline styles can't.
+const MOBILE_QUERY = "(max-width: 640px)";
 
 /** A gentle upward arc between two laid-out events — legible whether they're
     in the same column (a pure bow) or several years apart. */
@@ -50,11 +58,28 @@ export default function ModernIndiaTimeline() {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [clientWidth, setClientWidth] = useState(0);
 
+  // Defaults to "comfortable" (desktop's existing look, unchanged) on the
+  // server and until the first effect runs client-side, then switches to
+  // "compact" on phones — can't know viewport width during SSR, so a phone
+  // briefly renders the comfortable layout before this fires. Most traffic
+  // here is mobile-first, so getting the *settled* mobile view dense is
+  // worth that one-frame flash.
+  const [density, setDensity] = useState<Density>("comfortable");
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const update = () => setDensity(mq.matches ? "compact" : "comfortable");
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  const columnWidth = COLUMN_WIDTH[density];
+  const columnGap = COLUMN_GAP[density];
+
   const visibleEvents = useMemo(
     () => (showContext ? EVENTS : EVENTS.filter((e) => e.tier === "core")),
     [showContext]
   );
-  const layout = useMemo(() => layoutTimeline(visibleEvents), [visibleEvents]);
+  const layout = useMemo(() => layoutTimeline(visibleEvents, density), [visibleEvents, density]);
   const width = layout.width;
   const canvasHeight = layout.height;
 
@@ -134,13 +159,13 @@ export default function ModernIndiaTimeline() {
       if (!start) return [];
       const result: ColumnMeta[] = [];
       for (let i = startIdx; i < cols.length; i++) {
-        const rightEdge = cols[i].left + COLUMN_WIDTH - start.left;
+        const rightEdge = cols[i].left + columnWidth - start.left;
         if (rightEdge > viewportWidth && result.length > 0) break;
         result.push(cols[i]);
       }
       return result;
     },
-    [layout.columns]
+    [layout.columns, columnWidth]
   );
 
   // Scrolling itself is entirely native and free — drag, trackpad swipe,
@@ -195,7 +220,7 @@ export default function ModernIndiaTimeline() {
   const pageBy = (dir: 1 | -1) => {
     const el = scrollRef.current;
     if (!el) return;
-    const perPage = Math.max(1, Math.round(el.clientWidth / (COLUMN_WIDTH + COLUMN_GAP)));
+    const perPage = Math.max(1, Math.round(el.clientWidth / (columnWidth + columnGap)));
     scrollToColIndex(nearestColIndex() + dir * perPage);
   };
 
@@ -256,10 +281,10 @@ export default function ModernIndiaTimeline() {
       const cols = layout.columns.filter((c) => c.year >= era.start && c.year < era.end);
       if (!cols.length || !width) return null;
       const left = cols[0].left;
-      const right = cols[cols.length - 1].left + COLUMN_WIDTH;
+      const right = cols[cols.length - 1].left + columnWidth;
       return { era, leftPct: (left / width) * 100, widthPct: ((right - left) / width) * 100 };
     }).filter((b): b is { era: Era; leftPct: number; widthPct: number } => b != null);
-  }, [mode, layout.columns, width]);
+  }, [mode, layout.columns, width, columnWidth]);
   const viewFracLeft = width ? scrollLeft / width : 0;
   const viewFracWidth = width ? Math.min(1, clientWidth / width) : 1;
   const seekFromClientX = (clientX: number) => {
@@ -342,7 +367,7 @@ export default function ModernIndiaTimeline() {
         className={`mit-card ${isActive ? "is-active" : ""} ${isLinked ? "is-linked" : ""} ${
           justPlaced ? "is-placed" : ""
         }`}
-        style={{ left: ev.x, top: ev.y, width: COLUMN_WIDTH - 16 }}
+        style={{ left: ev.x, top: ev.y, width: columnWidth - 16 }}
         onClick={mode === "learn" ? () => setActiveId((cur) => (cur === ev.id ? null : ev.id)) : undefined}
         title={`${ev.year} — ${ev.title}`}
       >
@@ -408,7 +433,7 @@ export default function ModernIndiaTimeline() {
                 className={`mit-col ${i % 2 === 1 ? "alt" : ""} ${isReviseTarget ? "is-target" : ""} ${
                   wrongFlashYear === col.year ? "is-wrong" : ""
                 }`}
-                style={{ left: col.left, width: COLUMN_WIDTH, height: canvasHeight }}
+                style={{ left: col.left, width: columnWidth, height: canvasHeight }}
                 onClick={isReviseTarget ? () => placeCard(col.year) : undefined}
                 role={isReviseTarget ? "button" : undefined}
               >

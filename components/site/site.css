@@ -259,6 +259,18 @@
   height: 100%;
   object-fit: cover;
 }
+/* .ul-carousel-card's own width is clamp(300px, 20vw, 280px) — note the min
+   (300px) is larger than the max (280px), which is invalid: per spec that
+   makes clamp() always resolve to the min, so every viewport (including
+   phones) was getting a fixed 300px-wide card regardless of 20vw. Left
+   as-is above (desktop's current look depends on that constant 300px) and
+   overridden here for phones only, where 300px is most of the screen. */
+@media (max-width: 640px) {
+  .ul-carousel-card {
+    width: 46vw;
+  }
+}
+
 .ul-carousel-pill {
   position: absolute;
   top: 14px;
@@ -853,7 +865,10 @@ a.ul-cov-img:hover {
   .ul-gridlines { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
-  .ul-cov-grid { grid-template-columns: 1fr; }
+  /* Was 1fr (single column), which is what made each GS card render at
+     nearly full phone width — a 2x2 grid (inherited from the 860px rule
+     above) is what was actually wanted here; only .ul-gridlines needed
+     hiding at this width. */
   .ul-gridlines { display: none; }
 }
 @media (max-width: 560px) {
