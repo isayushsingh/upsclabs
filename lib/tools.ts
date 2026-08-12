@@ -107,7 +107,7 @@ export const TOOLS: Tool[] = [
   },
   {
     slug: "international-organizations",
-    title: "International Organizations Map",
+    title: "International Orgs. Mapping",
     fullTitle: "Interactive Map: International Organizations & Their Members",
     blurb:
       "Pick an organization — G7, G20, OECD, GCC, BIMSTEC and 14 more — and watch its member countries light up on the world map, with a Learn ⇄ Recall toggle.",
