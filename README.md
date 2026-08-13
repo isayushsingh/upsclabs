@@ -2,8 +2,6 @@
 
 A hub of interactive tools for UPSC civil services preparation. One Next.js app, route-based tools, a central registry. The homepage is the hub; each tool lives at its own route under a GS-paper folder.
 
-**Live tool:** Ancient India Dynastic Timeline — `/gs1/ancient-india-timeline`.
-
 ## Stack
 
 Next.js (App Router) · React · TypeScript · d3-geo · Tailwind CSS v4 · next/font. Deploys to Vercel with zero config.
