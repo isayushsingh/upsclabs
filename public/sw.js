@@ -10,7 +10,7 @@
 //     content-hashed or effectively immutable.
 // Bump CACHE_VERSION whenever this file's caching strategy changes, so old
 // clients drop their stale cache instead of accumulating cruft.
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v2";
 const CACHE_NAME = `upsclabs-${CACHE_VERSION}`;
 
 self.addEventListener("install", () => {
@@ -62,8 +62,13 @@ self.addEventListener("fetch", (event) => {
         (cached) =>
           cached ||
           fetch(request).then((response) => {
-            const copy = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+            // Only cache real hits — a 404 (e.g. an image not deployed
+            // yet) must never get cached-first, or it's stuck "missing"
+            // forever even after the file shows up.
+            if (response.ok) {
+              const copy = response.clone();
+              caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+            }
             return response;
           })
       )

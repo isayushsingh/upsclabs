@@ -535,7 +535,7 @@ a.ul-cov-img:hover {
   font-size: 13.5px;
   line-height: 1.5;
   margin: 0;
-  max-width: 60ch;
+  max-width: 75ch;
 }
 .ul-feat-cta {
   flex: 0 0 auto;
