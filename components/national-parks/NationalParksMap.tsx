@@ -98,6 +98,12 @@ const SEARCH_INDEX: SearchItem[] = (() => {
   return items;
 })();
 
+/** e.g. "Hokera Wetland" -> "hokera-wetland" — used to match the ?highlight=
+    deep-link param against item names without needing a second, hand-kept
+    slug field per item. */
+const slugify = (s: string) =>
+  s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
 const SEARCH_TYPE_LABEL: Record<SearchItem["type"], string> = {
   park: "National Park",
   reserve: "Tiger Reserve",
@@ -563,6 +569,22 @@ export default function NationalParksMap() {
     },
     [enterState]
   );
+
+  // Deep-link support for content pages (e.g. /pyq/... PYQ breakdowns):
+  // ?highlight=hokera-wetland opens straight onto that one item, the same
+  // place a manual search-and-click would land. Slugified name match keeps
+  // the URL human-readable instead of requiring the internal `wet:state:idx`
+  // id. Only the first name in a comma-separated list is used — the map
+  // shows one state at a time, so a multi-item deep link can't jump to
+  // several states at once (see SEARCH_INDEX/goToSearchResult above).
+  useEffect(() => {
+    const target = new URLSearchParams(window.location.search).get("highlight");
+    if (!target) return;
+    const wanted = slugify(target.split(",")[0]);
+    if (!wanted) return;
+    const match = SEARCH_INDEX.find((it) => slugify(it.name) === wanted);
+    if (match) goToSearchResult(match);
+  }, [goToSearchResult]);
 
   /** Clamp a viewBox width to the allowed zoom range (per active state). */
   const clampWidth = useCallback((w: number): number => {

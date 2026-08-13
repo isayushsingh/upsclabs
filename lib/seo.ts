@@ -76,3 +76,32 @@ export function toolJsonLd({
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   };
 }
+
+/** schema.org LearningResource JSON-LD for a PYQ breakdown page (app/pyq/...).
+    Deliberately not FAQPage/QAPage — Google restricted those rich results to
+    a narrow set of gov/health sites in 2023, so they no longer earn snippet
+    real estate for a site like this one; LearningResource is still a
+    correct, honest description of what the page is without overpromising a
+    SERP feature it won't get. */
+export function pyqJsonLd({
+  name,
+  description,
+  path,
+  educationalLevel = "UPSC Civil Services Preliminary Examination",
+}: {
+  name: string;
+  description: string;
+  path: string;
+  educationalLevel?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    name,
+    description,
+    url: `${SITE_URL}${path}`,
+    educationalLevel,
+    isAccessibleForFree: true,
+    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  };
+}
