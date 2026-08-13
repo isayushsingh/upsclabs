@@ -43,3 +43,35 @@ body {
 a {
   color: inherit;
 }
+
+/* ── custom "clickable" cursor: lime circle + arrow, site chrome only ──
+   Applies to ordinary links/buttons (nav, hero CTAs, tool cards, footer,
+   newsletter form, etc.) so hovering something clickable reads instantly.
+   Deliberately excluded from every tool's own root (.np-root, .wm-root,
+   .riv-root, .io-root, .ait-root, .mit-root below) — inside a tool, buttons
+   are part of the interaction itself (layer chips, zoom, markers on an SVG
+   map) and keep the plain system pointer instead.
+   Colors are literal copies of --action/--action-ink (data: URIs can't
+   reference custom properties) — keep the two in sync by hand if either
+   changes. */
+:root {
+  --cursor-click: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2214.5%22%20fill%3D%22%23d8f24e%22%20stroke%3D%22%2316170d%22%20stroke-width%3D%221.4%22%2F%3E%3Cpath%20d%3D%22M11%2021%20L21%2011%20M13%2011%20H21%20V19%22%20stroke%3D%22%2316170d%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E")
+    16 16, pointer;
+}
+a,
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+summary {
+  cursor: var(--cursor-click);
+}
+/* !important: each tool also sets its own `cursor` per element (grab/pointer
+   on markers, chips, zoom buttons) via its own scoped CSS file, loaded
+   through a separate webpack chunk whose order relative to this file isn't
+   guaranteed — importance, not selector specificity or source order, is
+   what reliably wins the reset here. Disabled buttons/chips are excluded so
+   a tool's own `not-allowed` styling (e.g. a layer chip before a state is
+   picked) still comes through untouched. */
+:is(.np-root, .wm-root, .riv-root, .io-root, .ait-root, .mit-root)
+  :is(a, button:not(:disabled), [role="button"]:not([aria-disabled="true"]), summary) {
+  cursor: pointer !important;
+}

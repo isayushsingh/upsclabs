@@ -46,9 +46,11 @@ const CONTINENTS = continentsRaw as unknown as ContinentMeta[];
 
 // Every continent's shape file is its own JSON (each needs its own
 // projection/viewBox) — add a new one here and flip `ready: true` in
-// continents.json once its hand-drawn map is traced. The country geometry
-// in every file below is still a placeholder (rounded rectangles from rough
-// bounding boxes, not traced borders) pending that.
+// continents.json once it's wired up. Country geometry throughout is real
+// (Natural Earth borders via world-50m.json, the same source lib/orgs uses),
+// reprojected per continent — remote overseas territories that would blow
+// out a country's own zoom-to-fit bbox (Alaska/Hawaii, French Guiana,
+// Svalbard, Prince Edward Islands, ...) are filtered out at generation time.
 const MAPS: Record<string, ContinentMap | undefined> = {
   "south-america": southAmericaRaw as unknown as ContinentMap,
   "north-america": northAmericaRaw as unknown as ContinentMap,
@@ -562,20 +564,28 @@ export default function WorldMap() {
 
   const proj = MAP?.proj;
 
-  // Political layer: cities for the active country.
+  // Political layer: cities for the active country, or every country in the
+  // continent when none is picked yet — unlike the parks tool, this layer
+  // (and the others below) works at the whole-continent zoom level too, so
+  // there's something to see before drilling into any one country.
   const points = useMemo<LayoutPoint[]>(() => {
-    if (!activeCountry || !layers.political || !proj) return [];
-    return (CITIES_BY_COUNTRY[activeCountry] ?? []).map((c, i) => {
-      const [x, y] = projectPoint(proj, c.lon, c.lat);
-      return {
-        id: `city:${activeCountry}:${i}`,
-        name: c.name,
-        x,
-        y,
-        priority: c.capital ? 2 : 1,
-        kind: c.capital ? "capital" : "city",
-      };
-    });
+    if (!layers.political || !proj) return [];
+    const countries = activeCountry ? [activeCountry] : Object.keys(CITIES_BY_COUNTRY);
+    const pts: LayoutPoint[] = [];
+    for (const country of countries) {
+      (CITIES_BY_COUNTRY[country] ?? []).forEach((c, i) => {
+        const [x, y] = projectPoint(proj, c.lon, c.lat);
+        pts.push({
+          id: `city:${country}:${i}`,
+          name: c.name,
+          x,
+          y,
+          priority: c.capital ? 2 : 1,
+          kind: c.capital ? "capital" : "city",
+        });
+      });
+    }
+    return pts;
   }, [activeCountry, layers.political, proj, CITIES_BY_COUNTRY]);
 
   const clusters = useMemo<Cluster[]>(() => clusterPoints(points, CLUSTER_FRAC * vb[2]), [points, vb]);
@@ -588,18 +598,21 @@ export default function WorldMap() {
         suppressClickRef.current = false;
         return;
       }
-      if (!activeCountry) return;
+      // The id already carries its own country ("city:<country>:<idx>"),
+      // set when the marker was built — reading it back here means this
+      // works the same whether a country is active or not.
+      const [, country, idxStr] = m.id.split(":");
+      const idx = Number(idxStr);
       setRevealed((prev) => {
         if (prev.has(m.id)) return prev;
         const next = new Set(prev);
         next.add(m.id);
         return next;
       });
-      const idx = Number(m.id.split(":")[2]);
-      const city = (CITIES_BY_COUNTRY[activeCountry] ?? [])[idx];
-      if (city) setSelected({ id: m.id, name: m.name, country: activeCountry, city });
+      const city = (CITIES_BY_COUNTRY[country] ?? [])[idx];
+      if (city) setSelected({ id: m.id, name: m.name, country, city });
     },
-    [activeCountry, CITIES_BY_COUNTRY]
+    [CITIES_BY_COUNTRY]
   );
 
   const revealOnly = useCallback((id: string) => {
@@ -621,39 +634,51 @@ export default function WorldMap() {
     setRevealed(new Set());
   }, []);
 
-  // Rivers/lakes, mountains/volcanoes, terrain — only within a chosen country
-  // (too dense/meaningless nationwide before a country is picked).
+  // Rivers/lakes, mountains/volcanoes, terrain — for the active country, or
+  // every country in the continent when none is picked yet (same reasoning
+  // as `points` above).
   const faint = useMemo(() => {
-    if (!activeCountry || !proj) {
+    if (!proj) {
       return { rivers: [], lakes: [], peaks: [], terrain: [] as { id: string; name: string; kind: string; note: string; xy: [number, number] }[] };
     }
-    const rivers = (RIVERS_BY_COUNTRY[activeCountry] ?? []).map((r: River) => {
-      const mid = r.pts[Math.floor(r.pts.length * 0.5)] ?? r.pts[0];
-      const anchor = mid ? projectPoint(proj, mid[0], mid[1]) : ([0, 0] as [number, number]);
-      return { name: r.name, d: riverPath(proj, r.pts), anchor };
-    });
-    const lakes = (LAKES_BY_COUNTRY[activeCountry] ?? []).map((l: Lake, i: number) => ({
-      id: `lake:${activeCountry}:${i}`,
-      name: l.name,
-      note: l.note,
-      xy: projectPoint(proj, l.lon, l.lat),
-    }));
-    const peaks = (MOUNTAINS_BY_COUNTRY[activeCountry] ?? []).map((p: Peak, i: number) => ({
-      id: `peak:${activeCountry}:${i}`,
-      name: p.name,
-      volcano: p.volcano,
-      note: p.note,
-      xy: projectPoint(proj, p.lon, p.lat),
-    }));
-    const terrain = (TERRAIN_BY_COUNTRY[activeCountry] ?? []).map((t: Terrain, i: number) => ({
-      id: `ter:${activeCountry}:${i}`,
-      name: t.name,
-      kind: t.kind,
-      note: t.note,
-      xy: projectPoint(proj, t.lon, t.lat),
-    }));
+    const countries = activeCountry ? [activeCountry] : (MAP?.countries.map((c) => c.name) ?? []);
+
+    const rivers = countries.flatMap((country) =>
+      (RIVERS_BY_COUNTRY[country] ?? []).map((r: River, i: number) => {
+        const mid = r.pts[Math.floor(r.pts.length * 0.5)] ?? r.pts[0];
+        const anchor = mid ? projectPoint(proj, mid[0], mid[1]) : ([0, 0] as [number, number]);
+        return { id: `riv:${country}:${i}`, name: r.name, d: riverPath(proj, r.pts), anchor };
+      })
+    );
+    const lakes = countries.flatMap((country) =>
+      (LAKES_BY_COUNTRY[country] ?? []).map((l: Lake, i: number) => ({
+        id: `lake:${country}:${i}`,
+        name: l.name,
+        note: l.note,
+        waterfall: l.kind === "waterfall",
+        xy: projectPoint(proj, l.lon, l.lat),
+      }))
+    );
+    const peaks = countries.flatMap((country) =>
+      (MOUNTAINS_BY_COUNTRY[country] ?? []).map((p: Peak, i: number) => ({
+        id: `peak:${country}:${i}`,
+        name: p.name,
+        volcano: p.volcano,
+        note: p.note,
+        xy: projectPoint(proj, p.lon, p.lat),
+      }))
+    );
+    const terrain = countries.flatMap((country) =>
+      (TERRAIN_BY_COUNTRY[country] ?? []).map((t: Terrain, i: number) => ({
+        id: `ter:${country}:${i}`,
+        name: t.name,
+        kind: t.kind,
+        note: t.note,
+        xy: projectPoint(proj, t.lon, t.lat),
+      }))
+    );
     return { rivers, lakes, peaks, terrain };
-  }, [activeCountry, proj, RIVERS_BY_COUNTRY, LAKES_BY_COUNTRY, MOUNTAINS_BY_COUNTRY, TERRAIN_BY_COUNTRY]);
+  }, [activeCountry, proj, MAP, RIVERS_BY_COUNTRY, LAKES_BY_COUNTRY, MOUNTAINS_BY_COUNTRY, TERRAIN_BY_COUNTRY]);
 
   const waterLabels = useMemo(() => {
     if (!proj) return [];
@@ -785,10 +810,10 @@ export default function WorldMap() {
           <div className="wm-layerbox">
             <span className="wm-lyr-cap">Layers</span>
             <div className="wm-lyr-col" role="group" aria-label="Map layers">
-              <LayerChip variant="pol" on={layers.political} disabled={!activeCountry} onClick={() => toggle("political")}>Political (Capitals &amp; Cities)</LayerChip>
-              <LayerChip variant="riv" on={layers.rivers} disabled={!activeCountry} onClick={() => toggle("rivers")}>Rivers &amp; Lakes</LayerChip>
-              <LayerChip variant="mtn" on={layers.mountains} disabled={!activeCountry} onClick={() => toggle("mountains")}>Mountains &amp; Volcanoes</LayerChip>
-              <LayerChip variant="ter" on={layers.terrain} disabled={!activeCountry} onClick={() => toggle("terrain")}>Desert, Plateau &amp; Grassland</LayerChip>
+              <LayerChip variant="pol" on={layers.political} onClick={() => toggle("political")}>Political (Capitals &amp; Cities)</LayerChip>
+              <LayerChip variant="riv" on={layers.rivers} onClick={() => toggle("rivers")}>Rivers &amp; Lakes</LayerChip>
+              <LayerChip variant="mtn" on={layers.mountains} onClick={() => toggle("mountains")}>Mountains &amp; Volcanoes</LayerChip>
+              <LayerChip variant="ter" on={layers.terrain} onClick={() => toggle("terrain")}>Physical Features</LayerChip>
             </div>
           </div>
 
@@ -860,10 +885,10 @@ export default function WorldMap() {
                   ))}
                 </g>
 
-                {activeCountry && layers.rivers && (
+                {layers.rivers && (
                   <g className="wm-rivers" aria-hidden="true">
                     {faint.rivers.map((r) => (
-                      <g key={`riv-${r.name}`}>
+                      <g key={r.id}>
                         <path d={r.d} className="wm-river" />
                         <text x={r.anchor[0]} y={r.anchor[1] - LGAP} fontSize={RIVER_FS} className="wm-riverlabel">{r.name}</text>
                       </g>
@@ -871,7 +896,7 @@ export default function WorldMap() {
                   </g>
                 )}
 
-                {activeCountry && layers.rivers && (
+                {layers.rivers && (
                   <g className="wm-lakes">
                     {faint.lakes.map((l) => {
                       const [cx, cy] = l.xy;
@@ -885,10 +910,10 @@ export default function WorldMap() {
                           role="button"
                           tabIndex={0}
                           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); revealOnly(l.id); } }}
-                          aria-label={masked ? "Hidden lake — click to reveal" : l.name}
+                          aria-label={masked ? `Hidden ${l.waterfall ? "waterfall" : "lake"} — click to reveal` : l.name}
                         >
                           <circle cx={cx} cy={cy} r={TOUCH_R} className="wm-touch-target" />
-                          <path d={dropletPath(cx, cy, DROP)} className="wm-lake" />
+                          <path d={dropletPath(cx, cy, DROP)} className={`wm-lake ${l.waterfall ? "wm-lake-waterfall" : ""}`} />
                           {masked ? (
                             <text x={cx} y={cy + DROP + LAKE_FS} fontSize={LAKE_FS} textAnchor="middle" className="wm-lakelabel wm-mask">?</text>
                           ) : (
@@ -905,7 +930,7 @@ export default function WorldMap() {
                   </g>
                 )}
 
-                {activeCountry && layers.mountains && (
+                {layers.mountains && (
                   <g className="wm-peaks">
                     {faint.peaks.map((p) => {
                       const [cx, cy] = p.xy;
@@ -927,7 +952,7 @@ export default function WorldMap() {
                   </g>
                 )}
 
-                {activeCountry && layers.terrain && (
+                {layers.terrain && (
                   <g className="wm-terrain" aria-hidden="true">
                     {faint.terrain.map((t) => {
                       const [cx, cy] = t.xy;
@@ -945,7 +970,7 @@ export default function WorldMap() {
                   </g>
                 )}
 
-                {activeCountry && layers.political && (
+                {layers.political && (
                   <g className="wm-markers">
                     {clusters.map((c) => {
                       if (isBubble(c)) {
@@ -1028,6 +1053,7 @@ export default function WorldMap() {
           <span><i className="wm-lg wm-lg-cap" />Capital</span>
           <span><i className="wm-lg wm-lg-city" />Major City</span>
           <span><i className="wm-lg wm-lg-lake" />Lake</span>
+          <span><i className="wm-lg wm-lg-waterfall" />Waterfall</span>
           <span><i className="wm-lg wm-lg-peak" />Mountain</span>
           <span><i className="wm-lg wm-lg-volcano" />Volcano</span>
         </div>

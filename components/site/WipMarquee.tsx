@@ -2,8 +2,8 @@ import "./WipMarquee.css";
 
 const DEFAULT_ITEMS = [
   "Work in progress",
-  "Countries are currently rectangles — they did not consent to this",
-  "Borders subject to change (a lot)",
+  "Borders are real now, the facts are still on probation",
+  "Rivers are hand-traced for South America so far — the rest are a first draft",
 ];
 
 /**
