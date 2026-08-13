@@ -1,0 +1,103 @@
+.fan-toast {
+  position: fixed;
+  z-index: 150;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  max-width: 340px;
+  margin: 0 auto 0 0;
+  background: var(--paper-3, #f7f4e9);
+  border: 1px solid var(--line, #ddd6bd);
+  border-radius: 16px;
+  box-shadow: 0 12px 34px rgba(23, 23, 15, 0.16);
+  padding: 16px 18px 16px;
+  font-family: var(--font-inter, system-ui, sans-serif);
+  animation: fan-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@media (min-width: 640px) {
+  .fan-toast {
+    left: auto;
+    right: 22px;
+    bottom: 22px;
+    margin: 0;
+  }
+}
+@keyframes fan-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.fan-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft, #58564a);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 999px;
+}
+.fan-close:hover {
+  background: var(--paper-2, #eae5d2);
+  color: var(--ink, #17170f);
+}
+.fan-eyebrow {
+  font-family: var(--font-space-mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft, #58564a);
+  margin: 0 0 6px;
+}
+.fan-title {
+  font-family: var(--font-fraunces, Georgia, serif);
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink, #17170f);
+  margin: 0 0 5px;
+  padding-right: 18px;
+}
+.fan-body {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-soft, #58564a);
+  margin: 0 0 13px;
+}
+.fan-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--action-ink, #16170d);
+  background: var(--action, #d8f24e);
+  border-radius: 999px;
+  padding: 8px 14px;
+  text-decoration: none;
+  transition: transform 0.12s ease, filter 0.15s ease;
+}
+.fan-cta:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fan-toast {
+    animation: none;
+  }
+  .fan-cta:hover {
+    transform: none;
+  }
+}

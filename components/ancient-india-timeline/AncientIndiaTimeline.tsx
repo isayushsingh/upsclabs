@@ -21,9 +21,19 @@ const BASE_LAND = southAsiaRaw as unknown as Feature;
 const BORDERS = bordersRaw as unknown as Feature;
 
 const W = 760;
-const H = 824;
+const H = 760;
 
 type Projected = Dynasty & { d: string; centroid: [number, number]; area: number };
+
+// Dynasty fills are plain hex — tint them for the spotlighted-king background
+// instead of a generic grey wash, so each row reads as that dynasty's colour.
+const withAlpha = (hex: string, alpha: number): string => {
+  const h = hex.replace("#", "");
+  const r = parseInt(h.slice(0, 2), 16);
+  const g = parseInt(h.slice(2, 4), 16);
+  const b = parseInt(h.slice(4, 6), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+};
 
 export default function AncientIndiaTimeline() {
   const [year, setYear] = useState(-250);
@@ -91,6 +101,22 @@ export default function AncientIndiaTimeline() {
     [year]
   );
   const activeIds = useMemo(() => new Set(active.map((d) => d.id)), [active]);
+
+  // Dynasties with a known succession, current ruler spotlighted for this year.
+  const lineages = useMemo(
+    () =>
+      active
+        .filter((d) => d.kings && d.kings.length)
+        .map((d) => ({
+          dynasty: d,
+          // Reigns often list a successor's start year equal to the
+          // predecessor's end year; on that exact boundary the later
+          // (higher-start) king is the one who holds the throne.
+          current:
+            [...d.kings!].reverse().find((k) => year >= k.start && year <= k.end) ?? null,
+        })),
+    [active, year]
+  );
   const eraIdx = ERAS.findIndex((er) => year >= er.s && year < er.e);
   const currentEra = ERAS[eraIdx] || ERAS[ERAS.length - 1];
   const rulingNames = active.map((d) => d.short || d.name).join("  \u00b7  ");
@@ -245,6 +271,43 @@ export default function AncientIndiaTimeline() {
           ))}
         </div>
       </section>
+
+      {lineages.length > 0 && (
+        <section className="ait-kings" aria-label="Notable rulers">
+          {lineages.map(({ dynasty: d, current }) => (
+            <div className="ait-king-row" key={d.id}>
+              <span className="ait-king-dyn">
+                <span className="ait-swatch" style={{ background: d.fill }} />
+                {d.short || d.name}
+              </span>
+              <div className="ait-king-chain">
+                {d.kings!.map((k, i) => {
+                  const isCur = current?.name === k.name;
+                  return (
+                    <React.Fragment key={k.name}>
+                      {i > 0 && <span className="ait-king-arrow">&rarr;</span>}
+                      <button
+                        type="button"
+                        className={`ait-king-chip${isCur ? " is-cur" : ""}`}
+                        style={
+                          isCur
+                            ? { borderColor: d.fill, color: d.fill, background: withAlpha(d.fill, 0.13) }
+                            : undefined
+                        }
+                        onClick={() => setYear(k.start)}
+                        title={fmtRange(k.start, k.end)}
+                      >
+                        {k.name}
+                        {isCur && <span className="ait-king-years">{fmtRange(k.start, k.end)}</span>}
+                      </button>
+                    </React.Fragment>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
 
       <section className="ait-mapwrap">
         <svg
