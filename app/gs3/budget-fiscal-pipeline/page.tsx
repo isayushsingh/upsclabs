@@ -17,6 +17,7 @@ export const metadata = pageMetadata({
   // "Coming later" section) — keep this out of search results until it's
   // back in, same reasoning as world-map while it's mid-build.
   noindex: true,
+  image: "/images/carousel/budget-fiscal-pipeline.jpg",
 });
 
 export default function Page() {
