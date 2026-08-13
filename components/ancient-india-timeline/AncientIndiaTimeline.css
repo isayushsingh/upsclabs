@@ -46,6 +46,19 @@
 .ait-axis{ position:relative; height:16px; margin-top:7px; }
 .ait-tick{ position:absolute; transform:translateX(-50%); font-family:var(--font-space-mono),monospace; font-size:10px; color:var(--ink-soft); white-space:nowrap; }
 
+.ait-kings{ margin:5px 0 5px; padding:1px 16px; background:var(--paper-2); border:1px solid var(--stone-edge); border-radius:10px; }
+.ait-king-row{ display:flex; align-items:center; gap:11px; min-width:0; padding:5px 0; border-top:1px solid var(--line); }
+.ait-king-row:first-of-type{ border-top:none; }
+.ait-king-dyn{ flex:0 0 auto; display:inline-flex; align-items:center; gap:7px; font-family:var(--font-inter),sans-serif; font-weight:600; font-size:12.5px; color:var(--ink); width:150px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ait-king-chain{ flex:1; display:flex; align-items:center; gap:5px; overflow-x:auto; scrollbar-width:none; padding:2px 10px; margin:0 -10px; -webkit-mask-image:linear-gradient(to right,transparent 0,#000 10px,#000 calc(100% - 10px),transparent 100%); mask-image:linear-gradient(to right,transparent 0,#000 10px,#000 calc(100% - 10px),transparent 100%); }
+.ait-king-chain::-webkit-scrollbar{ display:none; }
+.ait-king-arrow{ flex:0 0 auto; font-size:12px; color:var(--ink-soft); opacity:.4; }
+.ait-king-chip{ flex:0 0 auto; display:inline-flex; align-items:baseline; gap:5px; font-family:var(--font-inter),sans-serif; font-size:13px; color:var(--ink-soft); background:transparent; border:1px solid transparent; border-radius:999px; padding:3px 9px; opacity:.5; cursor:pointer; white-space:nowrap; transition:opacity .25s ease, border-color .25s ease, background .25s ease; }
+.ait-king-chip:hover{ opacity:.85; }
+.ait-king-chip.is-cur{ opacity:1; font-weight:600; border-color:currentColor; animation:ait-king-in .3s ease; }
+.ait-king-years{ font-family:var(--font-space-mono),monospace; font-weight:400; font-size:10.5px; opacity:.75; }
+@keyframes ait-king-in{ from{ opacity:0; transform:translateY(2px); } to{ opacity:1; transform:translateY(0); } }
+
 .ait-mapwrap{ max-width: 800px; position:relative; margin:0 auto; }
 .ait-svg{ width:100%; height:auto; display:block; }
 .ait-land{ fill:var(--stone); stroke:var(--stone-edge); stroke-width:1; stroke-linejoin:round; }
@@ -76,4 +89,9 @@
   .ait-step{ width:42px; }
   .ait-readout{ gap:9px; }
 }
-@media (prefers-reduced-motion:reduce){ .ait-region{ transition:none; } }
+@media (max-width:520px){
+  .ait-kings{ padding:0 12px; }
+  .ait-king-dyn{ width:96px; font-size:11px; }
+  .ait-king-chip{ font-size:11px; padding:3px 8px; }
+}
+@media (prefers-reduced-motion:reduce){ .ait-region{ transition:none; } .ait-king-chip.is-cur{ animation:none; } }

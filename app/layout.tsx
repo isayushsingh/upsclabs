@@ -8,6 +8,7 @@ import "@/components/site/site.css";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import ServiceWorkerRegistration from "@/components/site/ServiceWorkerRegistration";
+import FeatureAnnouncement from "@/components/site/FeatureAnnouncement";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
@@ -114,6 +115,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <SpeedInsights />
         <Footer />
+        {/* Swap id/copy/href here for each new feature — a new id shows
+            again even to visitors who dismissed a previous announcement. */}
+        <FeatureAnnouncement
+          id="kings-lineage-2026-08"
+          title="Notable Kings added to the Ancient India timeline"
+          body="Scrub the Ancient India Timeline and see each dynasty's ruler lineage, with the current king spotlighted."
+          href="/gs1/ancient-india-timeline"
+          cta="See it"
+        />
       </body>
     </html>
   );
