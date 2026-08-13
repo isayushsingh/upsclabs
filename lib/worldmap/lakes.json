@@ -7,7 +7,8 @@
       { "name": "Lake Titicaca", "lon": -69.0, "lat": -16.1, "note": "Highest navigable lake in the world (~3,812 m); shared with Peru, sacred in Inca cosmology." }
     ],
     "Venezuela": [
-      { "name": "Lake Maracaibo", "lon": -71.65, "lat": 9.85, "note": "Largest lake in South America; a brackish tidal bay at its mouth — centre of Venezuela's oil industry." }
+      { "name": "Lake Maracaibo", "lon": -71.65, "lat": 9.85, "note": "Largest lake in South America; a brackish tidal bay at its mouth — centre of Venezuela's oil industry." },
+      { "name": "Angel Falls", "lon": -62.53, "lat": 5.97, "kind": "waterfall", "note": "World's highest uninterrupted waterfall (979 m), on a tributary of the Caroní in Canaima National Park." }
     ]
   },
   "north-america": {

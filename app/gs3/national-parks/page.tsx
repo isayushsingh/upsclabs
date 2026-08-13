@@ -28,7 +28,7 @@ export default function Page() {
           { label: "Protected Areas • Wetlands • BR • Mapping" },
         ]}
         title="Protected Areas • Wetlands • Mapping"
-        subtitle="Select a state to explore"
+        subtitle="Choose a state to discover its national parks and wetlands"
         breadcrumbClassName="np-breadcrumb"
       />
       <NationalParksMap />

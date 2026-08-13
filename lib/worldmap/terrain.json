@@ -12,6 +12,19 @@
     ],
     "Paraguay": [
       { "name": "Gran Chaco", "lon": -60.5, "lat": -23, "kind": "grassland", "note": "Vast lowland plain of scrub and grassland, shared with Argentina and Bolivia." }
+    ],
+    "Venezuela": [
+      { "name": "Llanos", "lon": -67.0, "lat": 7.5, "kind": "grassland", "note": "Tropical grassland plains either side of the Orinoco, shared with Colombia — seasonally flooded." }
+    ],
+    "Colombia": [
+      { "name": "Llanos", "lon": -71.5, "lat": 5.0, "kind": "grassland", "note": "Tropical grassland plains either side of the Orinoco, shared with Venezuela — seasonally flooded." },
+      { "name": "Selvas", "lon": -71.0, "lat": -1.0, "kind": "forest", "note": "Selvas — the evergreen equatorial rainforest of the Amazon basin; Colombia's southern Amazonas department." }
+    ],
+    "Peru": [
+      { "name": "Selvas", "lon": -73.0, "lat": -6.0, "kind": "forest", "note": "Selvas — the evergreen equatorial rainforest of the Amazon basin, covering Peru's eastern Loreto region." }
+    ],
+    "Brazil": [
+      { "name": "Selvas", "lon": -63.0, "lat": -5.0, "kind": "forest", "note": "Selvas — the evergreen equatorial rainforest of the Amazon basin; most of it lies within Brazil." }
     ]
   },
   "north-america": {

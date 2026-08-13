@@ -5,10 +5,11 @@
 // one level up (continent → country) instead of (India → state).
 //
 // Country *shapes* in each continent's JSON (e.g. south-america.json) are
-// placeholder rounded rectangles, not traced borders — see the comment atop
-// that file. Everything else here (cities, rivers, lakes, mountains, terrain,
-// oceans) is real data, keyed by country, and will keep working unchanged
-// once the real borders are dropped in.
+// real borders (Natural Earth via world-50m.json — see lib/orgs/geo.ts for
+// the same source used elsewhere in this repo), reprojected into that
+// file's own equirectangular frame. Everything else here (cities, rivers,
+// lakes, mountains, terrain, oceans) is real data too, keyed by country,
+// and shares that same lon/lat → viewBox projection.
 
 /** A feature placed by geographic coordinates (projected at runtime via projectPoint). */
 interface GeoPoint {
@@ -29,9 +30,11 @@ export interface River {
   pts: [lon: number, lat: number][];
 }
 
-/** Rivers & Lakes layer — lake/lagoon point (no card, click reveals name + note). */
+/** Rivers & Lakes layer — lake/lagoon/waterfall point (no card, click reveals name + note). */
 export interface Lake extends GeoPoint {
   note: string;
+  /** Defaults to "lake" when omitted — "waterfall" swaps the marker colour. */
+  kind?: "lake" | "waterfall";
 }
 
 /** Mountains & Volcanoes layer. */
@@ -40,8 +43,8 @@ export interface Peak extends GeoPoint {
   note: string;
 }
 
-/** Desert / Plateau / Grassland layer (one combined physical-features layer). */
-export type TerrainKind = "desert" | "plateau" | "grassland";
+/** Physical-features layer: desert / plateau / grassland / forest, all in one toggle. */
+export type TerrainKind = "desert" | "plateau" | "grassland" | "forest";
 export interface Terrain extends GeoPoint {
   kind: TerrainKind;
   note: string;
