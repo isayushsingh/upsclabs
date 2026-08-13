@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { TOOLS } from "@/lib/tools";
+import { PYQS } from "@/lib/pyq";
 import { SITE_URL } from "@/lib/site";
 
 // Auto-derives from the same tool registry the hub renders from, so a new
@@ -27,5 +28,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...staticRoutes, ...toolRoutes];
+  // PYQ breakdown pages — same "derive from the registry" approach as
+  // toolRoutes above, so a new entry in lib/pyq.ts gets a sitemap row for
+  // free instead of a second, easy-to-forget edit here.
+  const pyqRoutes: MetadataRoute.Sitemap = PYQS.map((p) => ({
+    url: `${SITE_URL}/pyq/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...toolRoutes, ...pyqRoutes];
 }
