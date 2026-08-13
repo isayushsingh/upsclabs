@@ -114,6 +114,21 @@ export const TOOLS: Tool[] = [
     icon: "🗺️",
   },
   {
+    slug: "budget-fiscal-pipeline",
+    title: "Concepts Of Budget",
+    fullTitle: "Interactive Concepts Of Budget",
+    blurb:
+      "Learn the Revenue/Capital classification through an animated balance sheet, then a Deficit Calculator with a live gap marker between two bars.",
+    paper: "GS3",
+    topic: "Economy",
+    state: "live",
+    href: "/gs3/budget-fiscal-pipeline",
+    featured: true,
+    accent: "#6b7a3f",
+    preview: "cards",
+    icon: "💰",
+  },
+  {
     slug: "international-organizations",
     title: "International Orgs. Mapping",
     fullTitle: "Interactive Map: International Organizations & Their Members",

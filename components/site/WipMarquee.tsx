@@ -2,8 +2,9 @@ import "./WipMarquee.css";
 
 const DEFAULT_ITEMS = [
   "Work in progress",
-  "Borders are real now, the facts are still on probation",
-  "Rivers are hand-traced for South America so far — the rest are a first draft",
+  "Work in progress",
+  "Work in progress",
+  "Work in progress",
 ];
 
 /**
