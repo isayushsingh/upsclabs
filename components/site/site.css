@@ -603,14 +603,18 @@ a.ul-cov-img:hover {
   color: var(--ink-soft);
   font-style: italic;
 }
+/* Minimal card: a small tinted icon badge instead of the old full-width
+   "hero" preview box (which left most of its own area empty around a tiny
+   icon) — text hierarchy below borrows from a simple "icon badge → title →
+   description → coloured link" pattern, one flat padded block instead of a
+   separate image panel stitched to a body panel. */
 .ul-card {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   background: var(--paper-3);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
-  border-radius: 12px;
+  border-radius: 14px;
+  padding: 22px 22px 24px;
   text-decoration: none;
   color: var(--ink);
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
@@ -624,27 +628,24 @@ a.ul-cov-img:hover {
   opacity: 0.6;
   cursor: default;
 }
-.ul-card-vis {
-  background: color-mix(in srgb, var(--accent) 9%, var(--paper));
-  border-bottom: 1px solid var(--line);
-  padding: 16px;
+.ul-card-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.ul-card-vis .ul-preview svg { max-height: 92px; }
-.ul-card-body {
-  padding: 15px 18px 18px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 14%, var(--paper));
+  margin-bottom: 18px;
+  font-size: 21px;
+  line-height: 1;
 }
 .ul-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 .ul-card-paper {
   font-family: var(--font-space-mono), monospace;
@@ -664,12 +665,12 @@ a.ul-cov-img:hover {
   font-size: 13.5px;
   line-height: 1.5;
   color: var(--ink-soft);
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
 .ul-card-cta {
   margin-top: auto;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--accent);
 }
 

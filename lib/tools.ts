@@ -27,6 +27,9 @@ export interface Tool {
   featured?: boolean;
   accent: string;
   preview: PreviewKind;
+  /** One emoji (or short symbol) shown in the card's icon badge on section
+      pages (ToolCard.tsx) — swap freely, it's just a glyph, not an asset. */
+  icon: string;
 }
 
 export const PAPERS: { id: Paper; topics: string }[] = [
@@ -50,6 +53,7 @@ export const TOOLS: Tool[] = [
     featured: true,
     accent: "#3E5C76",
     preview: "timeline",
+    icon: "🏛️",
   },
   {
     slug: "modern-india-timeline",
@@ -64,6 +68,7 @@ export const TOOLS: Tool[] = [
     featured: true,
     accent: "#23268C",
     preview: "timeline",
+    icon: "🕊️",
   },
   {
     slug: "national-parks",
@@ -78,6 +83,7 @@ export const TOOLS: Tool[] = [
     featured: true,
     accent: "#3E5C76",
     preview: "map",
+    icon: "🐯",
   },
   {
     slug: "rivers-of-india",
@@ -90,6 +96,7 @@ export const TOOLS: Tool[] = [
     state: "building",
     accent: "#3E5C76",
     preview: "map",
+    icon: "🌊",
   },
   {
     slug: "world-map",
@@ -104,6 +111,7 @@ export const TOOLS: Tool[] = [
     featured: true,
     accent: "#3E5C76",
     preview: "map",
+    icon: "🗺️",
   },
   {
     slug: "international-organizations",
@@ -118,6 +126,7 @@ export const TOOLS: Tool[] = [
     featured: true,
     accent: "#2255A0",
     preview: "map",
+    icon: "🌐",
   },
 ];
 
