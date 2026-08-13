@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter, Space_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next"
@@ -7,6 +7,7 @@ import "./globals.css";
 import "@/components/site/site.css";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import ServiceWorkerRegistration from "@/components/site/ServiceWorkerRegistration";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
@@ -59,9 +60,15 @@ export const metadata: Metadata = {
   ],
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME }],
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: "/logo_ink.png",
-    apple: "/logo_ink.png",
+    apple: "/icons/apple-touch-icon.png",
+  },
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "default",
   },
   openGraph: {
     title: DEFAULT_TITLE,
@@ -78,6 +85,10 @@ export const metadata: Metadata = {
     description: DEFAULT_DESCRIPTION,
     images: ["/logo_transparent.png"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f2efe2",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -98,6 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <span />
         </div>
         <Header />
+        <ServiceWorkerRegistration />
         <Analytics />
         {children}
         <SpeedInsights />
