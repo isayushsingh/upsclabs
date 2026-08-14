@@ -19,14 +19,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/gs3`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
   ];
 
-  const toolRoutes: MetadataRoute.Sitemap = TOOLS.filter((t) => t.state === "live" && t.href).map(
-    (t) => ({
-      url: `${SITE_URL}${t.href}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: t.featured ? 0.9 : 0.6,
-    })
-  );
+  const liveTools = TOOLS.filter((t) => t.state === "live" && t.href);
+
+  const toolRoutes: MetadataRoute.Sitemap = liveTools.map((t) => ({
+    url: `${SITE_URL}${t.href}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: t.featured ? 0.9 : 0.6,
+  }));
+
+  // Each tool's /full-list page (its underlying data as a plain-text
+  // reference — see ToolSummary) — same registry-driven derivation as
+  // toolRoutes above. A tool that's individually noindexed (world-map,
+  // budget-fiscal-pipeline — see their own page.tsx) sets noindex on its
+  // full-list page too, so listing it here is harmless: that page's own
+  // robots meta tag keeps it out of results regardless of sitemap presence.
+  const toolReferenceRoutes: MetadataRoute.Sitemap = liveTools.map((t) => ({
+    url: `${SITE_URL}${t.href}/full-list`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.4,
+  }));
 
   // PYQ breakdown pages — same "derive from the registry" approach as
   // toolRoutes above, so a new entry in lib/pyq.ts gets a sitemap row for
@@ -38,5 +51,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...toolRoutes, ...pyqRoutes];
+  return [...staticRoutes, ...toolRoutes, ...toolReferenceRoutes, ...pyqRoutes];
 }

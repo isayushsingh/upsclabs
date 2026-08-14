@@ -1,5 +1,6 @@
 import OrgWorldMap from "@/components/orgs/OrgWorldMap";
 import ToolHeader from "@/components/site/ToolHeader";
+import ToolReferenceLink from "@/components/site/ToolReferenceLink";
 import JsonLd from "@/components/site/JsonLd";
 import { pageMetadata, toolJsonLd } from "@/lib/seo";
 
@@ -29,6 +30,10 @@ export default function Page() {
         subtitle="Pick an organization to see its members on the map"
       />
       <OrgWorldMap />
+      <ToolReferenceLink
+        href={`${PATH}/full-list`}
+        label="See the full list of organizations & members"
+      />
     </>
   );
 }

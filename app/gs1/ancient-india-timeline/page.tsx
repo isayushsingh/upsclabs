@@ -1,6 +1,7 @@
 import AncientIndiaTimeline from "@/components/ancient-india-timeline/AncientIndiaTimeline";
 import DesktopRecommendedModal from "@/components/site/DesktopRecommendedModal";
 import ToolHeader from "@/components/site/ToolHeader";
+import ToolReferenceLink from "@/components/site/ToolReferenceLink";
 import JsonLd from "@/components/site/JsonLd";
 import { pageMetadata, toolJsonLd } from "@/lib/seo";
 
@@ -31,6 +32,10 @@ export default function Page() {
         subtitle="Step kingdom by kingdom with the arrows, or drag the rule."
       />
       <AncientIndiaTimeline />
+      <ToolReferenceLink
+        href={`${PATH}/full-list`}
+        label="See the full list of dynasties & rulers"
+      />
     </>
   );
 }

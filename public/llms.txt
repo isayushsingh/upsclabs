@@ -1,0 +1,36 @@
+# UPSC Labs
+
+> Free, interactive tools for UPSC Civil Services Exam preparation (India).
+> Each tool turns a syllabus topic that's normally studied from static
+> notes — dynastic history, protected areas, world geography, international
+> organizations, the union budget — into a map or timeline you can scrub,
+> explore, and actively recall from, instead of just reading.
+
+UPSC Labs is built for aspirants preparing for the UPSC Civil Services
+Preliminary and Main examinations (General Studies papers GS1–GS3), and for
+anyone else who wants a visual, interactive way to learn Indian history,
+geography, polity, international relations, and economy.
+
+## Tools
+
+- [Ancient India Dynastic Timeline](https://www.upsclabs.com/gs1/ancient-india-timeline): Scrub four millennia of ancient Indian dynasties on a map of South Asia — watch kingdoms rise, overlap, and fall, year by year. GS1 History.
+- [Modern India Timeline (1857–1947)](https://www.upsclabs.com/gs1/modern-india-timeline): 230 milestones of the Indian freedom struggle on a year-by-year timeline, with curated cause-and-effect links between events and an active-recall revision mode. GS1 History.
+- [Protected Areas & Wetlands Mapping](https://www.upsclabs.com/gs3/national-parks): Active-recall map of India's national parks, tiger reserves, and wetlands, with river and terrain layers and a Learn/Recall toggle. GS3 Environment.
+- [Interactive World Map](https://www.upsclabs.com/gs1/world-map): Active-recall map of the world by continent — capitals, cities, rivers, lakes, mountains, volcanoes, and other physical features, with a Learn/Recall toggle. GS1 Geography.
+- [Concepts of Budget](https://www.upsclabs.com/gs3/budget-fiscal-pipeline): Interactive Revenue/Capital budget classification via an animated balance sheet, plus a fiscal deficit calculator. GS3 Economy.
+- [International Organizations & Their Members](https://www.upsclabs.com/gs2/international-organizations): Pick an organization — G7, G20, OECD, GCC, BIMSTEC, and more — and see its member countries highlighted on a world map, with a Learn/Recall toggle. GS2 International Relations.
+
+## Past Year Question (PYQ) breakdowns
+
+- [UPSC PYQ: Wetlands and Lakes Mapping (2022)](https://www.upsclabs.com/pyq/2022-prelims-wetlands-map)
+- [UPSC PYQ: Wetlands and River Confluences (2014)](https://www.upsclabs.com/pyq/2014-prelims-wetlands-confluence-map)
+- [UPSC PYQ: National Parks and Rivers Mapping (2013)](https://www.upsclabs.com/pyq/2013-prelims-national-parks-rivers-map)
+- [UPSC PYQ: Protected Areas and Hill Ranges (2013)](https://www.upsclabs.com/pyq/2013-prelims-protected-areas-hills-map)
+
+## Full-list reference pages
+
+Each tool above has a companion `/full-list` page — a plain-text table of the same underlying data (dynasties/rulers, parks/reserves, organizations/members, etc.) for anyone (human or machine) that wants the facts without the interactive UI. E.g. https://www.upsclabs.com/gs1/ancient-india-timeline/full-list, https://www.upsclabs.com/gs3/national-parks/full-list.
+
+## Notes
+
+- All tools are free, ungated, and usable directly in a browser — no signup required.

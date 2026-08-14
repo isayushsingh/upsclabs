@@ -2,6 +2,7 @@ import WorldMap from "@/components/world-map/WorldMap";
 import DesktopRecommendedModal from "@/components/site/DesktopRecommendedModal";
 import ToolHeader from "@/components/site/ToolHeader";
 import WipMarquee from "@/components/site/WipMarquee";
+import ToolReferenceLink from "@/components/site/ToolReferenceLink";
 import JsonLd from "@/components/site/JsonLd";
 import { pageMetadata, toolJsonLd } from "@/lib/seo";
 
@@ -39,6 +40,10 @@ export default function Page() {
         <WipMarquee />
       </div>
       <WorldMap />
+      <ToolReferenceLink
+        href={`${PATH}/full-list`}
+        label="See the full list of cities, mountains & lakes"
+      />
     </>
   );
 }

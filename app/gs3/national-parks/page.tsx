@@ -1,6 +1,7 @@
 import NationalParksMap from "@/components/national-parks/NationalParksMap";
 import DesktopRecommendedModal from "@/components/site/DesktopRecommendedModal";
 import ToolHeader from "@/components/site/ToolHeader";
+import ToolReferenceLink from "@/components/site/ToolReferenceLink";
 import JsonLd from "@/components/site/JsonLd";
 import { pageMetadata, toolJsonLd } from "@/lib/seo";
 
@@ -32,6 +33,10 @@ export default function Page() {
         breadcrumbClassName="np-breadcrumb"
       />
       <NationalParksMap />
+      <ToolReferenceLink
+        href={`${PATH}/full-list`}
+        label="See the full state-by-state list of parks, reserves & wetlands"
+      />
     </>
   );
 }

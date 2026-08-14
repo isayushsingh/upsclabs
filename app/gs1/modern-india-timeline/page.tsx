@@ -1,6 +1,7 @@
 import ModernIndiaTimeline from "@/components/modern-india-timeline/ModernIndiaTimeline";
 import DesktopRecommendedModal from "@/components/site/DesktopRecommendedModal";
 import ToolHeader from "@/components/site/ToolHeader";
+import ToolReferenceLink from "@/components/site/ToolReferenceLink";
 import JsonLd from "@/components/site/JsonLd";
 import { pageMetadata, toolJsonLd } from "@/lib/seo";
 
@@ -31,6 +32,10 @@ export default function Page() {
         subtitle="Scroll year by year. Trace what caused what — then revise with active recall."
       />
       <ModernIndiaTimeline />
+      <ToolReferenceLink
+        href={`${PATH}/full-list`}
+        label="See the full list of milestones by decade"
+      />
     </>
   );
 }

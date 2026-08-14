@@ -1,0 +1,94 @@
+/* Plain-text reference content on each tool's /full-list page — see
+   ToolSummary.tsx for why this exists. Column matches .ul-toolhead's
+   max-width/padding (the breadcrumb+title right above it on the same
+   page) rather than a narrower prose width — its content is mostly wide
+   tables, and a narrower column here would just misalign against the
+   header. */
+
+.ul-tool-summary {
+  max-width: 1280px;
+  margin: 1.5rem auto 0;
+  padding: 0 clamp(16px, 4vw, 40px) 3rem;
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.ul-tool-summary h2 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+}
+
+.ul-tool-summary h3 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.ul-tool-summary-intro {
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+  max-width: 65ch;
+}
+
+.ul-tool-summary p {
+  line-height: 1.6;
+}
+
+.ul-tool-summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.ul-tool-summary th,
+.ul-tool-summary td {
+  text-align: left;
+  padding: 0.45rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.ul-tool-summary th {
+  font-weight: 600;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.ul-tool-summary ul,
+.ul-tool-summary ol {
+  padding-left: 1.25rem;
+  line-height: 1.6;
+}
+
+.ul-tool-summary-details {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper-2);
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+}
+
+.ul-tool-summary-details + .ul-tool-summary-details {
+  margin-top: 0.75rem;
+}
+
+.ul-tool-summary-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.ul-tool-summary-details[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+.ul-tool-summary-details-body table {
+  margin: 0;
+}
