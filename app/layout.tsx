@@ -63,7 +63,13 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME }],
   manifest: "/manifest.webmanifest",
   icons: {
-    icon: "/logo_ink.png",
+    // app/icon.png (square, Next.js App Router auto-detects it) supplies the
+    // primary <link rel="icon"> tag; favicon.ico stays here too since Google
+    // still checks that root path directly, independent of the HTML.
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
     apple: "/icons/apple-touch-icon.png",
   },
   appleWebApp: {
