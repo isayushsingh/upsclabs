@@ -1,0 +1,82 @@
+/* Same column as .ul-toolhead/.ul-tool-summary, so it lines up with the
+   heading above and the table below it. */
+.ul-promo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1280px;
+  margin: 22px auto 0;
+  padding: 20px clamp(16px, 4vw, 40px);
+  background: var(--paper-3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.ul-promo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -14px rgba(35, 36, 29, 0.28);
+  border-color: var(--accent);
+}
+
+.ul-promo-icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 16%, var(--paper));
+  font-size: 26px;
+  line-height: 1;
+}
+
+.ul-promo-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ul-promo-eyebrow {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.ul-promo-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.2;
+}
+.ul-promo-blurb {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.ul-promo-cta {
+  flex: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .ul-promo {
+    flex-wrap: wrap;
+  }
+  .ul-promo-cta {
+    margin-left: 76px;
+  }
+}
