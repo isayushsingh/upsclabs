@@ -1,0 +1,4848 @@
+[
+  {
+    "id": "mjp-kamboja",
+    "name": "Kamboja",
+    "category": "mahajanapada",
+    "lon": 69.28,
+    "lat": 34.94,
+    "state": "Afghanistan (modern) / trans-Hindukush",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Kapisi (Kapisa)"
+    ],
+    "note": "Identified in two branches — Param Kamboja (trans-Hindukush, around Kapisi) and Cis-Hindukush Kamboja (around Rajapura) — one of the few Mahajanapadas outside the Indian subcontinent proper."
+  },
+  {
+    "id": "mjp-gandhara",
+    "name": "Gandhara",
+    "category": "mahajanapada",
+    "lon": 72.79,
+    "lat": 33.74,
+    "river": "Indus",
+    "state": "Punjab, Pakistan",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Taksashila (Taxila)"
+    ],
+    "note": "Taxila became a major centre of learning (an early university) and Gandhara art in the centuries after the Mahajanapada period."
+  },
+  {
+    "id": "mjp-kuru",
+    "name": "Kuru",
+    "category": "mahajanapada",
+    "lon": 78.02,
+    "lat": 29.16,
+    "river": "Ganga–Yamuna doab",
+    "state": "Uttar Pradesh",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Hastinapur",
+      "Indraprastha"
+    ],
+    "note": "The Mahabharata's Kuru dynasty homeland — the epic's Kurukshetra war is traditionally set in this region."
+  },
+  {
+    "id": "mjp-panchala",
+    "name": "Panchala",
+    "category": "mahajanapada",
+    "lon": 79.13,
+    "lat": 28.37,
+    "river": "Ganga",
+    "state": "Uttar Pradesh",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Ahichhatra (North Panchala)",
+      "Kampilya (South Panchala)"
+    ],
+    "note": "Split into North Panchala (capital Ahichhatra) and South Panchala (capital Kampilya) — a recurring \"two capitals\" exam detail."
+  },
+  {
+    "id": "mjp-kosala",
+    "name": "Kosala",
+    "category": "mahajanapada",
+    "lon": 82.05,
+    "lat": 27.52,
+    "river": "Sarayu",
+    "state": "Uttar Pradesh",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Sravasti",
+      "Ayodhya"
+    ],
+    "note": "One of the most powerful Mahajanapadas; annexed Kasi before later being absorbed into Magadha under Ajatashatru."
+  },
+  {
+    "id": "mjp-kasi",
+    "name": "Kasi",
+    "category": "mahajanapada",
+    "lon": 83,
+    "lat": 25.32,
+    "river": "Ganga",
+    "state": "Uttar Pradesh",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Varanasi"
+    ],
+    "note": "Initially among the most powerful Mahajanapadas before being annexed by Kosala."
+  },
+  {
+    "id": "mjp-vajji",
+    "name": "Vajji (Vrijji)",
+    "category": "mahajanapada",
+    "lon": 85.13,
+    "lat": 25.99,
+    "river": "Gandak / Ganga",
+    "state": "Bihar",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Vaishali"
+    ],
+    "note": "A confederacy (of clans including the Licchavis) rather than a monarchy — cited as an early example of republican/gana-sangha government; conquered by Magadha's Ajatashatru."
+  },
+  {
+    "id": "mjp-malla",
+    "name": "Malla",
+    "category": "mahajanapada",
+    "lon": 83.89,
+    "lat": 26.74,
+    "state": "Uttar Pradesh",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Kushinagar"
+    ],
+    "note": "Also a gana-sangha (republic); Kushinagar is where the Buddha attained mahaparinirvana (death)."
+  },
+  {
+    "id": "mjp-chedi",
+    "name": "Chedi",
+    "category": "mahajanapada",
+    "lon": 80.9,
+    "lat": 25.6,
+    "state": "Madhya Pradesh / Bundelkhand",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Suktimati (Shuktimati)"
+    ],
+    "note": "Suktimati's exact location is debated among historians — placed in the Bundelkhand region between the Yamuna and Narmada."
+  },
+  {
+    "id": "mjp-vatsa",
+    "name": "Vatsa",
+    "category": "mahajanapada",
+    "lon": 81.38,
+    "lat": 25.33,
+    "river": "Yamuna",
+    "state": "Uttar Pradesh",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Kaushambi"
+    ],
+    "note": "Ruled by King Udayana; Kaushambi became a major trade and political centre after Hastinapur was reportedly flooded by the Ganga."
+  },
+  {
+    "id": "mjp-matsya",
+    "name": "Matsya",
+    "category": "mahajanapada",
+    "lon": 76.18,
+    "lat": 27.48,
+    "state": "Rajasthan",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Viratanagara (Bairat)"
+    ],
+    "note": "Corresponds roughly to the modern Jaipur–Alwar–Bharatpur region of Rajasthan."
+  },
+  {
+    "id": "mjp-surasena",
+    "name": "Surasena",
+    "category": "mahajanapada",
+    "lon": 77.67,
+    "lat": 27.49,
+    "river": "Yamuna",
+    "state": "Uttar Pradesh",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Mathura"
+    ],
+    "note": "Ruled by the Yadavas; among the earliest Mahajanapadas to accept Buddhism, per tradition."
+  },
+  {
+    "id": "mjp-avanti",
+    "name": "Avanti",
+    "category": "mahajanapada",
+    "lon": 75.78,
+    "lat": 23.18,
+    "river": "Shipra",
+    "state": "Madhya Pradesh",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Ujjayini (Ujjain)",
+      "Mahishmati"
+    ],
+    "note": "A major rival power to Magadha under King Pradyota, before eventually being absorbed into the Magadhan empire."
+  },
+  {
+    "id": "mjp-anga",
+    "name": "Anga",
+    "category": "mahajanapada",
+    "lon": 86.98,
+    "lat": 25.31,
+    "river": "Ganga",
+    "state": "Bihar",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Champa"
+    ],
+    "note": "Champa was a noted centre of trade, reachable by river from the Ganga; Anga was eventually annexed by Magadha under Bimbisara."
+  },
+  {
+    "id": "mjp-magadha",
+    "name": "Magadha",
+    "category": "mahajanapada",
+    "lon": 85.42,
+    "lat": 25.03,
+    "river": "Ganga",
+    "state": "Bihar",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Rajgriha (Rajgir)",
+      "later Pataliputra"
+    ],
+    "note": "The Mahajanapada that eventually absorbed most of the others (under Bimbisara, Ajatashatru) and became the core of the later Mauryan Empire."
+  },
+  {
+    "id": "mjp-asmaka",
+    "name": "Asmaka",
+    "category": "mahajanapada",
+    "lon": 76.4,
+    "lat": 18,
+    "river": "Godavari",
+    "state": "Maharashtra / Telangana (Deccan)",
+    "period": "c. 600–500 BCE",
+    "features": [
+      "Capital: Paudanyapura (Potali/Podana)"
+    ],
+    "note": "The only Mahajanapada located south of the Vindhyas, on the Godavari — often cited in exams for exactly that reason."
+  },
+  {
+    "id": "ivc-shortugai",
+    "name": "Shortugai",
+    "category": "harappan",
+    "lon": 69.65,
+    "lat": 37.35,
+    "state": "Afghanistan (modern)",
+    "river": "Amu Darya (Oxus)",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Lapis lazuli trade outpost"
+    ],
+    "note": "An isolated Harappan trading outpost far to the north, on the Oxus — evidence of the IVC's long-distance trade network reaching Central Asia for lapis lazuli."
+  },
+  {
+    "id": "ivc-manda",
+    "name": "Manda",
+    "category": "harappan",
+    "lon": 74.73,
+    "lat": 32.77,
+    "state": "Jammu & Kashmir",
+    "river": "Chenab",
+    "period": "c. 3300–1300 BCE",
+    "note": "The northernmost known Harappan site, on the Chenab near Akhnoor."
+  },
+  {
+    "id": "ivc-harappa",
+    "name": "Harappa",
+    "category": "harappan",
+    "lon": 72.865,
+    "lat": 30.633,
+    "state": "Punjab, Pakistan",
+    "river": "Ravi",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Granaries",
+      "Cemetery H"
+    ],
+    "note": "Gives the civilization its name; excavated 1921 by Daya Ram Sahni. Known for its granaries and the later \"Cemetery H\" culture layered above it."
+  },
+  {
+    "id": "ivc-ropar",
+    "name": "Ropar (Rupnagar)",
+    "category": "harappan",
+    "lon": 76.527,
+    "lat": 30.966,
+    "state": "Punjab, India",
+    "river": "Sutlej",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Dog buried with human"
+    ],
+    "note": "First Harappan site excavated in independent India (1953); notable for a burial of a dog alongside a human."
+  },
+  {
+    "id": "ivc-bhagwanpura",
+    "name": "Bhagwanpura",
+    "category": "harappan-late",
+    "lon": 76.85,
+    "lat": 29.95,
+    "state": "Haryana",
+    "period": "c. 3300–1300 BCE",
+    "note": "Shows a rare stratigraphic overlap of Late Harappan pottery with Painted Grey Ware — evidence for continuity into the Vedic period rather than an abrupt end. Its whole significance (the PGW overlap) is specifically a Late Harappan phenomenon."
+  },
+  {
+    "id": "ivc-alamgirpur",
+    "name": "Alamgirpur",
+    "category": "harappan",
+    "lon": 77.28,
+    "lat": 28.95,
+    "state": "Uttar Pradesh",
+    "river": "Hindon",
+    "period": "c. 3300–1300 BCE",
+    "note": "The easternmost known Harappan site, marking the civilization's furthest extent into the Gangetic plain."
+  },
+  {
+    "id": "ivc-farmana",
+    "name": "Farmana",
+    "category": "harappan",
+    "lon": 76.55,
+    "lat": 28.95,
+    "state": "Haryana",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Large cemetery"
+    ],
+    "note": "One of the largest excavated Harappan cemeteries, giving useful skeletal/DNA evidence on the IVC population."
+  },
+  {
+    "id": "ivc-rakhigarhi",
+    "name": "Rakhigarhi",
+    "category": "harappan",
+    "lon": 76.11,
+    "lat": 29.29,
+    "state": "Haryana",
+    "river": "Drishadvati (dried, near Ghaggar system)",
+    "period": "c. 3300–1300 BCE",
+    "note": "One of the largest Harappan sites by area — larger than Mohenjodaro by some estimates — and a key source for ancient-DNA studies of the IVC population."
+  },
+  {
+    "id": "ivc-banawali",
+    "name": "Banawali",
+    "category": "harappan",
+    "lon": 75.4,
+    "lat": 29.53,
+    "state": "Haryana",
+    "river": "Saraswati (dried course)",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Radial street plan",
+      "Ploughed field remains"
+    ],
+    "note": "Unusual radial (not grid) street plan; also yielded evidence of an actual ploughed field, rare direct evidence of Harappan agriculture."
+  },
+  {
+    "id": "ivc-kalibangan",
+    "name": "Kalibangan",
+    "category": "harappan",
+    "lon": 74.13,
+    "lat": 29.47,
+    "state": "Rajasthan",
+    "river": "Ghaggar (ancient Saraswati)",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Fire altars",
+      "Ploughed field remains"
+    ],
+    "note": "Known for rows of \"fire altars\" (interpreted as ritual hearths) and, like Banawali, a preserved ploughed field."
+  },
+  {
+    "id": "ivc-ganweriwala",
+    "name": "Ganweriwala",
+    "category": "harappan",
+    "lon": 70.3,
+    "lat": 28.6,
+    "state": "Punjab, Pakistan (Cholistan)",
+    "river": "Ghaggar-Hakra (dried)",
+    "period": "c. 3300–1300 BCE",
+    "note": "One of the largest Harappan sites by area, in the Cholistan desert on the dried Ghaggar-Hakra course — still largely unexcavated."
+  },
+  {
+    "id": "ivc-kotdiji",
+    "name": "Kot Diji",
+    "category": "harappan-early",
+    "lon": 68.75,
+    "lat": 27.33,
+    "state": "Sindh, Pakistan",
+    "river": "Indus",
+    "period": "c. 3300–1300 BCE",
+    "note": "A fortified pre-Harappan (\"Early Harappan\"/Kot Diji culture) site that shows the urban planning tradition already forming before the Mature phase."
+  },
+  {
+    "id": "ivc-mohenjodaro",
+    "name": "Mohenjo-daro",
+    "category": "harappan",
+    "lon": 68.14,
+    "lat": 27.33,
+    "state": "Sindh, Pakistan",
+    "river": "Indus",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Great Bath",
+      "Great Granary",
+      "Grid street plan"
+    ],
+    "note": "The best-known Harappan city — the Great Bath, a planned grid layout, and an advanced drainage system are the standard exam references for IVC urban planning."
+  },
+  {
+    "id": "ivc-amri",
+    "name": "Amri",
+    "category": "harappan-early",
+    "lon": 68.08,
+    "lat": 26.15,
+    "state": "Sindh, Pakistan",
+    "river": "Indus",
+    "period": "c. 3300–1300 BCE",
+    "note": "Type-site for the pre-Harappan \"Amri culture\", showing a transition from a regional Chalcolithic culture into the Mature Harappan phase."
+  },
+  {
+    "id": "ivc-chanhudaro",
+    "name": "Chanhudaro",
+    "category": "harappan",
+    "lon": 68.3,
+    "lat": 26.13,
+    "state": "Sindh, Pakistan",
+    "river": "Indus",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Bead-making workshops",
+      "No citadel"
+    ],
+    "note": "The only major Harappan site with no citadel mound; known for bead, seal and weight manufacturing workshops — an industrial/craft centre."
+  },
+  {
+    "id": "ivc-balakot",
+    "name": "Balakot",
+    "category": "harappan",
+    "lon": 66.6,
+    "lat": 25.28,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Shell-bangle industry",
+      "Coastal/port site"
+    ],
+    "note": "A coastal craft-production centre, especially for shell bangles — also significant as an early port on the Makran coast."
+  },
+  {
+    "id": "ivc-sutkagandor",
+    "name": "Sutkagan Dor",
+    "category": "harappan",
+    "lon": 61.6,
+    "lat": 25.43,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Coastal/port site"
+    ],
+    "note": "The westernmost known Harappan site, near the modern Iran border — thought to have functioned as a coastal trading post/port."
+  },
+  {
+    "id": "ivc-dholavira",
+    "name": "Dholavira",
+    "category": "harappan",
+    "lon": 70.21,
+    "lat": 23.89,
+    "state": "Gujarat",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Water reservoirs",
+      "Signboard inscription",
+      "Three-part city division"
+    ],
+    "note": "Famous for sophisticated water-harvesting/storage engineering and a Harappan-script signboard — a UNESCO World Heritage Site (2021)."
+  },
+  {
+    "id": "ivc-surkotada",
+    "name": "Surkotada",
+    "category": "harappan",
+    "lon": 70.83,
+    "lat": 23.62,
+    "state": "Gujarat",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Horse remains"
+    ],
+    "note": "Yielded bone remains identified by some archaeologists as horse — cited (with debate) in the domesticated-horse-in-IVC discussion."
+  },
+  {
+    "id": "ivc-desalpar",
+    "name": "Desalpar",
+    "category": "harappan",
+    "lon": 70.6,
+    "lat": 23.5,
+    "state": "Gujarat",
+    "period": "c. 3300–1300 BCE",
+    "note": "A smaller, lesser-excavated Harappan site in Kutch, part of the same coastal Gujarat cluster as Dholavira and Surkotada."
+  },
+  {
+    "id": "ivc-lothal",
+    "name": "Lothal",
+    "category": "harappan",
+    "lon": 72.25,
+    "lat": 22.52,
+    "state": "Gujarat",
+    "river": "Bhogavo",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Dockyard",
+      "Bead-making industry"
+    ],
+    "note": "Site of what's usually cited as the world's earliest known dockyard — evidence of maritime trade — plus a major bead-manufacturing industry."
+  },
+  {
+    "id": "ivc-kuntasi",
+    "name": "Kuntasi",
+    "category": "harappan",
+    "lon": 70.45,
+    "lat": 22.9,
+    "state": "Gujarat",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Trade/manufacturing outlet"
+    ],
+    "note": "A coastal trading and manufacturing outlet in Saurashtra, linked into the same maritime trade network as Lothal."
+  },
+  {
+    "id": "ivc-nageshwar",
+    "name": "Nageshwar",
+    "category": "harappan",
+    "lon": 69.13,
+    "lat": 22.43,
+    "state": "Gujarat",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Shell industry"
+    ],
+    "note": "A specialised shell-working (bangle/ornament) production site near Dwarka."
+  },
+  {
+    "id": "ivc-daimabad",
+    "name": "Daimabad",
+    "category": "harappan-late",
+    "lon": 74.7,
+    "lat": 19.5,
+    "state": "Maharashtra",
+    "river": "Pravara",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Bronze chariot"
+    ],
+    "note": "The southernmost major Harappan site — famous for a hoard of bronze artefacts including a chariot, now among the best-known IVC bronzes. Also has a later Chalcolithic (Jorwe culture) occupation layer above the Harappan one. Its famous bronze hoard belongs to this later, post-urban-decline phase."
+  },
+  {
+    "id": "port-barbaricum",
+    "name": "Barbaricum",
+    "category": "port",
+    "lon": 67,
+    "lat": 24.85,
+    "state": "Sindh, Pakistan (Indus mouth)",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Mentioned in the Periplus of the Erythraean Sea"
+    ],
+    "note": "A major port at the mouth of the Indus in the early historic period, described in the 1st-century CE Greek trade manual the Periplus of the Erythraean Sea."
+  },
+  {
+    "id": "port-khirasara",
+    "name": "Khirasara",
+    "category": "port",
+    "lon": 70.6,
+    "lat": 23.2,
+    "state": "Gujarat (Kutch)",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A Harappan-era coastal settlement in Kutch, part of the same Gujarat trade-port cluster as Lothal and Dholavira."
+  },
+  {
+    "id": "port-broach",
+    "name": "Broach (Bharuch / Barygaza)",
+    "category": "port",
+    "lon": 72.97,
+    "lat": 21.7,
+    "state": "Gujarat",
+    "river": "Narmada",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Mentioned in the Periplus as Barygaza"
+    ],
+    "note": "One of the most important ports of ancient India — the Periplus's \"Barygaza\" — a major hub for Indo-Roman trade at the Narmada's mouth."
+  },
+  {
+    "id": "port-sopara",
+    "name": "Sopara (Shurparaka)",
+    "category": "port",
+    "lon": 72.77,
+    "lat": 19.42,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Ashokan Rock Edict site"
+    ],
+    "note": "An ancient port and Buddhist centre near modern Nalasopara — one of the sites of an Ashokan Rock Edict."
+  },
+  {
+    "id": "port-kalyani",
+    "name": "Kalyani (Kalyan)",
+    "category": "port",
+    "lon": 73.15,
+    "lat": 19.24,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A Konkan-coast port active through the ancient and early medieval periods, mentioned by several foreign travellers/traders."
+  },
+  {
+    "id": "port-chauf",
+    "name": "Chauf (Chaul)",
+    "category": "port",
+    "lon": 72.92,
+    "lat": 18.65,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A Konkan-coast trading port, later continuing in importance into the medieval period."
+  },
+  {
+    "id": "port-ghantasala",
+    "name": "Ghantasala",
+    "category": "port",
+    "lon": 81.03,
+    "lat": 16.28,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "An east-coast Andhra port with Buddhist stupa remains, linked to the Krishna-delta trade network."
+  },
+  {
+    "id": "port-gopakapattana",
+    "name": "Gopakapattana",
+    "category": "port",
+    "lon": 73.83,
+    "lat": 15.5,
+    "state": "Goa",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "Ancient Goa's principal port, referenced in early medieval and maritime trade records."
+  },
+  {
+    "id": "port-honnavar",
+    "name": "Honnavar",
+    "category": "port",
+    "lon": 74.45,
+    "lat": 14.28,
+    "state": "Karnataka",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A west-coast Karnataka port on the Arabian Sea spice/trade route."
+  },
+  {
+    "id": "port-nelluru",
+    "name": "Nelluru (Nellore)",
+    "category": "port",
+    "lon": 79.97,
+    "lat": 14.44,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "An east-coast Andhra port town, part of the string of coastal trading centres along the Coromandel Coast."
+  },
+  {
+    "id": "port-udyavara",
+    "name": "Udyavara",
+    "category": "port",
+    "lon": 74.75,
+    "lat": 13.34,
+    "state": "Karnataka",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A west-coast Karnataka port near modern Udupi, part of the Malabar/Karnataka spice-trade coastline."
+  },
+  {
+    "id": "port-kadura",
+    "name": "Kadura",
+    "category": "port",
+    "lon": 80.3,
+    "lat": 15.4,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A minor Andhra coast port in the same Krishna-Godavari delta trading cluster as Masulipatam and Motupalli."
+  },
+  {
+    "id": "port-kozhikode",
+    "name": "Kozhikode (Calicut)",
+    "category": "port",
+    "lon": 75.78,
+    "lat": 11.26,
+    "state": "Kerala",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A major Malabar Coast spice-trade port, at its peak under the Zamorins in the medieval period — the port Vasco da Gama first landed near in 1498."
+  },
+  {
+    "id": "port-masulipatam",
+    "name": "Masulipatam (Machilipatnam)",
+    "category": "port",
+    "lon": 81.14,
+    "lat": 16.17,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Periplus's \"Masalia\""
+    ],
+    "note": "Identified with \"Masalia\" in the Periplus of the Erythraean Sea — a long-running Andhra Coast port for textile and trade."
+  },
+  {
+    "id": "port-muziris",
+    "name": "Muziris",
+    "category": "port",
+    "lon": 76.2,
+    "lat": 10.17,
+    "state": "Kerala",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Pattanam excavations",
+      "Roman trade — pepper"
+    ],
+    "note": "The single most-cited ancient Indian port for Indo-Roman trade — a major pepper-export hub; modern excavations at Pattanam are widely identified with the site."
+  },
+  {
+    "id": "port-motupalli",
+    "name": "Motupalli",
+    "category": "port",
+    "lon": 80.6,
+    "lat": 15.75,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "An Andhra Coast port, later noted in Kakatiya-period (13th century) inscriptions guaranteeing fair trade for foreign merchants."
+  },
+  {
+    "id": "port-mahabalipuram",
+    "name": "Nirppeyarru (Mahabalipuram)",
+    "category": "port",
+    "lon": 80.19,
+    "lat": 12.62,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Pallava port",
+      "Shore Temple"
+    ],
+    "note": "The Pallava dynasty's principal port, still recognisable today by its Shore Temple and rock-cut monuments."
+  },
+  {
+    "id": "port-korkai",
+    "name": "Korkai",
+    "category": "port",
+    "lon": 78.13,
+    "lat": 8.67,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Pearl fishery"
+    ],
+    "note": "The early capital and chief port of the Pandya kingdom, famed in classical accounts for its pearl fishery."
+  },
+  {
+    "id": "port-marakkanam",
+    "name": "Marakkanam",
+    "category": "port",
+    "lon": 79.95,
+    "lat": 12.2,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A Tamil Coromandel-coast port in the same trading cluster as Arikamedu."
+  },
+  {
+    "id": "port-arikamedu",
+    "name": "Arikamedu",
+    "category": "port",
+    "lon": 79.83,
+    "lat": 11.9,
+    "state": "Tamil Nadu / Puducherry",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Roman amphorae/pottery finds",
+      "Yavana (Roman) trading settlement"
+    ],
+    "note": "A well-excavated Indo-Roman trading settlement near Puducherry — Roman amphorae and pottery finds are direct archaeological evidence of the Rome trade."
+  },
+  {
+    "id": "port-tondi",
+    "name": "Tondi",
+    "category": "port",
+    "lon": 79.02,
+    "lat": 9.74,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A Pandya-era port on the Palk Strait coast, part of the pearl-fishery trading region alongside Korkai."
+  },
+  {
+    "id": "port-tuticorin",
+    "name": "Tuticorin (Thoothukudi)",
+    "category": "port",
+    "lon": 78.13,
+    "lat": 8.8,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Pearl fishery"
+    ],
+    "note": "Another key Pandya-coast pearl-fishery port, near Korkai at the southern tip of the Coromandel Coast."
+  },
+  {
+    "id": "port-puhar",
+    "name": "Puhar (Poompuhar)",
+    "category": "port",
+    "lon": 79.85,
+    "lat": 11.15,
+    "state": "Tamil Nadu",
+    "river": "Kaveri (mouth)",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Chola port",
+      "Silappatikaram setting"
+    ],
+    "note": "The early Chola dynasty's principal port at the Kaveri's mouth — setting of much of the Sangam-era epic Silappatikaram; parts are believed to have been lost to the sea."
+  },
+  {
+    "id": "port-dasarna",
+    "name": "Dasarna",
+    "category": "port",
+    "lon": 85.9,
+    "lat": 20,
+    "state": "Odisha",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A lesser-documented Odisha Coast trading point in the same coastal network as Manikpatna and Kalingapatnam."
+  },
+  {
+    "id": "port-kalingapatna",
+    "name": "Kalingapatna (Kalingapatnam)",
+    "category": "port",
+    "lon": 83.92,
+    "lat": 18.33,
+    "state": "Andhra Pradesh / Odisha border",
+    "period": "Ancient / early historic (dates vary by site)",
+    "note": "A port associated with the ancient kingdom of Kalinga, on the border of today's Andhra Pradesh and Odisha."
+  },
+  {
+    "id": "port-manikpatna",
+    "name": "Manikpatna",
+    "category": "port",
+    "lon": 85.47,
+    "lat": 19.71,
+    "state": "Odisha",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Chilika Lake"
+    ],
+    "note": "A port on Chilika Lake — excavations here have turned up Chinese and Arab pottery, evidence of Odisha's maritime trade with Southeast Asia and beyond."
+  },
+  {
+    "id": "port-tamralipti",
+    "name": "Tamralipti",
+    "category": "port",
+    "lon": 87.92,
+    "lat": 22.3,
+    "state": "West Bengal",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Visited by Fa-Hien and Xuanzang"
+    ],
+    "note": "The most important port of ancient Bengal — visited and recorded by Chinese pilgrims Fa-Hien and Xuanzang, and a major embarkation point for Southeast Asia."
+  },
+  {
+    "id": "port-chandraketugarh",
+    "name": "Chandraketugarh",
+    "category": "port",
+    "lon": 88.68,
+    "lat": 22.72,
+    "state": "West Bengal",
+    "period": "Ancient / early historic (dates vary by site)",
+    "features": [
+      "Terracotta art"
+    ],
+    "note": "An ancient port-city site near Kolkata, noted for exceptionally fine terracotta art and figurines from the Sunga–Gupta periods."
+  },
+  {
+    "id": "chl-mehrgarh",
+    "name": "Mehrgarh",
+    "category": "neolithic",
+    "lon": 67.68,
+    "lat": 29.38,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "One of earliest farming sites in South Asia"
+    ],
+    "note": "A Neolithic-into-Chalcolithic site near the Bolan Pass, predating the Indus Valley Civilization by millennia — often cited as an ancestral culture to the Harappan tradition. One of the world's earliest known farming sites — its later Chalcolithic-phase layers (already noted) came centuries after this initial Neolithic occupation."
+  },
+  {
+    "id": "chl-lalqila",
+    "name": "Lal Qila",
+    "category": "chalcolithic",
+    "lon": 78,
+    "lat": 28.3,
+    "state": "Uttar Pradesh",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "An Ochre Coloured Pottery (OCP) / Chalcolithic site in the western Gangetic plain."
+  },
+  {
+    "id": "chl-atranjikhera",
+    "name": "Atranjikhera",
+    "category": "chalcolithic",
+    "lon": 78.68,
+    "lat": 27.68,
+    "state": "Uttar Pradesh",
+    "river": "Kali Nadi",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A long-occupation site spanning OCP/Chalcolithic through Painted Grey Ware and into early historic levels — useful for tracing cultural continuity."
+  },
+  {
+    "id": "chl-ganeshwar-jodhpura",
+    "name": "Ganeshwar–Jodhpura",
+    "category": "chalcolithic",
+    "lon": 75.6,
+    "lat": 27.9,
+    "state": "Rajasthan",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Ganeshwar-Jodhpura copper culture"
+    ],
+    "note": "Type-sites of the \"Ganeshwar-Jodhpura culture\" — an early copper-using Chalcolithic culture in the Khetri copper belt of Rajasthan, thought to have supplied copper to Harappan cities."
+  },
+  {
+    "id": "chl-saipai",
+    "name": "Saipai",
+    "category": "chalcolithic",
+    "lon": 79,
+    "lat": 26.8,
+    "state": "Uttar Pradesh",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "An OCP/Chalcolithic site in the western Gangetic plain, part of the same cultural horizon as Atranjikhera and Lal Qila."
+  },
+  {
+    "id": "chl-narhan",
+    "name": "Narhan",
+    "category": "chalcolithic",
+    "lon": 83.5,
+    "lat": 26.4,
+    "state": "Uttar Pradesh",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A Chalcolithic-to-early-historic site in the eastern Gangetic plain near Gorakhpur."
+  },
+  {
+    "id": "chl-imlidih",
+    "name": "Imlidih",
+    "category": "chalcolithic",
+    "lon": 83.3,
+    "lat": 26.6,
+    "state": "Uttar Pradesh",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A Neolithic-Chalcolithic site in the eastern UP/middle Ganga plain cluster, alongside Narhan and Chirand."
+  },
+  {
+    "id": "chl-chirand",
+    "name": "Chirand",
+    "category": "chalcolithic",
+    "lon": 84.65,
+    "lat": 25.7,
+    "state": "Bihar",
+    "river": "Ganga",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Bone tool industry"
+    ],
+    "note": "A key Neolithic-Chalcolithic site on the Ganga, known for a distinctive bone-tool industry."
+  },
+  {
+    "id": "chl-bangarh",
+    "name": "Bangarh",
+    "category": "chalcolithic",
+    "lon": 88.15,
+    "lat": 25.35,
+    "state": "West Bengal",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A long-occupation site in North Bengal spanning the Chalcolithic through early medieval periods."
+  },
+  {
+    "id": "chl-ahar",
+    "name": "Ahar (Ahar-Banas culture)",
+    "category": "chalcolithic",
+    "lon": 73.7,
+    "lat": 24.58,
+    "state": "Rajasthan",
+    "river": "Ahar (Banas tributary)",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Type-site of the Ahar-Banas culture"
+    ],
+    "note": "Type-site of the copper-using \"Ahar-Banas culture\" of southeastern Rajasthan, contemporary with the Mature Harappan phase."
+  },
+  {
+    "id": "chl-gilund",
+    "name": "Gilund",
+    "category": "chalcolithic",
+    "lon": 74.24,
+    "lat": 24.9,
+    "state": "Rajasthan",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A major Ahar-Banas culture settlement, notable for large mud-brick structures interpreted as possible administrative buildings."
+  },
+  {
+    "id": "chl-balathal",
+    "name": "Balathal",
+    "category": "chalcolithic",
+    "lon": 73.77,
+    "lat": 24.77,
+    "state": "Rajasthan",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Fortification walls"
+    ],
+    "note": "An Ahar-Banas culture site near Udaipur with an unusually early fortification wall for a Chalcolithic settlement."
+  },
+  {
+    "id": "chl-koldihwa",
+    "name": "Koldihwa",
+    "category": "neolithic",
+    "lon": 81.5,
+    "lat": 25.1,
+    "state": "Uttar Pradesh",
+    "river": "Belan",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Early rice cultivation evidence"
+    ],
+    "note": "Cited for some of the earliest claimed evidence of rice cultivation in India, though the very early dating is debated among archaeologists. The disputed early rice-cultivation evidence here is specifically from the Neolithic layers, predating the site's Chalcolithic occupation."
+  },
+  {
+    "id": "chl-senuar",
+    "name": "Senuar (Senuwar)",
+    "category": "chalcolithic",
+    "lon": 84,
+    "lat": 24.9,
+    "state": "Bihar",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A Neolithic-Chalcolithic site in the middle Ganga plain, part of the same cultural cluster as Chirand. Occupied continuously from the Neolithic through the Chalcolithic."
+  },
+  {
+    "id": "chl-eran",
+    "name": "Eran",
+    "category": "chalcolithic",
+    "lon": 78.18,
+    "lat": 24.08,
+    "state": "Madhya Pradesh",
+    "river": "Bina",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A long-occupation Chalcolithic-to-Gupta-era site; later famous for early Gupta-period inscriptions and a boar (Varaha) sculpture."
+  },
+  {
+    "id": "chl-kayatha",
+    "name": "Kayatha",
+    "category": "chalcolithic",
+    "lon": 75.65,
+    "lat": 23.2,
+    "state": "Madhya Pradesh",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Type-site of the Kayatha culture"
+    ],
+    "note": "Type-site of the \"Kayatha culture\", one of the regional Chalcolithic cultures of the Malwa plateau."
+  },
+  {
+    "id": "chl-navdatoli",
+    "name": "Navdatoli",
+    "category": "chalcolithic",
+    "lon": 75.58,
+    "lat": 22.18,
+    "state": "Madhya Pradesh",
+    "river": "Narmada",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "One of the most extensively excavated Chalcolithic (Malwa culture) settlements, opposite Maheshwar on the Narmada."
+  },
+  {
+    "id": "chl-gungeria",
+    "name": "Gungeria",
+    "category": "chalcolithic",
+    "lon": 80.2,
+    "lat": 21.8,
+    "state": "Madhya Pradesh",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Large copper/silver hoard"
+    ],
+    "note": "Famous for one of the largest Chalcolithic metal hoards found in India — copper tools/weapons plus silver ornaments."
+  },
+  {
+    "id": "chl-pandurajardhibi",
+    "name": "Pandu Rajar Dhibi",
+    "category": "chalcolithic",
+    "lon": 88,
+    "lat": 23.5,
+    "state": "West Bengal",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A key Chalcolithic site of Bengal, giving its name to a distinct regional Chalcolithic cultural phase."
+  },
+  {
+    "id": "chl-mahisdal",
+    "name": "Mahisdal",
+    "category": "chalcolithic",
+    "lon": 87.6,
+    "lat": 23.8,
+    "state": "West Bengal",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A Chalcolithic site in Birbhum district, part of the same eastern Indian cultural horizon as Pandu Rajar Dhibi."
+  },
+  {
+    "id": "ivc-rangpur",
+    "name": "Rangpur",
+    "category": "harappan",
+    "lon": 71.85,
+    "lat": 22.35,
+    "state": "Gujarat",
+    "period": "c. 3300–1300 BCE",
+    "features": [
+      "Late Harappan → Chalcolithic transition; type pottery"
+    ],
+    "note": "A Mature Harappan site in Gujarat, also significant for showing the Late Harappan → regional Chalcolithic transition — gives its name to \"Rangpur ware\" pottery. Its Period II B/C layers are a type sequence for the Late Harappan phase in Gujarat."
+  },
+  {
+    "id": "chl-prabhaspatan",
+    "name": "Prabhas Patan",
+    "category": "chalcolithic",
+    "lon": 70.4,
+    "lat": 20.89,
+    "state": "Gujarat",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A coastal Gujarat site near Somnath with a Late Harappan/Chalcolithic occupation phase."
+  },
+  {
+    "id": "chl-jorwe",
+    "name": "Jorwe",
+    "category": "chalcolithic",
+    "lon": 74.5,
+    "lat": 19.6,
+    "state": "Maharashtra",
+    "river": "Pravara",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Type-site of the Jorwe culture"
+    ],
+    "note": "Type-site of the \"Jorwe culture\", the dominant Chalcolithic culture across much of Maharashtra (c. 1400–700 BCE)."
+  },
+  {
+    "id": "chl-golbaisasan",
+    "name": "Golbai Sasan",
+    "category": "chalcolithic",
+    "lon": 85.7,
+    "lat": 20.1,
+    "state": "Odisha",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A Neolithic-Chalcolithic site near Bhubaneswar, showing the transition from Neolithic to Chalcolithic material culture in coastal Odisha."
+  },
+  {
+    "id": "chl-nevasa",
+    "name": "Nevasa",
+    "category": "chalcolithic",
+    "lon": 74.94,
+    "lat": 19.55,
+    "state": "Maharashtra",
+    "river": "Pravara",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A major Jorwe-culture excavation site; also yielded important Old Stone Age (Palaeolithic) evidence in lower levels."
+  },
+  {
+    "id": "chl-inamgaon",
+    "name": "Inamgaon",
+    "category": "chalcolithic",
+    "lon": 74.2,
+    "lat": 18.85,
+    "state": "Maharashtra",
+    "river": "Ghod",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Well-preserved Jorwe-culture village plan"
+    ],
+    "note": "One of the most thoroughly excavated Jorwe-culture village sites, giving a detailed picture of Chalcolithic house plans, granaries and burials."
+  },
+  {
+    "id": "chl-piklihal",
+    "name": "Piklihal",
+    "category": "neolithic",
+    "lon": 76.6,
+    "lat": 15.9,
+    "state": "Karnataka",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "features": [
+      "Neolithic cattle-pen ash mounds"
+    ],
+    "note": "A South Indian Neolithic-Chalcolithic site known for ash mounds interpreted as the remains of repeatedly burnt cattle pens. The ash mounds (burnt cattle-pen deposits) are the type example of South Indian Neolithic pastoralist sites."
+  },
+  {
+    "id": "chl-sanganakallu",
+    "name": "Sanganakallu",
+    "category": "neolithic",
+    "lon": 77.5,
+    "lat": 15.15,
+    "state": "Karnataka",
+    "period": "c. 2000–700 BCE (varies by region)",
+    "note": "A South Indian Neolithic-Chalcolithic settlement and stone-tool workshop site near Bellary. Also known as Sanganakallu-Kupgal — a major South Indian Neolithic settlement, stone-axe workshop, and rock-art site."
+  },
+  {
+    "id": "meg-burzahom",
+    "name": "Burzahom",
+    "category": "neolithic",
+    "lon": 74.88,
+    "lat": 34.15,
+    "state": "Jammu & Kashmir",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Pit dwellings",
+      "Menhirs",
+      "Dog burials with humans"
+    ],
+    "note": "A Neolithic-into-Megalithic Kashmir site — known for pit-dwellings, a large menhir, and the unusual practice of burying dogs alongside their owners. Also has a later megalithic-period presence (a large standing menhir), which is why this site was previously filed under Megalithic — the pit-dwellings and stone tools are its primary, better-known identity."
+  },
+  {
+    "id": "meg-jagti",
+    "name": "Jagti",
+    "category": "megalithic",
+    "lon": 74.87,
+    "lat": 34,
+    "state": "Jammu & Kashmir",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A Kashmir-valley site in the same regional megalithic/Neolithic cultural horizon as Burzahom (exact site identity/coordinates less well-documented than Burzahom's)."
+  },
+  {
+    "id": "meg-kakoria",
+    "name": "Kakoria",
+    "category": "megalithic",
+    "lon": 82.5,
+    "lat": 22.5,
+    "state": "Chhattisgarh (approx.)",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A central Indian megalithic site — placement approximate; less documented in mainstream sources than the major South Indian megalithic sites."
+  },
+  {
+    "id": "meg-kotia",
+    "name": "Kotia",
+    "category": "megalithic",
+    "lon": 82.3,
+    "lat": 22.3,
+    "state": "Chhattisgarh (approx.)",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A central Indian megalithic site in the same regional cluster as Kakoria — placement approximate."
+  },
+  {
+    "id": "meg-banimilia-banhera",
+    "name": "Banimilia–Banhera",
+    "category": "megalithic",
+    "lon": 83.5,
+    "lat": 21.5,
+    "state": "Odisha (approx.)",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "Megalithic sites in the Odisha/central-India cluster — placement approximate; less documented than the major South Indian megalithic sites."
+  },
+  {
+    "id": "meg-nartiang",
+    "name": "Nartiang",
+    "category": "megalithic",
+    "lon": 92.35,
+    "lat": 25.5,
+    "state": "Meghalaya",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Largest monolith park in Meghalaya"
+    ],
+    "note": "Home to the largest cluster of standing monoliths (menhirs and dolmens) in Meghalaya, raised by the Jaintia people — a living megalithic tradition, not just an archaeological one."
+  },
+  {
+    "id": "meg-kuntitoli",
+    "name": "Kuntitoli",
+    "category": "megalithic",
+    "lon": 83.2,
+    "lat": 21,
+    "state": "Odisha/Chhattisgarh border (approx.)",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A central-eastern Indian megalithic site — placement approximate."
+  },
+  {
+    "id": "meg-junapani-takalghat",
+    "name": "Junapani & Takalghat",
+    "category": "megalithic",
+    "lon": 79,
+    "lat": 21.1,
+    "state": "Maharashtra",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "Neighbouring megalithic burial sites near Nagpur, among the better-studied Vidarbha-region megalithic cemeteries."
+  },
+  {
+    "id": "meg-naikund",
+    "name": "Naikund",
+    "category": "megalithic",
+    "lon": 79.3,
+    "lat": 20.9,
+    "state": "Maharashtra",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Iron-smelting furnace"
+    ],
+    "note": "A Vidarbha megalithic site notable for excavated iron-smelting furnaces — direct evidence of Iron Age metallurgy."
+  },
+  {
+    "id": "meg-amravati-maharashtra",
+    "name": "Amravati (Maharashtra)",
+    "category": "megalithic",
+    "lon": 77.75,
+    "lat": 20.93,
+    "state": "Maharashtra",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A Vidarbha-region megalithic site — not to be confused with Amaravati (ancient Dhanyakataka) in Andhra Pradesh."
+  },
+  {
+    "id": "meg-dhanora",
+    "name": "Dhanora",
+    "category": "megalithic",
+    "lon": 80.35,
+    "lat": 19.95,
+    "state": "Maharashtra",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A megalithic burial site in the Gadchiroli/Vidarbha region."
+  },
+  {
+    "id": "meg-sisupalgarh",
+    "name": "Sisupalgarh",
+    "category": "megalithic",
+    "lon": 85.83,
+    "lat": 20.23,
+    "state": "Odisha",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Early historic fortified city"
+    ],
+    "note": "A large fortified early-historic settlement near Bhubaneswar, with megalithic-period antecedents — often discussed alongside ancient Kalinga's urban history."
+  },
+  {
+    "id": "meg-maski",
+    "name": "Maski",
+    "category": "megalithic",
+    "lon": 76.65,
+    "lat": 15.95,
+    "state": "Karnataka",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Ashokan Minor Rock Edict"
+    ],
+    "note": "Famous for the Minor Rock Edict that confirmed \"Devanampiya\" as a title of Ashoka — the discovery that first firmly linked the Ashokan edicts to Ashoka by name; also a significant megalithic burial site."
+  },
+  {
+    "id": "meg-hirebenakal",
+    "name": "Hire Benakal",
+    "category": "megalithic",
+    "lon": 76.36,
+    "lat": 15.36,
+    "state": "Karnataka",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Large dolmen cluster"
+    ],
+    "note": "One of the largest concentrations of megalithic dolmens in South India, near Hampi."
+  },
+  {
+    "id": "meg-chandravalli",
+    "name": "Chandravalli",
+    "category": "megalithic",
+    "lon": 76.4,
+    "lat": 14.23,
+    "state": "Karnataka",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A megalithic-to-early-historic site near Chitradurga with Satavahana and Roman-trade-linked finds in later layers."
+  },
+  {
+    "id": "meg-hallur",
+    "name": "Hallur",
+    "category": "megalithic",
+    "lon": 75.6,
+    "lat": 15.4,
+    "state": "Karnataka",
+    "river": "Tungabhadra",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Earliest evidence of iron in peninsular India"
+    ],
+    "note": "Cited for some of the earliest evidence of iron use in peninsular India, at the Neolithic-Megalithic transition."
+  },
+  {
+    "id": "meg-nagarjunakonda",
+    "name": "Nagarjunakonda",
+    "category": "megalithic",
+    "lon": 79.24,
+    "lat": 16.53,
+    "state": "Andhra Pradesh",
+    "river": "Krishna",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Major Buddhist centre (Ikshvaku period)"
+    ],
+    "note": "A major early-historic Buddhist centre under the Ikshvaku dynasty, built over an area with earlier megalithic remains; now largely submerged under the Nagarjuna Sagar reservoir."
+  },
+  {
+    "id": "meg-amaravati-ap",
+    "name": "Amaravati (Ancient Dhanyakataka)",
+    "category": "megalithic",
+    "lon": 80.36,
+    "lat": 16.57,
+    "state": "Andhra Pradesh",
+    "river": "Krishna",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Great Stupa",
+      "Satavahana capital"
+    ],
+    "note": "Ancient Dhanyakataka — a Satavahana-era capital and site of the Amaravati Stupa, one of the great Buddhist monuments of India; not to be confused with Amravati in Maharashtra."
+  },
+  {
+    "id": "meg-paiyampalli",
+    "name": "Paiyampalli",
+    "category": "megalithic",
+    "lon": 78.75,
+    "lat": 12.75,
+    "state": "Tamil Nadu",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A Neolithic-Megalithic transition site in northern Tamil Nadu."
+  },
+  {
+    "id": "meg-veerapuram",
+    "name": "Veerapuram",
+    "category": "megalithic",
+    "lon": 78.3,
+    "lat": 15.8,
+    "state": "Andhra Pradesh",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A megalithic-to-early-historic settlement site in the Krishna basin of Andhra Pradesh."
+  },
+  {
+    "id": "meg-jadigenahalli",
+    "name": "Jadigenahalli",
+    "category": "megalithic",
+    "lon": 77.7,
+    "lat": 13.2,
+    "state": "Karnataka",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A megalithic burial site near Bengaluru."
+  },
+  {
+    "id": "meg-palavoy",
+    "name": "Palavoy",
+    "category": "megalithic",
+    "lon": 77.6,
+    "lat": 14.4,
+    "state": "Andhra Pradesh",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A megalithic site in the Rayalaseema region of Andhra Pradesh."
+  },
+  {
+    "id": "meg-brahmagiri",
+    "name": "Brahmagiri",
+    "category": "megalithic",
+    "lon": 76.28,
+    "lat": 14.68,
+    "state": "Karnataka",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "R.E.M. Wheeler excavation, 1947",
+      "Ashokan Minor Rock Edict"
+    ],
+    "note": "The type-site for South Indian megalithic culture — Mortimer Wheeler's 1947 excavation here established the Neolithic-Chalcolithic-Megalithic sequence used across the region. Also has an Ashokan Minor Rock Edict."
+  },
+  {
+    "id": "meg-sanur",
+    "name": "Sanur",
+    "category": "megalithic",
+    "lon": 79.55,
+    "lat": 12.25,
+    "state": "Tamil Nadu",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A megalithic burial site (urn/cist burials) in northern Tamil Nadu."
+  },
+  {
+    "id": "meg-tnarsipur",
+    "name": "T. Narsipur",
+    "category": "megalithic",
+    "lon": 76.9,
+    "lat": 12.2,
+    "state": "Karnataka",
+    "river": "Kaveri–Kapila confluence",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "note": "A long-occupation site at the Kaveri-Kapila confluence, with Neolithic through megalithic and early historic layers."
+  },
+  {
+    "id": "meg-pazhayannur",
+    "name": "Pazhayannur (Porkulam)",
+    "category": "megalithic",
+    "lon": 76.4,
+    "lat": 10.6,
+    "state": "Kerala",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Umbrella stones (kudakallu)"
+    ],
+    "note": "A Kerala megalithic site known for distinctive \"umbrella stone\" (kudakallu) burial markers."
+  },
+  {
+    "id": "meg-sittanavasal",
+    "name": "Sittanavasal",
+    "category": "megalithic",
+    "lon": 78.75,
+    "lat": 10.42,
+    "state": "Tamil Nadu",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Jain cave paintings (later period)"
+    ],
+    "note": "Better known today for its later Jain rock-cut cave and murals, Sittanavasal also has megalithic burial remains nearby."
+  },
+  {
+    "id": "meg-kodumanal",
+    "name": "Kodumanal",
+    "category": "megalithic",
+    "lon": 77.53,
+    "lat": 11.15,
+    "state": "Tamil Nadu",
+    "river": "Noyyal",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Tamil-Brahmi inscriptions",
+      "Bead/iron industry"
+    ],
+    "note": "A Sangam-era craft and trade centre with megalithic burials, Tamil-Brahmi graffiti, and evidence of iron and semi-precious-stone bead industries."
+  },
+  {
+    "id": "meg-mangadu",
+    "name": "Mangadu",
+    "category": "megalithic",
+    "lon": 76.55,
+    "lat": 10.85,
+    "state": "Kerala",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Megalithic monuments park"
+    ],
+    "note": "A Kerala site with a dense concentration of megalithic monuments (dolmens, menhirs, urn burials), now protected as a monuments park."
+  },
+  {
+    "id": "meg-adichanallur",
+    "name": "Adichanallur",
+    "category": "megalithic",
+    "lon": 77.9,
+    "lat": 8.75,
+    "state": "Tamil Nadu",
+    "river": "Tamiraparani",
+    "period": "c. 1200–300 BCE (varies by region)",
+    "features": [
+      "Urn burials"
+    ],
+    "note": "One of the most important South Indian megalithic urn-burial sites, on the Tamiraparani — extensively excavated since the late 19th century."
+  },
+  {
+    "id": "ivc-mitathal",
+    "name": "Mitathal",
+    "category": "harappan-late",
+    "lon": 76.13,
+    "lat": 28.88,
+    "state": "Haryana",
+    "period": "c. 3300–1300 BCE",
+    "note": "A Harappan site in the same Haryana cluster as Rakhigarhi and Banawali, with occupation layers spanning Early to Late Harappan phases."
+  },
+  {
+    "id": "ivc-dambsadaat",
+    "name": "Damb Sadaat",
+    "category": "harappan-early",
+    "lon": 66.99,
+    "lat": 30.25,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 4000–2500 BCE (Early Harappan)",
+    "features": [
+      "Type-site of the Damb Sadaat culture"
+    ],
+    "note": "Type-site of the \"Damb Sadaat culture\", a pre-Harappan/Early Harappan phase in the Quetta valley of Balochistan."
+  },
+  {
+    "id": "ivc-siswal",
+    "name": "Siswal",
+    "category": "harappan-early",
+    "lon": 75.75,
+    "lat": 29.28,
+    "state": "Haryana",
+    "period": "c. 3800–2600 BCE (Early Harappan)",
+    "features": [
+      "Type-site of the Sothi-Siswal culture"
+    ],
+    "note": "Type-site of the \"Sothi-Siswal culture\", a widespread Early Harappan phase across Rajasthan, Haryana and Punjab, ancestral to several Mature Harappan sites in the same region (Rakhigarhi, Banawali, Kalibangan). Also gives its name to the \"Late Siswal\" Late Harappan phase in the same region."
+  },
+  {
+    "id": "ivc-jhukar",
+    "name": "Jhukar",
+    "category": "harappan-late",
+    "lon": 67.8,
+    "lat": 27,
+    "state": "Sindh, Pakistan",
+    "period": "c. 2000–1400 BCE (Late Harappan)",
+    "features": [
+      "Type-site of the Jhukar culture"
+    ],
+    "note": "Type-site of the \"Jhukar culture\", a Late Harappan phase in Sindh marking the post-urban decline of the Mature Harappan cities."
+  },
+  {
+    "id": "ivc-swat",
+    "name": "Swat Valley (Gandhara Grave Culture)",
+    "category": "harappan-late",
+    "lon": 72.36,
+    "lat": 34.77,
+    "state": "Khyber Pakhtunkhwa, Pakistan",
+    "river": "Swat",
+    "period": "c. 1600–500 BCE (Late Harappan onward)",
+    "features": [
+      "Gandhara Grave Culture"
+    ],
+    "note": "The Swat Valley's \"Gandhara Grave Culture\" — a Late Harappan-into-early-Iron-Age regional culture, distinct from and contemporary with the decline of the Indus cities further south."
+  },
+  {
+    "id": "edict-mansehra",
+    "name": "Mansehra",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 73.2,
+    "lat": 34.33,
+    "state": "Khyber Pakhtunkhwa, Pakistan",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-shahbazgarhi",
+    "name": "Shahbazgarhi",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 71.68,
+    "lat": 34.23,
+    "state": "Khyber Pakhtunkhwa, Pakistan",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka. Inscribed in Kharosthi script, unlike most Major Rock Edicts (Brahmi) — a recurring exam detail alongside Mansehra."
+  },
+  {
+    "id": "edict-kandahar",
+    "name": "Kandahar",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 65.71,
+    "lat": 31.61,
+    "state": "Afghanistan",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka. Uniquely bilingual — Greek and Aramaic — reflecting the Mauryan empire's northwestern reach into Hellenistic and Persian-influenced territory."
+  },
+  {
+    "id": "edict-kalsi",
+    "name": "Kalsi",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 77.85,
+    "lat": 30.51,
+    "state": "Uttarakhand",
+    "river": "Yamuna",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-girnar",
+    "name": "Girnar",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 70.52,
+    "lat": 21.52,
+    "state": "Gujarat",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-sopara-edict",
+    "name": "Sopara",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 72.77,
+    "lat": 19.42,
+    "state": "Maharashtra",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka. Same site as the ancient port of Sopara (Shurparaka) — a Major Rock Edict fragment was found here."
+  },
+  {
+    "id": "edict-sannati",
+    "name": "Sannati",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 76.83,
+    "lat": 16.85,
+    "state": "Karnataka",
+    "river": "Bhima",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-dhauli",
+    "name": "Dhauli (near Shishupalgarh)",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 85.82,
+    "lat": 20.18,
+    "state": "Odisha",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka. Labelled \"Shishupalgarh\" on some reference maps for the nearby fortified city; the edict itself is usually specifically identified as Dhauli, in ancient Kalinga."
+  },
+  {
+    "id": "edict-jaugada",
+    "name": "Jaugada",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 84.8,
+    "lat": 19.55,
+    "state": "Odisha",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-bahapur",
+    "name": "Bahapur",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 77.25,
+    "lat": 28.55,
+    "state": "Delhi",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-bairat",
+    "name": "Bairat",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 76.18,
+    "lat": 27.48,
+    "state": "Rajasthan",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka. Same site as Viratanagara, capital of the Matsya Mahajanapada — this edict is also known as the \"Bhabru-Bairat\" edict, addressed to the Buddhist Sangha."
+  },
+  {
+    "id": "edict-bhabru",
+    "name": "Bhabru",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 75.85,
+    "lat": 27.35,
+    "state": "Rajasthan",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-gavimath",
+    "name": "Gavimath",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 76.2,
+    "lat": 15.75,
+    "state": "Karnataka",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-palkigundu",
+    "name": "Palkigundu",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 76.15,
+    "lat": 15.75,
+    "state": "Karnataka",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka. A twin site with Gavimath, very close by."
+  },
+  {
+    "id": "edict-jatingarameshwar",
+    "name": "Jatinga Rameshwar",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 76.4,
+    "lat": 14.5,
+    "state": "Karnataka",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-siddapur",
+    "name": "Siddapur",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 76.3,
+    "lat": 14.65,
+    "state": "Karnataka",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka. Close to Brahmagiri, part of the same Chitradurga-region cluster of Minor Rock Edicts."
+  },
+  {
+    "id": "edict-udegolam",
+    "name": "Udegolam",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 76.9,
+    "lat": 15.5,
+    "state": "Karnataka",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-rajulamandagiri",
+    "name": "Rajula Mandagiri",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 77.6,
+    "lat": 15.7,
+    "state": "Andhra Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-nittur",
+    "name": "Nittur",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 76.75,
+    "lat": 15.2,
+    "state": "Karnataka",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Minor Rock Edict of Ashoka."
+  },
+  {
+    "id": "edict-topra",
+    "name": "Topra",
+    "category": "edict-pillar",
+    "edictType": "major-pillar",
+    "lon": 77.15,
+    "lat": 30.2,
+    "state": "Haryana",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. This pillar was later moved to Delhi (Feroz Shah Kotla) by Sultan Firuz Shah Tughlaq in the 14th century."
+  },
+  {
+    "id": "edict-meerut",
+    "name": "Meerut",
+    "category": "edict-pillar",
+    "edictType": "major-pillar",
+    "lon": 77.71,
+    "lat": 28.98,
+    "state": "Uttar Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. This pillar was also later moved to Delhi (the Delhi Ridge) by Firuz Shah Tughlaq."
+  },
+  {
+    "id": "edict-nigalisagar",
+    "name": "Nigalisagar",
+    "category": "edict-pillar",
+    "edictType": "minor-pillar",
+    "lon": 83.05,
+    "lat": 27.63,
+    "state": "Nepal",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka."
+  },
+  {
+    "id": "edict-rummindei",
+    "name": "Rummindei (Lumbini)",
+    "category": "edict-pillar",
+    "edictType": "minor-pillar",
+    "lon": 83.28,
+    "lat": 27.48,
+    "state": "Nepal",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. Marks the Buddha's birthplace; the inscription records Ashoka's pilgrimage and tax exemption granted to the village."
+  },
+  {
+    "id": "edict-rampurwa",
+    "name": "Rampurwa",
+    "category": "edict-pillar",
+    "edictType": "major-pillar",
+    "lon": 84.62,
+    "lat": 27.5,
+    "state": "Bihar",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka."
+  },
+  {
+    "id": "edict-lauriyanandangarh",
+    "name": "Lauriya Nandangarh",
+    "category": "edict-pillar",
+    "edictType": "major-pillar",
+    "lon": 84.41,
+    "lat": 26.98,
+    "state": "Bihar",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka."
+  },
+  {
+    "id": "edict-lauriyaararaj",
+    "name": "Lauriya Araraj",
+    "category": "edict-pillar",
+    "edictType": "major-pillar",
+    "lon": 84.72,
+    "lat": 26.75,
+    "state": "Bihar",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka."
+  },
+  {
+    "id": "edict-sarnath",
+    "name": "Sarnath",
+    "category": "edict-pillar",
+    "edictType": "minor-pillar",
+    "lon": 83.02,
+    "lat": 25.38,
+    "state": "Uttar Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. Topped by the Lion Capital — now India's national emblem."
+  },
+  {
+    "id": "edict-gujarra",
+    "name": "Gujarra",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 78.35,
+    "lat": 25.9,
+    "state": "Madhya Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. (Corrected from an earlier pillar-edict classification — Gujarra is a Minor Rock Edict site, no pillar was ever found here.)"
+  },
+  {
+    "id": "edict-kaushambi-pillar",
+    "name": "Kaushambi",
+    "category": "edict-pillar",
+    "edictType": "major-pillar",
+    "lon": 81.38,
+    "lat": 25.33,
+    "state": "Uttar Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. Same site as the Vatsa Mahajanapada's capital — this pillar was later moved to Allahabad Fort."
+  },
+  {
+    "id": "edict-ahraura",
+    "name": "Ahraura",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 82.9,
+    "lat": 25,
+    "state": "Uttar Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. (Corrected from an earlier pillar-edict classification — Ahraura is a Minor Rock Edict site, no pillar was ever found here.)"
+  },
+  {
+    "id": "edict-sahasram",
+    "name": "Sahasram",
+    "category": "edict-rock",
+    "edictType": "minor-rock",
+    "lon": 84.02,
+    "lat": 24.95,
+    "state": "Bihar",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. (Corrected from an earlier pillar-edict classification — Sahasram/Sasaram is a Minor Rock Edict site, no pillar was ever found here.)"
+  },
+  {
+    "id": "edict-sanchi",
+    "name": "Sanchi",
+    "category": "edict-pillar",
+    "edictType": "minor-pillar",
+    "lon": 78.74,
+    "lat": 23.48,
+    "state": "Madhya Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Pillar Edict of Ashoka. Better known for its Great Stupa; the Ashokan pillar here bears the Schism Edict, warning against splitting the Buddhist Sangha."
+  },
+  {
+    "id": "kgd-taxila",
+    "name": "Taxila",
+    "category": "kingdom",
+    "kingdom": "KUSHANAS",
+    "lon": 72.79,
+    "lat": 33.74,
+    "state": "Punjab, Pakistan",
+    "period": "c. 1st–3rd century CE (Kushana)",
+    "note": "Same site as the Gandhara Mahajanapada's capital, centuries earlier — under the Kushanas it became a major centre of Gandhara art and Buddhist learning."
+  },
+  {
+    "id": "kgd-kanauj",
+    "name": "Kanauj",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 79.92,
+    "lat": 27.05,
+    "state": "Uttar Pradesh",
+    "river": "Ganga",
+    "period": "c. 320–550 CE (Gupta)",
+    "note": "Later became far more famous as Harshavardhana's 7th-century capital, and the object of the centuries-long \"Kanauj Triangle\" struggle between the Palas, Pratiharas and Rashtrakutas."
+  },
+  {
+    "id": "kgd-shravasti",
+    "name": "Shravasti",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 82.05,
+    "lat": 27.52,
+    "state": "Uttar Pradesh",
+    "river": "Rapti",
+    "period": "c. 320–550 CE (Gupta)",
+    "note": "Same site as the Kosala Mahajanapada's capital — one of the Buddha's most frequent residences."
+  },
+  {
+    "id": "kgd-mathura",
+    "name": "Mathura",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 77.67,
+    "lat": 27.49,
+    "state": "Uttar Pradesh",
+    "river": "Yamuna",
+    "period": "c. 1st century BCE – 550 CE (Shaka, Kushana, then Gupta)",
+    "note": "Same site as the Surasena Mahajanapada's capital — also a major Kushana-era political centre and a distinct school of ancient Indian sculpture (the Mathura school)."
+  },
+  {
+    "id": "kgd-vaishali",
+    "name": "Vaishali",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 85.13,
+    "lat": 25.99,
+    "state": "Bihar",
+    "period": "c. 320–550 CE (Gupta)",
+    "note": "Same site as the Vajji confederacy's capital, centuries earlier."
+  },
+  {
+    "id": "kgd-varanasi",
+    "name": "Varanasi",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 83,
+    "lat": 25.32,
+    "state": "Uttar Pradesh",
+    "river": "Ganga",
+    "period": "c. 320–550 CE (Gupta)",
+    "note": "Same site as the Kasi Mahajanapada's capital."
+  },
+  {
+    "id": "kgd-pataliputra",
+    "name": "Pataliputra",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 85.14,
+    "lat": 25.61,
+    "state": "Bihar",
+    "river": "Ganga",
+    "period": "c. 320–550 CE (Gupta)",
+    "note": "The Mauryan and Gupta imperial capital — modern Patna."
+  },
+  {
+    "id": "kgd-kaushambi",
+    "name": "Kaushambi",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 81.38,
+    "lat": 25.33,
+    "state": "Uttar Pradesh",
+    "river": "Yamuna",
+    "period": "c. 320–550 CE (Gupta)",
+    "note": "Same site as the Vatsa Mahajanapada's capital and the location of an Ashokan pillar — three different eras of significance at one spot."
+  },
+  {
+    "id": "kgd-rajgir",
+    "name": "Rajgir",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 85.42,
+    "lat": 25.03,
+    "state": "Bihar",
+    "period": "c. 320–550 CE (Gupta)",
+    "note": "Same site as the Magadha Mahajanapada's capital, Rajgriha."
+  },
+  {
+    "id": "kgd-mahasthan",
+    "name": "Mahasthan (Mahasthangarh)",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 89.34,
+    "lat": 24.95,
+    "state": "Bangladesh",
+    "period": "Mauryan through Gupta",
+    "note": "Yielded one of the earliest Brahmi inscriptions in Bengal (Mauryan-era), and remained an important urban centre into the Gupta period."
+  },
+  {
+    "id": "kgd-vidisha",
+    "name": "Vidisha",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 77.81,
+    "lat": 23.53,
+    "state": "Madhya Pradesh",
+    "period": "c. 320–550 CE (Gupta)",
+    "note": "Near Sanchi; the Heliodorus Pillar (2nd century BCE, predating the Guptas) is close by, recording a Greek ambassador's conversion to Vaishnavism."
+  },
+  {
+    "id": "kgd-chandraketugarh",
+    "name": "Chandraketugarh",
+    "category": "kingdom",
+    "kingdom": "GUPTAS",
+    "lon": 88.68,
+    "lat": 22.72,
+    "state": "West Bengal",
+    "period": "Mauryan through Gupta",
+    "note": "Same site already covered as an ancient port — also an important Gupta-era urban and craft (terracotta) centre."
+  },
+  {
+    "id": "kgd-ujjayini",
+    "name": "Ujjayini (Ujjain)",
+    "category": "kingdom",
+    "kingdom": "SHAKAS",
+    "lon": 75.78,
+    "lat": 23.18,
+    "state": "Madhya Pradesh",
+    "river": "Shipra",
+    "period": "c. 1st century BCE – 4th century CE (Western Kshatrapas/Shakas)",
+    "note": "Same site as the Avanti Mahajanapada's capital — under the Western Kshatrapas (Shakas) it was a major regional capital before Chandragupta II annexed it for the Gupta empire."
+  },
+  {
+    "id": "kgd-bharukachchha",
+    "name": "Bharukachchha (Bharuch)",
+    "category": "kingdom",
+    "kingdom": "SHAKAS",
+    "lon": 72.97,
+    "lat": 21.7,
+    "state": "Gujarat",
+    "river": "Narmada",
+    "period": "c. 1st century BCE – 4th century CE (Western Kshatrapas/Shakas)",
+    "note": "Same site as the port of Bharuch/Barygaza — a major Western Kshatrapa (Shaka) port and administrative centre."
+  },
+  {
+    "id": "kgd-shishupalgarh-kingdom",
+    "name": "Shishupalgarh",
+    "category": "kingdom",
+    "lon": 85.83,
+    "lat": 20.23,
+    "state": "Odisha",
+    "period": "Mauryan through early historic",
+    "note": "Same site already covered under Megalithic sites (Sisupalgarh) and the nearby Dhauli Ashokan edict — this map doesn't attach it to one of the labelled dynasties, likely reflecting Kalinga's own independent history in this period."
+  },
+  {
+    "id": "kgd-sopara",
+    "name": "Sopara (Shurparaka)",
+    "category": "kingdom",
+    "kingdom": "SATAVAHANAS",
+    "lon": 72.77,
+    "lat": 19.42,
+    "state": "Maharashtra",
+    "period": "c. 2nd century BCE – 3rd century CE (Satavahana)",
+    "note": "Same site already covered as an ancient port and the findspot of a Major Rock Edict fragment — also an important Satavahana-era port."
+  },
+  {
+    "id": "kgd-paithan",
+    "name": "Paithan (Pratishthana)",
+    "category": "kingdom",
+    "kingdom": "SATAVAHANAS",
+    "lon": 75.38,
+    "lat": 19.48,
+    "state": "Maharashtra",
+    "river": "Godavari",
+    "period": "c. 2nd century BCE – 3rd century CE (Satavahana)",
+    "note": "The Satavahana dynasty's capital, Pratishthana — a major inland trade hub on the Godavari, linked to Roman-trade ports on the coast."
+  },
+  {
+    "id": "kgd-dhanyakataka",
+    "name": "Dhanyakataka",
+    "category": "kingdom",
+    "kingdom": "SATAVAHANAS",
+    "lon": 80.36,
+    "lat": 16.57,
+    "state": "Andhra Pradesh",
+    "river": "Krishna",
+    "period": "c. 2nd century BCE – 3rd century CE (Satavahana)",
+    "note": "Same site already covered as Amaravati (Megalithic/early-historic) — also a major later Satavahana capital."
+  },
+  {
+    "id": "kgd-kodumanal",
+    "name": "Kodumanal",
+    "category": "kingdom",
+    "lon": 77.53,
+    "lat": 11.15,
+    "state": "Tamil Nadu",
+    "river": "Noyyal",
+    "period": "Sangam age (Chera/Chola/Pandya region)",
+    "note": "Same site already covered under Megalithic sites — this reference map doesn't pin it to one specific Tamil dynasty, reflecting the contested, shifting borders between the three Sangam-age kingdoms in this region."
+  },
+  {
+    "id": "kgd-puhar",
+    "name": "Puhar (Poompuhar)",
+    "category": "kingdom",
+    "kingdom": "CHOLAS",
+    "lon": 79.85,
+    "lat": 11.15,
+    "state": "Tamil Nadu",
+    "river": "Kaveri",
+    "period": "Sangam age",
+    "note": "Same site already covered as an ancient port — the early Chola dynasty's principal capital and port."
+  },
+  {
+    "id": "ivc-ranaghundai",
+    "name": "Rana Ghundai",
+    "category": "harappan-early",
+    "lon": 68.7,
+    "lat": 30.6,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 3200–2600 BCE (Early Harappan)",
+    "note": "A stratified pre-Harappan/Early Harappan site in the Loralai valley, Balochistan — gives its name to a distinct Early Harappan pottery sequence."
+  },
+  {
+    "id": "ivc-saraikhola",
+    "name": "Sarai Khola",
+    "category": "harappan-early",
+    "lon": 72.8,
+    "lat": 33.72,
+    "state": "Punjab, Pakistan",
+    "period": "c. 3200–2600 BCE (Early Harappan)",
+    "note": "A Neolithic-into-Early-Harappan site near Taxila."
+  },
+  {
+    "id": "ivc-mundigak",
+    "name": "Mundigak",
+    "category": "harappan-early",
+    "lon": 65.5,
+    "lat": 31.9,
+    "state": "Afghanistan",
+    "period": "c. 3200–2600 BCE (Early Harappan)",
+    "note": "A major pre-Harappan/Early Harappan urban centre in Afghanistan, showing the same cultural horizon extended west of the Indus system."
+  },
+  {
+    "id": "ivc-kulli",
+    "name": "Kulli",
+    "category": "harappan-early",
+    "lon": 66.3,
+    "lat": 26.7,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 3200–2600 BCE (Early Harappan)",
+    "note": "Type-site of the \"Kulli culture\", a distinctive Early Harappan regional culture of southern Balochistan."
+  },
+  {
+    "id": "ivc-naal",
+    "name": "Naal",
+    "category": "harappan-early",
+    "lon": 66.2,
+    "lat": 26.6,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 3200–2600 BCE (Early Harappan)",
+    "note": "Type-site of the \"Nal culture\", an Early Harappan regional culture neighbouring the Kulli culture."
+  },
+  {
+    "id": "ivc-allahdino",
+    "name": "Allahdino",
+    "category": "harappan-early",
+    "lon": 67.35,
+    "lat": 24.9,
+    "state": "Sindh, Pakistan",
+    "period": "c. 3200–2600 BCE (Early Harappan)",
+    "note": "A small but well-preserved Early-to-Mature Harappan site near Karachi, notable for a gold/silver jewellery hoard."
+  },
+  {
+    "id": "ivc-gumla",
+    "name": "Gumla",
+    "category": "harappan-early",
+    "lon": 70.3,
+    "lat": 31.8,
+    "state": "Khyber Pakhtunkhwa, Pakistan",
+    "period": "c. 3200–2600 BCE (Early Harappan)",
+    "note": "An Early Harappan site in the Gomal valley, showing a long Neolithic-to-Harappan cultural sequence."
+  },
+  {
+    "id": "ivc-bhirrana",
+    "name": "Bhirrana",
+    "category": "harappan-early",
+    "lon": 75.65,
+    "lat": 29.53,
+    "state": "Haryana",
+    "river": "Ghaggar (ancient Saraswati)",
+    "period": "c. 3200–2600 BCE (Early Harappan)",
+    "note": "One of the earliest known Harappan settlements — some excavators date its earliest levels well before the conventional Early Harappan start, making it a key (if debated) site in dating the civilization's origins."
+  },
+  {
+    "id": "ivc-rojdi",
+    "name": "Rojdi",
+    "category": "harappan-late",
+    "lon": 70.75,
+    "lat": 21.85,
+    "state": "Gujarat",
+    "period": "c. 1900–1300 BCE (Late Harappan)",
+    "note": "A key site for the long \"Sorath Harappan\" (regional Saurashtra) sequence running through the Late Harappan period."
+  },
+  {
+    "id": "ivc-betdwarka",
+    "name": "Bet Dwarka",
+    "category": "harappan-late",
+    "lon": 69.1,
+    "lat": 22.47,
+    "state": "Gujarat",
+    "period": "c. 1900–1300 BCE (Late Harappan)",
+    "note": "A partly submerged coastal Late Harappan settlement near Dwarka, studied through marine archaeology."
+  },
+  {
+    "id": "ivc-bhagatrav",
+    "name": "Bhagatrav",
+    "category": "harappan",
+    "lon": 72.9,
+    "lat": 21.75,
+    "state": "Gujarat",
+    "river": "Narmada (near mouth)",
+    "period": "c. 2600–1900 BCE (Mature Harappan)",
+    "note": "A Mature Harappan coastal settlement near the Narmada's mouth, in the same Gujarat cluster as Lothal and Broach."
+  },
+  {
+    "id": "neo-gufkral",
+    "name": "Gufkral",
+    "category": "neolithic",
+    "lon": 75.15,
+    "lat": 33.85,
+    "state": "Jammu & Kashmir",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Kashmir Neolithic site near Burzahom, with similar pit-dwelling evidence."
+  },
+  {
+    "id": "neo-kiligulmohammad",
+    "name": "Kili Gul Mohammad",
+    "category": "neolithic",
+    "lon": 66.95,
+    "lat": 30.28,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "Type-site for the earliest Neolithic culture sequence in Balochistan, predating the Kulli/Nal/Kot Dijian cultures."
+  },
+  {
+    "id": "neo-anjira",
+    "name": "Anjira",
+    "category": "neolithic",
+    "lon": 66.5,
+    "lat": 29.3,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Neolithic site in the same Balochistan sequence as Kili Gul Mohammad."
+  },
+  {
+    "id": "neo-sohagaura",
+    "name": "Sohagaura",
+    "category": "neolithic",
+    "lon": 83.5,
+    "lat": 26.7,
+    "state": "Uttar Pradesh",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Neolithic-occupation site in the middle Ganga plain — later far better known for the Mauryan-era Sohgaura copper-plate inscription found nearby."
+  },
+  {
+    "id": "neo-lahuradewa",
+    "name": "Lahuradewa",
+    "category": "neolithic",
+    "lon": 82.9,
+    "lat": 26.8,
+    "state": "Uttar Pradesh",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "One of the key sites for very early rice cultivation evidence in the middle Ganga plain, among the oldest Neolithic sequences in the region."
+  },
+  {
+    "id": "neo-chopanimando",
+    "name": "Chopani Mando",
+    "category": "neolithic",
+    "lon": 81.5,
+    "lat": 25.05,
+    "state": "Uttar Pradesh",
+    "river": "Belan",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Mesolithic-into-Neolithic site in the Belan valley, close to Koldihwa and Mahagara, with some of the earliest evidence of pottery in the region."
+  },
+  {
+    "id": "neo-mahagara",
+    "name": "Mahagara",
+    "category": "neolithic",
+    "lon": 81.5,
+    "lat": 25.02,
+    "state": "Uttar Pradesh",
+    "river": "Belan",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Neolithic site in the Belan valley, notable for cattle-pen post-hole evidence pointing to early animal domestication."
+  },
+  {
+    "id": "neo-kunjhun",
+    "name": "Kunjhun",
+    "category": "neolithic",
+    "lon": 81.8,
+    "lat": 24.9,
+    "state": "Uttar Pradesh / Madhya Pradesh border",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Neolithic site in the same Belan-valley cluster as Koldihwa, Chopani Mando and Mahagara."
+  },
+  {
+    "id": "neo-sarutaru",
+    "name": "Sarutaru",
+    "category": "neolithic",
+    "lon": 91.85,
+    "lat": 26.05,
+    "state": "Assam",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Neolithic site near Guwahati, part of the distinct Northeast Indian Neolithic tradition (shouldered celts, cord-marked pottery)."
+  },
+  {
+    "id": "neo-daojalihading",
+    "name": "Daojali Hading",
+    "category": "neolithic",
+    "lon": 93,
+    "lat": 25.3,
+    "state": "Assam",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A key Northeast Indian Neolithic site known for polished stone tools (shouldered celts) linked to Southeast Asian Neolithic traditions."
+  },
+  {
+    "id": "neo-napchik",
+    "name": "Napchik",
+    "category": "neolithic",
+    "lon": 93.9,
+    "lat": 24.6,
+    "state": "Manipur",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Northeast Indian Neolithic site, part of the same regional tradition as Daojali Hading."
+  },
+  {
+    "id": "neo-barudih",
+    "name": "Barudih",
+    "category": "neolithic",
+    "lon": 86.2,
+    "lat": 22.8,
+    "state": "Jharkhand",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Neolithic-Chalcolithic site in the Chota Nagpur plateau region."
+  },
+  {
+    "id": "neo-kuchai",
+    "name": "Kuchai",
+    "category": "neolithic",
+    "lon": 86.4,
+    "lat": 21.9,
+    "state": "Odisha",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Neolithic site in Mayurbhanj district, part of the eastern Indian Neolithic-Chalcolithic cluster with Golbai Sasan and Mahisdal."
+  },
+  {
+    "id": "neo-erenda",
+    "name": "Erenda",
+    "category": "neolithic",
+    "lon": 86.3,
+    "lat": 22.2,
+    "state": "Odisha / Jharkhand border",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A Neolithic site in the same eastern Indian cluster as Kuchai and Mahisdal."
+  },
+  {
+    "id": "neo-utnur",
+    "name": "Utnur (Utnoor)",
+    "category": "neolithic",
+    "lon": 78.6,
+    "lat": 19.4,
+    "state": "Telangana",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "One of the classic South Indian Neolithic ash-mound sites — burnt cattle-pen deposits, like Piklihal."
+  },
+  {
+    "id": "neo-tekkalakota",
+    "name": "Tekkalakota",
+    "category": "neolithic",
+    "lon": 76.75,
+    "lat": 15.35,
+    "state": "Karnataka",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A South Indian Neolithic settlement site in the same Bellary-district cluster as Piklihal and Sanganakallu."
+  },
+  {
+    "id": "neo-budhihal",
+    "name": "Budhihal",
+    "category": "neolithic",
+    "lon": 76.5,
+    "lat": 16.2,
+    "state": "Karnataka",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A South Indian Neolithic ash-mound and settlement site."
+  },
+  {
+    "id": "neo-watgal",
+    "name": "Watgal",
+    "category": "neolithic",
+    "lon": 76.55,
+    "lat": 15.9,
+    "state": "Karnataka",
+    "period": "c. 7000–2000 BCE (varies by region)",
+    "note": "A South Indian Neolithic settlement site, part of the same regional cluster as Piklihal, Sanganakallu and Tekkalakota."
+  },
+  {
+    "id": "meso-tilwara",
+    "name": "Tilwara",
+    "category": "mesolithic",
+    "lon": 72.25,
+    "lat": 26,
+    "state": "Rajasthan",
+    "river": "Luni",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic site in the Thar desert region of Rajasthan."
+  },
+  {
+    "id": "meso-bagor",
+    "name": "Bagor",
+    "category": "mesolithic",
+    "lon": 74.35,
+    "lat": 25.3,
+    "state": "Rajasthan",
+    "river": "Kothari (Banas tributary)",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "features": [
+      "Largest microlithic site in India"
+    ],
+    "note": "The largest known microlithic (Mesolithic) site in India, with an exceptionally long, well-stratified occupation sequence."
+  },
+  {
+    "id": "meso-loteshwar",
+    "name": "Loteshwar",
+    "category": "mesolithic",
+    "lon": 71.5,
+    "lat": 23.8,
+    "state": "Gujarat",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic-into-Chalcolithic site in North Gujarat."
+  },
+  {
+    "id": "meso-langhnaj",
+    "name": "Langhnaj",
+    "category": "mesolithic",
+    "lon": 72.35,
+    "lat": 23.65,
+    "state": "Gujarat",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "One of the earliest excavated Mesolithic sites in India, known for human skeletal remains alongside microliths."
+  },
+  {
+    "id": "meso-ratanpura",
+    "name": "Ratanpura",
+    "category": "mesolithic",
+    "lon": 71.9,
+    "lat": 23.3,
+    "state": "Gujarat",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic site in the same North Gujarat cluster as Langhnaj and Loteshwar."
+  },
+  {
+    "id": "meso-damdama",
+    "name": "Damdama",
+    "category": "mesolithic",
+    "lon": 81.9,
+    "lat": 25.85,
+    "state": "Uttar Pradesh",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Ganga-plain Mesolithic site with a large excavated burial sample, part of the same cluster as Sarai Nahar Rai and Mahadaha."
+  },
+  {
+    "id": "meso-mahadaha",
+    "name": "Mahadaha",
+    "category": "mesolithic",
+    "lon": 81.85,
+    "lat": 25.9,
+    "state": "Uttar Pradesh",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Ganga-plain Mesolithic site known for multiple burials, including one interpreted as a double burial."
+  },
+  {
+    "id": "meso-sarainaharrai",
+    "name": "Sarai Nahar Rai",
+    "category": "mesolithic",
+    "lon": 81.8,
+    "lat": 25.95,
+    "state": "Uttar Pradesh",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "features": [
+      "Early evidence of possible interpersonal violence"
+    ],
+    "note": "Famous for some of the earliest Indian evidence of human burials, including skeletons with embedded microliths suggestive of conflict."
+  },
+  {
+    "id": "meso-chopanimando-meso",
+    "name": "Chopani Mando",
+    "category": "mesolithic",
+    "lon": 81.5,
+    "lat": 25.05,
+    "state": "Uttar Pradesh",
+    "river": "Belan",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "Also covered under Neolithic sites for its early pottery evidence — its earliest layers are Mesolithic, making it a key site for the Mesolithic-to-Neolithic transition in the Belan valley."
+  },
+  {
+    "id": "meso-lekhahia",
+    "name": "Lekhahia",
+    "category": "mesolithic",
+    "lon": 82.7,
+    "lat": 24.75,
+    "state": "Uttar Pradesh",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "features": [
+      "Rock art"
+    ],
+    "note": "A rock-shelter site in the Vindhyas with notable Mesolithic rock paintings."
+  },
+  {
+    "id": "meso-baghor",
+    "name": "Baghor",
+    "category": "mesolithic",
+    "lon": 81.85,
+    "lat": 24.4,
+    "state": "Madhya Pradesh",
+    "river": "Son",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "features": [
+      "Possible early goddess-worship evidence"
+    ],
+    "note": "\"Baghor I\" yielded a triangular stone on a platform, interpreted by some archaeologists as one of the earliest possible instances of goddess worship in South Asia."
+  },
+  {
+    "id": "meso-paisra",
+    "name": "Paisra",
+    "category": "mesolithic",
+    "lon": 86.4,
+    "lat": 24.8,
+    "state": "Bihar",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic open-air site in the Bihar plateau region."
+  },
+  {
+    "id": "meso-bhimbetka",
+    "name": "Bhimbetka",
+    "category": "mesolithic",
+    "lon": 77.6,
+    "lat": 22.94,
+    "state": "Madhya Pradesh",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "features": [
+      "UNESCO World Heritage Site",
+      "Rock art"
+    ],
+    "note": "A UNESCO World Heritage rock-shelter complex near Bhopal with an exceptionally long sequence of rock paintings spanning the Mesolithic through historical periods."
+  },
+  {
+    "id": "meso-adamgarh",
+    "name": "Adamgarh",
+    "category": "mesolithic",
+    "lon": 77.7,
+    "lat": 22.75,
+    "state": "Madhya Pradesh",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic rock-shelter site near Hoshangabad, cited (with some debate) for early evidence of animal domestication."
+  },
+  {
+    "id": "meso-sundargarh",
+    "name": "Sundargarh",
+    "category": "mesolithic",
+    "lon": 84.03,
+    "lat": 22.12,
+    "state": "Odisha",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic site in the Odisha plateau region."
+  },
+  {
+    "id": "meso-daridungri",
+    "name": "Dari-Dungri",
+    "category": "mesolithic",
+    "lon": 84.2,
+    "lat": 21.9,
+    "state": "Odisha",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic site in the same Odisha cluster as Sundargarh."
+  },
+  {
+    "id": "meso-gambharia",
+    "name": "Gambharia",
+    "category": "mesolithic",
+    "lon": 86.1,
+    "lat": 22.5,
+    "state": "Odisha / Jharkhand border",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic site in eastern India, part of the same regional cluster as Kuchai and Birbhanpur."
+  },
+  {
+    "id": "meso-birbhanpur",
+    "name": "Birbhanpur",
+    "category": "mesolithic",
+    "lon": 87.3,
+    "lat": 23.5,
+    "state": "West Bengal",
+    "river": "Damodar",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A well-known Mesolithic microlith site on the Damodar, near Durgapur."
+  },
+  {
+    "id": "meso-kuchai-meso",
+    "name": "Kuchai",
+    "category": "mesolithic",
+    "lon": 86.4,
+    "lat": 21.9,
+    "state": "Odisha",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "Also covered under Neolithic sites — Kuchai has both Mesolithic and later Neolithic occupation layers."
+  },
+  {
+    "id": "meso-sanganakallu-meso",
+    "name": "Sanganakallu",
+    "category": "mesolithic",
+    "lon": 77.5,
+    "lat": 15.15,
+    "state": "Karnataka",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "Also covered under Neolithic sites (as Sanganakallu-Kupgal) — the site has an earlier Mesolithic occupation layer beneath its better-known Neolithic settlement."
+  },
+  {
+    "id": "meso-renigunta",
+    "name": "Renigunta",
+    "category": "mesolithic",
+    "lon": 79.5,
+    "lat": 13.65,
+    "state": "Andhra Pradesh",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic site near Tirupati in southern Andhra Pradesh."
+  },
+  {
+    "id": "meso-tenmalai",
+    "name": "Tenmalai",
+    "category": "mesolithic",
+    "lon": 77.05,
+    "lat": 9.05,
+    "state": "Kerala / Tamil Nadu border",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "note": "A Mesolithic site in the Western Ghats region near Tenmala."
+  },
+  {
+    "id": "meso-terisites",
+    "name": "Teri Sites",
+    "category": "mesolithic",
+    "lon": 77.7,
+    "lat": 8.5,
+    "state": "Tamil Nadu",
+    "period": "c. 10,000–3000 BCE (varies by region)",
+    "features": [
+      "Red sand-dune (\"teri\") sites"
+    ],
+    "note": "A cluster of Mesolithic microlith sites on the red sand dunes (\"teri\") of the Tirunelveli coast in southern Tamil Nadu."
+  },
+  {
+    "id": "palaeo-sanghao",
+    "name": "Sanghao Caves",
+    "category": "palaeolithic",
+    "lon": 72.15,
+    "lat": 34.35,
+    "state": "Khyber Pakhtunkhwa, Pakistan",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Middle Palaeolithic cave site in the Peshawar valley."
+  },
+  {
+    "id": "palaeo-pahalgam",
+    "name": "Pahalgam",
+    "category": "palaeolithic",
+    "lon": 75.32,
+    "lat": 34.02,
+    "state": "Jammu & Kashmir",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Palaeolithic tools found in the Kashmir valley near Pahalgam."
+  },
+  {
+    "id": "palaeo-sohanvalley",
+    "name": "Sohan Valley",
+    "category": "palaeolithic",
+    "lon": 72.9,
+    "lat": 33.6,
+    "state": "Punjab, Pakistan",
+    "river": "Soan",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "Type region of the Soanian culture"
+    ],
+    "note": "Type region for the \"Soanian\" Lower Palaeolithic culture — among the first Palaeolithic industries identified in South Asia."
+  },
+  {
+    "id": "palaeo-pinjore",
+    "name": "Pinjore (Haryana)",
+    "category": "palaeolithic",
+    "lon": 76.9,
+    "lat": 30.8,
+    "state": "Haryana",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Lower Palaeolithic (Soanian-related) site in the Siwalik foothills."
+  },
+  {
+    "id": "palaeo-anangpur",
+    "name": "Anangpur",
+    "category": "palaeolithic",
+    "lon": 77.28,
+    "lat": 28.35,
+    "state": "Haryana",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic site near Faridabad in the Aravalli hills."
+  },
+  {
+    "id": "palaeo-buddhapushkar",
+    "name": "Buddha Pushkar",
+    "category": "palaeolithic",
+    "lon": 74.55,
+    "lat": 26.48,
+    "state": "Rajasthan",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic site near Pushkar in the Thar desert margin."
+  },
+  {
+    "id": "palaeo-didwana",
+    "name": "Didwana",
+    "category": "palaeolithic",
+    "lon": 74.57,
+    "lat": 27.4,
+    "state": "Rajasthan",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A long Palaeolithic sequence site in the Thar desert, important for dating early human presence in arid Rajasthan."
+  },
+  {
+    "id": "palaeo-lunivalley",
+    "name": "Luni Valley",
+    "category": "palaeolithic",
+    "lon": 72.6,
+    "lat": 26.2,
+    "state": "Rajasthan",
+    "river": "Luni",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing river valley in the Thar desert region."
+  },
+  {
+    "id": "palaeo-mogarahills",
+    "name": "Mogara Hills",
+    "category": "palaeolithic",
+    "lon": 74.3,
+    "lat": 27.1,
+    "state": "Rajasthan",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic site in the same Nagaur-district cluster as Didwana."
+  },
+  {
+    "id": "palaeo-bagor",
+    "name": "Bagor",
+    "category": "palaeolithic",
+    "lon": 74.35,
+    "lat": 25.3,
+    "state": "Rajasthan",
+    "river": "Kothari (Banas tributary)",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites (as India's largest microlithic site) — has an underlying Palaeolithic presence in the same Banas-basin sequence."
+  },
+  {
+    "id": "palaeo-kalpi",
+    "name": "Kalpi",
+    "category": "palaeolithic",
+    "lon": 79.73,
+    "lat": 26.13,
+    "state": "Uttar Pradesh",
+    "river": "Yamuna",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic site on the Yamuna in the Ganga-Yamuna doab."
+  },
+  {
+    "id": "palaeo-lekhahia",
+    "name": "Lekhahia (Belan Valley)",
+    "category": "palaeolithic",
+    "lon": 82.7,
+    "lat": 24.75,
+    "state": "Uttar Pradesh",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites for its rock art — the Belan valley sequence here extends back into the Palaeolithic."
+  },
+  {
+    "id": "palaeo-chopanimando",
+    "name": "Chopani Mando (Belan Valley)",
+    "category": "palaeolithic",
+    "lon": 81.5,
+    "lat": 25.05,
+    "state": "Uttar Pradesh",
+    "river": "Belan",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic and Neolithic sites — one of the most complete Palaeolithic-through-Neolithic sequences known in India."
+  },
+  {
+    "id": "palaeo-paisra",
+    "name": "Paisra",
+    "category": "palaeolithic",
+    "lon": 86.4,
+    "lat": 24.8,
+    "state": "Bihar",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites — has an Upper Palaeolithic open-air occupation layer, notable for possible hut-like structure evidence."
+  },
+  {
+    "id": "palaeo-lasbela",
+    "name": "Las Bela (Balochistan)",
+    "category": "palaeolithic",
+    "lon": 66.7,
+    "lat": 26.2,
+    "state": "Balochistan, Pakistan",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing region of coastal Balochistan."
+  },
+  {
+    "id": "palaeo-sabarmativalley",
+    "name": "Sabarmati Valley",
+    "category": "palaeolithic",
+    "lon": 72.6,
+    "lat": 23.5,
+    "state": "Gujarat",
+    "river": "Sabarmati",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing river valley in Gujarat."
+  },
+  {
+    "id": "palaeo-baghor",
+    "name": "Baghor",
+    "category": "palaeolithic",
+    "lon": 81.85,
+    "lat": 24.4,
+    "state": "Madhya Pradesh",
+    "river": "Son",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites (for the possible early goddess-worship find) — the Son valley sequence here extends back into the Upper Palaeolithic."
+  },
+  {
+    "id": "palaeo-haorakhowai",
+    "name": "Haora and Khowai river valley",
+    "category": "palaeolithic",
+    "lon": 91.6,
+    "lat": 23.9,
+    "state": "Tripura",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Palaeolithic-bearing river valleys in Tripura, part of the less-studied Northeast Indian Palaeolithic record."
+  },
+  {
+    "id": "palaeo-sandhav",
+    "name": "Sandhav",
+    "category": "palaeolithic",
+    "lon": 69.4,
+    "lat": 23.3,
+    "state": "Gujarat",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic site in coastal Kutch, Gujarat."
+  },
+  {
+    "id": "palaeo-bhimbetka",
+    "name": "Bhimbetka",
+    "category": "palaeolithic",
+    "lon": 77.6,
+    "lat": 22.94,
+    "state": "Madhya Pradesh",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "UNESCO World Heritage Site",
+      "Rock art"
+    ],
+    "note": "Also covered under Mesolithic sites — its rock-shelter sequence begins in the Lower Palaeolithic, making it one of the longest continuously used sites in the world."
+  },
+  {
+    "id": "palaeo-adamgarh",
+    "name": "Adamgarh",
+    "category": "palaeolithic",
+    "lon": 77.7,
+    "lat": 22.75,
+    "state": "Madhya Pradesh",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites — has an underlying Palaeolithic occupation layer near Hoshangabad."
+  },
+  {
+    "id": "palaeo-baridih",
+    "name": "Baridih",
+    "category": "palaeolithic",
+    "lon": 86.2,
+    "lat": 22.8,
+    "state": "Jharkhand",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing site in the Chota Nagpur plateau (also recorded as \"Barudih\", covered under Neolithic sites)."
+  },
+  {
+    "id": "palaeo-sundergarh",
+    "name": "Sundergarh (Odisha)",
+    "category": "palaeolithic",
+    "lon": 84.03,
+    "lat": 22.12,
+    "state": "Odisha",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites — has an underlying Palaeolithic presence in the Odisha plateau region."
+  },
+  {
+    "id": "palaeo-hathnora",
+    "name": "Hathnora",
+    "category": "palaeolithic",
+    "lon": 77.9,
+    "lat": 22.75,
+    "state": "Madhya Pradesh",
+    "river": "Narmada",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "\"Narmada Man\" (Homo erectus) fossil"
+    ],
+    "note": "Findspot of the \"Narmada Man\" fossil (1982) — the first and so far only Homo erectus skull found in South Asia, a landmark in Indian Palaeolithic/human-evolution studies."
+  },
+  {
+    "id": "palaeo-rojdi",
+    "name": "Rojdi",
+    "category": "palaeolithic",
+    "lon": 70.75,
+    "lat": 21.85,
+    "state": "Gujarat",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Late Harappan sites — has an underlying Palaeolithic presence in the same Saurashtra sequence."
+  },
+  {
+    "id": "palaeo-sambalpur",
+    "name": "Sambalpur (Odisha)",
+    "category": "palaeolithic",
+    "lon": 83.97,
+    "lat": 21.47,
+    "state": "Odisha",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing region of western Odisha."
+  },
+  {
+    "id": "palaeo-hirenvalley",
+    "name": "Hiren Valley",
+    "category": "palaeolithic",
+    "lon": 70.8,
+    "lat": 21.2,
+    "state": "Gujarat",
+    "river": "Hiran",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing river valley near Gir, Gujarat."
+  },
+  {
+    "id": "palaeo-chalisgaonpatne",
+    "name": "Chalisgaon/Patne",
+    "category": "palaeolithic",
+    "lon": 74.75,
+    "lat": 20.5,
+    "state": "Maharashtra",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "Upper Palaeolithic ostrich-eggshell beads"
+    ],
+    "note": "Patne is a key Upper Palaeolithic site in Maharashtra, notable for some of the earliest ostrich-eggshell beads found in South Asia."
+  },
+  {
+    "id": "palaeo-daridungri",
+    "name": "Dari Dungri",
+    "category": "palaeolithic",
+    "lon": 84.2,
+    "lat": 21.9,
+    "state": "Odisha",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites (as Dari-Dungri) — has an underlying Palaeolithic presence."
+  },
+  {
+    "id": "palaeo-bankura",
+    "name": "Bankura",
+    "category": "palaeolithic",
+    "lon": 87.07,
+    "lat": 23.23,
+    "state": "West Bengal",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing region of West Bengal, in the same broad cluster as Birbhanpur."
+  },
+  {
+    "id": "palaeo-nevasa",
+    "name": "Nevasa",
+    "category": "palaeolithic",
+    "lon": 74.94,
+    "lat": 19.55,
+    "state": "Maharashtra",
+    "river": "Pravara",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Chalcolithic sites (Jorwe culture) — its lower levels are an important Lower/Middle Palaeolithic sequence."
+  },
+  {
+    "id": "palaeo-bori",
+    "name": "Bori",
+    "category": "palaeolithic",
+    "lon": 74.5,
+    "lat": 19.3,
+    "state": "Maharashtra",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "Dated by a volcanic ash layer"
+    ],
+    "note": "One of the oldest dated Acheulian (Lower Palaeolithic) sites in India, its age fixed by a volcanic ash layer linked to the Toba super-eruption horizon."
+  },
+  {
+    "id": "palaeo-hunsgi",
+    "name": "Hunsgi",
+    "category": "palaeolithic",
+    "lon": 76.55,
+    "lat": 16.4,
+    "state": "Karnataka",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "Well-preserved Lower Palaeolithic living floors"
+    ],
+    "note": "A major Lower Palaeolithic (Acheulian) site in the Hunsgi-Baichbal valley, notable for well-preserved evidence of tool-making \"living floors\"."
+  },
+  {
+    "id": "palaeo-betamcharla",
+    "name": "Betamcharla",
+    "category": "palaeolithic",
+    "lon": 78.25,
+    "lat": 15.45,
+    "state": "Andhra Pradesh",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic site in the Kurnool district cluster."
+  },
+  {
+    "id": "palaeo-malprabha",
+    "name": "Malprabha",
+    "category": "palaeolithic",
+    "lon": 75.9,
+    "lat": 15.9,
+    "state": "Karnataka",
+    "river": "Malprabha",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing river valley in northern Karnataka."
+  },
+  {
+    "id": "palaeo-kurnool",
+    "name": "Kurnool (caves)",
+    "category": "palaeolithic",
+    "lon": 78.04,
+    "lat": 15.83,
+    "state": "Andhra Pradesh",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "Long Palaeolithic-Mesolithic cave sequence"
+    ],
+    "note": "The Kurnool caves preserve a long Upper Palaeolithic-into-Mesolithic occupation sequence, along with rich faunal remains."
+  },
+  {
+    "id": "palaeo-koloshicave",
+    "name": "Koloshi Cave",
+    "category": "palaeolithic",
+    "lon": 74.05,
+    "lat": 15.55,
+    "state": "Goa",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic cave site in the Mandovi valley region of Goa."
+  },
+  {
+    "id": "palaeo-lingsugur",
+    "name": "Lingsugur",
+    "category": "palaeolithic",
+    "lon": 76.53,
+    "lat": 16.16,
+    "state": "Karnataka",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic site in the same Raichur-district cluster as Hunsgi."
+  },
+  {
+    "id": "palaeo-mandovivalley",
+    "name": "Mandovi Valley",
+    "category": "palaeolithic",
+    "lon": 74,
+    "lat": 15.5,
+    "state": "Goa",
+    "river": "Mandovi",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing river valley in Goa."
+  },
+  {
+    "id": "palaeo-chittoor",
+    "name": "Chittoor",
+    "category": "palaeolithic",
+    "lon": 79.1,
+    "lat": 13.2,
+    "state": "Andhra Pradesh",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing region of southern Andhra Pradesh."
+  },
+  {
+    "id": "palaeo-renigunta",
+    "name": "Renigunta",
+    "category": "palaeolithic",
+    "lon": 79.5,
+    "lat": 13.65,
+    "state": "Andhra Pradesh",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites — has an underlying Palaeolithic presence near Tirupati."
+  },
+  {
+    "id": "palaeo-gudiyamcave",
+    "name": "Gudiyam Cave",
+    "category": "palaeolithic",
+    "lon": 79.95,
+    "lat": 13.2,
+    "state": "Tamil Nadu",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic cave site near Chennai."
+  },
+  {
+    "id": "palaeo-attirampakkam",
+    "name": "Attirampakkam",
+    "category": "palaeolithic",
+    "lon": 79.9,
+    "lat": 13.22,
+    "state": "Tamil Nadu",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "Among the oldest dated Acheulian sites in South Asia"
+    ],
+    "note": "One of the most significant Palaeolithic sites in India — dating here pushed back the age of Acheulian (Lower Palaeolithic) tool-making in South Asia to over a million years."
+  },
+  {
+    "id": "palaeo-pallavaram",
+    "name": "Pallavaram",
+    "category": "palaeolithic",
+    "lon": 80.15,
+    "lat": 12.97,
+    "state": "Tamil Nadu",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "features": [
+      "Robert Bruce Foote's first Indian Palaeolithic find, 1863"
+    ],
+    "note": "Where Robert Bruce Foote found the first recognised Palaeolithic (Acheulian) tool in India in 1863 — the discovery that opened Indian Palaeolithic archaeology as a field."
+  },
+  {
+    "id": "palaeo-odai",
+    "name": "Odai",
+    "category": "palaeolithic",
+    "lon": 79.9,
+    "lat": 13.1,
+    "state": "Tamil Nadu",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic site in the same Chennai-region cluster as Attirampakkam and Pallavaram."
+  },
+  {
+    "id": "palaeo-palghat",
+    "name": "Palghat",
+    "category": "palaeolithic",
+    "lon": 76.65,
+    "lat": 10.78,
+    "state": "Kerala",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "A Palaeolithic-bearing site near the Palakkad Gap, the main lowland corridor through the Western Ghats."
+  },
+  {
+    "id": "palaeo-palakkad",
+    "name": "Palakkad",
+    "category": "palaeolithic",
+    "lon": 76.72,
+    "lat": 10.7,
+    "state": "Kerala",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Listed separately on the reference map alongside Palghat (an older transliteration of the same town) — kept as its own marker, nudged slightly so both remain visible, rather than assuming they're identical."
+  },
+  {
+    "id": "palaeo-terisites",
+    "name": "Teri Sites",
+    "category": "palaeolithic",
+    "lon": 77.7,
+    "lat": 8.5,
+    "state": "Tamil Nadu",
+    "period": "c. 2,000,000–10,000 BCE (varies by region)",
+    "note": "Also covered under Mesolithic sites — the red sand-dune \"teri\" sites have an underlying Palaeolithic presence too."
+  },
+  {
+    "id": "wh-nalanda",
+    "name": "Archaeological Site of Nalanda Mahavihara",
+    "category": "world-heritage",
+    "lon": 85.44,
+    "lat": 25.14,
+    "state": "Bihar",
+    "period": "5th–12th century CE",
+    "features": [
+      "UNESCO World Heritage Site (2016)"
+    ],
+    "note": "Ruins of the great Nalanda Mahavihara, one of the world's oldest residential universities — a major centre of Buddhist learning under Gupta and later patronage."
+  },
+  {
+    "id": "wh-mahabodhi",
+    "name": "Mahabodhi Temple Complex",
+    "category": "world-heritage",
+    "lon": 84.99,
+    "lat": 24.7,
+    "state": "Bihar",
+    "period": "3rd century BCE onward (present temple mainly Gupta-era)",
+    "features": [
+      "UNESCO World Heritage Site (2002)"
+    ],
+    "note": "Marks the spot at Bodh Gaya where the Buddha is said to have attained enlightenment — one of the four most sacred Buddhist pilgrimage sites."
+  },
+  {
+    "id": "wh-khajuraho",
+    "name": "Khajuraho Group of Monuments",
+    "category": "world-heritage",
+    "lon": 79.92,
+    "lat": 24.85,
+    "state": "Madhya Pradesh",
+    "period": "c. 950–1050 CE (Chandela dynasty)",
+    "features": [
+      "UNESCO World Heritage Site (1986)"
+    ],
+    "note": "Chandela-era temples famous for elaborate sculptural work, including their well-known erotic friezes — a distinct Nagara-style architectural school."
+  },
+  {
+    "id": "wh-ranikivav",
+    "name": "Rani ki Vav",
+    "category": "world-heritage",
+    "lon": 72.1,
+    "lat": 23.86,
+    "state": "Gujarat",
+    "river": "Saraswati",
+    "period": "11th century CE (Chalukya/Solanki dynasty)",
+    "features": [
+      "UNESCO World Heritage Site (2014)",
+      "Stepwell"
+    ],
+    "note": "An elaborately sculpted stepwell built by the Solanki (Chalukya) dynasty — a distinctive form of ancient Indian water architecture."
+  },
+  {
+    "id": "wh-dholavira-wh",
+    "name": "Dholavira",
+    "category": "world-heritage",
+    "lon": 70.21,
+    "lat": 23.89,
+    "state": "Gujarat",
+    "period": "c. 2600–1900 BCE",
+    "features": [
+      "UNESCO World Heritage Site (2021)"
+    ],
+    "note": "Also covered under Harappan (Mature) sites — its water-engineering and urban planning are what earned it UNESCO recognition, alongside Mohenjodaro-level significance."
+  },
+  {
+    "id": "wh-champanerpavagadh",
+    "name": "Champaner-Pavagadh Archaeological Park",
+    "category": "world-heritage",
+    "lon": 73.53,
+    "lat": 22.48,
+    "state": "Gujarat",
+    "period": "8th–14th century CE (mainly Sultanate-era)",
+    "features": [
+      "UNESCO World Heritage Site (2004)"
+    ],
+    "note": "An unusually complete pre-Mughal Islamic city, alongside earlier Hindu/Jain temple remains on Pavagadh hill — one of the few unrelocated historic capitals of its period."
+  },
+  {
+    "id": "wh-sanchi-wh",
+    "name": "Buddhist Monuments at Sanchi",
+    "category": "world-heritage",
+    "lon": 78.74,
+    "lat": 23.48,
+    "state": "Madhya Pradesh",
+    "period": "3rd century BCE – 12th century CE",
+    "features": [
+      "UNESCO World Heritage Site (1989)"
+    ],
+    "note": "Also covered under Important Kingdoms & Towns — India's oldest surviving stone Buddhist sanctuary, begun under Ashoka, with its famous carved gateways (toranas) added under the Satavahanas."
+  },
+  {
+    "id": "wh-bhimbetka-wh",
+    "name": "Rock Shelters of Bhimbetka",
+    "category": "world-heritage",
+    "lon": 77.6,
+    "lat": 22.94,
+    "state": "Madhya Pradesh",
+    "period": "Palaeolithic through historical period",
+    "features": [
+      "UNESCO World Heritage Site (2003)"
+    ],
+    "note": "Also covered under Palaeolithic and Mesolithic sites — recognised by UNESCO for its exceptionally long rock-art sequence, one of the longest anywhere in the world."
+  },
+  {
+    "id": "wh-ellora",
+    "name": "Ellora Caves",
+    "category": "world-heritage",
+    "lon": 75.18,
+    "lat": 20.03,
+    "state": "Maharashtra",
+    "period": "6th–10th century CE",
+    "features": [
+      "UNESCO World Heritage Site (1983)",
+      "Kailasa Temple"
+    ],
+    "note": "A rock-cut cave complex uniquely combining Buddhist, Hindu and Jain monuments side by side, including the monolithic Kailasa Temple carved from a single rock."
+  },
+  {
+    "id": "wh-ajanta",
+    "name": "Ajanta Caves",
+    "category": "world-heritage",
+    "lon": 75.7,
+    "lat": 20.55,
+    "state": "Maharashtra",
+    "period": "2nd century BCE – 6th century CE (mainly Vakataka-era)",
+    "features": [
+      "UNESCO World Heritage Site (1983)",
+      "Buddhist murals"
+    ],
+    "note": "Rock-cut Buddhist caves famed for their surviving murals and paintings, mostly patronised under the Vakataka dynasty."
+  },
+  {
+    "id": "wh-elephanta",
+    "name": "Elephanta Caves",
+    "category": "world-heritage",
+    "lon": 72.93,
+    "lat": 18.96,
+    "state": "Maharashtra",
+    "period": "c. 5th–8th century CE",
+    "features": [
+      "UNESCO World Heritage Site (1987)"
+    ],
+    "note": "Rock-cut Shiva temple caves on an island near Mumbai, notable for the Trimurti sculpture."
+  },
+  {
+    "id": "wh-konark",
+    "name": "Sun Temple, Konark",
+    "category": "world-heritage",
+    "lon": 86.09,
+    "lat": 19.89,
+    "state": "Odisha",
+    "period": "13th century CE (Eastern Ganga dynasty)",
+    "features": [
+      "UNESCO World Heritage Site (1984)"
+    ],
+    "note": "Built under the Eastern Ganga dynasty in the form of a colossal stone chariot dedicated to the sun god Surya."
+  },
+  {
+    "id": "wh-ramappa",
+    "name": "Kakatiya Rudreshwara (Ramappa) Temple",
+    "category": "world-heritage",
+    "lon": 79.94,
+    "lat": 18.25,
+    "state": "Telangana",
+    "period": "13th century CE (Kakatiya dynasty)",
+    "features": [
+      "UNESCO World Heritage Site (2021)"
+    ],
+    "note": "A Kakatiya-dynasty temple noted for its lightweight \"floating bricks\" and earthquake-resistant sandbox foundation technique."
+  },
+  {
+    "id": "wh-pattadakal",
+    "name": "Group of Monuments at Pattadakal",
+    "category": "world-heritage",
+    "lon": 75.82,
+    "lat": 15.95,
+    "state": "Karnataka",
+    "period": "7th–8th century CE (Chalukya dynasty)",
+    "features": [
+      "UNESCO World Heritage Site (1987)"
+    ],
+    "note": "A Chalukya-dynasty temple complex showing a deliberate blend of Nagara (north Indian) and Dravida (south Indian) architectural styles side by side."
+  },
+  {
+    "id": "wh-hampi",
+    "name": "Group of Monuments at Hampi",
+    "category": "world-heritage",
+    "lon": 76.46,
+    "lat": 15.34,
+    "state": "Karnataka",
+    "river": "Tungabhadra",
+    "period": "14th–16th century CE (Vijayanagara Empire)",
+    "features": [
+      "UNESCO World Heritage Site (1986)"
+    ],
+    "note": "Ruins of Vijayanagara, capital of the Vijayanagara Empire — one of the largest and best-preserved medieval city sites in India."
+  },
+  {
+    "id": "wh-mahabalipuram-wh",
+    "name": "Group of Monuments at Mahabalipuram",
+    "category": "world-heritage",
+    "lon": 80.19,
+    "lat": 12.62,
+    "state": "Tamil Nadu",
+    "period": "7th–8th century CE (Pallava dynasty)",
+    "features": [
+      "UNESCO World Heritage Site (1984)",
+      "Shore Temple"
+    ],
+    "note": "Also covered under Important Kingdoms & Towns as the Pallava dynasty's port — its rock-cut rathas and the Shore Temple are what earned the UNESCO listing specifically."
+  },
+  {
+    "id": "wh-cholatemples",
+    "name": "Great Living Chola Temples",
+    "category": "world-heritage",
+    "lon": 79.13,
+    "lat": 10.78,
+    "state": "Tamil Nadu",
+    "period": "10th–12th century CE (Chola dynasty)",
+    "features": [
+      "UNESCO World Heritage Site (1987/2004)",
+      "Brihadeeswarar Temple"
+    ],
+    "note": "A serial listing of three Chola-dynasty temples (Thanjavur, Gangaikonda Cholapuram, Darasuram) — Thanjavur's Brihadeeswarar Temple is the best known, built under Raja Raja Chola I."
+  },
+  {
+    "id": "cave-lakhudiyar",
+    "name": "Lakhudiyar",
+    "category": "cave",
+    "lon": 79.62,
+    "lat": 29.68,
+    "state": "Uttarakhand",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "A rock-shelter site in the Kumaon hills with prehistoric rock paintings (animals, human figures, geometric patterns)."
+  },
+  {
+    "id": "cave-bhimbetka",
+    "name": "Bhimbetka Rock Shelter Caves and Painting",
+    "category": "cave",
+    "lon": 77.6,
+    "lat": 22.94,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Palaeolithic, Mesolithic and World Heritage sites — one of the world's longest continuous rock-art sequences."
+  },
+  {
+    "id": "cave-barabar",
+    "name": "Barabar Caves",
+    "category": "cave",
+    "lon": 85.06,
+    "lat": 25,
+    "state": "Bihar",
+    "period": "3rd century BCE (Mauryan)",
+    "features": [
+      "Oldest surviving rock-cut caves in India"
+    ],
+    "note": "The oldest surviving rock-cut caves in India, gifted by Ashoka (and later Dasharatha Maurya) to the Ajivika sect — famous for their mirror-polished interior walls."
+  },
+  {
+    "id": "cave-udayagiri-mp",
+    "name": "Udayagiri Caves",
+    "category": "cave",
+    "lon": 77.78,
+    "lat": 23.53,
+    "state": "Madhya Pradesh",
+    "period": "4th–5th century CE (Gupta)",
+    "features": [
+      "Varaha panel"
+    ],
+    "note": "Gupta-era rock-cut caves near Vidisha, famous for a large relief panel of Vishnu's Varaha (boar) avatar rescuing the earth goddess."
+  },
+  {
+    "id": "cave-adamgarh-cave",
+    "name": "Adamgarh Rock Shelter Caves and Painting",
+    "category": "cave",
+    "lon": 77.7,
+    "lat": 22.75,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Palaeolithic and Mesolithic sites — rock shelters near Hoshangabad with prehistoric paintings."
+  },
+  {
+    "id": "cave-jogimara",
+    "name": "Jogimara Caves",
+    "category": "cave",
+    "lon": 83.15,
+    "lat": 23.3,
+    "state": "Chhattisgarh",
+    "period": "3rd century BCE onward",
+    "note": "Known for some of the earliest surviving cave paintings and inscriptions in India, alongside the nearby Sitabenga cave (an early rock-cut \"theatre\")."
+  },
+  {
+    "id": "cave-bagh",
+    "name": "Bagh Caves",
+    "category": "cave",
+    "lon": 74.75,
+    "lat": 22.36,
+    "state": "Madhya Pradesh",
+    "period": "c. 5th–6th century CE",
+    "features": [
+      "Buddhist murals"
+    ],
+    "note": "Buddhist rock-cut caves with murals in a style close to Ajanta's, though more damaged/faded today."
+  },
+  {
+    "id": "cave-ellora",
+    "name": "Ellora Caves",
+    "category": "cave",
+    "lon": 75.18,
+    "lat": 20.03,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage sites — Buddhist, Hindu and Jain caves side by side, including the monolithic Kailasa Temple."
+  },
+  {
+    "id": "cave-ajanta",
+    "name": "Ajanta Caves",
+    "category": "cave",
+    "lon": 75.7,
+    "lat": 20.55,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage sites — Buddhist caves famed for their surviving murals."
+  },
+  {
+    "id": "cave-pandavleni",
+    "name": "Pandavleni Caves (Nasik Caves)",
+    "category": "cave",
+    "lon": 73.75,
+    "lat": 19.95,
+    "state": "Maharashtra",
+    "period": "1st century BCE – 3rd century CE (Satavahana)",
+    "note": "Buddhist caves near Nashik with important early inscriptions, including Satavahana-era donative records."
+  },
+  {
+    "id": "cave-udayagirikhandagiri",
+    "name": "Udayagiri-Khandagiri Caves",
+    "category": "cave",
+    "lon": 85.78,
+    "lat": 20.27,
+    "state": "Odisha",
+    "period": "2nd–1st century BCE (Kalinga, Kharavela)",
+    "features": [
+      "Hathigumpha inscription"
+    ],
+    "note": "Jain rock-cut caves near Bhubaneswar; the Hathigumpha inscription here, by King Kharavela of Kalinga, is a major source for early Kalinga history."
+  },
+  {
+    "id": "cave-kanheri",
+    "name": "Kanheri Caves",
+    "category": "cave",
+    "lon": 72.9,
+    "lat": 19.21,
+    "state": "Maharashtra",
+    "period": "1st century BCE onward",
+    "note": "A large Buddhist cave complex in present-day Mumbai (Sanjay Gandhi National Park), with over a hundred caves."
+  },
+  {
+    "id": "cave-elephanta",
+    "name": "Elephanta Caves",
+    "category": "cave",
+    "lon": 72.93,
+    "lat": 18.96,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage sites — rock-cut Shiva caves on an island near Mumbai, notable for the Trimurti sculpture."
+  },
+  {
+    "id": "cave-karla",
+    "name": "Karla Caves",
+    "category": "cave",
+    "lon": 73.48,
+    "lat": 18.78,
+    "state": "Maharashtra",
+    "period": "1st–2nd century CE (Satavahana)",
+    "features": [
+      "Largest chaitya hall of its kind in India"
+    ],
+    "note": "Home to the largest and best-preserved rock-cut Buddhist chaitya (prayer hall) in India, from the Satavahana period."
+  },
+  {
+    "id": "cave-bedse",
+    "name": "Bedse Caves",
+    "category": "cave",
+    "lon": 73.42,
+    "lat": 18.65,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Buddhist rock-cut caves near Karla, in the same Pune-district cluster as the Bhaja caves."
+  },
+  {
+    "id": "cave-guntupalli",
+    "name": "Guntupalli Caves",
+    "category": "cave",
+    "lon": 81.15,
+    "lat": 17.25,
+    "state": "Andhra Pradesh",
+    "period": "2nd century BCE onward",
+    "note": "A Buddhist rock-cut monastic complex in coastal Andhra, with a notable circular chaitya hall."
+  },
+  {
+    "id": "cave-badami",
+    "name": "Badami Caves",
+    "category": "cave",
+    "lon": 75.68,
+    "lat": 15.92,
+    "state": "Karnataka",
+    "period": "6th century CE (Chalukya)",
+    "note": "Chalukya-dynasty rock-cut temples (Hindu and Jain) carved into a sandstone cliff — an early example of Deccan rock-cut architecture."
+  },
+  {
+    "id": "cave-undavalli",
+    "name": "Undavalli Caves",
+    "category": "cave",
+    "lon": 80.55,
+    "lat": 16.51,
+    "state": "Andhra Pradesh",
+    "period": "4th–5th century CE onward",
+    "note": "Rock-cut cave temples near Vijayawada, with a notable multi-tiered structure and a large reclining Vishnu sculpture."
+  },
+  {
+    "id": "cave-mahabalipuram",
+    "name": "Mahabalipuram Caves",
+    "category": "cave",
+    "lon": 80.19,
+    "lat": 12.62,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage sites and Important Kingdoms & Towns — Pallava-era rock-cut cave temples alongside the more famous open-air rathas and Shore Temple."
+  },
+  {
+    "id": "cave-edakkal",
+    "name": "Edakkal Rock Shelter Caves and Painting",
+    "category": "cave",
+    "lon": 76.37,
+    "lat": 11.58,
+    "state": "Kerala",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Petroglyphs"
+    ],
+    "note": "A Wayanad rock shelter famous for petroglyphs (rock carvings), among the earliest evidence of a script-like system in South India."
+  },
+  {
+    "id": "cave-sittanavasal-cave",
+    "name": "Sittanavasal Caves",
+    "category": "cave",
+    "lon": 78.75,
+    "lat": 10.42,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Megalithic sites — better known today for its Jain rock-cut cave and murals."
+  },
+  {
+    "id": "edict-yerragudi",
+    "name": "Yerragudi",
+    "category": "edict-rock",
+    "edictType": "major-rock",
+    "lon": 78,
+    "lat": 15.75,
+    "state": "Andhra Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Major Rock Edict of Ashoka; unusually, Yerragudi also has Minor Rock Edicts inscribed at the same site, making it one of the few places with both."
+  },
+  {
+    "id": "edict-sankissa",
+    "name": "Sankissa (Sankisya)",
+    "category": "edict-pillar",
+    "edictType": "minor-pillar",
+    "lon": 79.24,
+    "lat": 27.28,
+    "state": "Uttar Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "An Ashokan pillar (elephant capital) at Sankissa — traditionally one of the sites the Buddha is said to have visited; the pillar itself carries no lengthy inscribed edict text."
+  },
+  {
+    "id": "edict-nilgirva",
+    "name": "Nilgirva",
+    "category": "edict-pillar",
+    "edictType": "minor-pillar",
+    "lon": 83.15,
+    "lat": 27.65,
+    "state": "Nepal",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "Listed separately on the reference map close to Nigali Sagar — likely the same or an adjoining Nepal Tarai pillar site under a variant name; kept as its own marker, nudged slightly, to match the source rather than assuming they're identical."
+  },
+  {
+    "id": "edict-rupandehi",
+    "name": "Rupandehi",
+    "category": "edict-pillar",
+    "edictType": "minor-pillar",
+    "lon": 83.35,
+    "lat": 27.55,
+    "state": "Nepal",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "The Nepal district containing Rummindei (Lumbini) and Nigali Sagar — shown as its own marker on the reference map, likely marking the district/region rather than a distinct third pillar."
+  },
+  {
+    "id": "edict-allahabad-pillar",
+    "name": "Allahabad Pillar",
+    "category": "edict-pillar",
+    "edictType": "major-pillar",
+    "lon": 81.84,
+    "lat": 25.45,
+    "state": "Uttar Pradesh",
+    "period": "c. 269–232 BCE (Ashoka)",
+    "note": "The Kaushambi pillar, physically moved to Allahabad Fort — later also inscribed with Samudragupta's Gupta-era Prayaga Prashasti, making it a rare monument bearing both Mauryan and Gupta inscriptions."
+  },
+  {
+    "id": "jain-hastinapur",
+    "name": "Hastinapur",
+    "category": "jain",
+    "lon": 78.02,
+    "lat": 29.16,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Mahajanapadas (Kuru capital) — an important Jain pilgrimage town, associated with three Tirthankaras."
+  },
+  {
+    "id": "jain-mathura",
+    "name": "Mathura",
+    "category": "jain",
+    "lon": 77.67,
+    "lat": 27.49,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Mahajanapadas, Important Kingdoms & Towns — a major early centre of Jain art (the Kankali Tila mound yielded extensive Jain sculpture)."
+  },
+  {
+    "id": "jain-shravasti",
+    "name": "Shravasti",
+    "category": "jain",
+    "lon": 82.05,
+    "lat": 27.52,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Mahajanapadas — associated with Sambhavanatha, the third Tirthankara."
+  },
+  {
+    "id": "jain-saketa-ayodhya",
+    "name": "Saketa (Ayodhya)",
+    "category": "jain",
+    "lon": 82.2,
+    "lat": 26.8,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Traditionally associated with five Tirthankaras, including the first, Rishabhanatha."
+  },
+  {
+    "id": "jain-varanasi",
+    "name": "Varanasi (Banaras/Kasi)",
+    "category": "jain",
+    "lon": 83,
+    "lat": 25.32,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Mahajanapadas — associated with Parshvanatha (23rd Tirthankara) and Suparshvanatha."
+  },
+  {
+    "id": "jain-vaishali",
+    "name": "Vaishali",
+    "category": "jain",
+    "lon": 85.13,
+    "lat": 25.99,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Mahajanapadas — traditionally cited as Mahavira's birthplace (alongside nearby Kundalpur/Kundagrama)."
+  },
+  {
+    "id": "jain-sarnath",
+    "name": "Sarnath",
+    "category": "jain",
+    "lon": 83.02,
+    "lat": 25.38,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ashokan Pillar Edicts — better known as a Buddhist site, but also has Jain associations and remains."
+  },
+  {
+    "id": "jain-pataliputra",
+    "name": "Pataliputra",
+    "category": "jain",
+    "lon": 85.14,
+    "lat": 25.61,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Important Kingdoms & Towns — site of an early Jain council under the Mauryas, per Jain tradition."
+  },
+  {
+    "id": "jain-rajgir",
+    "name": "Rajgir (Rajagriha)",
+    "category": "jain",
+    "lon": 85.42,
+    "lat": 25.03,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Mahajanapadas, Important Kingdoms & Towns — a major early centre for both Jainism and Buddhism."
+  },
+  {
+    "id": "jain-parasnath",
+    "name": "Parasnath (Shikharji)",
+    "category": "jain",
+    "lon": 86.17,
+    "lat": 23.97,
+    "state": "Jharkhand",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Most sacred Jain pilgrimage site"
+    ],
+    "note": "Considered the most sacred Jain pilgrimage site — twenty of the twenty-four Tirthankaras are believed to have attained moksha (liberation) here."
+  },
+  {
+    "id": "jain-mountabu",
+    "name": "Mount Abu",
+    "category": "jain",
+    "lon": 72.71,
+    "lat": 24.59,
+    "state": "Rajasthan",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Dilwara Temples"
+    ],
+    "note": "Home to the Dilwara Temples, famed for exceptionally intricate marble carving (mainly medieval, 11th–13th century)."
+  },
+  {
+    "id": "jain-deogarh",
+    "name": "Deogarh",
+    "category": "jain",
+    "lon": 78.24,
+    "lat": 24.53,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "A major Jain temple complex (alongside Hindu temples) with a large concentration of Jain sculpture and inscriptions."
+  },
+  {
+    "id": "jain-udaigiri",
+    "name": "Udaigiri Caves",
+    "category": "jain",
+    "lon": 77.78,
+    "lat": 23.53,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — better known for its Gupta-era Varaha panel, but also has Jain cave shrines."
+  },
+  {
+    "id": "jain-kundalpur",
+    "name": "Kundalpur",
+    "category": "jain",
+    "lon": 85.45,
+    "lat": 25.25,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Traditionally cited (alongside Vaishali) as Mahavira's birthplace, Kundagrama."
+  },
+  {
+    "id": "jain-pawapuri",
+    "name": "Pawapuri",
+    "category": "jain",
+    "lon": 85.47,
+    "lat": 25.1,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Site of Mahavira's nirvana"
+    ],
+    "note": "Where Mahavira is believed to have attained nirvana (death) — one of the most important Jain pilgrimage sites."
+  },
+  {
+    "id": "jain-besnagar",
+    "name": "Besnagar",
+    "category": "jain",
+    "lon": 77.8,
+    "lat": 23.55,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "An ancient town near Vidisha with Jain remains, close to the Heliodorus Pillar site."
+  },
+  {
+    "id": "jain-khajuraho",
+    "name": "Khajuraho",
+    "category": "jain",
+    "lon": 79.92,
+    "lat": 24.85,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage sites — best known for its Hindu temples, but also has a significant group of Jain temples in the same complex."
+  },
+  {
+    "id": "jain-vallabhi",
+    "name": "Vallabhi",
+    "category": "jain",
+    "lon": 71.6,
+    "lat": 21.9,
+    "state": "Gujarat",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Council of Valabhi"
+    ],
+    "note": "Site of the Council of Valabhi (c. 5th–6th century CE), where the Jain canon (Agamas) was finally compiled and written down."
+  },
+  {
+    "id": "jain-girnar",
+    "name": "Girnar",
+    "category": "jain",
+    "lon": 70.52,
+    "lat": 21.52,
+    "state": "Gujarat",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ashokan Major Rock Edicts — Girnar hill is also a major Jain (and Hindu) pilgrimage site, associated with Neminatha, the 22nd Tirthankara."
+  },
+  {
+    "id": "jain-palitana",
+    "name": "Palitana (Shatrunjaya)",
+    "category": "jain",
+    "lon": 71.83,
+    "lat": 21.53,
+    "state": "Gujarat",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Shatrunjaya hill — thousands of temples"
+    ],
+    "note": "The Shatrunjaya hill above Palitana holds one of the largest concentrations of Jain temples anywhere — thousands of shrines built over centuries."
+  },
+  {
+    "id": "jain-sirpur",
+    "name": "Sirpur",
+    "category": "jain",
+    "lon": 82.19,
+    "lat": 21.34,
+    "state": "Chhattisgarh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "An early-historic archaeological site with Buddhist, Hindu and Jain remains side by side."
+  },
+  {
+    "id": "jain-udayagirikhandagiri",
+    "name": "Udayagiri-Khandagiri Caves",
+    "category": "jain",
+    "lon": 85.78,
+    "lat": 20.27,
+    "state": "Odisha",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — Jain rock-cut caves near Bhubaneswar, with the Hathigumpha inscription of King Kharavela."
+  },
+  {
+    "id": "jain-ellora",
+    "name": "Ellora Caves",
+    "category": "jain",
+    "lon": 75.18,
+    "lat": 20.03,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage and Cave sites — includes a distinct group of Jain caves alongside its Buddhist and Hindu ones."
+  },
+  {
+    "id": "jain-paithan",
+    "name": "Pratishthana (Paithan)",
+    "category": "jain",
+    "lon": 75.38,
+    "lat": 19.48,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Important Kingdoms & Towns (Satavahana capital) — also had an early Jain presence."
+  },
+  {
+    "id": "jain-aihole",
+    "name": "Aihole",
+    "category": "jain",
+    "lon": 75.88,
+    "lat": 15.99,
+    "state": "Karnataka",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "An early Chalukya-dynasty temple town with a notable Jain temple (Meguti) alongside its many Hindu temples."
+  },
+  {
+    "id": "jain-pattadakal",
+    "name": "Pattadakal",
+    "category": "jain",
+    "lon": 75.82,
+    "lat": 15.95,
+    "state": "Karnataka",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage sites — mainly a Chalukya Hindu temple complex, with some Jain presence nearby."
+  },
+  {
+    "id": "jain-badami",
+    "name": "Badami Caves",
+    "category": "jain",
+    "lon": 75.68,
+    "lat": 15.92,
+    "state": "Karnataka",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — one of its four rock-cut caves is a dedicated Jain cave temple."
+  },
+  {
+    "id": "jain-shravanabelagola",
+    "name": "Shravanabelagola",
+    "category": "jain",
+    "lon": 76.48,
+    "lat": 12.86,
+    "state": "Karnataka",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Gomateshwara (Bahubali) statue"
+    ],
+    "note": "Home to the monolithic Gomateshwara (Bahubali) statue — one of the tallest monolithic statues in the world and among the most important Jain pilgrimage sites in South India."
+  },
+  {
+    "id": "jain-kanchipuram",
+    "name": "Kanchipuram",
+    "category": "jain",
+    "lon": 79.7,
+    "lat": 12.84,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "An early centre of Jainism in Tamil Nadu alongside its later fame as a temple city under the Pallavas and Cholas."
+  },
+  {
+    "id": "jain-sittanavasal",
+    "name": "Sittanavasal Caves",
+    "category": "jain",
+    "lon": 78.75,
+    "lat": 10.42,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Megalithic and Cave sites — a Jain rock-cut cave with notable frescoes, among the finest surviving early Jain paintings in India."
+  },
+  {
+    "id": "bud-lumbini",
+    "name": "Lumbini",
+    "category": "buddhist",
+    "lon": 83.28,
+    "lat": 27.48,
+    "state": "Nepal",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Birthplace of the Buddha"
+    ],
+    "note": "Also covered under Ashokan Pillar Edicts (as Rummindei) — the Buddha's birthplace, marked by an Ashokan pillar recording his pilgrimage there."
+  },
+  {
+    "id": "bud-shravasti",
+    "name": "Shravasti",
+    "category": "buddhist",
+    "lon": 82.05,
+    "lat": 27.52,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Mahajanapadas and Jain sites — one of the Buddha's most frequent residences, site of the Jetavana monastery."
+  },
+  {
+    "id": "bud-kusinagara",
+    "name": "Kusinagara (Kushinagar)",
+    "category": "buddhist",
+    "lon": 83.89,
+    "lat": 26.74,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Site of the Buddha's mahaparinirvana"
+    ],
+    "note": "Also covered under Mahajanapadas (Malla capital) — where the Buddha attained mahaparinirvana (death)."
+  },
+  {
+    "id": "bud-sarnath",
+    "name": "Sarnath",
+    "category": "buddhist",
+    "lon": 83.02,
+    "lat": 25.38,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Site of the Buddha's first sermon"
+    ],
+    "note": "Also covered under Ashokan Pillar Edicts and Jain sites — where the Buddha delivered his first sermon; the Ashokan Lion Capital here is India's national emblem."
+  },
+  {
+    "id": "bud-barabar",
+    "name": "Barabar",
+    "category": "buddhist",
+    "lon": 85.06,
+    "lat": 25,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — the oldest surviving rock-cut caves in India, gifted by Ashoka to the (non-Buddhist) Ajivika sect, though close to the core Buddhist heartland."
+  },
+  {
+    "id": "bud-bodhgaya",
+    "name": "Bodh Gaya",
+    "category": "buddhist",
+    "lon": 84.99,
+    "lat": 24.7,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Site of the Buddha's enlightenment"
+    ],
+    "note": "Also covered under World Heritage sites (Mahabodhi Temple Complex) — where the Buddha attained enlightenment, the most sacred Buddhist pilgrimage site."
+  },
+  {
+    "id": "bud-bharhut",
+    "name": "Bharhut",
+    "category": "buddhist",
+    "lon": 80.87,
+    "lat": 24.7,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Bharhut stupa railings"
+    ],
+    "note": "Site of a Shunga-era stupa famous for its carved railings and gateway — among the earliest and most detailed narrative Buddhist relief sculpture in India."
+  },
+  {
+    "id": "bud-sanchi",
+    "name": "Sanchi",
+    "category": "buddhist",
+    "lon": 78.74,
+    "lat": 23.48,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage, Important Kingdoms & Towns, and Jain sites — India's oldest surviving stone Buddhist stupa complex, begun under Ashoka."
+  },
+  {
+    "id": "bud-nasik",
+    "name": "Nasik (Pandavleni Caves)",
+    "category": "buddhist",
+    "lon": 73.75,
+    "lat": 19.95,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — Buddhist caves with important early Satavahana-era donative inscriptions."
+  },
+  {
+    "id": "bud-ajanta",
+    "name": "Ajanta",
+    "category": "buddhist",
+    "lon": 75.7,
+    "lat": 20.55,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage and Cave sites — Buddhist caves famed for their surviving murals, mostly Vakataka-era."
+  },
+  {
+    "id": "bud-junnar",
+    "name": "Junnar",
+    "category": "buddhist",
+    "lon": 73.87,
+    "lat": 19.21,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "A large Buddhist rock-cut cave complex near Pune, with over 200 caves across several hills."
+  },
+  {
+    "id": "bud-karle",
+    "name": "Karle (Karla Caves)",
+    "category": "buddhist",
+    "lon": 73.48,
+    "lat": 18.78,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — home to the largest rock-cut Buddhist chaitya hall in India."
+  },
+  {
+    "id": "bud-nagarjunakonda",
+    "name": "Nagarjunakonda",
+    "category": "buddhist",
+    "lon": 79.24,
+    "lat": 16.53,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Megalithic sites — a major Buddhist centre under the Ikshvaku dynasty, now largely submerged under the Nagarjuna Sagar reservoir."
+  },
+  {
+    "id": "bud-amaravati",
+    "name": "Amaravati",
+    "category": "buddhist",
+    "lon": 80.36,
+    "lat": 16.57,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Amaravati Stupa"
+    ],
+    "note": "Also covered under Megalithic and Important Kingdoms & Towns — site of the Amaravati Stupa, one of the great Buddhist monuments of India, and its own distinct school of Buddhist sculpture."
+  },
+  {
+    "id": "bud-bamyan",
+    "name": "Bamyan",
+    "category": "buddhist",
+    "lon": 67.83,
+    "lat": 34.85,
+    "state": "Afghanistan",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Giant rock-cut Buddha statues (destroyed 2001)"
+    ],
+    "note": "Site of two colossal rock-cut standing Buddha statues, once among the largest in the world, destroyed by the Taliban in 2001 — marks the extent of Buddhist influence into Central Asia."
+  },
+  {
+    "id": "bud-taxila",
+    "name": "Taxila",
+    "category": "buddhist",
+    "lon": 72.79,
+    "lat": 33.74,
+    "state": "Punjab, Pakistan",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Mahajanapadas, Important Kingdoms & Towns — a major centre of Buddhist learning and Gandhara art under the Kushanas."
+  },
+  {
+    "id": "bud-sanghol",
+    "name": "Sanghol",
+    "category": "buddhist",
+    "lon": 76.36,
+    "lat": 30.77,
+    "state": "Punjab",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "A Kushana-era Buddhist site in Punjab, known for a notable stupa and railing sculptures."
+  },
+  {
+    "id": "bud-kapilvastu",
+    "name": "Kapilvastu",
+    "category": "buddhist",
+    "lon": 83.05,
+    "lat": 27.57,
+    "state": "Nepal / Uttar Pradesh border",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "The Buddha's childhood home"
+    ],
+    "note": "The Buddha's hometown, where he spent his early life before renouncing it — its exact location (Tilaurakot in Nepal, or Piprahwa in UP) is still debated."
+  },
+  {
+    "id": "bud-kesariya",
+    "name": "Kesariya",
+    "category": "buddhist",
+    "lon": 84.86,
+    "lat": 26.13,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Tallest known stupa in the world"
+    ],
+    "note": "Home to what's usually cited as the tallest known stupa in the world, larger in base area than even Borobudur."
+  },
+  {
+    "id": "bud-vikramashila",
+    "name": "Vikramashila",
+    "category": "buddhist",
+    "lon": 87.28,
+    "lat": 25.31,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Ancient Buddhist university"
+    ],
+    "note": "One of the two most important Buddhist monastic universities of the Pala period, alongside Nalanda — founded by Dharmapala."
+  },
+  {
+    "id": "bud-sankissa",
+    "name": "Sankissa",
+    "category": "buddhist",
+    "lon": 79.24,
+    "lat": 27.28,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ashokan Pillar Edicts and Jain sites — traditionally where the Buddha is said to have descended back to earth after preaching to his mother in heaven."
+  },
+  {
+    "id": "bud-nalanda",
+    "name": "Nalanda",
+    "category": "buddhist",
+    "lon": 85.44,
+    "lat": 25.14,
+    "state": "Bihar",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Ancient residential university"
+    ],
+    "note": "Also covered under World Heritage sites — one of the world's oldest residential universities, a major centre of Buddhist learning under Gupta and Pala patronage."
+  },
+  {
+    "id": "bud-mahasthanagarh",
+    "name": "Mahasthanagarh",
+    "category": "buddhist",
+    "lon": 89.34,
+    "lat": 24.95,
+    "state": "Bangladesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Neolithic and Important Kingdoms & Towns — an ancient urban centre with a significant later Buddhist monastic presence."
+  },
+  {
+    "id": "bud-vadnagar",
+    "name": "Vadnagar",
+    "category": "buddhist",
+    "lon": 72.64,
+    "lat": 23.78,
+    "state": "Gujarat",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "An ancient town with a Buddhist monastic complex, visited by the Chinese pilgrim Xuanzang."
+  },
+  {
+    "id": "bud-devnimori",
+    "name": "Devni Mori",
+    "category": "buddhist",
+    "lon": 73.13,
+    "lat": 23.75,
+    "state": "Gujarat",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Buddha relic casket"
+    ],
+    "note": "A Buddhist stupa site in Gujarat that yielded a dated reliquary casket with Buddha relics, an important chronological anchor for the region."
+  },
+  {
+    "id": "bud-bagh",
+    "name": "Bagh Caves",
+    "category": "buddhist",
+    "lon": 74.75,
+    "lat": 22.36,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — Buddhist rock-cut caves with murals in a style close to Ajanta's."
+  },
+  {
+    "id": "bud-sirpur",
+    "name": "Sirpur",
+    "category": "buddhist",
+    "lon": 82.19,
+    "lat": 21.34,
+    "state": "Chhattisgarh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Jain sites — an early-historic site with Buddhist, Hindu and Jain remains side by side."
+  },
+  {
+    "id": "bud-lalitgiri",
+    "name": "Lalitgiri / Ratnagiri / Udayagiri",
+    "category": "buddhist",
+    "lon": 86.24,
+    "lat": 20.72,
+    "state": "Odisha",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "\"Diamond Triangle\" Buddhist complex"
+    ],
+    "note": "A cluster of three major Buddhist monastic sites in Odisha (distinct from the Jain Udayagiri-Khandagiri caves near Bhubaneswar), sometimes called Odisha's \"Diamond Triangle\"."
+  },
+  {
+    "id": "bud-ellora",
+    "name": "Ellora Caves",
+    "category": "buddhist",
+    "lon": 75.18,
+    "lat": 20.03,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under World Heritage, Cave and Jain sites — includes a distinct group of Buddhist caves alongside its Hindu and Jain ones."
+  },
+  {
+    "id": "bud-kanheri",
+    "name": "Kanheri Caves",
+    "category": "buddhist",
+    "lon": 72.9,
+    "lat": 19.21,
+    "state": "Maharashtra",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — one of the largest Buddhist cave complexes in India, in present-day Mumbai."
+  },
+  {
+    "id": "bud-kanaganahalli",
+    "name": "Kanaganahalli",
+    "category": "buddhist",
+    "lon": 76.85,
+    "lat": 16.9,
+    "state": "Karnataka",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Rare sculpted portrait of Ashoka"
+    ],
+    "note": "A Satavahana-era Buddhist stupa site notable for a rare sculpted relief explicitly labelled as a portrait of Ashoka."
+  },
+  {
+    "id": "bud-guntupalli",
+    "name": "Guntupalli Caves",
+    "category": "buddhist",
+    "lon": 81.15,
+    "lat": 17.25,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early historic (varies by site)",
+    "note": "Also covered under Ancient Cave Sites — a Buddhist rock-cut monastic complex with a notable circular chaitya hall."
+  },
+  {
+    "id": "bud-anuradhapura",
+    "name": "Anuradhapura",
+    "category": "buddhist",
+    "lon": 80.4,
+    "lat": 8.31,
+    "state": "Sri Lanka",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Sri Maha Bodhi tree"
+    ],
+    "note": "Ancient capital of Sri Lanka and a major early Buddhist centre — home to the Sri Maha Bodhi, said to be grown from a cutting of the original Bodh Gaya tree."
+  },
+  {
+    "id": "bud-sigiriya",
+    "name": "Sigiriya",
+    "category": "buddhist",
+    "lon": 80.76,
+    "lat": 7.96,
+    "state": "Sri Lanka",
+    "period": "Ancient / early historic (varies by site)",
+    "features": [
+      "Rock fortress and frescoes"
+    ],
+    "note": "A rock fortress and later Buddhist monastic site in Sri Lanka, famed for its frescoes — not part of India, but frequently grouped with the subcontinent's Buddhist heritage sites on reference maps."
+  },
+  {
+    "id": "temp-martand",
+    "name": "Martand Sun Temple",
+    "category": "temple",
+    "lon": 75.15,
+    "lat": 33.72,
+    "state": "Jammu & Kashmir",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "An 8th-century CE Kashmiri sun temple built under Lalitaditya Muktapida, now in ruins."
+  },
+  {
+    "id": "temp-masrur",
+    "name": "Masrur Rock-Cut Temple Complex",
+    "category": "temple",
+    "lon": 76.25,
+    "lat": 32.05,
+    "state": "Himachal Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "A group of monolithic rock-cut temples, unusual for being carved directly from a hillside rather than built, in a style recalling Ellora."
+  },
+  {
+    "id": "temp-hidimba",
+    "name": "Hidimba Devi Temple",
+    "category": "temple",
+    "lon": 77.19,
+    "lat": 32.25,
+    "state": "Himachal Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "A distinctive wooden pagoda-style temple in Manali, an unusual regional architectural form."
+  },
+  {
+    "id": "temp-khatarmal",
+    "name": "Khatarmal Sun Temple",
+    "category": "temple",
+    "lon": 79.58,
+    "lat": 29.6,
+    "state": "Uttarakhand",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "One of the oldest sun temples in India, in the Kumaon hills near Almora."
+  },
+  {
+    "id": "temp-daparbatia",
+    "name": "Da Parbatia Temple Site",
+    "category": "temple",
+    "lon": 92.8,
+    "lat": 26.63,
+    "state": "Assam",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Yielded the earliest known example of Gupta-style temple door-frame sculpture in Assam, though the main structure hasn't survived."
+  },
+  {
+    "id": "temp-kamakhya",
+    "name": "Kamakhya Temple",
+    "category": "temple",
+    "lon": 91.7,
+    "lat": 26.17,
+    "state": "Assam",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "A major Shakti Peetha, one of the most important centres of Tantric worship in India."
+  },
+  {
+    "id": "temp-sibsagar",
+    "name": "Sibsagar",
+    "category": "temple",
+    "lon": 94.64,
+    "lat": 26.98,
+    "state": "Assam",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Former Ahom capital with several major temples (Shivadol, Vishnudol, Devidol) built under Ahom patronage."
+  },
+  {
+    "id": "temp-pushkar",
+    "name": "Pushkar",
+    "category": "temple",
+    "lon": 74.55,
+    "lat": 26.49,
+    "state": "Rajasthan",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Home to one of the very few temples in India dedicated to Brahma."
+  },
+  {
+    "id": "temp-nagari",
+    "name": "Nagari (Ancient Madhyamika)",
+    "category": "temple",
+    "lon": 74.62,
+    "lat": 24.9,
+    "state": "Rajasthan",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Site of ancient Madhyamika, with one of the earliest known Vaishnava temple/pillar remains in India (associated with the Ghosundi/Hathibada inscriptions)."
+  },
+  {
+    "id": "temp-mountabu",
+    "name": "Mount Abu",
+    "category": "temple",
+    "lon": 72.71,
+    "lat": 24.59,
+    "state": "Rajasthan",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under Jain sites — home to the intricately carved Dilwara Temples."
+  },
+  {
+    "id": "temp-modhera",
+    "name": "Modhera Sun Temple",
+    "category": "temple",
+    "lon": 72.13,
+    "lat": 23.58,
+    "state": "Gujarat",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "An 11th-century CE sun temple built under the Solanki (Chalukya) dynasty, with a stepped surya-kund (tank) in front."
+  },
+  {
+    "id": "temp-deogarh",
+    "name": "Deogarh, Dashavatar Temple",
+    "category": "temple",
+    "lon": 78.24,
+    "lat": 24.53,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under Jain sites — the Dashavatara Temple here is one of the earliest surviving Gupta-era Hindu stone temples, with a landmark Panchayatana layout."
+  },
+  {
+    "id": "temp-bhojpur",
+    "name": "Shiv Temple, Bhojpur",
+    "category": "temple",
+    "lon": 77.46,
+    "lat": 23.07,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "An unfinished 11th-century Shiva temple built under Raja Bhoja, with one of the largest Shiva lingams in India."
+  },
+  {
+    "id": "temp-bhitargaon",
+    "name": "Bhitargaon Temple",
+    "category": "temple",
+    "lon": 80.13,
+    "lat": 26.27,
+    "state": "Uttar Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "The oldest known surviving brick Hindu temple in India, from the Gupta period."
+  },
+  {
+    "id": "temp-khajuraho",
+    "name": "Khajuraho",
+    "category": "temple",
+    "lon": 79.92,
+    "lat": 24.85,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under World Heritage and Jain sites — Chandela-era temples famous for elaborate sculptural work."
+  },
+  {
+    "id": "temp-nachnakuthara",
+    "name": "Nachna Kuthara, Parvati Temple",
+    "category": "temple",
+    "lon": 80.55,
+    "lat": 24.53,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "An early (Gupta-era) stone temple, notable for its preserved original form and sculpture."
+  },
+  {
+    "id": "temp-tigawa",
+    "name": "Tigawa Temple",
+    "category": "temple",
+    "lon": 80.1,
+    "lat": 23.5,
+    "state": "Madhya Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "One of the earliest surviving Gupta-era stone temples, an important reference point for the development of Hindu temple architecture."
+  },
+  {
+    "id": "temp-vishnupur",
+    "name": "Vishnupur (Bishnupur)",
+    "category": "temple",
+    "lon": 87.32,
+    "lat": 23.08,
+    "state": "West Bengal",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Former Malla-dynasty capital known for a distinctive terracotta temple architecture style, mostly from the 17th–18th centuries."
+  },
+  {
+    "id": "temp-somnath",
+    "name": "Somnath Temple",
+    "category": "temple",
+    "lon": 70.4,
+    "lat": 20.89,
+    "state": "Gujarat",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "One of the twelve Jyotirlinga shrines, repeatedly destroyed and rebuilt across history — most famously sacked by Mahmud of Ghazni in 1025 CE."
+  },
+  {
+    "id": "temp-ellora",
+    "name": "Ellora, Kailashnath Temple",
+    "category": "temple",
+    "lon": 75.18,
+    "lat": 20.03,
+    "state": "Maharashtra",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under World Heritage, Cave, Jain and Buddhist sites — the Kailasa Temple here is a single monolithic structure carved top-down from one rock, under the Rashtrakutas."
+  },
+  {
+    "id": "temp-lonar",
+    "name": "Fifteen Temples, Lonar",
+    "category": "temple",
+    "lon": 76.51,
+    "lat": 19.98,
+    "state": "Maharashtra",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "A cluster of medieval temples around the Lonar crater lake, a rare meteor-impact site."
+  },
+  {
+    "id": "temp-sirpur",
+    "name": "Sirpur Temple Complex (Laxman Temple)",
+    "category": "temple",
+    "lon": 82.19,
+    "lat": 21.34,
+    "state": "Chhattisgarh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under Jain and Buddhist sites — the Laxman Temple here is a notable early brick temple."
+  },
+  {
+    "id": "temp-bhubaneshwar",
+    "name": "Bhubaneshwar",
+    "category": "temple",
+    "lon": 85.83,
+    "lat": 20.24,
+    "state": "Odisha",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Home to a dense concentration of Kalinga-style temples, including the Lingaraj Temple, spanning several centuries of temple architecture."
+  },
+  {
+    "id": "temp-puri",
+    "name": "Puri",
+    "category": "temple",
+    "lon": 85.83,
+    "lat": 19.8,
+    "state": "Odisha",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Site of the Jagannath Temple, one of the Char Dham (four sacred pilgrimage) sites of Hinduism."
+  },
+  {
+    "id": "temp-konark",
+    "name": "Konark (Sun Temple)",
+    "category": "temple",
+    "lon": 86.09,
+    "lat": 19.89,
+    "state": "Odisha",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under World Heritage sites — built under the Eastern Ganga dynasty in the form of a colossal stone chariot."
+  },
+  {
+    "id": "temp-aihole",
+    "name": "Aihole",
+    "category": "temple",
+    "lon": 75.88,
+    "lat": 15.99,
+    "state": "Karnataka",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under Jain sites — an early Chalukya temple town, often called a \"cradle\" of Indian temple architecture for its experimental variety of styles."
+  },
+  {
+    "id": "temp-pattadakal",
+    "name": "Pattadakal",
+    "category": "temple",
+    "lon": 75.82,
+    "lat": 15.95,
+    "state": "Karnataka",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under World Heritage and Jain sites — a Chalukya complex deliberately blending Nagara and Dravida styles side by side."
+  },
+  {
+    "id": "temp-badami",
+    "name": "Badami",
+    "category": "temple",
+    "lon": 75.68,
+    "lat": 15.92,
+    "state": "Karnataka",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under Cave and Jain sites — Chalukya-dynasty rock-cut temples carved into a sandstone cliff."
+  },
+  {
+    "id": "temp-hampi",
+    "name": "Hampi",
+    "category": "temple",
+    "lon": 76.46,
+    "lat": 15.34,
+    "state": "Karnataka",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under World Heritage sites — ruins of Vijayanagara, with numerous major temples including the Virupaksha Temple."
+  },
+  {
+    "id": "temp-halebidu",
+    "name": "Halebidu",
+    "category": "temple",
+    "lon": 76.24,
+    "lat": 13.21,
+    "state": "Karnataka",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Former Hoysala capital, home to the Hoysaleswara Temple, famed for extraordinarily detailed soapstone carving."
+  },
+  {
+    "id": "temp-tirupati",
+    "name": "Tirupati",
+    "category": "temple",
+    "lon": 79.35,
+    "lat": 13.68,
+    "state": "Andhra Pradesh",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Site of the Venkateswara Temple, among the most-visited pilgrimage sites in the world."
+  },
+  {
+    "id": "temp-kanchipuram",
+    "name": "Kanchipuram",
+    "category": "temple",
+    "lon": 79.7,
+    "lat": 12.84,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under Jain sites — a major temple city under the Pallavas and later the Cholas."
+  },
+  {
+    "id": "temp-mahabalipuram",
+    "name": "Mahabalipuram (Mamallapuram)",
+    "category": "temple",
+    "lon": 80.19,
+    "lat": 12.62,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under World Heritage, Important Kingdoms & Towns, and Cave sites — Pallava-era rock-cut rathas and the Shore Temple."
+  },
+  {
+    "id": "temp-gangaikondacholapuram",
+    "name": "Gangaikondacholapuram",
+    "category": "temple",
+    "lon": 79.45,
+    "lat": 11.2,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Built by Rajendra I to mark a new Chola capital, its temple is part of the \"Great Living Chola Temples\" World Heritage listing."
+  },
+  {
+    "id": "temp-srirangam",
+    "name": "Sri Rangnathswamy Temple",
+    "category": "temple",
+    "lon": 78.69,
+    "lat": 10.86,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "One of the largest functioning Hindu temple complexes in the world, at Srirangam near Tiruchirapalli."
+  },
+  {
+    "id": "temp-thanjavur",
+    "name": "Thanjavur (Brihadeeswara Temple)",
+    "category": "temple",
+    "lon": 79.13,
+    "lat": 10.78,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Also covered under World Heritage sites — built under Raja Raja Chola I, part of the \"Great Living Chola Temples\" listing."
+  },
+  {
+    "id": "temp-madurai",
+    "name": "Madurai",
+    "category": "temple",
+    "lon": 78.12,
+    "lat": 9.93,
+    "state": "Tamil Nadu",
+    "period": "Ancient / early medieval (varies by site)",
+    "note": "Site of the Meenakshi Amman Temple, a major centre of Dravidian temple architecture, mainly from the Nayaka period."
+  }
+]

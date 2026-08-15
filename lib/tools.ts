@@ -56,6 +56,24 @@ export const TOOLS: Tool[] = [
     icon: "🏛️",
   },
   {
+    slug: "ancient-sites-map",
+    title: "Ancient India Mapping",
+    fullTitle: "Ancient India Mapping",
+    blurb:
+      "Harappan cities, Chalcolithic settlements, Megalithic sites and ancient ports — plotted on a map of India, layer by layer.",
+    paper: "GS1",
+    topic: "History",
+    state: "live",
+    href: "/gs1/ancient-sites-map",
+    // Not featured yet — lib/ancient-sites/sites.json is still an empty
+    // skeleton (see that file's own header comment), so this shouldn't be
+    // pushed on the homepage carousel until it actually has sites on it.
+    featured: false,
+    accent: "#B5732E",
+    preview: "map",
+    icon: "🏺",
+  },
+  {
     slug: "modern-india-timeline",
     title: "Modern India Timeline",
     fullTitle: "Modern India Timeline (1857–1947)",
