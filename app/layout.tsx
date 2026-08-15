@@ -124,10 +124,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Swap id/copy/href here for each new feature — a new id shows
             again even to visitors who dismissed a previous announcement. */}
         <FeatureAnnouncement
-          id="kings-lineage-2026-08"
-          title="Notable Kings added to the Ancient India timeline"
-          body="Scrub the Ancient India Timeline and see each dynasty's ruler lineage, with the current king spotlighted."
-          href="/gs1/ancient-india-timeline"
+          id="ancient-india-mapping-2026-08-16"
+          title="New Tool: Anicent India Mapping"
+          body="Harappan Sites, Ashokan Edicts, Important Ports, Buddhist Sites and many more"
+          href="/gs1/ancient-sites-map"
           cta="See it"
         />
       </body>

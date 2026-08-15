@@ -1,0 +1,766 @@
+/* Ancient Sites of India — same parchment/pigment theme and sidebar layout
+   as the National Parks / Rivers of India tools (as-* classes, self-
+   contained), so this reads as part of the same family: universal search,
+   Learn/Recall mode pill, a Layers box with toggle chips, reset, and a
+   footnote legend, all in a fixed-width left sidebar next to the map frame.
+   No per-state drill-down — see AncientSitesMap.tsx's header comment for
+   why — so there's no state-select control here at all. */
+
+.as-root {
+  --paper: #f2ece0;
+  --panel: #eae2d2;
+  --ink: #2a2520;
+  --ink-soft: #5c5d52;
+  --stone: #9a9082;
+  --line: #d9d0bf;
+  --terra: #c2683f;
+  --slate: #3e5c76;
+  --sea: #cfe2e8;
+  --sea-line: #b7d2da;
+  --land: #ebe1cf;
+  --land-hi: #e3d6bd;
+  --border-line: #a9967a;
+  --shadow: 0 1px 2px rgba(42, 37, 32, 0.06), 0 8px 24px rgba(42, 37, 32, 0.07);
+
+  --as-serif: var(--font-fraunces, var(--font-display, ui-serif, Georgia, serif));
+  --as-sans: var(--font-inter, var(--font-body, ui-sans-serif, system-ui, sans-serif));
+
+  /* Same 1280px column every other page on the site uses (.ul-main /
+     .ul-toolhead) — this used to be a wider, self-invented max-width, which
+     made the tool's left edge drift from the breadcrumb/title above it. */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 4vw, 40px) 44px;
+  color: var(--ink);
+  font-family: var(--as-sans);
+}
+
+/* ── workspace: fixed sidebar + map column ── */
+.as-workspace {
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+.as-sidebar {
+  flex: 0 0 232px;
+  width: 232px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* 18+ layer pills is taller than the map — without this the sidebar
+     just kept growing past the page's own content (see .as-workspace's
+     align-items: flex-start), instead of scrolling internally. Sticky so
+     it stays in view as the page scrolls, capped a bit under the viewport
+     height so "Reset view" at the bottom is never pushed off-screen. */
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding-right: 2px;
+}
+.as-mapcol {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .as-workspace {
+    flex-direction: column;
+  }
+  .as-mapcol {
+    order: 1;
+    width: 100%;
+  }
+  .as-sidebar {
+    order: 2;
+    width: 100%;
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+    /* Mobile stacks the sidebar below the map and wraps its pills — no
+       internal scroll needed there, it just flows with the page. */
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+  .as-search {
+    flex: 1 1 100%;
+  }
+  .as-modecard {
+    width: auto;
+    flex: 1 1 160px;
+  }
+  .as-layerbox {
+    flex: 1 1 100%;
+    padding: 10px 11px 11px;
+  }
+  .as-lb-reset {
+    flex: 1 1 160px;
+    width: auto;
+  }
+}
+
+/* ── universal search ── */
+.as-search {
+  position: relative;
+}
+.as-search-box {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(251, 247, 238, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 13px;
+  box-shadow: var(--shadow);
+}
+.as-search-ic {
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.as-search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+}
+.as-search-input::placeholder {
+  color: var(--stone);
+}
+.as-search-clear {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--stone);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+.as-search-clear:hover {
+  color: var(--ink);
+}
+.as-search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 12;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: rgba(251, 247, 238, 0.98);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  max-height: 340px;
+  overflow-y: auto;
+}
+.as-search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 7px 9px;
+  cursor: pointer;
+  font: inherit;
+}
+.as-search-result:hover {
+  background: rgba(94, 134, 160, 0.09);
+}
+.as-search-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.as-search-meta {
+  font-size: 10.5px;
+  color: var(--stone);
+}
+.as-search-empty {
+  padding: 9px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--stone);
+}
+
+/* ── mode toggle (Learn = slate, Recall = terracotta) ── */
+.as-modecard {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  background: rgba(251, 247, 238, 0.96);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+.as-mode {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6f6452;
+  padding: 8px 0;
+  border-radius: 999px;
+  transition: 0.18s;
+  white-space: nowrap;
+  flex: 1 1 0;
+}
+.as-mode-on {
+  color: var(--paper);
+}
+.as-mode-learn.as-mode-on {
+  background: var(--slate);
+}
+.as-mode-recall.as-mode-on {
+  background: var(--terra);
+}
+
+/* ── layers box ── */
+.as-layerbox {
+  background: rgba(251, 247, 238, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  padding: 12px 12px 13px;
+}
+.as-lyr-cap {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  margin: 0 0 9px 2px;
+}
+.as-lyr-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+/* Single-select pills — only one layer is ever visible at a time, so
+   there's no toggle-switch affordance to show (nothing to turn "off"
+   independently, picking a different pill does that implicitly), and no
+   need for a shape legend either: every marker on screen at once belongs
+   to whichever one pill is active. Colour comes from --pill-color, set
+   inline per category from lib/ancient-sites/types.ts's CATEGORY_META —
+   one place both the pill and the map marker fill read from. */
+.as-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #6f6452;
+  cursor: pointer;
+  transition: 0.15s;
+  text-align: left;
+}
+.as-pill-count {
+  margin-left: auto;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--stone);
+  background: var(--panel);
+  border-radius: 999px;
+  padding: 1px 7px;
+  flex: 0 0 auto;
+}
+.as-pill.on {
+  color: #fff;
+  border-color: var(--pill-color);
+  background: var(--pill-color);
+}
+.as-pill.on .as-pill-count {
+  color: #fff;
+  background: color-mix(in srgb, #000 18%, var(--pill-color));
+}
+/* ── reset ── */
+.as-lb-reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(194, 104, 63, 0.1);
+  color: var(--terra);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 9px 0;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.as-lb-reset:hover {
+  background: rgba(194, 104, 63, 0.18);
+}
+.as-lb-reset-ic {
+  font-size: 13px;
+}
+
+/* ── map stage ── */
+.as-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 16px;
+  /* Everything outside the landmass path reads as sea/ocean — a flat
+     pastel-blue fill behind the SVG rather than a drawn shape, since the
+     South Asia dataset is one landmass polygon with no separate coastline/
+     ocean geometry to fill. */
+  background: var(--sea);
+  overflow: hidden;
+  /* Ratio syntax (not a decimal) so this can't drift out of sync with
+     AncientSitesMap.tsx's VIEW_W/VIEW_H via float rounding — must still be
+     literally kept in sync with those two constants by hand, since CSS
+     can't import a JS value. */
+  aspect-ratio: 880 / 860;
+}
+.as-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+.as-grab {
+  cursor: grab;
+}
+.as-grab:active {
+  cursor: grabbing;
+}
+
+.as-land {
+  fill: var(--land);
+  stroke: var(--sea-line);
+  stroke-width: 1;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+/* India's own accurate outline, filled the same as .as-land — painted on
+   top of it to replace BASE_LAND's crude Northeast India approximation.
+   Same colour, no stroke: it should be visually seamless with the rest of
+   the landmass, not read as a separate region. */
+.as-india-fill {
+  fill: var(--land);
+  stroke: none;
+}
+/* Indian state boundaries — solid and dark, distinct from the dashed
+   international border below (was near-invisible at 0.32 opacity; a state
+   map that shows the lines only when zoomed into a screenshot crop isn't
+   showing them at all in practice). */
+.as-state-border {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-width: 0.6;
+  opacity: 0.32;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+/* Modern country borders — context only (Pakistan/Afghanistan/Nepal/
+   Bangladesh/Sri Lanka relative to today's map), not part of the ancient
+   geography itself, so kept faint and dashed like the Ancient India
+   Timeline tool's own border layer. */
+.as-border {
+  fill: none;
+  stroke: var(--border-line);
+  stroke-width: 0.8;
+  stroke-dasharray: 2 2.5;
+  opacity: 0.55;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+/* ── site markers ── */
+.as-site-g {
+  cursor: pointer;
+}
+.as-hit {
+  fill: transparent;
+  pointer-events: all;
+}
+.as-mark {
+  stroke: var(--paper);
+  stroke-width: 1.4px;
+  vector-effect: non-scaling-stroke;
+  transition: transform 0.12s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.as-cat-palaeolithic .as-mark {
+  fill: #4a5568;
+}
+.as-cat-mesolithic .as-mark {
+  fill: #7a5c74;
+}
+.as-cat-neolithic .as-mark {
+  fill: #5c8374;
+}
+.as-cat-harappan-early .as-mark {
+  fill: #c98a4b;
+}
+.as-cat-harappan .as-mark {
+  fill: #b5732e;
+}
+.as-cat-harappan-late .as-mark {
+  fill: #8a4e24;
+}
+.as-cat-chalcolithic .as-mark {
+  fill: #8c6a4f;
+}
+.as-cat-megalithic .as-mark {
+  fill: #6e6b63;
+}
+.as-cat-port .as-mark {
+  fill: #2a6f8e;
+}
+.as-cat-mahajanapada .as-mark {
+  fill: #8c8f86;
+}
+/* Fallback only — every edict-rock/edict-pillar site has an edictType in
+   practice, so SiteMark's inline style (Major/Minor's own colour) is what
+   actually paints these; this just covers a site that somehow doesn't. */
+.as-cat-edict-rock .as-mark {
+  fill: #8a3226;
+}
+.as-cat-edict-pillar .as-mark {
+  fill: #a67c2e;
+}
+.as-cat-kingdom .as-mark {
+  fill: #4a7c59;
+}
+.as-cat-world-heritage .as-mark {
+  fill: #b8860b;
+}
+.as-cat-cave .as-mark {
+  fill: #5a3e36;
+}
+.as-cat-jain .as-mark {
+  fill: #5b4e8c;
+}
+.as-cat-buddhist .as-mark {
+  fill: #9c8a3d;
+}
+.as-cat-temple .as-mark {
+  fill: #8c3b5a;
+}
+.as-site-g.as-hover .as-mark {
+  transform: scale(1.35);
+}
+.as-site-g.as-masked .as-mark {
+  opacity: 0.85;
+}
+
+.as-label {
+  fill: var(--ink);
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 2.4px;
+  pointer-events: none;
+}
+.as-label-mask {
+  fill: var(--stone);
+  font-weight: 700;
+}
+.as-site-g.as-hover .as-label {
+  fill: var(--terra);
+}
+
+.as-lead {
+  stroke: var(--ink-soft);
+  stroke-width: 0.9px;
+  stroke-dasharray: 2 2;
+  opacity: 0.85;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+/* Kingdom region labels (KUSHANAS, GUPTAS, ...) — boxed + uppercase +
+   letter-spaced, deliberately not just a plain <text> like a town label,
+   so a "kingdom" reads as a different kind of thing on the map than a
+   "town", not just a bigger dot. Non-interactive: this is a region, not a
+   clickable site. */
+.as-kingdom-label {
+  pointer-events: none;
+}
+.as-kingdom-label-box {
+  fill: color-mix(in srgb, #4a7c59 12%, var(--paper));
+  stroke: #4a7c59;
+  stroke-width: 0.8px;
+  stroke-opacity: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+.as-kingdom-label-text {
+  fill: #3d6349;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+}
+
+.as-empty-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  pointer-events: none;
+  z-index: 5;
+}
+.as-empty-hint p {
+  margin: 0;
+  padding: 10px 20px;
+  background: rgba(251, 247, 238, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ── zoom controls ── */
+.as-zoombtns {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+
+/* Major/Minor key — floats on the map next to the zoom controls, only for
+   the two edict layers, since that's the one case where a single layer
+   still mixes two looks (shape+colour both vary by EdictType, see
+   SiteMark). Not a general legend: everywhere else, one layer = one look,
+   so no key is needed. */
+.as-edict-key {
+  position: absolute;
+  left: 60px;
+  bottom: 14px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 5px 10px;
+  background: rgba(251, 247, 238, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 12px;
+  box-shadow: var(--shadow);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.as-edict-key-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: var(--ink-soft);
+  flex: 0 0 auto;
+}
+.as-edict-key-circle {
+  border-radius: 50%;
+}
+.as-zoom {
+  width: 36px;
+  height: 34px;
+  background: var(--panel);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+}
+.as-zoom:last-child {
+  border-bottom: 0;
+}
+.as-zoom:hover {
+  background: var(--land-hi);
+}
+
+/* ── detail card: floats over the map, doesn't push it around ── */
+.as-card {
+  position: absolute;
+  z-index: 8;
+  top: 14px;
+  right: 14px;
+  width: 320px;
+  max-height: calc(100% - 28px);
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(251, 247, 238, 0.97);
+  box-shadow: 0 6px 30px rgba(42, 37, 32, 0.17);
+  padding: 16px 18px;
+}
+.as-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.as-card-dot {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+.as-card-titles {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.as-card-title {
+  font-family: var(--as-serif);
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+.as-card-sub {
+  font-size: 12.5px;
+  color: var(--stone);
+  margin-top: 2px;
+}
+.as-card-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.as-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+/* Edict-type sub-tag (Major/Minor Rock Edict vs Pillar) — same pill, but
+   quieter than the coloured category tag next to it, since it's a
+   secondary distinction within category "edict", not a category of its
+   own. */
+.as-tag-sub {
+  background: var(--panel);
+  color: var(--ink-soft);
+}
+.as-card-x {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--stone);
+  cursor: pointer;
+  padding: 2px 4px;
+  flex: 0 0 auto;
+}
+.as-card-x:hover {
+  color: var(--ink);
+}
+.as-rows {
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.as-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.as-row dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.as-row dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.as-features {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.as-features-h {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin: 0 0 8px;
+}
+.as-feature-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.as-feature {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--panel);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+@media (max-width: 720px) {
+  /* On mobile the card is a normal block right after the map frame, not an
+     overlay floating on top of it — it pushes the sidebar further down the
+     page instead of covering the map. */
+  .as-card {
+    position: static;
+    margin-top: 14px;
+    width: 100%;
+    max-height: none;
+  }
+}
