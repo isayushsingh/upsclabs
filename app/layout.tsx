@@ -125,7 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             again even to visitors who dismissed a previous announcement. */}
         <FeatureAnnouncement
           id="ancient-india-mapping-2026-08-16"
-          title="New Tool: Anicent India Mapping"
+          title="New Tool: Ancient India Mapping"
           body="Harappan Sites, Ashokan Edicts, Important Ports, Buddhist Sites and many more"
           href="/gs1/ancient-sites-map"
           cta="See it"
