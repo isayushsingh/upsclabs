@@ -6,13 +6,13 @@ import {
   ERA_BY_ID,
   GOVERNORS,
   NAMESAKES,
-  SERIES,
   SERIES_BY_ID,
   SLOTS,
   durationLabel,
   isSliver,
   tenureLabel,
   tenureYears,
+  seriesChain,
   toYear,
   type Era,
   type GGEvent,
@@ -170,55 +170,38 @@ export default function GovernorsGeneral() {
     strip.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
   }, [activeId]);
 
-  /** Ordinals of the active series held by each governor, for ribbon badges. */
-  const seriesHits = useMemo(() => {
-    const hits = new Map<string, number[]>();
-    if (!series) return hits;
-    for (const g of GOVERNORS) {
-      const ns = g.events.filter((e) => e.series?.id === series).map((e) => e.series!.n);
-      if (ns.length) hits.set(g.id, ns);
-    }
-    return hits;
-  }, [series]);
+  const chain = useMemo(() => (series ? seriesChain(series) : []), [series]);
+
+  // The chain strip belongs to the card: close it on moving to a
+  // Governor-General with no event in that series.
+  useEffect(() => {
+    if (series && !active.events.some((e) => e.series?.id === series)) setSeries(null);
+  }, [active, series]);
 
   const toggleSeries = (id: SeriesId) => setSeries((cur) => (cur === id ? null : id));
 
   return (
     <div className="gg-root">
       {/* ── every tenure, 1773–1947 ── */}
-      <div className={`gg-track${series ? " is-tracing" : ""}`}>
+      <div className="gg-track">
         {ERAS.map((e) => {
           const members = GOVERNORS.filter((g) => g.era === e.id);
           const years = toYear(members[members.length - 1].end) - toYear(members[0].start);
           return (
             <div className="gg-track-era" key={e.id} style={{ ...eraStyle(e), flexGrow: years }}>
               <div className="gg-track-bar">
-                {members.map((g) => {
-                  const hit = seriesHits.get(g.id);
-                  return (
-                    <button
-                      key={g.id}
-                      type="button"
-                      className={`gg-track-block${
-                        g.id === activeId ? " is-active" : ""
-                      }${hit ? " is-hit" : ""}`}
-                      style={{ flexGrow: tenureYears(g) }}
-                      onClick={() => select(g.id)}
-                      title={`${g.name}, ${tenureLabel(g)}`}
-                      aria-label={`${g.name}, ${tenureLabel(g)}`}
-                      aria-pressed={g.id === activeId}
-                    >
-                      {hit && (
-                        <span
-                          className="gg-track-badge"
-                          style={{ background: SERIES_BY_ID[series!].color }}
-                        >
-                          {hit.join(" · ")}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
+                {members.map((g) => (
+                  <button
+                    key={g.id}
+                    type="button"
+                    className={`gg-track-block${g.id === activeId ? " is-active" : ""}`}
+                    style={{ flexGrow: tenureYears(g) }}
+                    onClick={() => select(g.id)}
+                    title={`${g.name}, ${tenureLabel(g)}`}
+                    aria-label={`${g.name}, ${tenureLabel(g)}`}
+                    aria-pressed={g.id === activeId}
+                  />
+                ))}
               </div>
               <button type="button" className="gg-track-label" onClick={() => select(members[0].id)}>
                 <span className="gg-track-name" title={`${e.name}, ${e.range}`}>
@@ -365,6 +348,36 @@ export default function GovernorsGeneral() {
           </nav>
         </header>
 
+        {/* ── a series traced across tenures, opened from a chip ── */}
+        {series && chain.length > 0 && (
+          <div className="gg-chain" role="region" aria-label={`${SERIES_BY_ID[series].label}, in order`}>
+            <span className="gg-chain-title">{SERIES_BY_ID[series].label}</span>
+            <ol className="gg-chain-steps">
+              {chain.map(({ g, e, year }, i) => (
+                <li key={`${g.id}-${e.label}`}>
+                  {i > 0 && (
+                    <span className="gg-chain-arrow" aria-hidden="true">
+                      →
+                    </span>
+                  )}
+                  <button
+                    type="button"
+                    className={`gg-chain-step${g.id === activeId ? " is-here" : ""}`}
+                    onClick={() => select(g.id)}
+                    aria-current={g.id === activeId ? "step" : undefined}
+                    title={e.label}
+                  >
+                    <span className="gg-chain-year">{year}</span> {g.short}
+                  </button>
+                </li>
+              ))}
+            </ol>
+            <button type="button" className="gg-chain-close" onClick={() => setSeries(null)} aria-label="Close">
+              ×
+            </button>
+          </div>
+        )}
+
         <div className="gg-slots">
           {SLOTS.map((slot) => {
             const events = active.events.filter((e) => e.slot === slot.id);
@@ -389,25 +402,6 @@ export default function GovernorsGeneral() {
             );
           })}
         </div>
-
-        <footer className="gg-legend">
-          <span className="gg-legend-lead">
-            Numbered chips belong to a series. Tap one to trace it across the track:
-          </span>
-          {SERIES.map((sr) => (
-            <button
-              key={sr.id}
-              type="button"
-              className={`gg-legend-item${series === sr.id ? " is-on" : ""}`}
-              style={{ "--chip": sr.color } as React.CSSProperties}
-              onClick={() => toggleSeries(sr.id)}
-              aria-pressed={series === sr.id}
-            >
-              <span className="gg-legend-dot" />
-              {sr.label}
-            </button>
-          ))}
-        </footer>
       </article>
     </div>
   );
@@ -436,16 +430,28 @@ function EventChip({
       </span>
     );
   const sr = SERIES_BY_ID[e.series.id];
+  const total = sr.ordinal ? seriesChain(sr.id).length : 0;
+  const on = tracing === sr.id;
   return (
     <button
       type="button"
-      className={`gg-chip is-series${tracing === sr.id ? " is-traced" : ""}${foundCls}`}
-      style={{ "--chip": sr.color } as React.CSSProperties}
+      className={`gg-chip is-series${on ? " is-traced" : ""}${foundCls}`}
       onClick={() => onSeries(sr.id)}
-      title={`${sr.label}: trace across the track`}
+      aria-expanded={on}
+      title={`See all ${sr.label} in order`}
     >
-      <span className="gg-chip-n">{e.series.n}</span>
-      {e.label}
+      <span>
+        {e.label}
+        {total > 0 && (
+          <span className="gg-chip-of">
+            {" "}
+            · {e.series.n} of {total}
+          </span>
+        )}
+      </span>
+      <span className="gg-chip-trace" aria-hidden="true">
+        ⇢
+      </span>
     </button>
   );
 }
