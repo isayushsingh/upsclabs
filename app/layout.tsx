@@ -9,6 +9,7 @@ import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import ServiceWorkerRegistration from "@/components/site/ServiceWorkerRegistration";
 import FeatureAnnouncement from "@/components/site/FeatureAnnouncement";
+import VisitTracker from "@/components/site/VisitTracker";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
@@ -123,11 +124,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         {/* Swap id/copy/href here for each new feature — a new id shows
             again even to visitors who dismissed a previous announcement. */}
+        <VisitTracker />
         <FeatureAnnouncement
-          id="ancient-india-mapping-2026-08-16"
-          title="New Tool: Ancient India Mapping"
-          body="Harappan Sites, Ashokan Edicts, Important Ports, Buddhist Sites and many more"
-          href="/gs1/ancient-sites-map"
+          id="governors-general-2026-11-06"
+          title="New Tool: Governors-General & Viceroys"
+          body="Warren Hastings to Mountbatten on one timeline. Search any event to find who did it."
+          href="/gs1/governors-general"
           cta="See it"
         />
       </body>

@@ -39,7 +39,9 @@
 .as-workspace {
   margin-top: 18px;
   display: flex;
-  align-items: flex-start;
+  /* Stretch, so the sidebar is exactly as tall as the map column (see
+     .as-sidebar's contain: size — the map alone sets the row height). */
+  align-items: stretch;
   gap: 22px;
 }
 .as-sidebar {
@@ -48,16 +50,14 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  /* 18+ layer pills is taller than the map — without this the sidebar
-     just kept growing past the page's own content (see .as-workspace's
-     align-items: flex-start), instead of scrolling internally. Sticky so
-     it stays in view as the page scrolls, capped a bit under the viewport
-     height so "Reset view" at the bottom is never pushed off-screen. */
-  position: sticky;
-  top: 16px;
-  max-height: calc(100vh - 32px);
-  overflow-y: auto;
-  padding-right: 2px;
+  /* 18+ layer pills is taller than the map. contain: size stops the
+     sidebar's content from contributing to the row height, so the map
+     column alone sets it and the stretched sidebar matches it exactly;
+     the pill list (.as-layerbox) then scrolls internally while search,
+     mode and "Reset view" stay put. No overflow here, so the search
+     results dropdown isn't clipped. */
+  contain: size;
+  min-height: 0;
 }
 .as-mapcol {
   position: relative;
@@ -85,9 +85,7 @@
     margin-top: 14px;
     /* Mobile stacks the sidebar below the map and wraps its pills — no
        internal scroll needed there, it just flows with the page. */
-    position: static;
-    max-height: none;
-    overflow-y: visible;
+    contain: none;
   }
   .as-search {
     flex: 1 1 100%;
@@ -99,6 +97,9 @@
   .as-layerbox {
     flex: 1 1 100%;
     padding: 10px 11px 11px;
+  }
+  .as-lyr-col {
+    overflow-y: visible;
   }
   .as-lb-reset {
     flex: 1 1 160px;
@@ -245,6 +246,12 @@
   border-radius: 13px;
   box-shadow: var(--shadow);
   padding: 12px 12px 13px;
+  /* Takes whatever height the sidebar has left after search/mode/reset;
+     the pill list inside scrolls, the "Show" caption stays pinned. */
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 .as-lyr-cap {
   display: block;
@@ -259,6 +266,11 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-height: 0;
+  overflow-y: auto;
+  /* Room so the active pill's focus ring isn't clipped by the scroller. */
+  padding: 3px;
+  margin: -3px;
 }
 /* Single-select pills — only one layer is ever visible at a time, so
    there's no toggle-switch affordance to show (nothing to turn "off"

@@ -1,8 +1,8 @@
-// Modern India (1857–1947) timeline data + layout math.
+// Modern India (1857–1947) timeline data + ladder grouping.
 // The event list itself (lib/timeline/modernIndia.json) is enriched with
 // three things a plain chronology doesn't give you:
 //   - `strand`   — which parallel thread of the freedom struggle this belongs to
-//     (rendered as a card's colour, not a row — see ModernIndiaTimeline.tsx)
+//     (rendered as a chip's tint — see ModernIndiaTimeline.tsx)
 //   - `causedBy` / `leadsTo` — curated causal edges across strands (a seed set
 //     of the highest-confidence, most-taught chains — not exhaustive)
 //   - `tier`     — "core" (the load-bearing, grand-narrative milestones) vs
@@ -12,12 +12,11 @@
 //     event that's causally linked to a "core" one was auto-promoted so a
 //     causal chain never silently breaks when context events are hidden.
 //
-// Layout: one vertical column per *calendar* year (1857–1947, 91 of them,
-// including years with zero events — an empty column is itself information,
-// it says "quiet stretch"). A year is a real, fixed-width bucket now, not a
-// point on a continuous scale, so there is no lane-packing/collision math
-// left to get wrong: an event's x comes straight from its year's column
-// index, and events sharing a year just stack top-to-bottom inside it.
+// Layout: a vertical "anchor ladder" — one rung per year that has a visible
+// event, read top to bottom. Each rung splits across a central spine: the
+// British state's move on the left, the Indian response on the right (see
+// sideOf). Years with nothing visible are folded into a single quiet row
+// rather than given an empty rung each.
 
 import rawEvents from "./modernIndia.json";
 
@@ -57,9 +56,8 @@ export interface Strand {
   blurb: string;
 }
 
-// Row order, top → bottom: state action first, then the widening circle of
-// organised/mass/underground/associational response beneath it — roughly the
-// order the mockup used, kept because it reads as "cause row on top".
+// Legend order: state action first, then the widening circle of organised/
+// mass/underground/associational response — "cause" before "response".
 export const STRANDS: Strand[] = [
   {
     id: "administrative-imperial-policy",
@@ -119,7 +117,8 @@ export interface Era {
 
 // Boundaries chosen so each band holds a roughly comparable event count
 // (27–57 of 230) rather than a comparable span of years (14–30) — the
-// syllabus's own phase names, used as the zoom/snap unit.
+// syllabus's own phase names, used as the ladder's sections and as the
+// unit a Revise round covers.
 export const ERAS: Era[] = [
   { id: "foundations", name: "Crown Rule & Early Associations", short: "1857–85", start: 1857, end: 1885 },
   { id: "moderate", name: "The Moderate Congress Era", short: "1885–1905", start: 1885, end: 1905 },
@@ -131,132 +130,123 @@ export const ERAS: Era[] = [
 export const T_MIN = 1857;
 export const T_MAX = 1947;
 
-/** Every calendar year in range — used only to enumerate candidate years;
-    layoutTimeline drops any year with zero (visible) events, so the actual
-    column list depends on the current tier filter. */
-export const YEARS: number[] = Array.from({ length: T_MAX - T_MIN + 1 }, (_, i) => T_MIN + i);
+export type Side = "british" | "indian";
 
-// Two sizes, not one — "comfortable" is the desktop/tablet layout, unchanged
-// from before. "compact" exists because the layout engine bakes pixel
-// positions straight into inline styles (ev.x, col.left…), so no CSS media
-// query can shrink it: a phone stuck with desktop-sized columns showed only
-// ~1.5 years at once. Most traffic here is mobile-first browsing before
-// someone comes back on a laptop, so the first impression matters — compact
-// aims for ~3 full years on a ~390px phone instead of ~1.
-export type Density = "comfortable" | "compact";
+// Strand says what an event is *about*; side says who acted. They mostly
+// agree — the administrative/imperial strand is the Crown's moves, every
+// other strand is the Indian side — but not always: the admin strand also
+// files Indian actions that answer it (Swadeshi, 'Simon Go Back', the
+// Nehru Report…), and the thematic strands file British acts on their
+// subject (the Factory Acts, education commissions, the Press Act, the
+// conspiracy trials). Those are moved across the spine here rather than
+// re-stranded in the JSON.
+const SIDE_OVERRIDES: Record<string, Side> = {
+  e16: "indian", // First Indian to Qualify ICS
+  e24: "indian", // Birth of Mahatma Gandhi
+  e67: "indian", // Constitution of India Bill (Tilak)
+  e76: "indian", // Anti-Partition Campaign Begins
+  e83: "indian", // Swadeshi & Boycott Movement
+  e116: "indian", // Gandhi Prepares to Leave South Africa
+  e155: "indian", // Assassination of Swami Shraddhanand
+  e160: "indian", // 'Simon Go Back' Protests
+  e161: "indian", // Nehru Report
+  e192: "indian", // Provincial Elections; Congress Wins
+  e197: "indian", // Congress Ministries Resign
+  e211: "indian", // C.R. Formula
+  e212: "indian", // Desai-Liaqat Pact Proposals
+  e229: "indian", // Indian Independence
 
-export const COLUMN_WIDTH: Record<Density, number> = { comfortable: 210, compact: 118 };
-export const COLUMN_GAP: Record<Density, number> = { comfortable: 8, compact: 5 };
-// Every card gets the same fixed height, wrap or no — because the vertical
-// stacking below places the next card exactly CARD_HEIGHT+CARD_GAP_Y lower
-// than the last one, a card that actually needed more room (say, its title
-// wrapped to two lines) would silently overlap the one below it. Sized for
-// up to two lines at the card's own font size (a title beyond that still
-// clips with an ellipsis, same safety net as before — see .mit-card-title).
-export const CARD_HEIGHT: Record<Density, number> = { comfortable: 44, compact: 34 };
-/** Vertical gap between two cards stacked in the same year's column. */
-export const CARD_GAP_Y: Record<Density, number> = { comfortable: 10, compact: 6 };
-/** Margin either side of the first/last column, so nothing clips the canvas edge. */
-export const EDGE_MARGIN: Record<Density, number> = { comfortable: 10, compact: 6 };
-/** Reserved strip at the top of every column for its year (and, on an
-    era's first column, the era name) — cards never start until below this,
-    so a label never competes with a card for the same pixels. */
-export const HEADER_HEIGHT: Record<Density, number> = { comfortable: 46, compact: 30 };
+  e45: "british", // First Indian Factory Act, 1881
+  e49: "british", // Hunter Education Commission
+  e63: "british", // Second Factory Act, 1891
+  e74: "british", // Universities Commission
+  e77: "british", // Indian Universities Act, 1904
+  e94: "british", // Alipore Conspiracy Case
+  e97: "british", // Incitement & Explosives Acts, 1908
+  e105: "british", // Indian Press Act, 1910
+  e113: "british", // Education Policy Resolution, 1913
+  e126: "british", // Sadler University Commission
+  e144: "british", // Gandhi's 'Great Trial' of 1922
+  e147: "british", // Kanpur Bolshevik Conspiracy Case
+  e153: "british", // Indian Trade Union Act, 1926
+  e166: "british", // Meerut Conspiracy Case
+  e169: "british", // Hartog Committee Report
+  e175: "british", // Sarda Act (Child Marriage Restraint)
+  e178: "british", // Bhagat Singh, Rajguru & Sukhdev Hanged
+  e204: "british", // Cripps Mission
+  e215: "british", // INA Trials Begin (Red Fort)
+};
 
-export interface LaidOutEvent extends TimelineEvent {
-  /** x centre in px — the centre of its year's column */
-  x: number;
-  /** y centre in px */
-  y: number;
+export function sideOf(e: TimelineEvent): Side {
+  return SIDE_OVERRIDES[e.id] ?? (e.strand === "administrative-imperial-policy" ? "british" : "indian");
 }
 
-export interface ColumnMeta {
+/** The watershed milestones the rest of the narrative hangs off — drawn as
+    solid "anchor" rungs on the ladder. Hand-picked, not derived: causal
+    link counts favour well-linked minor events over the turning points. */
+export const ANCHOR_IDS = new Set([
+  "e1", // Revolt of 1857
+  "e4", // GoI Act, 1858
+  "e55", // Indian National Congress Founded
+  "e82", // Partition of Bengal
+  "e132", // Jallianwala Bagh Massacre
+  "e135", // Non-Cooperation & Khilafat Movements
+  "e165", // Lahore Session: 'Purna Swaraj' Adopted
+  "e172", // Salt Satyagraha (Dandi March)
+  "e188", // Government of India Act, 1935
+  "e205", // 'Quit India' Resolution
+  "e226", // Indian Independence Act, 1947
+]);
+
+export interface Rung {
   year: number;
-  left: number;
+  british: TimelineEvent[];
+  indian: TimelineEvent[];
+  /** years with no visible event immediately before this rung, if any */
+  foldedBefore?: { from: number; to: number };
+}
+
+export interface EraSection {
+  era: Era;
+  rungs: Rung[];
   count: number;
-  /** true for a column that starts a new era — carries the era label */
-  eraStart?: Era;
 }
 
-export interface TimelineLayout {
-  events: LaidOutEvent[];
-  /** only years with at least one (visible) event get a column — empty
-      years are skipped entirely, so this list is not evenly spaced by
-      calendar year, and depends on the current strand/tier filters */
-  columns: ColumnMeta[];
-  /** every active year's column-centre x, for scroll-to-year and jump-to-event */
-  xForYear: Map<number, number>;
-  width: number;
-  height: number;
-}
-
-/**
- * Lay every event out deterministically (no DOM measurement needed): x comes
- * from the event's year — one fixed-width column per year *that has at
- * least one visible event*, packed left-to-right with no gap for the years
- * in between that don't — never shifted within its own column, because the
- * x-axis *is* the fact being taught. Events sharing a year simply stack
- * top-to-bottom inside that column, in the order they appear in the data;
- * there's no collision math left to get wrong, and (unlike the old
- * lane-stacking swimlane version) one crowded year only makes *that* column
- * tall, not the whole canvas, since every column shares one flat row of
- * card-stacks capped by the single busiest year (at most 8 events, ~290px)
- * rather than the busiest *stretch*.
- */
-export function layoutTimeline(
-  sourceEvents: TimelineEvent[] = EVENTS,
-  density: Density = "comfortable"
-): TimelineLayout {
-  const columnWidth = COLUMN_WIDTH[density];
-  const columnGap = COLUMN_GAP[density];
-  const cardHeight = CARD_HEIGHT[density];
-  const cardGapY = CARD_GAP_Y[density];
-  const edgeMargin = EDGE_MARGIN[density];
-  const headerHeight = HEADER_HEIGHT[density];
-
+/** Group visible events into era sections of year rungs, in data order
+    within a year. An era with no visible event is dropped. */
+export function buildLadder(sourceEvents: TimelineEvent[] = EVENTS): EraSection[] {
   const byYear = new Map<number, TimelineEvent[]>();
   for (const e of sourceEvents) {
     const arr = byYear.get(e.year) ?? [];
     arr.push(e);
     byYear.set(e.year, arr);
   }
-  const activeYears = YEARS.filter((y) => byYear.has(y));
+  const years = [...byYear.keys()].sort((a, b) => a - b);
 
-  // An era's own start year might have zero visible events and so no column
-  // of its own — the header still needs a home, so it lands on the first
-  // active year at or after that era's start (and before the next era's).
-  const eraForCol = new Map<number, Era>();
-  for (const era of ERAS) {
-    const y = activeYears.find((yr) => yr >= era.start && yr < era.end);
-    if (y != null) eraForCol.set(y, era);
-  }
-
-  let maxCount = 1;
-  const xForYear = new Map<number, number>();
-  const columns: ColumnMeta[] = activeYears.map((year, i) => {
-    const left = edgeMargin + i * (columnWidth + columnGap);
-    const count = byYear.get(year)!.length;
-    maxCount = Math.max(maxCount, count);
-    xForYear.set(year, left + columnWidth / 2);
-    return { year, left, count, eraStart: eraForCol.get(year) };
+  let prev: number | null = null;
+  const rungs: Rung[] = years.map((year) => {
+    const evs = byYear.get(year)!;
+    const rung: Rung = {
+      year,
+      british: evs.filter((e) => sideOf(e) === "british"),
+      indian: evs.filter((e) => sideOf(e) === "indian"),
+    };
+    // A single skipped year isn't worth a row of its own; two or more is
+    // a quiet stretch worth naming.
+    if (prev != null && year - prev > 2) rung.foldedBefore = { from: prev + 1, to: year - 1 };
+    prev = year;
+    return rung;
   });
 
-  const height = headerHeight + maxCount * (cardHeight + cardGapY) - cardGapY;
-  const width =
-    activeYears.length === 0
-      ? edgeMargin * 2
-      : edgeMargin * 2 + activeYears.length * (columnWidth + columnGap) - columnGap;
+  return ERAS.map((era) => {
+    const eraRungs = rungs.filter((r) => r.year >= era.start && r.year < era.end);
+    const count = eraRungs.reduce((n, r) => n + r.british.length + r.indian.length, 0);
+    return { era, rungs: eraRungs, count };
+  }).filter((s) => s.rungs.length > 0);
+}
 
-  const events: LaidOutEvent[] = [];
-  for (const year of activeYears) {
-    const x = xForYear.get(year)!;
-    byYear.get(year)!.forEach((e, i) => {
-      const y = headerHeight + i * (cardHeight + cardGapY) + cardHeight / 2;
-      events.push({ ...e, x, y });
-    });
-  }
-
-  return { events, columns, xForYear, width, height };
+export function eraOfYear(year: number): Era {
+  return ERAS.find((e) => year >= e.start && year < e.end) ?? ERAS[ERAS.length - 1];
 }
 
 export const EVENTS_BY_ID: Record<string, TimelineEvent> = Object.fromEntries(

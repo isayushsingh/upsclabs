@@ -89,6 +89,21 @@ export const TOOLS: Tool[] = [
     icon: "🕊️",
   },
   {
+    slug: "governors-general",
+    title: "Governors-General & Viceroys",
+    fullTitle: "Governors-General & Viceroys of India (1773–1947)",
+    blurb:
+      "Every Governor-General and Viceroy from Warren Hastings to Mountbatten on one timeline. Each tenure's events sit in the same eight slots, and a search tells you who did what.",
+    paper: "GS1",
+    topic: "History",
+    state: "live",
+    href: "/gs1/governors-general",
+    featured: true,
+    accent: "#0F6E56",
+    preview: "timeline",
+    icon: "🏃",
+  },
+  {
     slug: "national-parks",
     title: "Protected Areas & Wetlands Mapping",
     fullTitle: "Interactive Map: Protected Areas & Wetlands",
@@ -130,21 +145,6 @@ export const TOOLS: Tool[] = [
     accent: "#3E5C76",
     preview: "map",
     icon: "🗺️",
-  },
-  {
-    slug: "budget-fiscal-pipeline",
-    title: "Concepts Of Budget",
-    fullTitle: "Interactive Concepts Of Budget",
-    blurb:
-      "Learn the Revenue/Capital classification through an animated balance sheet, then a Deficit Calculator with a live gap marker between two bars.",
-    paper: "GS3",
-    topic: "Economy",
-    state: "live",
-    href: "/gs3/budget-fiscal-pipeline",
-    featured: true,
-    accent: "#6b7a3f",
-    preview: "cards",
-    icon: "💰",
   },
   {
     slug: "international-organizations",

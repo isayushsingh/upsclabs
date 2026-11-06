@@ -48,7 +48,7 @@ a {
    Applies to ordinary links/buttons (nav, hero CTAs, tool cards, footer,
    newsletter form, etc.) so hovering something clickable reads instantly.
    Deliberately excluded from every tool's own root (.np-root, .wm-root,
-   .riv-root, .io-root, .ait-root, .mit-root below) — inside a tool, buttons
+   .riv-root, .io-root, .ait-root, .mit-root, .gg-root below) — inside a tool, buttons
    are part of the interaction itself (layer chips, zoom, markers on an SVG
    map) and keep the plain system pointer instead.
    Colors are literal copies of --action/--action-ink (data: URIs can't
@@ -71,7 +71,7 @@ summary {
    what reliably wins the reset here. Disabled buttons/chips are excluded so
    a tool's own `not-allowed` styling (e.g. a layer chip before a state is
    picked) still comes through untouched. */
-:is(.np-root, .wm-root, .riv-root, .io-root, .ait-root, .mit-root)
+:is(.np-root, .wm-root, .riv-root, .io-root, .ait-root, .mit-root, .gg-root)
   :is(a, button:not(:disabled), [role="button"]:not([aria-disabled="true"]), summary) {
   cursor: pointer !important;
 }

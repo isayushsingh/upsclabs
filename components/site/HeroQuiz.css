@@ -1,0 +1,304 @@
+/* Homepage hero quiz card. Colours come from the site tokens in
+   app/globals.css; the right/wrong tints are local and every pairing
+   clears 4.5:1 for its text. State is never colour-only: the letter badge
+   turns into a tick or cross and the verdict is spelled out. */
+.hq-card {
+  --ok: #1f5c16;
+  --ok-bg: #edf7d9;
+  --ok-edge: #3f7a2a;
+  --bad: #9b2219;
+  --bad-bg: #fcefed;
+  --bad-edge: #c0392b;
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: clamp(20px, 3vw, 32px);
+  box-shadow: 0 18px 50px -28px rgba(23, 23, 15, 0.28);
+  text-align: left;
+}
+
+.hq-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+.hq-live {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--live);
+}
+.hq-tag {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+}
+
+.hq-question {
+  margin: 16px 0 18px;
+  font-family: var(--font-general-sans), var(--font-inter), sans-serif;
+  font-weight: 700;
+  font-size: clamp(21px, 2.3vw, 27px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  outline: none;
+}
+.hq-question:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.hq-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+/* Long options (chronological orderings) read better one per row. */
+.hq-options.is-long {
+  grid-template-columns: minmax(0, 1fr);
+}
+.hq-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper-3);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+}
+.hq-option:hover:not([aria-disabled="true"]) {
+  border-color: var(--stone-edge);
+  background: #fff;
+}
+.hq-option:focus-visible,
+.hq-secondary:focus-visible,
+.hq-skip:focus-visible,
+.hq-report:focus-visible,
+.hq-cta:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.hq-option[aria-disabled="true"] {
+  cursor: default;
+}
+.hq-letter {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.hq-option-text {
+  min-width: 0;
+}
+
+.hq-option.is-answer {
+  background: var(--ok-bg);
+  border: 2px solid var(--ok-edge);
+  color: var(--ok);
+}
+.hq-option.is-answer .hq-letter {
+  background: var(--ok-edge);
+  border-color: var(--ok-edge);
+  color: #fff;
+}
+.hq-option.is-picked-wrong {
+  background: var(--bad-bg);
+  border: 2px solid var(--bad-edge);
+  color: var(--bad);
+}
+.hq-option.is-picked-wrong .hq-letter {
+  background: var(--bad-edge);
+  border-color: var(--bad-edge);
+  color: #fff;
+}
+.hq-option.is-dim {
+  opacity: 0.6;
+}
+
+.hq-feedback {
+  margin-top: 16px;
+  padding: 16px 18px;
+  border-radius: 16px;
+}
+.hq-feedback.is-correct {
+  background: var(--ok-bg);
+}
+.hq-feedback.is-wrong {
+  background: var(--bad-bg);
+}
+.hq-verdict {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--font-general-sans), var(--font-inter), sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.hq-feedback.is-correct .hq-verdict {
+  color: var(--ok);
+}
+.hq-feedback.is-wrong .hq-verdict {
+  color: var(--bad);
+}
+.hq-verdict-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.hq-verdict-icon svg {
+  color: #fff;
+}
+.hq-explain {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.hq-pressure {
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.hq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 14px;
+}
+.hq-cta {
+  min-height: 48px;
+}
+.hq-secondary {
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid var(--stone-edge);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hq-secondary:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.hq-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+}
+.hq-skip,
+.hq-report {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.hq-report {
+  margin-left: auto;
+}
+.hq-report:disabled {
+  text-decoration: none;
+  cursor: default;
+}
+
+.hq-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* server-rendered placeholder until the client picks a question */
+.hq-skel {
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--paper-2), var(--paper-3), var(--paper-2));
+  background-size: 200% 100%;
+}
+.hq-skel-q {
+  height: 30px;
+  width: 70%;
+  margin: 16px 0 18px;
+}
+.hq-skel-opt {
+  height: 52px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hq-option {
+    transition: background 0.18s, border-color 0.18s, color 0.18s, opacity 0.18s;
+  }
+  .hq-feedback {
+    animation: hq-reveal 0.18s ease-out;
+  }
+  .hq-skel {
+    animation: hq-shimmer 1.4s linear infinite;
+  }
+}
+@keyframes hq-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes hq-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .hq-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hq-actions .hq-cta,
+  .hq-actions .hq-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

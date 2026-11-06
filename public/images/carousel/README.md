@@ -6,6 +6,7 @@ Drop one image per tool here, named after its `slug` in `lib/tools.ts`
 - `ancient-india-timeline.jpg`
 - `national-parks.jpg`
 - `rivers-of-india.jpg`
+- `governors-general.jpg`
 
 `components/site/ToolCarousel.tsx` renders every tool that isn't `"planned"`
 automatically, so a new tool just needs a matching filename here — no code

@@ -210,6 +210,81 @@
 .ul-hero-cta-secondary:hover {
   border-color: var(--ink-soft);
 }
+/* ── homepage split hero: pitch on the left, live quiz on the right ── */
+.ul-hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 64px);
+  padding: clamp(40px, 7vw, 80px) 0 clamp(36px, 6vw, 64px);
+}
+.ul-hero-pill {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--action);
+  color: var(--action-ink);
+  font-family: var(--font-space-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ul-hero-split-title {
+  margin: 22px 0 20px;
+  font-family: var(--font-general-sans), var(--font-inter), sans-serif;
+  font-weight: 700;
+  font-size: clamp(42px, 6.2vw, 80px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+.ul-hero-split-sub {
+  max-width: 44ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.55;
+}
+.ul-hero-split-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.ul-hero-split-ctas .ul-hero-cta {
+  min-height: 48px;
+}
+.ul-hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+}
+.ul-hero-proof strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+.ul-hero-dir-below {
+  display: none;
+}
+@media (max-width: 900px) {
+  .ul-hero-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ul-hero-dir-side {
+    display: none;
+  }
+  .ul-hero-dir-below {
+    display: inline;
+  }
+}
+
 /* ── tool carousel: full-bleed auto-scrolling marquee ── */
 .ul-carousel-wrap {
   position: relative;
