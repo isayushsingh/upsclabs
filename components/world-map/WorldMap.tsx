@@ -33,12 +33,12 @@ import {
   type Lake,
   type Peak,
   type Terrain,
+  type TerrainKind,
   type WaterBody,
   type CitiesByCountry,
   type RiversByCountry,
   type LakesByCountry,
   type PeaksByCountry,
-  type TerrainByCountry,
 } from "@/lib/worldmap/types";
 import "./WorldMap.css";
 
@@ -66,7 +66,9 @@ const CITIES = citiesRaw as unknown as Record<string, CitiesByCountry>;
 const RIVERS = riversRaw as unknown as Record<string, RiversByCountry>;
 const LAKES = lakesRaw as unknown as Record<string, LakesByCountry>;
 const MOUNTAINS = mountainsRaw as unknown as Record<string, PeaksByCountry>;
-const TERRAIN = terrainRaw as unknown as Record<string, TerrainByCountry>;
+// Unlike every other layer, terrain is a flat list per continent, not
+// nested by country — see the Terrain type's own comment in types.ts.
+const TERRAIN = terrainRaw as unknown as Record<string, Terrain[]>;
 const OCEANS = oceansRaw as unknown as Record<string, WaterBody[]>;
 
 interface SearchItem {
@@ -75,6 +77,8 @@ interface SearchItem {
   name: string;
   country: string;
   idx: number;
+  /** terrain items only — which of the 4 physical-feature toggles to switch on. */
+  terrainKind?: TerrainKind;
 }
 
 const SEARCH_TYPE_LABEL: Record<SearchItem["type"], string> = {
@@ -82,6 +86,12 @@ const SEARCH_TYPE_LABEL: Record<SearchItem["type"], string> = {
   lake: "Lake",
   peak: "Peak / Volcano",
   terrain: "Physical Feature",
+};
+const TERRAIN_KIND_LABEL: Record<TerrainKind, string> = {
+  desert: "Desert",
+  plateau: "Plateau",
+  grassland: "Grassland",
+  forest: "Forest",
 };
 
 type VB = [number, number, number, number];
@@ -139,18 +149,45 @@ const dropletPath = (x: number, y: number, w: number): string =>
   `M${x},${y + w} C${x - 0.76 * w},${y + 0.3 * w} ${x - 0.76 * w},${y - 0.48 * w} ${x},${y - w} ` +
   `C${x + 0.76 * w},${y - 0.48 * w} ${x + 0.76 * w},${y + 0.3 * w} ${x},${y + w} Z`;
 
+/** Keeps the first occurrence of each (name, rounded position) pair — see
+    the `faint` useMemo below for why this exists. */
+function dedupePoints<T extends { name: string; xy: [number, number] }>(items: T[]): T[] {
+  const seen = new Set<string>();
+  return items.filter((it) => {
+    const key = `${it.name}@${Math.round(it.xy[0])},${Math.round(it.xy[1])}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 interface LayerState {
   political: boolean;
   rivers: boolean;
   mountains: boolean;
-  terrain: boolean;
+  deserts: boolean;
+  plateaus: boolean;
+  grasslands: boolean;
+  forests: boolean;
 }
 
 const DEFAULT_LAYERS: LayerState = {
   political: true,
   rivers: false,
   mountains: false,
-  terrain: false,
+  deserts: false,
+  plateaus: false,
+  grasslands: false,
+  forests: false,
+};
+
+/** Which LayerState key gates a given terrain kind — used by both the
+    render filter and search-result jump-to. */
+const TERRAIN_LAYER_KEY: Record<TerrainKind, keyof LayerState> = {
+  desert: "deserts",
+  plateau: "plateaus",
+  grassland: "grasslands",
+  forest: "forests",
 };
 
 function LayerChip({
@@ -162,7 +199,7 @@ function LayerChip({
 }: {
   on: boolean;
   onClick: () => void;
-  variant: "pol" | "riv" | "mtn" | "ter";
+  variant: "pol" | "riv" | "mtn" | "des" | "plat" | "gra" | "for";
   disabled?: boolean;
   children: ReactNode;
 }) {
@@ -276,7 +313,7 @@ export default function WorldMap() {
   const RIVERS_BY_COUNTRY = RIVERS[continent] ?? {};
   const LAKES_BY_COUNTRY = LAKES[continent] ?? {};
   const MOUNTAINS_BY_COUNTRY = MOUNTAINS[continent] ?? {};
-  const TERRAIN_BY_COUNTRY = TERRAIN[continent] ?? {};
+  const TERRAIN_LIST = TERRAIN[continent] ?? [];
   const WATER = OCEANS[continent] ?? [];
 
   const SEARCH_INDEX: SearchItem[] = useMemo(() => {
@@ -290,8 +327,9 @@ export default function WorldMap() {
     Object.entries(MOUNTAINS_BY_COUNTRY).forEach(([country, arr]) =>
       arr.forEach((p, i) => items.push({ id: `peak:${country}:${i}`, type: "peak", name: p.name, country, idx: i }))
     );
-    Object.entries(TERRAIN_BY_COUNTRY).forEach(([country, arr]) =>
-      arr.forEach((t, i) => items.push({ id: `ter:${country}:${i}`, type: "terrain", name: t.name, country, idx: i }))
+    // Flat, not country-nested — see TERRAIN_LIST's definition above.
+    TERRAIN_LIST.forEach((t, i) =>
+      items.push({ id: `ter:${i}`, type: "terrain", name: t.name, country: t.region, idx: i, terrainKind: t.kind })
     );
     return items;
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -378,32 +416,6 @@ export default function WorldMap() {
       (it) => it.name.toLowerCase().includes(q) || it.country.toLowerCase().includes(q)
     ).slice(0, 8);
   }, [searchQuery, SEARCH_INDEX]);
-
-  const goToSearchResult = useCallback(
-    (item: SearchItem) => {
-      enterCountry(item.country);
-      if (item.type === "city") {
-        const city = (CITIES_BY_COUNTRY[item.country] ?? [])[item.idx];
-        if (city) {
-          setSelected({ id: item.id, name: item.name, country: item.country, city });
-          setRevealed(new Set([item.id]));
-        }
-        setLayers((l) => ({ ...l, political: true }));
-      } else if (item.type === "lake") {
-        setLayers((l) => ({ ...l, rivers: true }));
-        setRevealed(new Set([item.id]));
-      } else if (item.type === "peak") {
-        setLayers((l) => ({ ...l, mountains: true }));
-        setRevealed(new Set([item.id]));
-      } else {
-        setLayers((l) => ({ ...l, terrain: true }));
-        setRevealed(new Set([item.id]));
-      }
-      setSearchQuery("");
-      setSearchOpen(false);
-    },
-    [enterCountry, CITIES_BY_COUNTRY]
-  );
 
   const clampWidth = useCallback(
     (w: number): number => {
@@ -564,6 +576,50 @@ export default function WorldMap() {
 
   const proj = MAP?.proj;
 
+  const goToSearchResult = useCallback(
+    (item: SearchItem) => {
+      if (item.type === "terrain") {
+        // Not country-keyed — clear any active country so the shaded
+        // region reads clearly, then pan/zoom the continent view to it
+        // directly instead of drilling into one of the countries it spans.
+        const t = TERRAIN_LIST[item.idx];
+        if (t && proj) {
+          activeCountryRef.current = null;
+          fitVBRef.current = FULL_VB;
+          setActiveCountry(null);
+          setSelected(null);
+          const [x, y] = projectPoint(proj, t.lon, t.lat);
+          animateTo(FULL_VB, 0);
+          zoomAround(x, y, 0.35);
+        }
+        const key = item.terrainKind ? TERRAIN_LAYER_KEY[item.terrainKind] : "deserts";
+        setLayers((l) => ({ ...l, [key]: true }));
+        setRevealed(new Set([item.id]));
+        setSearchQuery("");
+        setSearchOpen(false);
+        return;
+      }
+      enterCountry(item.country);
+      if (item.type === "city") {
+        const city = (CITIES_BY_COUNTRY[item.country] ?? [])[item.idx];
+        if (city) {
+          setSelected({ id: item.id, name: item.name, country: item.country, city });
+          setRevealed(new Set([item.id]));
+        }
+        setLayers((l) => ({ ...l, political: true }));
+      } else if (item.type === "lake") {
+        setLayers((l) => ({ ...l, rivers: true }));
+        setRevealed(new Set([item.id]));
+      } else if (item.type === "peak") {
+        setLayers((l) => ({ ...l, mountains: true }));
+        setRevealed(new Set([item.id]));
+      }
+      setSearchQuery("");
+      setSearchOpen(false);
+    },
+    [enterCountry, CITIES_BY_COUNTRY, TERRAIN_LIST, proj, FULL_VB, animateTo, zoomAround]
+  );
+
   // Political layer: cities for the active country, or every country in the
   // continent when none is picked yet — unlike the parks tool, this layer
   // (and the others below) works at the whole-continent zoom level too, so
@@ -634,12 +690,13 @@ export default function WorldMap() {
     setRevealed(new Set());
   }, []);
 
-  // Rivers/lakes, mountains/volcanoes, terrain — for the active country, or
-  // every country in the continent when none is picked yet (same reasoning
-  // as `points` above).
+  // Rivers/lakes, mountains/volcanoes — for the active country, or every
+  // country in the continent when none is picked yet (same reasoning as
+  // `points` above). Terrain is handled separately below: it's a flat,
+  // not country-keyed, list to begin with (see terrainFeatures).
   const faint = useMemo(() => {
     if (!proj) {
-      return { rivers: [], lakes: [], peaks: [], terrain: [] as { id: string; name: string; kind: string; note: string; xy: [number, number] }[] };
+      return { rivers: [], lakes: [], peaks: [] };
     }
     const countries = activeCountry ? [activeCountry] : (MAP?.countries.map((c) => c.name) ?? []);
 
@@ -655,7 +712,7 @@ export default function WorldMap() {
         id: `lake:${country}:${i}`,
         name: l.name,
         note: l.note,
-        waterfall: l.kind === "waterfall",
+        kind: l.kind ?? "lake",
         xy: projectPoint(proj, l.lon, l.lat),
       }))
     );
@@ -668,17 +725,33 @@ export default function WorldMap() {
         xy: projectPoint(proj, p.lon, p.lat),
       }))
     );
-    const terrain = countries.flatMap((country) =>
-      (TERRAIN_BY_COUNTRY[country] ?? []).map((t: Terrain, i: number) => ({
-        id: `ter:${country}:${i}`,
-        name: t.name,
-        kind: t.kind,
-        note: t.note,
-        xy: projectPoint(proj, t.lon, t.lat),
-      }))
-    );
-    return { rivers, lakes, peaks, terrain };
-  }, [activeCountry, proj, MAP, RIVERS_BY_COUNTRY, LAKES_BY_COUNTRY, MOUNTAINS_BY_COUNTRY, TERRAIN_BY_COUNTRY]);
+    // A border-straddling feature (Ojos del Salado on Chile/Argentina, Lake
+    // Titicaca on Peru/Bolivia) is deliberately listed under each country it
+    // touches, so it still appears whichever single one is zoomed in — but
+    // browsing the whole continent aggregates every country's list together
+    // and must draw it only once. Same fix the parks tool uses for
+    // biosphere reserves that span multiple states.
+    return { rivers, lakes: dedupePoints(lakes), peaks: dedupePoints(peaks) };
+  }, [activeCountry, proj, MAP, RIVERS_BY_COUNTRY, LAKES_BY_COUNTRY, MOUNTAINS_BY_COUNTRY]);
+
+  // Terrain is a rough-extent shaded region, not a point — and, unlike every
+  // other layer, its data is a flat per-continent list already (one entry
+  // per feature, however many countries it spans — see the Terrain type's
+  // comment in types.ts), so there's no per-country aggregation or dedup
+  // needed here the way there is above.
+  const terrainFeatures = useMemo(() => {
+    if (!proj) return [];
+    return TERRAIN_LIST.map((t: Terrain, i: number) => ({
+      id: `ter:${i}`,
+      name: t.name,
+      kind: t.kind,
+      note: t.note,
+      region: t.region,
+      xy: projectPoint(proj, t.lon, t.lat),
+      rx: t.radius * proj.coslat * proj.scale,
+      ry: t.radius * proj.scale,
+    }));
+  }, [TERRAIN_LIST, proj]);
 
   const waterLabels = useMemo(() => {
     if (!proj) return [];
@@ -713,12 +786,28 @@ export default function WorldMap() {
       ? faint.peaks.map((p) => ({ id: p.id, text: (p.volcano ? "▲ " : "△ ") + p.name, x: p.xy[0], y: p.xy[1], r: 0, fontSize: PEAK_FRAC * vb[2], priority: 0.3 }))
       : [];
 
-    const terrainLabels: LabelInput[] = layers.terrain
-      ? faint.terrain.map((t) => ({ id: t.id, text: t.name, x: t.xy[0], y: t.xy[1], r: 0, fontSize: TERRAIN_FRAC * vb[2], priority: 0.2 }))
-      : [];
+    // Not part of the Recall-mode mask/reveal system — like peaks, a
+    // region's name stays visible whenever its layer is on; the shaded
+    // extent alone (without a name) wouldn't be much of a recall prompt.
+    const terrainLabels: LabelInput[] = terrainFeatures
+      .filter((t) => layers[TERRAIN_LAYER_KEY[t.kind]])
+      .map((t) => ({ id: t.id, text: t.name, x: t.xy[0], y: t.xy[1], r: 0, fontSize: TERRAIN_FRAC * vb[2], priority: 0.2 }));
 
     return placeLabels([...cityLabels, ...lakeLabels, ...peakLabels, ...terrainLabels], LGAP_FRAC * vb[2]);
-  }, [clusters, vb, mode, revealed, layers.rivers, layers.mountains, layers.terrain, faint]);
+  }, [
+    clusters,
+    vb,
+    mode,
+    revealed,
+    layers.rivers,
+    layers.mountains,
+    terrainFeatures,
+    layers.deserts,
+    layers.plateaus,
+    layers.grasslands,
+    layers.forests,
+    faint,
+  ]);
 
   const R = R_FRAC * vb[2];
   const CAP_R = CAP_R_FRAC * vb[2];
@@ -795,7 +884,9 @@ export default function WorldMap() {
                   <li key={r.id}>
                     <button type="button" className="wm-search-result" onClick={() => goToSearchResult(r)}>
                       <span className="wm-search-name">{r.name}</span>
-                      <span className="wm-search-meta">{SEARCH_TYPE_LABEL[r.type]} · {r.country}</span>
+                      <span className="wm-search-meta">
+                        {r.terrainKind ? TERRAIN_KIND_LABEL[r.terrainKind] : SEARCH_TYPE_LABEL[r.type]} · {r.country}
+                      </span>
                     </button>
                   </li>
                 ))
@@ -813,7 +904,10 @@ export default function WorldMap() {
               <LayerChip variant="pol" on={layers.political} onClick={() => toggle("political")}>Political (Capitals &amp; Cities)</LayerChip>
               <LayerChip variant="riv" on={layers.rivers} onClick={() => toggle("rivers")}>Rivers &amp; Lakes</LayerChip>
               <LayerChip variant="mtn" on={layers.mountains} onClick={() => toggle("mountains")}>Mountains &amp; Volcanoes</LayerChip>
-              <LayerChip variant="ter" on={layers.terrain} onClick={() => toggle("terrain")}>Physical Features</LayerChip>
+              <LayerChip variant="des" on={layers.deserts} onClick={() => toggle("deserts")}>Deserts</LayerChip>
+              <LayerChip variant="plat" on={layers.plateaus} onClick={() => toggle("plateaus")}>Plateaus</LayerChip>
+              <LayerChip variant="gra" on={layers.grasslands} onClick={() => toggle("grasslands")}>Grasslands</LayerChip>
+              <LayerChip variant="for" on={layers.forests} onClick={() => toggle("forests")}>Forests</LayerChip>
             </div>
           </div>
 
@@ -910,10 +1004,10 @@ export default function WorldMap() {
                           role="button"
                           tabIndex={0}
                           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); revealOnly(l.id); } }}
-                          aria-label={masked ? `Hidden ${l.waterfall ? "waterfall" : "lake"} — click to reveal` : l.name}
+                          aria-label={masked ? `Hidden ${l.kind} — click to reveal` : l.name}
                         >
                           <circle cx={cx} cy={cy} r={TOUCH_R} className="wm-touch-target" />
-                          <path d={dropletPath(cx, cy, DROP)} className={`wm-lake ${l.waterfall ? "wm-lake-waterfall" : ""}`} />
+                          <path d={dropletPath(cx, cy, DROP)} className={`wm-lake wm-lake-${l.kind}`} />
                           {masked ? (
                             <text x={cx} y={cy + DROP + LAKE_FS} fontSize={LAKE_FS} textAnchor="middle" className="wm-lakelabel wm-mask">?</text>
                           ) : (
@@ -952,23 +1046,57 @@ export default function WorldMap() {
                   </g>
                 )}
 
-                {layers.terrain && (
-                  <g className="wm-terrain" aria-hidden="true">
-                    {faint.terrain.map((t) => {
-                      const [cx, cy] = t.xy;
-                      const pl = placements.get(t.id);
-                      if (!pl || pl.hidden) return null;
-                      return (
-                        <g key={t.id}>
-                          {pl.leader && <line x1={cx} y1={cy} x2={pl.x} y2={pl.y - LEAD_GAP} className="wm-lead" />}
-                          <text x={pl.x} y={pl.y} fontSize={TERRAIN_FS} textAnchor={pl.textAnchor} className={`wm-terrainlabel wm-terrain-${t.kind}`}>
-                            {t.name}
-                          </text>
-                        </g>
-                      );
-                    })}
-                  </g>
-                )}
+                {/* Rough-extent shaded region — a soft-edged wash rather
+                    than a surveyed boundary, the same technique the parks
+                    tool uses for biosphere reserves. Drawn under everything
+                    else so it never competes with markers/labels on top of
+                    it. Each kind's own toggle gates the ellipse directly
+                    (it doesn't go through `placements`, which only decides
+                    the label's position/visibility). */}
+                <g className="wm-terrain-regions" aria-hidden="true">
+                  <defs>
+                    {(["desert", "plateau", "grassland", "forest"] as const).map((k) => (
+                      <radialGradient key={k} id={`wm-terrain-grad-${k}`}>
+                        <stop offset="0%" stopColor={`var(--${k})`} stopOpacity="0.32" />
+                        <stop offset="70%" stopColor={`var(--${k})`} stopOpacity="0.16" />
+                        <stop offset="100%" stopColor={`var(--${k})`} stopOpacity="0" />
+                      </radialGradient>
+                    ))}
+                  </defs>
+                  {terrainFeatures
+                    .filter((t) => layers[TERRAIN_LAYER_KEY[t.kind]])
+                    .map((t) => (
+                      <ellipse
+                        key={t.id}
+                        cx={t.xy[0]}
+                        cy={t.xy[1]}
+                        rx={t.rx}
+                        ry={t.ry}
+                        fill={`url(#wm-terrain-grad-${t.kind})`}
+                        className="wm-terrain-region"
+                      />
+                    ))}
+                </g>
+
+                {/* Visibility is decided by `placements` (built only from
+                    kinds whose own toggle is on) — a plain per-kind `&&`
+                    guard here isn't needed since an untoggled item simply
+                    has no placement to render. */}
+                <g className="wm-terrain" aria-hidden="true">
+                  {terrainFeatures.map((t) => {
+                    const [cx, cy] = t.xy;
+                    const pl = placements.get(t.id);
+                    if (!pl || pl.hidden) return null;
+                    return (
+                      <g key={t.id}>
+                        {pl.leader && <line x1={cx} y1={cy} x2={pl.x} y2={pl.y - LEAD_GAP} className="wm-lead" />}
+                        <text x={pl.x} y={pl.y} fontSize={TERRAIN_FS} textAnchor={pl.textAnchor} className={`wm-terrainlabel wm-terrain-${t.kind}`}>
+                          {t.name}
+                        </text>
+                      </g>
+                    );
+                  })}
+                </g>
 
                 {layers.political && (
                   <g className="wm-markers">
@@ -1053,6 +1181,7 @@ export default function WorldMap() {
           <span><i className="wm-lg wm-lg-cap" />Capital</span>
           <span><i className="wm-lg wm-lg-city" />Major City</span>
           <span><i className="wm-lg wm-lg-lake" />Lake</span>
+          <span><i className="wm-lg wm-lg-lagoon" />Lagoon</span>
           <span><i className="wm-lg wm-lg-waterfall" />Waterfall</span>
           <span><i className="wm-lg wm-lg-peak" />Mountain</span>
           <span><i className="wm-lg wm-lg-volcano" />Volcano</span>

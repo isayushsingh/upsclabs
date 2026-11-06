@@ -16,6 +16,7 @@
   --city: #3e5c76;
   --sea: #4779a3;
   --lake: #2c5f8a;
+  --lagoon: #3f8a7a;
   --peak: #7d5f3c;
   --volcano: #b3402f;
   --desert: #c2953f;
@@ -496,13 +497,37 @@
 .wm-chip-mtn.on .wm-sw {
   background: var(--peak);
 }
-.wm-chip-ter.on {
+.wm-chip-des.on {
+  color: #8a6a25;
+  border-color: rgba(194, 149, 63, 0.5);
+  background: rgba(194, 149, 63, 0.14);
+}
+.wm-chip-des.on .wm-sw {
+  background: var(--desert);
+}
+.wm-chip-plat.on {
+  color: #6b4e2e;
+  border-color: rgba(138, 106, 69, 0.45);
+  background: rgba(138, 106, 69, 0.13);
+}
+.wm-chip-plat.on .wm-sw {
+  background: var(--plateau);
+}
+.wm-chip-gra.on {
   color: #4c6b2b;
   border-color: rgba(95, 138, 63, 0.45);
   background: rgba(95, 138, 63, 0.12);
 }
-.wm-chip-ter.on .wm-sw {
+.wm-chip-gra.on .wm-sw {
   background: var(--grassland);
+}
+.wm-chip-for.on {
+  color: #275038;
+  border-color: rgba(47, 107, 63, 0.5);
+  background: rgba(47, 107, 63, 0.13);
+}
+.wm-chip-for.on .wm-sw {
+  background: var(--forest);
 }
 
 /* ── zoom buttons ── */
@@ -675,6 +700,10 @@
   fill-opacity: 0.75;
   stroke: #1c3f5c;
 }
+.wm-lake-lagoon {
+  fill: var(--lagoon);
+  stroke: #1f4a41;
+}
 .wm-lakelabel {
   fill: #1c3f5c;
   font-style: italic;
@@ -702,12 +731,16 @@
   stroke-width: 2px;
   vector-effect: non-scaling-stroke;
 }
+.wm-terrain-region {
+  pointer-events: none;
+}
 .wm-terrainlabel {
   font-style: italic;
+  font-weight: 600;
   text-anchor: middle;
   paint-order: stroke;
   stroke: var(--paper);
-  stroke-width: 2px;
+  stroke-width: 3px;
   vector-effect: non-scaling-stroke;
 }
 .wm-terrain-desert {
@@ -895,6 +928,9 @@
 }
 .wm-lg-city {
   background: var(--city);
+}
+.wm-lg-lagoon {
+  background: var(--lagoon);
 }
 .wm-lg-lake {
   background: var(--lake);

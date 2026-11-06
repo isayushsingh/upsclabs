@@ -7,9 +7,20 @@
 // Country *shapes* in each continent's JSON (e.g. south-america.json) are
 // real borders (Natural Earth via world-50m.json — see lib/orgs/geo.ts for
 // the same source used elsewhere in this repo), reprojected into that
-// file's own equirectangular frame. Everything else here (cities, rivers,
-// lakes, mountains, terrain, oceans) is real data too, keyed by country,
-// and shares that same lon/lat → viewBox projection.
+// file's own equirectangular frame.
+//
+// River *paths* are being upgraded the same way, country by country: South
+// America's are real Natural Earth centerlines (ne_50m/10m_rivers_lake_
+// centerlines — see scripts/*, run once and committed, not fetched at
+// runtime); the rest are still reasoned-approximate waypoints pending the
+// same treatment. Cities/capitals, peaks, oceans and lake positions are
+// real known coordinates (general geographic knowledge, not sketch-derived)
+// but haven't been checked against an authoritative gazetteer. Terrain
+// labels (desert/plateau/grassland/forest) are placed by reasoned estimate
+// — no Natural Earth layer at this resolution names these specific regions
+// (Selvas, Llanos, etc.), so there's no dataset to upgrade them from yet.
+// Whatever the source, everything shares the same lon/lat → viewBox
+// projection, so upgrading one layer never requires touching another.
 
 /** A feature placed by geographic coordinates (projected at runtime via projectPoint). */
 interface GeoPoint {
@@ -34,7 +45,7 @@ export interface River {
 export interface Lake extends GeoPoint {
   note: string;
   /** Defaults to "lake" when omitted — "waterfall" swaps the marker colour. */
-  kind?: "lake" | "waterfall";
+  kind?: "lake" | "waterfall" | "lagoon";
 }
 
 /** Mountains & Volcanoes layer. */
@@ -43,10 +54,22 @@ export interface Peak extends GeoPoint {
   note: string;
 }
 
-/** Physical-features layer: desert / plateau / grassland / forest, all in one toggle. */
+/** Physical-features layer: desert / plateau / grassland / forest, each its
+    own toggle. Rendered as a rough-extent shaded blob (like Biosphere below)
+    rather than a point marker — a desert or a rainforest doesn't have one
+    location, and it commonly spans more than one country. Because of that,
+    unlike every other layer, terrain.json is a *flat* per-continent list,
+    not nested by country: one entry per feature, not one per country it
+    touches, so e.g. the Amazon shows (and is named) once, not three times.
+    `region` is display-only text ("Brazil, Peru & Colombia") for the search
+    result/card — it plays no part in when the feature is shown. */
 export type TerrainKind = "desert" | "plateau" | "grassland" | "forest";
 export interface Terrain extends GeoPoint {
   kind: TerrainKind;
+  /** Rough extent, in degrees — an approximate radius, not a surveyed
+      boundary (same idea as Biosphere.radius below). */
+  radius: number;
+  region: string;
   note: string;
 }
 
@@ -58,12 +81,12 @@ export interface WaterBody extends GeoPoint {
   kind: WaterKind;
 }
 
-/** Per-country keyed datasets (keys are country names, e.g. "Brazil"). */
+/** Per-country keyed datasets (keys are country names, e.g. "Brazil"). Terrain
+    is the one exception — see its own comment above. */
 export type CitiesByCountry = Record<string, City[]>;
 export type RiversByCountry = Record<string, River[]>;
 export type LakesByCountry = Record<string, Lake[]>;
 export type PeaksByCountry = Record<string, Peak[]>;
-export type TerrainByCountry = Record<string, Terrain[]>;
 
 /* ── per-continent map JSON (e.g. south-america.json) ── */
 

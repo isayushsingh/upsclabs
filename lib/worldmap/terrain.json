@@ -1,93 +1,311 @@
 {
-  "south-america": {
-    "Chile": [
-      { "name": "Atacama Desert", "lon": -69.5, "lat": -23.8, "kind": "desert", "note": "Driest non-polar desert on Earth; some weather stations have never recorded rain." }
-    ],
-    "Argentina": [
-      { "name": "Pampas", "lon": -62, "lat": -35.5, "kind": "grassland", "note": "Fertile grassland plains — the agricultural heartland of Argentina (beef, wheat, soy)." },
-      { "name": "Patagonia", "lon": -70, "lat": -46, "kind": "plateau", "note": "Windswept semi-arid plateau/steppe spanning southern Argentina and Chile." }
-    ],
-    "Bolivia": [
-      { "name": "Altiplano", "lon": -68, "lat": -18.5, "kind": "plateau", "note": "High Andean plateau (~3,750 m average), second-largest after the Tibetan Plateau." }
-    ],
-    "Paraguay": [
-      { "name": "Gran Chaco", "lon": -60.5, "lat": -23, "kind": "grassland", "note": "Vast lowland plain of scrub and grassland, shared with Argentina and Bolivia." }
-    ],
-    "Venezuela": [
-      { "name": "Llanos", "lon": -67.0, "lat": 7.5, "kind": "grassland", "note": "Tropical grassland plains either side of the Orinoco, shared with Colombia — seasonally flooded." }
-    ],
-    "Colombia": [
-      { "name": "Llanos", "lon": -71.5, "lat": 5.0, "kind": "grassland", "note": "Tropical grassland plains either side of the Orinoco, shared with Venezuela — seasonally flooded." },
-      { "name": "Selvas", "lon": -71.0, "lat": -1.0, "kind": "forest", "note": "Selvas — the evergreen equatorial rainforest of the Amazon basin; Colombia's southern Amazonas department." }
-    ],
-    "Peru": [
-      { "name": "Selvas", "lon": -73.0, "lat": -6.0, "kind": "forest", "note": "Selvas — the evergreen equatorial rainforest of the Amazon basin, covering Peru's eastern Loreto region." }
-    ],
-    "Brazil": [
-      { "name": "Selvas", "lon": -63.0, "lat": -5.0, "kind": "forest", "note": "Selvas — the evergreen equatorial rainforest of the Amazon basin; most of it lies within Brazil." }
-    ]
-  },
-  "north-america": {
-    "United States": [
-      { "name": "Great Plains", "lon": -100, "lat": 41, "kind": "grassland", "note": "Vast interior grassland — the US/Canada 'breadbasket', once home to vast bison herds." },
-      { "name": "Colorado Plateau", "lon": -111, "lat": 36.5, "kind": "plateau", "note": "High sedimentary plateau carved by rivers into the Grand Canyon." },
-      { "name": "Mojave Desert", "lon": -116.5, "lat": 35.5, "kind": "desert", "note": "Home to Death Valley, the hottest and lowest point in North America." }
-    ],
-    "Mexico": [
-      { "name": "Sonoran Desert", "lon": -111.5, "lat": 29.5, "kind": "desert", "note": "Shared with the southwestern US; known for the iconic saguaro cactus." }
-    ],
-    "Canada": [
-      { "name": "Canadian Prairies", "lon": -106, "lat": 51, "kind": "grassland", "note": "Wheat-growing plains across Alberta, Saskatchewan and Manitoba." }
-    ]
-  },
-  "africa": {
-    "Algeria": [
-      { "name": "Sahara Desert", "lon": 3, "lat": 26, "kind": "desert", "note": "World's largest hot desert, spanning most of North Africa across ~11 countries." }
-    ],
-    "Kenya": [
-      { "name": "East African savanna", "lon": 37, "lat": -2, "kind": "grassland", "note": "Grassland/savanna supporting the Great Migration across the Serengeti–Mara ecosystem." }
-    ],
-    "Ethiopia": [
-      { "name": "Ethiopian Highlands", "lon": 39, "lat": 9.5, "kind": "plateau", "note": "'Roof of Africa' — source of the Blue Nile, shaped by the Great Rift Valley." }
-    ],
-    "South Africa": [
-      { "name": "Kalahari Desert", "lon": 21, "lat": -24, "kind": "desert", "note": "Semi-arid sandy savanna spanning South Africa, Botswana and Namibia." },
-      { "name": "Highveld", "lon": 27, "lat": -26.5, "kind": "plateau", "note": "High interior plateau (~1,500 m) where Johannesburg and Pretoria sit." }
-    ]
-  },
-  "europe": {
-    "Ukraine": [
-      { "name": "Pontic Steppe", "lon": 33, "lat": 47.5, "kind": "grassland", "note": "Fertile black-soil (chernozem) grassland — historic invasion corridor and grain belt." }
-    ],
-    "Spain": [
-      { "name": "Meseta Central", "lon": -4, "lat": 40, "kind": "plateau", "note": "High interior plateau covering much of Spain, where Madrid sits." }
-    ],
-    "Norway": [
-      { "name": "Scandinavian Mountains (fjord plateau)", "lon": 8, "lat": 61.5, "kind": "plateau", "note": "Glacially carved highlands behind Norway's fjord coastline." }
-    ]
-  },
-  "asia": {
-    "Saudi Arabia": [
-      { "name": "Rub' al Khali (Empty Quarter)", "lon": 51, "lat": 20, "kind": "desert", "note": "Largest contiguous sand desert in the world." }
-    ],
-    "Mongolia": [
-      { "name": "Gobi Desert", "lon": 103, "lat": 43.5, "kind": "desert", "note": "Cold desert spanning southern Mongolia and northern China." }
-    ],
-    "China": [
-      { "name": "Tibetan Plateau", "lon": 88, "lat": 33, "kind": "plateau", "note": "'Roof of the World' (~4,500 m average) — source of Asia's major rivers." }
-    ],
-    "Kazakhstan": [
-      { "name": "Kazakh Steppe", "lon": 68, "lat": 48, "kind": "grassland", "note": "One of the world's largest dry steppe regions, historic Silk Road corridor." }
-    ],
-    "India": [
-      { "name": "Thar Desert", "lon": 71.5, "lat": 27, "kind": "desert", "note": "Great Indian Desert along the India–Pakistan border, in Rajasthan." },
-      { "name": "Deccan Plateau", "lon": 77, "lat": 17, "kind": "plateau", "note": "Triangular volcanic plateau covering most of peninsular India." }
-    ]
-  },
-  "australia-oceania": {
-    "Australia": [
-      { "name": "Great Victoria Desert", "lon": 127, "lat": -29, "kind": "desert", "note": "Australia's largest desert, spanning Western Australia and South Australia." },
-      { "name": "Nullarbor Plain", "lon": 128, "lat": -31, "kind": "plateau", "note": "Vast, almost treeless limestone plateau along the southern coast." }
-    ]
-  }
+  "south-america": [
+    {
+      "name": "Atacama Desert",
+      "lon": -69.5,
+      "lat": -23.8,
+      "kind": "desert",
+      "radius": 2.2,
+      "region": "Chile",
+      "note": "Driest non-polar desert on Earth — the cold Peruvian (Humboldt) Current offshore cools the air, suppressing evaporation, so little moisture ever reaches it as rain; some stations have never recorded any."
+    },
+    {
+      "name": "Pampas",
+      "lon": -62,
+      "lat": -35.5,
+      "kind": "grassland",
+      "radius": 4,
+      "region": "Argentina",
+      "note": "Fertile temperate grassland — Argentina's agricultural heartland (beef cattle, wheat, soy); alfalfa is a key fodder crop."
+    },
+    {
+      "name": "Patagonia",
+      "lon": -70.5,
+      "lat": -45,
+      "kind": "plateau",
+      "radius": 6.5,
+      "region": "Argentina & Chile",
+      "note": "Windswept plateau/steppe in the Andes' rain shadow — the Pacific westerlies drop their moisture on Chile's windward coast, leaving Argentina's leeward side arid; also called a Piedmont plateau (built up at the mountains' foothills) or, for its climate, the Patagonian Desert."
+    },
+    {
+      "name": "Gran Chaco",
+      "lon": -61,
+      "lat": -23,
+      "kind": "grassland",
+      "radius": 4.5,
+      "region": "Paraguay, Bolivia & Argentina",
+      "note": "Vast lowland plain of scrub and grassland spanning Paraguay, Argentina and Bolivia — divided into northern, southern and middle sectors."
+    },
+    {
+      "name": "Altiplano",
+      "lon": -68.3,
+      "lat": -18,
+      "kind": "plateau",
+      "radius": 3,
+      "region": "Bolivia & Peru",
+      "note": "High Andean inter-montane plateau (~3,750 m average) between the eastern and western Andes — also called the Bolivian Plateau; second-largest such plateau after Tibet's."
+    },
+    {
+      "name": "Llanos",
+      "lon": -69,
+      "lat": 6.2,
+      "kind": "grassland",
+      "radius": 3.2,
+      "region": "Venezuela & Colombia",
+      "note": "Seasonally flooded tropical grassland plains either side of the Orinoco, shared between Venezuela and Colombia — used for cattle ranching."
+    },
+    {
+      "name": "Selvas (Amazon Basin)",
+      "lon": -65,
+      "lat": -4,
+      "kind": "forest",
+      "radius": 9.5,
+      "region": "Brazil, Peru & Colombia",
+      "note": "Selvas — the evergreen equatorial rainforest of the Amazon basin; most of it lies within Brazil, with the rest across Peru and Colombia."
+    },
+    {
+      "name": "Caatinga",
+      "lon": -39.5,
+      "lat": -8,
+      "kind": "forest",
+      "radius": 2.5,
+      "region": "Brazil",
+      "note": "Semi-arid thorn-scrub forest of NE Brazil — drought-adapted vegetation and one of the country's most biodiverse dry-forest biomes."
+    },
+    {
+      "name": "Cerrado",
+      "lon": -47.5,
+      "lat": -14,
+      "kind": "grassland",
+      "radius": 5.5,
+      "region": "Brazil",
+      "note": "Brazil's vast tropical savanna — wooded grassland covering roughly a fifth of the country; a major soy frontier and biodiversity hotspot."
+    },
+    {
+      "name": "Campos",
+      "lon": -41.5,
+      "lat": -8.7,
+      "kind": "grassland",
+      "radius": 2.2,
+      "region": "Brazil",
+      "note": "Grassland region of NE/SE Brazil supporting cattle ranching, graded locally into campos limpos, sujos and cerrados by vegetation density."
+    },
+    {
+      "name": "Borborema Plateau",
+      "lon": -36.5,
+      "lat": -7.3,
+      "kind": "plateau",
+      "radius": 1.8,
+      "region": "Brazil",
+      "note": "Crystalline plateau of NE Brazil, between the coast and the semi-arid Caatinga interior."
+    },
+    {
+      "name": "Mato Grosso Plateau",
+      "lon": -55.5,
+      "lat": -13.5,
+      "kind": "plateau",
+      "radius": 4.2,
+      "region": "Brazil",
+      "note": "Central Brazilian plateau and major watershed divide, feeding both the Amazon and the Paraná/Plata river systems; a soybean frontier."
+    }
+  ],
+  "north-america": [
+    {
+      "name": "Great Plains",
+      "lon": -100,
+      "lat": 41,
+      "kind": "grassland",
+      "radius": 6,
+      "region": "United States",
+      "note": "Vast interior grassland — the US/Canada 'breadbasket', once home to vast bison herds."
+    },
+    {
+      "name": "Colorado Plateau",
+      "lon": -111,
+      "lat": 36.5,
+      "kind": "plateau",
+      "radius": 2.5,
+      "region": "United States",
+      "note": "High sedimentary plateau carved by rivers into the Grand Canyon."
+    },
+    {
+      "name": "Mojave Desert",
+      "lon": -116.5,
+      "lat": 35.5,
+      "kind": "desert",
+      "radius": 2,
+      "region": "United States",
+      "note": "Home to Death Valley, the hottest and lowest point in North America."
+    },
+    {
+      "name": "Sonoran Desert",
+      "lon": -111.5,
+      "lat": 29.5,
+      "kind": "desert",
+      "radius": 2.5,
+      "region": "Mexico",
+      "note": "Shared with the southwestern US; known for the iconic saguaro cactus."
+    },
+    {
+      "name": "Canadian Prairies",
+      "lon": -106,
+      "lat": 51,
+      "kind": "grassland",
+      "radius": 4.5,
+      "region": "Canada",
+      "note": "Wheat-growing plains across Alberta, Saskatchewan and Manitoba."
+    }
+  ],
+  "africa": [
+    {
+      "name": "Sahara Desert",
+      "lon": 3,
+      "lat": 26,
+      "kind": "desert",
+      "radius": 10,
+      "region": "Algeria",
+      "note": "World's largest hot desert, spanning most of North Africa across ~11 countries."
+    },
+    {
+      "name": "East African savanna",
+      "lon": 37,
+      "lat": -2,
+      "kind": "grassland",
+      "radius": 5,
+      "region": "Kenya",
+      "note": "Grassland/savanna supporting the Great Migration across the Serengeti–Mara ecosystem."
+    },
+    {
+      "name": "Ethiopian Highlands",
+      "lon": 39,
+      "lat": 9.5,
+      "kind": "plateau",
+      "radius": 3,
+      "region": "Ethiopia",
+      "note": "'Roof of Africa' — source of the Blue Nile, shaped by the Great Rift Valley."
+    },
+    {
+      "name": "Kalahari Desert",
+      "lon": 21,
+      "lat": -24,
+      "kind": "desert",
+      "radius": 5,
+      "region": "South Africa",
+      "note": "Semi-arid sandy savanna spanning South Africa, Botswana and Namibia."
+    },
+    {
+      "name": "Highveld",
+      "lon": 27,
+      "lat": -26.5,
+      "kind": "plateau",
+      "radius": 3,
+      "region": "South Africa",
+      "note": "High interior plateau (~1,500 m) where Johannesburg and Pretoria sit."
+    }
+  ],
+  "europe": [
+    {
+      "name": "Pontic Steppe",
+      "lon": 33,
+      "lat": 47.5,
+      "kind": "grassland",
+      "radius": 4,
+      "region": "Ukraine",
+      "note": "Fertile black-soil (chernozem) grassland — historic invasion corridor and grain belt."
+    },
+    {
+      "name": "Meseta Central",
+      "lon": -4,
+      "lat": 40,
+      "kind": "plateau",
+      "radius": 2.2,
+      "region": "Spain",
+      "note": "High interior plateau covering much of Spain, where Madrid sits."
+    },
+    {
+      "name": "Scandinavian Mountains (fjord plateau)",
+      "lon": 8,
+      "lat": 61.5,
+      "kind": "plateau",
+      "radius": 3,
+      "region": "Norway",
+      "note": "Glacially carved highlands behind Norway's fjord coastline."
+    }
+  ],
+  "asia": [
+    {
+      "name": "Rub' al Khali (Empty Quarter)",
+      "lon": 51,
+      "lat": 20,
+      "kind": "desert",
+      "radius": 3.5,
+      "region": "Saudi Arabia",
+      "note": "Largest contiguous sand desert in the world."
+    },
+    {
+      "name": "Gobi Desert",
+      "lon": 103,
+      "lat": 43.5,
+      "kind": "desert",
+      "radius": 5,
+      "region": "Mongolia",
+      "note": "Cold desert spanning southern Mongolia and northern China."
+    },
+    {
+      "name": "Tibetan Plateau",
+      "lon": 88,
+      "lat": 33,
+      "kind": "plateau",
+      "radius": 6.5,
+      "region": "China",
+      "note": "'Roof of the World' (~4,500 m average) — source of Asia's major rivers."
+    },
+    {
+      "name": "Kazakh Steppe",
+      "lon": 68,
+      "lat": 48,
+      "kind": "grassland",
+      "radius": 6,
+      "region": "Kazakhstan",
+      "note": "One of the world's largest dry steppe regions, historic Silk Road corridor."
+    },
+    {
+      "name": "Thar Desert",
+      "lon": 71.5,
+      "lat": 27,
+      "kind": "desert",
+      "radius": 2,
+      "region": "India",
+      "note": "Great Indian Desert along the India–Pakistan border, in Rajasthan."
+    },
+    {
+      "name": "Deccan Plateau",
+      "lon": 77,
+      "lat": 17,
+      "kind": "plateau",
+      "radius": 4,
+      "region": "India",
+      "note": "Triangular volcanic plateau covering most of peninsular India."
+    }
+  ],
+  "australia-oceania": [
+    {
+      "name": "Great Victoria Desert",
+      "lon": 127,
+      "lat": -29,
+      "kind": "desert",
+      "radius": 3,
+      "region": "Australia",
+      "note": "Australia's largest desert, spanning Western Australia and South Australia."
+    },
+    {
+      "name": "Nullarbor Plain",
+      "lon": 128,
+      "lat": -31,
+      "kind": "plateau",
+      "radius": 2,
+      "region": "Australia",
+      "note": "Vast, almost treeless limestone plateau along the southern coast."
+    }
+  ]
 }

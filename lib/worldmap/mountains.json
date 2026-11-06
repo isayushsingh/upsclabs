@@ -1,85 +1,319 @@
 {
   "south-america": {
     "Argentina": [
-      { "name": "Aconcagua", "lon": -70.01, "lat": -32.65, "volcano": false, "note": "Highest peak in the Americas and outside Asia (6,961 m), in the Andes." },
-      { "name": "Ojos del Salado", "lon": -68.54, "lat": -27.11, "volcano": true, "note": "Highest active volcano in the world (~6,893 m), on the Argentina–Chile border." }
+      {
+        "name": "Aconcagua",
+        "lon": -70.01,
+        "lat": -32.65,
+        "volcano": true,
+        "note": "Highest peak in the Americas and outside Asia (6,960 m), in the Andes; often described as an extinct volcano, though it's mainly a tectonic (fold-mountain) peak."
+      },
+      {
+        "name": "Ojos del Salado",
+        "lon": -68.54,
+        "lat": -27.11,
+        "volcano": true,
+        "note": "Highest active volcano in the world (~6,893 m), on the Argentina–Chile border."
+      },
+      {
+        "name": "Andes",
+        "lon": -70.5,
+        "lat": -40,
+        "volcano": false,
+        "note": "World's longest continental mountain range (~7,000 km) — a fold-mountain belt raised by the Nazca and Antarctic Plates subducting beneath the South American Plate; runs through 7 countries."
+      }
     ],
     "Chile": [
-      { "name": "Ojos del Salado", "lon": -68.54, "lat": -27.11, "volcano": true, "note": "Highest active volcano in the world (~6,893 m), on the Argentina–Chile border." },
-      { "name": "Villarrica", "lon": -71.93, "lat": -39.42, "volcano": true, "note": "One of Chile's most active volcanoes, in the Lake District." }
+      {
+        "name": "Ojos del Salado",
+        "lon": -68.54,
+        "lat": -27.11,
+        "volcano": true,
+        "note": "Highest active volcano in the world (~6,893 m), on the Argentina–Chile border."
+      },
+      {
+        "name": "Villarrica",
+        "lon": -71.93,
+        "lat": -39.42,
+        "volcano": true,
+        "note": "One of Chile's most active volcanoes, in the Lake District."
+      },
+      {
+        "name": "Andes",
+        "lon": -70,
+        "lat": -30,
+        "volcano": false,
+        "note": "World's longest continental mountain range (~7,000 km) — a fold-mountain belt raised by the Nazca and Antarctic Plates subducting beneath the South American Plate; runs through 7 countries."
+      }
     ],
     "Ecuador": [
-      { "name": "Chimborazo", "lon": -78.82, "lat": -1.47, "volcano": true, "note": "Farthest point from Earth's centre due to equatorial bulge, despite not being the tallest peak." },
-      { "name": "Cotopaxi", "lon": -78.44, "lat": -0.68, "volcano": true, "note": "One of the world's highest active volcanoes (~5,897 m)." }
+      {
+        "name": "Chimborazo",
+        "lon": -78.82,
+        "lat": -1.47,
+        "volcano": true,
+        "note": "Dormant volcano (6,267 m) — farthest point from Earth's centre due to the equatorial bulge, despite not being the tallest peak; taller than neighbouring Cotopaxi."
+      },
+      {
+        "name": "Cotopaxi",
+        "lon": -78.44,
+        "lat": -0.68,
+        "volcano": true,
+        "note": "One of the world's highest active volcanoes (5,897 m)."
+      },
+      {
+        "name": "Andes",
+        "lon": -78.6,
+        "lat": -2,
+        "volcano": false,
+        "note": "World's longest continental mountain range (~7,000 km) — a fold-mountain belt raised by the Nazca and Antarctic Plates subducting beneath the South American Plate; runs through 7 countries."
+      }
     ],
     "Peru": [
-      { "name": "Huascarán", "lon": -77.6, "lat": -9.12, "volcano": false, "note": "Highest peak in Peru (~6,768 m), in the Cordillera Blanca." }
+      {
+        "name": "Huascarán",
+        "lon": -77.6,
+        "lat": -9.12,
+        "volcano": true,
+        "note": "Highest peak in Peru (~6,768 m), in the Cordillera Blanca; commonly described as an extinct volcano in exam material, though geologists debate that classification."
+      },
+      {
+        "name": "El Misti",
+        "lon": -71.41,
+        "lat": -16.29,
+        "volcano": true,
+        "note": "Active stratovolcano overlooking Arequipa, Peru's second city."
+      },
+      {
+        "name": "Andes",
+        "lon": -76.5,
+        "lat": -10,
+        "volcano": false,
+        "note": "World's longest continental mountain range (~7,000 km) — a fold-mountain belt raised by the Nazca and Antarctic Plates subducting beneath the South American Plate; runs through 7 countries."
+      }
     ],
     "Colombia": [
-      { "name": "Nevado del Ruiz", "lon": -75.32, "lat": 4.9, "volcano": true, "note": "1985 eruption triggered a lahar that buried Armero, killing over 20,000." }
+      {
+        "name": "Nevado del Ruiz",
+        "lon": -75.32,
+        "lat": 4.9,
+        "volcano": true,
+        "note": "1985 eruption triggered a lahar that buried Armero, killing over 20,000."
+      },
+      {
+        "name": "Cordillera Occidental & Oriental",
+        "lon": -75.8,
+        "lat": 5.5,
+        "volcano": false,
+        "note": "Colombia's Andes split into parallel ranges (Cordillera Occidental, Central and Oriental) as they enter the country near Panama."
+      }
+    ],
+    "Venezuela": [
+      {
+        "name": "Andes",
+        "lon": -71,
+        "lat": 8.5,
+        "volcano": false,
+        "note": "World's longest continental mountain range (~7,000 km) — a fold-mountain belt raised by the Nazca and Antarctic Plates subducting beneath the South American Plate; runs through 7 countries."
+      }
+    ],
+    "Bolivia": [
+      {
+        "name": "Andes",
+        "lon": -67.5,
+        "lat": -19,
+        "volcano": false,
+        "note": "World's longest continental mountain range (~7,000 km) — a fold-mountain belt raised by the Nazca and Antarctic Plates subducting beneath the South American Plate; runs through 7 countries."
+      }
     ]
   },
   "north-america": {
     "United States": [
-      { "name": "Mount Whitney", "lon": -118.29, "lat": 36.58, "volcano": false, "note": "Highest peak in the contiguous US (4,421 m); Denali in Alaska is higher still but sits outside this map's frame." },
-      { "name": "Mount Rainier", "lon": -121.76, "lat": 46.85, "volcano": true, "note": "Most glaciated peak in the contiguous US; a lahar risk for nearby Tacoma/Seattle." }
+      {
+        "name": "Mount Whitney",
+        "lon": -118.29,
+        "lat": 36.58,
+        "volcano": false,
+        "note": "Highest peak in the contiguous US (4,421 m); Denali in Alaska is higher still but sits outside this map's frame."
+      },
+      {
+        "name": "Mount Rainier",
+        "lon": -121.76,
+        "lat": 46.85,
+        "volcano": true,
+        "note": "Most glaciated peak in the contiguous US; a lahar risk for nearby Tacoma/Seattle."
+      }
     ],
     "Mexico": [
-      { "name": "Pico de Orizaba", "lon": -97.27, "lat": 19.03, "volcano": true, "note": "Highest peak in Mexico (~5,636 m) and third-highest in North America." },
-      { "name": "Popocatépetl", "lon": -98.62, "lat": 19.02, "volcano": true, "note": "Active volcano near Mexico City and Puebla; frequent ash-plume eruptions." }
+      {
+        "name": "Pico de Orizaba",
+        "lon": -97.27,
+        "lat": 19.03,
+        "volcano": true,
+        "note": "Highest peak in Mexico (~5,636 m) and third-highest in North America."
+      },
+      {
+        "name": "Popocatépetl",
+        "lon": -98.62,
+        "lat": 19.02,
+        "volcano": true,
+        "note": "Active volcano near Mexico City and Puebla; frequent ash-plume eruptions."
+      }
     ],
     "Canada": [
-      { "name": "Mount Logan", "lon": -140.4, "lat": 60.57, "volcano": false, "note": "Canada's highest peak (5,959 m), in the Saint Elias Mountains, Yukon." }
+      {
+        "name": "Mount Logan",
+        "lon": -140.4,
+        "lat": 60.57,
+        "volcano": false,
+        "note": "Canada's highest peak (5,959 m), in the Saint Elias Mountains, Yukon."
+      }
     ]
   },
   "africa": {
     "Ethiopia": [
-      { "name": "Simien Mountains", "lon": 38.05, "lat": 13.2, "volcano": false, "note": "Rugged UNESCO-listed massif, home to endemic gelada monkeys." }
+      {
+        "name": "Simien Mountains",
+        "lon": 38.05,
+        "lat": 13.2,
+        "volcano": false,
+        "note": "Rugged UNESCO-listed massif, home to endemic gelada monkeys."
+      }
     ],
     "Kenya": [
-      { "name": "Mount Kenya", "lon": 37.31, "lat": -0.15, "volcano": true, "note": "Africa's second-highest peak (5,199 m), an extinct volcano straddling the equator." }
+      {
+        "name": "Mount Kenya",
+        "lon": 37.31,
+        "lat": -0.15,
+        "volcano": true,
+        "note": "Africa's second-highest peak (5,199 m), an extinct volcano straddling the equator."
+      }
     ],
     "DR Congo": [
-      { "name": "Mount Nyiragongo", "lon": 29.25, "lat": -1.52, "volcano": true, "note": "Active volcano with one of the world's largest persistent lava lakes." }
+      {
+        "name": "Mount Nyiragongo",
+        "lon": 29.25,
+        "lat": -1.52,
+        "volcano": true,
+        "note": "Active volcano with one of the world's largest persistent lava lakes."
+      }
     ],
     "Morocco": [
-      { "name": "Jbel Toubkal", "lon": -7.92, "lat": 31.06, "volcano": false, "note": "Highest peak in North Africa (4,167 m), in the Atlas Mountains." }
+      {
+        "name": "Jbel Toubkal",
+        "lon": -7.92,
+        "lat": 31.06,
+        "volcano": false,
+        "note": "Highest peak in North Africa (4,167 m), in the Atlas Mountains."
+      }
     ]
   },
   "europe": {
     "France": [
-      { "name": "Mont Blanc", "lon": 6.86, "lat": 45.83, "volcano": false, "note": "Highest peak in the Alps (4,808 m), on the France–Italy border." }
+      {
+        "name": "Mont Blanc",
+        "lon": 6.86,
+        "lat": 45.83,
+        "volcano": false,
+        "note": "Highest peak in the Alps (4,808 m), on the France–Italy border."
+      }
     ],
     "Italy": [
-      { "name": "Mount Vesuvius", "lon": 14.43, "lat": 40.82, "volcano": true, "note": "Buried Pompeii in 79 CE; still active and looms over Naples." },
-      { "name": "Mount Etna", "lon": 14.99, "lat": 37.75, "volcano": true, "note": "Europe's most active volcano, on Sicily." }
+      {
+        "name": "Mount Vesuvius",
+        "lon": 14.43,
+        "lat": 40.82,
+        "volcano": true,
+        "note": "Buried Pompeii in 79 CE; still active and looms over Naples."
+      },
+      {
+        "name": "Mount Etna",
+        "lon": 14.99,
+        "lat": 37.75,
+        "volcano": true,
+        "note": "Europe's most active volcano, on Sicily."
+      }
     ],
     "Russia (European)": [
-      { "name": "Mount Elbrus", "lon": 42.44, "lat": 43.35, "volcano": true, "note": "Highest peak in Europe (5,642 m), in the Caucasus — a dormant volcano." }
+      {
+        "name": "Mount Elbrus",
+        "lon": 42.44,
+        "lat": 43.35,
+        "volcano": true,
+        "note": "Highest peak in Europe (5,642 m), in the Caucasus — a dormant volcano."
+      }
     ]
   },
   "asia": {
     "Nepal": [
-      { "name": "Mount Everest", "lon": 86.93, "lat": 27.99, "volcano": false, "note": "Highest peak on Earth (8,849 m), on the Nepal–China border." }
+      {
+        "name": "Mount Everest",
+        "lon": 86.93,
+        "lat": 27.99,
+        "volcano": false,
+        "note": "Highest peak on Earth (8,849 m), on the Nepal–China border."
+      }
     ],
     "Japan": [
-      { "name": "Mount Fuji", "lon": 138.73, "lat": 35.36, "volcano": true, "note": "Japan's highest peak and an active (dormant) volcano, sacred in Shinto and Buddhist tradition." }
+      {
+        "name": "Mount Fuji",
+        "lon": 138.73,
+        "lat": 35.36,
+        "volcano": true,
+        "note": "Japan's highest peak and an active (dormant) volcano, sacred in Shinto and Buddhist tradition."
+      }
     ],
     "Indonesia": [
-      { "name": "Krakatoa", "lon": 105.42, "lat": -6.1, "volcano": true, "note": "1883 eruption was heard thousands of km away and caused a global temperature dip." },
-      { "name": "Mount Tambora", "lon": 118.0, "lat": -8.25, "volcano": true, "note": "1815 eruption — the most powerful in recorded history, caused the 'Year Without a Summer'." }
+      {
+        "name": "Krakatoa",
+        "lon": 105.42,
+        "lat": -6.1,
+        "volcano": true,
+        "note": "1883 eruption was heard thousands of km away and caused a global temperature dip."
+      },
+      {
+        "name": "Mount Tambora",
+        "lon": 118,
+        "lat": -8.25,
+        "volcano": true,
+        "note": "1815 eruption — the most powerful in recorded history, caused the 'Year Without a Summer'."
+      }
     ],
     "Philippines": [
-      { "name": "Mount Pinatubo", "lon": 120.35, "lat": 15.13, "volcano": true, "note": "1991 eruption was the second-largest of the 20th century, cooling global temperatures briefly." }
+      {
+        "name": "Mount Pinatubo",
+        "lon": 120.35,
+        "lat": 15.13,
+        "volcano": true,
+        "note": "1991 eruption was the second-largest of the 20th century, cooling global temperatures briefly."
+      }
     ]
   },
   "australia-oceania": {
     "New Zealand": [
-      { "name": "Mount Cook / Aoraki", "lon": 170.14, "lat": -43.6, "volcano": false, "note": "Highest peak in New Zealand (3,724 m), in the Southern Alps." },
-      { "name": "Mount Ruapehu", "lon": 175.57, "lat": -39.28, "volcano": true, "note": "North Island's highest peak; an active volcano within a ski-field." }
+      {
+        "name": "Mount Cook / Aoraki",
+        "lon": 170.14,
+        "lat": -43.6,
+        "volcano": false,
+        "note": "Highest peak in New Zealand (3,724 m), in the Southern Alps."
+      },
+      {
+        "name": "Mount Ruapehu",
+        "lon": 175.57,
+        "lat": -39.28,
+        "volcano": true,
+        "note": "North Island's highest peak; an active volcano within a ski-field."
+      }
     ],
     "Papua New Guinea": [
-      { "name": "Mount Wilhelm", "lon": 145.03, "lat": -5.78, "volcano": false, "note": "Highest peak in Papua New Guinea (4,509 m)." }
+      {
+        "name": "Mount Wilhelm",
+        "lon": 145.03,
+        "lat": -5.78,
+        "volcano": false,
+        "note": "Highest peak in Papua New Guinea (4,509 m)."
+      }
     ]
   }
 }

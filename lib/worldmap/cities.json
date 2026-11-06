@@ -1,300 +1,1088 @@
 {
   "south-america": {
     "Colombia": [
-      { "name": "Bogotá", "lon": -74.08, "lat": 4.71, "capital": true, "note": "High-altitude capital on the Bogotá savanna (2,640 m); Andean political and financial centre." },
-      { "name": "Medellín", "lon": -75.56, "lat": 6.25, "capital": false, "note": "Antioquia's capital, in the Aburrá valley; a former cartel stronghold now a services/innovation hub." },
-      { "name": "Cartagena", "lon": -75.51, "lat": 10.39, "capital": false, "note": "Walled Caribbean port city, UNESCO World Heritage — colonial Spanish fortifications." }
+      {
+        "name": "Bogotá",
+        "lon": -74.08,
+        "lat": 4.71,
+        "capital": true,
+        "note": "High-altitude capital on the Bogotá savanna (2,640 m); Andean political and financial centre."
+      },
+      {
+        "name": "Medellín",
+        "lon": -75.56,
+        "lat": 6.25,
+        "capital": false,
+        "note": "Antioquia's capital, in the Aburrá valley; a former cartel stronghold now a services/innovation hub."
+      },
+      {
+        "name": "Cartagena",
+        "lon": -75.51,
+        "lat": 10.39,
+        "capital": false,
+        "note": "Walled Caribbean port city, UNESCO World Heritage — colonial Spanish fortifications."
+      }
     ],
     "Venezuela": [
-      { "name": "Caracas", "lon": -66.9, "lat": 10.48, "capital": true, "note": "Capital in a narrow valley near the Caribbean coast; seat of PDVSA, the state oil company." },
-      { "name": "Maracaibo", "lon": -71.61, "lat": 10.65, "capital": false, "note": "On Lake Maracaibo; heart of Venezuela's oil-producing region." }
+      {
+        "name": "Caracas",
+        "lon": -66.9,
+        "lat": 10.48,
+        "capital": true,
+        "note": "Capital in a narrow valley near the Caribbean coast; seat of PDVSA, the state oil company."
+      },
+      {
+        "name": "Maracaibo",
+        "lon": -71.61,
+        "lat": 10.65,
+        "capital": false,
+        "note": "On Lake Maracaibo; heart of Venezuela's oil-producing region."
+      }
     ],
     "Guyana": [
-      { "name": "Georgetown", "lon": -58.16, "lat": 6.8, "capital": true, "note": "Low-lying coastal capital, protected by a seawall; only English-speaking country in South America." }
+      {
+        "name": "Georgetown",
+        "lon": -58.16,
+        "lat": 6.8,
+        "capital": true,
+        "note": "Low-lying coastal capital, protected by a seawall; only English-speaking country in South America."
+      }
     ],
     "Suriname": [
-      { "name": "Paramaribo", "lon": -55.17, "lat": 5.87, "capital": true, "note": "Former Dutch colonial capital on the Suriname River; UNESCO-listed inner city." }
+      {
+        "name": "Paramaribo",
+        "lon": -55.17,
+        "lat": 5.87,
+        "capital": true,
+        "note": "Former Dutch colonial capital on the Suriname River; UNESCO-listed inner city."
+      }
     ],
     "Ecuador": [
-      { "name": "Quito", "lon": -78.47, "lat": -0.18, "capital": true, "note": "High-Andean capital near the equator; second-highest official capital city in the world." },
-      { "name": "Guayaquil", "lon": -79.9, "lat": -2.19, "capital": false, "note": "Largest city and main Pacific port; export hub for bananas and shrimp." }
+      {
+        "name": "Quito",
+        "lon": -78.47,
+        "lat": -0.18,
+        "capital": true,
+        "note": "High-Andean capital near the equator; second-highest official capital city in the world."
+      },
+      {
+        "name": "Guayaquil",
+        "lon": -79.9,
+        "lat": -2.19,
+        "capital": false,
+        "note": "Largest city and main Pacific port; export hub for bananas and shrimp."
+      }
     ],
     "Peru": [
-      { "name": "Lima", "lon": -77.03, "lat": -12.05, "capital": true, "note": "Coastal desert capital founded by Pizarro in 1535; over a third of Peru's population." },
-      { "name": "Cusco", "lon": -71.97, "lat": -13.53, "capital": false, "note": "Former Inca capital; gateway to Machu Picchu, in the Sacred Valley." },
-      { "name": "Iquitos", "lon": -73.25, "lat": -3.75, "capital": false, "note": "Largest city in the world unreachable by road — only by river or air, deep in the Amazon." }
+      {
+        "name": "Lima",
+        "lon": -77.03,
+        "lat": -12.05,
+        "capital": true,
+        "note": "Coastal desert capital founded by Pizarro in 1535; over a third of Peru's population; hosted the COP20 UN climate conference in 2014; Peru's coastal desert has historically been rich in phosphate/nitrate (guano) deposits"
+      },
+      {
+        "name": "Cusco",
+        "lon": -71.97,
+        "lat": -13.53,
+        "capital": false,
+        "note": "Former Inca capital; gateway to Machu Picchu, in the Sacred Valley."
+      },
+      {
+        "name": "Iquitos",
+        "lon": -73.25,
+        "lat": -3.75,
+        "capital": false,
+        "note": "Largest city in the world unreachable by road — only by river or air, deep in the Amazon."
+      }
     ],
     "Brazil": [
-      { "name": "Brasília", "lon": -47.93, "lat": -15.79, "capital": true, "note": "Purpose-built capital (1960), modernist plan by Niemeyer/Costa; replaced Rio as capital." },
-      { "name": "Rio de Janeiro", "lon": -43.21, "lat": -22.91, "capital": false, "note": "Former capital; Sugarloaf, Christ the Redeemer, and the country's cultural face abroad." },
-      { "name": "São Paulo", "lon": -46.63, "lat": -23.55, "capital": false, "note": "Largest city in South America; Brazil's financial and industrial core." },
-      { "name": "Manaus", "lon": -60.02, "lat": -3.1, "capital": false, "note": "Amazon rainforest hub at the Rio Negro–Solimões confluence (the 'meeting of waters')." }
+      {
+        "name": "Brasília",
+        "lon": -47.93,
+        "lat": -15.79,
+        "capital": true,
+        "note": "Purpose-built capital (1960), modernist plan by Niemeyer/Costa; replaced Rio as capital; of Brazil's 10 South American neighbours, only Ecuador and Chile don't share a border with it"
+      },
+      {
+        "name": "Rio de Janeiro",
+        "lon": -43.21,
+        "lat": -22.91,
+        "capital": false,
+        "note": "Former capital; Sugarloaf, Christ the Redeemer, and the country's cultural face abroad; Copacabana Beach is its best-known stretch of coastline"
+      },
+      {
+        "name": "São Paulo",
+        "lon": -46.63,
+        "lat": -23.55,
+        "capital": false,
+        "note": "Largest city in South America; Brazil's financial and industrial core; its Fazenda coffee-growing hinterland exports through the port of Santos"
+      },
+      {
+        "name": "Manaus",
+        "lon": -60.02,
+        "lat": -3.1,
+        "capital": false,
+        "note": "Amazon rainforest hub at the Rio Negro–Solimões confluence (the 'meeting of waters')."
+      },
+      {
+        "name": "Santos",
+        "lon": -46.33,
+        "lat": -23.96,
+        "capital": false,
+        "note": "Brazil's busiest port, on the coast near São Paulo — main export outlet for the Fazenda coffee region."
+      },
+      {
+        "name": "Carajás",
+        "lon": -50.16,
+        "lat": -6.06,
+        "capital": false,
+        "note": "Site of the Carajás mining complex — one of the world's largest iron-ore deposits, in Pará state."
+      }
     ],
     "Bolivia": [
-      { "name": "Sucre", "lon": -65.26, "lat": -19.03, "capital": true, "note": "Constitutional capital and seat of the judiciary — Bolivia has two capitals." },
-      { "name": "La Paz", "lon": -68.15, "lat": -16.5, "capital": true, "note": "Administrative/executive seat of government; highest capital in the world (~3,650 m)." },
-      { "name": "Santa Cruz", "lon": -63.18, "lat": -17.78, "capital": false, "note": "Largest city; lowland economic engine, distinct from the Andean highlands politically." }
+      {
+        "name": "Sucre",
+        "lon": -65.26,
+        "lat": -19.03,
+        "capital": true,
+        "note": "Constitutional capital and seat of the judiciary — Bolivia has two capitals; Bolivia is one of only two landlocked countries in South America, along with Paraguay"
+      },
+      {
+        "name": "La Paz",
+        "lon": -68.15,
+        "lat": -16.5,
+        "capital": true,
+        "note": "Administrative/executive seat of government; highest capital in the world (~3,650 m); Bolivia is one of only two landlocked countries in South America, along with Paraguay"
+      },
+      {
+        "name": "Santa Cruz",
+        "lon": -63.18,
+        "lat": -17.78,
+        "capital": false,
+        "note": "Largest city; lowland economic engine, distinct from the Andean highlands politically."
+      }
     ],
     "Chile": [
-      { "name": "Santiago", "lon": -70.65, "lat": -33.45, "capital": true, "note": "Capital in the Central Valley between the Andes and the Coast Range." },
-      { "name": "Valparaíso", "lon": -71.6, "lat": -33.05, "capital": false, "note": "Chile's National Congress sits here, not Santiago; major Pacific port." },
-      { "name": "Antofagasta", "lon": -70.4, "lat": -23.65, "capital": false, "note": "Copper-mining port on the edge of the Atacama Desert." }
+      {
+        "name": "Santiago",
+        "lon": -70.65,
+        "lat": -33.45,
+        "capital": true,
+        "note": "Capital in the Central Valley between the Andes and the Coast Range; Chile's territory also includes Easter Island (Rapa Nui), far out in the Pacific"
+      },
+      {
+        "name": "Valparaíso",
+        "lon": -71.6,
+        "lat": -33.05,
+        "capital": false,
+        "note": "Chile's National Congress sits here, not Santiago; major Pacific port."
+      },
+      {
+        "name": "Antofagasta",
+        "lon": -70.4,
+        "lat": -23.65,
+        "capital": false,
+        "note": "Copper-mining port on the edge of the Atacama Desert."
+      },
+      {
+        "name": "Arica",
+        "lon": -70.31,
+        "lat": -18.48,
+        "capital": false,
+        "note": "Chile's northernmost city, in the Atacama — one of the driest inhabited places on Earth."
+      },
+      {
+        "name": "Chuquicamata",
+        "lon": -68.9,
+        "lat": -22.32,
+        "capital": false,
+        "note": "Site of one of the world's largest open-pit copper mines, near Calama."
+      }
     ],
     "Paraguay": [
-      { "name": "Asunción", "lon": -57.64, "lat": -25.3, "capital": true, "note": "On the Paraguay River; one of the oldest cities in South America (founded 1537)." }
+      {
+        "name": "Asunción",
+        "lon": -57.64,
+        "lat": -25.3,
+        "capital": true,
+        "note": "On the Paraguay River; one of the oldest cities in South America (founded 1537); Paraguay is one of only two landlocked countries in South America, along with Bolivia"
+      }
     ],
     "Argentina": [
-      { "name": "Buenos Aires", "lon": -58.38, "lat": -34.6, "capital": true, "note": "Río de la Plata capital; the country's primate city by a wide margin." },
-      { "name": "Córdoba", "lon": -64.18, "lat": -31.42, "capital": false, "note": "Second city; industrial and university centre in the Pampas' northwest." },
-      { "name": "Ushuaia", "lon": -68.3, "lat": -54.8, "capital": false, "note": "World's southernmost city of its size — gateway to Antarctica and Tierra del Fuego." }
+      {
+        "name": "Buenos Aires",
+        "lon": -58.38,
+        "lat": -34.6,
+        "capital": true,
+        "note": "Río de la Plata capital; the country's primate city by a wide margin; the UK's nearby Falkland Islands (Islas Malvinas) remain a live territorial dispute, and the cause of the 1982 Falklands War"
+      },
+      {
+        "name": "Córdoba",
+        "lon": -64.18,
+        "lat": -31.42,
+        "capital": false,
+        "note": "Second city; industrial and university centre in the Pampas' northwest."
+      },
+      {
+        "name": "Ushuaia",
+        "lon": -68.3,
+        "lat": -54.8,
+        "capital": false,
+        "note": "World's southernmost city of its size — gateway to Antarctica and Tierra del Fuego; Cape Horn and the Drake Passage — the stormy gap to Antarctica — lie just south"
+      }
     ],
     "Uruguay": [
-      { "name": "Montevideo", "lon": -56.19, "lat": -34.9, "capital": true, "note": "Capital on the Río de la Plata estuary; home to most of Uruguay's population." }
+      {
+        "name": "Montevideo",
+        "lon": -56.19,
+        "lat": -34.9,
+        "capital": true,
+        "note": "Capital on the Río de la Plata estuary; home to most of Uruguay's population."
+      }
+    ],
+    "French Guiana": [
+      {
+        "name": "Cayenne",
+        "lon": -52.33,
+        "lat": 4.94,
+        "capital": true,
+        "note": "Prefecture of this French overseas department — part of the European Union and eurozone, in South America."
+      },
+      {
+        "name": "Kourou",
+        "lon": -52.67,
+        "lat": 5.16,
+        "capital": false,
+        "note": "Home to the Guiana Space Centre (CNES/ESA/Arianespace) — its near-equatorial latitude (~5°N) gives rockets an extra boost from Earth's spin."
+      }
     ]
   },
   "north-america": {
     "Canada": [
-      { "name": "Ottawa", "lon": -75.7, "lat": 45.42, "capital": true, "note": "Chosen by Queen Victoria (1857) partly for its inland, defensible position between Toronto and Montreal." },
-      { "name": "Toronto", "lon": -79.38, "lat": 43.65, "capital": false, "note": "Largest city; Ontario's capital and Canada's financial hub, on Lake Ontario." },
-      { "name": "Vancouver", "lon": -123.12, "lat": 49.28, "capital": false, "note": "Pacific port city, gateway to Asia trade; consistently ranked among the most livable cities." }
+      {
+        "name": "Ottawa",
+        "lon": -75.7,
+        "lat": 45.42,
+        "capital": true,
+        "note": "Chosen by Queen Victoria (1857) partly for its inland, defensible position between Toronto and Montreal."
+      },
+      {
+        "name": "Toronto",
+        "lon": -79.38,
+        "lat": 43.65,
+        "capital": false,
+        "note": "Largest city; Ontario's capital and Canada's financial hub, on Lake Ontario."
+      },
+      {
+        "name": "Vancouver",
+        "lon": -123.12,
+        "lat": 49.28,
+        "capital": false,
+        "note": "Pacific port city, gateway to Asia trade; consistently ranked among the most livable cities."
+      }
     ],
     "United States": [
-      { "name": "Washington, D.C.", "lon": -77.04, "lat": 38.9, "capital": true, "note": "Federal capital carved as its own district (not a state) so no state would hold outsized power." },
-      { "name": "New York City", "lon": -74.01, "lat": 40.71, "capital": false, "note": "Largest US city; UN headquarters, global financial centre (Wall Street)." },
-      { "name": "Los Angeles", "lon": -118.24, "lat": 34.05, "capital": false, "note": "Pacific coast hub; entertainment industry (Hollywood) and major container port." },
-      { "name": "Chicago", "lon": -87.63, "lat": 41.88, "capital": false, "note": "Great Lakes hub on Lake Michigan; historic railroad and commodities-trading centre." }
+      {
+        "name": "Washington, D.C.",
+        "lon": -77.04,
+        "lat": 38.9,
+        "capital": true,
+        "note": "Federal capital carved as its own district (not a state) so no state would hold outsized power."
+      },
+      {
+        "name": "New York City",
+        "lon": -74.01,
+        "lat": 40.71,
+        "capital": false,
+        "note": "Largest US city; UN headquarters, global financial centre (Wall Street)."
+      },
+      {
+        "name": "Los Angeles",
+        "lon": -118.24,
+        "lat": 34.05,
+        "capital": false,
+        "note": "Pacific coast hub; entertainment industry (Hollywood) and major container port."
+      },
+      {
+        "name": "Chicago",
+        "lon": -87.63,
+        "lat": 41.88,
+        "capital": false,
+        "note": "Great Lakes hub on Lake Michigan; historic railroad and commodities-trading centre."
+      }
     ],
     "Mexico": [
-      { "name": "Mexico City", "lon": -99.13, "lat": 19.43, "capital": true, "note": "Built over the Aztec capital Tenochtitlan on a drained lakebed — sinking slowly as a result." },
-      { "name": "Guadalajara", "lon": -103.35, "lat": 20.66, "capital": false, "note": "Birthplace of mariachi and tequila culture; second-largest metro area." },
-      { "name": "Cancún", "lon": -86.85, "lat": 21.16, "capital": false, "note": "Caribbean resort city on the Yucatán Peninsula, near Maya ruins." }
+      {
+        "name": "Mexico City",
+        "lon": -99.13,
+        "lat": 19.43,
+        "capital": true,
+        "note": "Built over the Aztec capital Tenochtitlan on a drained lakebed — sinking slowly as a result."
+      },
+      {
+        "name": "Guadalajara",
+        "lon": -103.35,
+        "lat": 20.66,
+        "capital": false,
+        "note": "Birthplace of mariachi and tequila culture; second-largest metro area."
+      },
+      {
+        "name": "Cancún",
+        "lon": -86.85,
+        "lat": 21.16,
+        "capital": false,
+        "note": "Caribbean resort city on the Yucatán Peninsula, near Maya ruins."
+      }
     ],
     "Guatemala": [
-      { "name": "Guatemala City", "lon": -90.51, "lat": 14.63, "capital": true, "note": "Highland capital; most populous city in Central America." }
+      {
+        "name": "Guatemala City",
+        "lon": -90.51,
+        "lat": 14.63,
+        "capital": true,
+        "note": "Highland capital; most populous city in Central America."
+      }
     ],
     "Honduras": [
-      { "name": "Tegucigalpa", "lon": -87.22, "lat": 14.1, "capital": true, "note": "Mountain-basin capital named for a nearby silver-mining hill." }
+      {
+        "name": "Tegucigalpa",
+        "lon": -87.22,
+        "lat": 14.1,
+        "capital": true,
+        "note": "Mountain-basin capital named for a nearby silver-mining hill."
+      }
     ],
     "Nicaragua": [
-      { "name": "Managua", "lon": -86.25, "lat": 12.15, "capital": true, "note": "On the shore of Lake Managua, in an active seismic/volcanic zone." }
+      {
+        "name": "Managua",
+        "lon": -86.25,
+        "lat": 12.15,
+        "capital": true,
+        "note": "On the shore of Lake Managua, in an active seismic/volcanic zone."
+      }
     ],
     "Costa Rica": [
-      { "name": "San José", "lon": -84.09, "lat": 9.93, "capital": true, "note": "Central Valley capital; Costa Rica abolished its army in 1948, unusual in the region." }
+      {
+        "name": "San José",
+        "lon": -84.09,
+        "lat": 9.93,
+        "capital": true,
+        "note": "Central Valley capital; Costa Rica abolished its army in 1948, unusual in the region."
+      }
     ],
     "Panama": [
-      { "name": "Panama City", "lon": -79.52, "lat": 8.98, "capital": true, "note": "At the Pacific mouth of the Panama Canal, the key interoceanic shipping shortcut." }
+      {
+        "name": "Panama City",
+        "lon": -79.52,
+        "lat": 8.98,
+        "capital": true,
+        "note": "At the Pacific mouth of the Panama Canal, the key interoceanic shipping shortcut."
+      }
     ],
     "Cuba": [
-      { "name": "Havana", "lon": -82.37, "lat": 23.13, "capital": true, "note": "Caribbean's largest city; colonial Old Havana is a UNESCO World Heritage Site." }
+      {
+        "name": "Havana",
+        "lon": -82.37,
+        "lat": 23.13,
+        "capital": true,
+        "note": "Caribbean's largest city; colonial Old Havana is a UNESCO World Heritage Site."
+      }
     ],
     "Jamaica": [
-      { "name": "Kingston", "lon": -76.79, "lat": 17.97, "capital": true, "note": "Natural harbour capital; birthplace of reggae music." }
+      {
+        "name": "Kingston",
+        "lon": -76.79,
+        "lat": 17.97,
+        "capital": true,
+        "note": "Natural harbour capital; birthplace of reggae music."
+      }
     ],
     "Haiti": [
-      { "name": "Port-au-Prince", "lon": -72.34, "lat": 18.59, "capital": true, "note": "Capital of the world's first Black republic (independence 1804)." }
+      {
+        "name": "Port-au-Prince",
+        "lon": -72.34,
+        "lat": 18.59,
+        "capital": true,
+        "note": "Capital of the world's first Black republic (independence 1804)."
+      }
     ],
     "Dominican Republic": [
-      { "name": "Santo Domingo", "lon": -69.9, "lat": 18.49, "capital": true, "note": "Oldest continuously inhabited European-founded city in the Americas (1496)." }
+      {
+        "name": "Santo Domingo",
+        "lon": -69.9,
+        "lat": 18.49,
+        "capital": true,
+        "note": "Oldest continuously inhabited European-founded city in the Americas (1496)."
+      }
     ]
   },
   "africa": {
     "Morocco": [
-      { "name": "Rabat", "lon": -6.85, "lat": 34.02, "capital": true, "note": "Atlantic coast capital; administrative centre, distinct from the larger Casablanca." },
-      { "name": "Casablanca", "lon": -7.59, "lat": 33.57, "capital": false, "note": "Morocco's largest city and main port; economic capital." }
+      {
+        "name": "Rabat",
+        "lon": -6.85,
+        "lat": 34.02,
+        "capital": true,
+        "note": "Atlantic coast capital; administrative centre, distinct from the larger Casablanca."
+      },
+      {
+        "name": "Casablanca",
+        "lon": -7.59,
+        "lat": 33.57,
+        "capital": false,
+        "note": "Morocco's largest city and main port; economic capital."
+      }
     ],
     "Algeria": [
-      { "name": "Algiers", "lon": 3.06, "lat": 36.75, "capital": true, "note": "Mediterranean capital of Africa's largest country by area." }
+      {
+        "name": "Algiers",
+        "lon": 3.06,
+        "lat": 36.75,
+        "capital": true,
+        "note": "Mediterranean capital of Africa's largest country by area."
+      }
     ],
     "Libya": [
-      { "name": "Tripoli", "lon": 13.19, "lat": 32.89, "capital": true, "note": "Mediterranean coastal capital; major Sahara oil-export economy." }
+      {
+        "name": "Tripoli",
+        "lon": 13.19,
+        "lat": 32.89,
+        "capital": true,
+        "note": "Mediterranean coastal capital; major Sahara oil-export economy."
+      }
     ],
     "Egypt": [
-      { "name": "Cairo", "lon": 31.24, "lat": 30.04, "capital": true, "note": "Africa's largest city, on the Nile near the Giza pyramids." },
-      { "name": "Alexandria", "lon": 29.92, "lat": 31.2, "capital": false, "note": "Ancient Mediterranean port founded by Alexander the Great; famous ancient library." }
+      {
+        "name": "Cairo",
+        "lon": 31.24,
+        "lat": 30.04,
+        "capital": true,
+        "note": "Africa's largest city, on the Nile near the Giza pyramids."
+      },
+      {
+        "name": "Alexandria",
+        "lon": 29.92,
+        "lat": 31.2,
+        "capital": false,
+        "note": "Ancient Mediterranean port founded by Alexander the Great; famous ancient library."
+      }
     ],
     "Mauritania": [
-      { "name": "Nouakchott", "lon": -15.98, "lat": 18.09, "capital": true, "note": "Sahara-edge Atlantic capital, expanded rapidly after independence (1960)." }
+      {
+        "name": "Nouakchott",
+        "lon": -15.98,
+        "lat": 18.09,
+        "capital": true,
+        "note": "Sahara-edge Atlantic capital, expanded rapidly after independence (1960)."
+      }
     ],
     "Mali": [
-      { "name": "Bamako", "lon": -8.0, "lat": 12.65, "capital": true, "note": "On the Niger River; gateway to historic Timbuktu further north." }
+      {
+        "name": "Bamako",
+        "lon": -8,
+        "lat": 12.65,
+        "capital": true,
+        "note": "On the Niger River; gateway to historic Timbuktu further north."
+      }
     ],
     "Niger": [
-      { "name": "Niamey", "lon": 2.11, "lat": 13.51, "capital": true, "note": "On the Niger River, on the southern edge of the Sahara." }
+      {
+        "name": "Niamey",
+        "lon": 2.11,
+        "lat": 13.51,
+        "capital": true,
+        "note": "On the Niger River, on the southern edge of the Sahara."
+      }
     ],
     "Chad": [
-      { "name": "N'Djamena", "lon": 15.04, "lat": 12.13, "capital": true, "note": "At the Chari–Logone confluence, near Lake Chad and the Cameroon border." }
+      {
+        "name": "N'Djamena",
+        "lon": 15.04,
+        "lat": 12.13,
+        "capital": true,
+        "note": "At the Chari–Logone confluence, near Lake Chad and the Cameroon border."
+      }
     ],
     "Sudan": [
-      { "name": "Khartoum", "lon": 32.53, "lat": 15.5, "capital": true, "note": "At the confluence of the Blue Nile and White Nile — the true start of the Nile." }
+      {
+        "name": "Khartoum",
+        "lon": 32.53,
+        "lat": 15.5,
+        "capital": true,
+        "note": "At the confluence of the Blue Nile and White Nile — the true start of the Nile."
+      }
     ],
     "Nigeria": [
-      { "name": "Abuja", "lon": 7.49, "lat": 9.08, "capital": true, "note": "Purpose-built central capital (1991), replacing Lagos to sit neutrally between regions." },
-      { "name": "Lagos", "lon": 3.38, "lat": 6.52, "capital": false, "note": "Former capital; Africa's largest city and Nigeria's commercial/port hub." }
+      {
+        "name": "Abuja",
+        "lon": 7.49,
+        "lat": 9.08,
+        "capital": true,
+        "note": "Purpose-built central capital (1991), replacing Lagos to sit neutrally between regions."
+      },
+      {
+        "name": "Lagos",
+        "lon": 3.38,
+        "lat": 6.52,
+        "capital": false,
+        "note": "Former capital; Africa's largest city and Nigeria's commercial/port hub."
+      }
     ],
     "Ethiopia": [
-      { "name": "Addis Ababa", "lon": 38.75, "lat": 9.03, "capital": true, "note": "One of Africa's highest capitals (~2,355 m); seat of the African Union." }
+      {
+        "name": "Addis Ababa",
+        "lon": 38.75,
+        "lat": 9.03,
+        "capital": true,
+        "note": "One of Africa's highest capitals (~2,355 m); seat of the African Union."
+      }
     ],
     "Kenya": [
-      { "name": "Nairobi", "lon": 36.82, "lat": -1.29, "capital": true, "note": "East African hub; Nairobi National Park sits inside the city limits." }
+      {
+        "name": "Nairobi",
+        "lon": 36.82,
+        "lat": -1.29,
+        "capital": true,
+        "note": "East African hub; Nairobi National Park sits inside the city limits."
+      }
     ],
     "DR Congo": [
-      { "name": "Kinshasa", "lon": 15.27, "lat": -4.32, "capital": true, "note": "On the Congo River, facing Brazzaville (Republic of Congo) across the water." }
+      {
+        "name": "Kinshasa",
+        "lon": 15.27,
+        "lat": -4.32,
+        "capital": true,
+        "note": "On the Congo River, facing Brazzaville (Republic of Congo) across the water."
+      }
     ],
     "Angola": [
-      { "name": "Luanda", "lon": 13.23, "lat": -8.84, "capital": true, "note": "Atlantic port capital; oil exports drive the economy." }
+      {
+        "name": "Luanda",
+        "lon": 13.23,
+        "lat": -8.84,
+        "capital": true,
+        "note": "Atlantic port capital; oil exports drive the economy."
+      }
     ],
     "South Africa": [
-      { "name": "Pretoria", "lon": 28.19, "lat": -25.75, "capital": true, "note": "Administrative capital — one of three, alongside Cape Town (legislative) and Bloemfontein (judicial)." },
-      { "name": "Cape Town", "lon": 18.42, "lat": -33.92, "capital": true, "note": "Legislative capital, beneath Table Mountain, near the Cape of Good Hope." },
-      { "name": "Johannesburg", "lon": 28.05, "lat": -26.2, "capital": false, "note": "Not a capital, but the largest city — grew around 1880s gold-mining on the Witwatersrand." }
+      {
+        "name": "Pretoria",
+        "lon": 28.19,
+        "lat": -25.75,
+        "capital": true,
+        "note": "Administrative capital — one of three, alongside Cape Town (legislative) and Bloemfontein (judicial)."
+      },
+      {
+        "name": "Cape Town",
+        "lon": 18.42,
+        "lat": -33.92,
+        "capital": true,
+        "note": "Legislative capital, beneath Table Mountain, near the Cape of Good Hope."
+      },
+      {
+        "name": "Johannesburg",
+        "lon": 28.05,
+        "lat": -26.2,
+        "capital": false,
+        "note": "Not a capital, but the largest city — grew around 1880s gold-mining on the Witwatersrand."
+      }
     ],
     "Madagascar": [
-      { "name": "Antananarivo", "lon": 47.52, "lat": -18.88, "capital": true, "note": "Highland capital of the world's fourth-largest island, known for endemic species." }
+      {
+        "name": "Antananarivo",
+        "lon": 47.52,
+        "lat": -18.88,
+        "capital": true,
+        "note": "Highland capital of the world's fourth-largest island, known for endemic species."
+      }
     ]
   },
   "europe": {
     "United Kingdom": [
-      { "name": "London", "lon": -0.13, "lat": 51.51, "capital": true, "note": "On the Thames; former hub of the British Empire, global financial centre." }
+      {
+        "name": "London",
+        "lon": -0.13,
+        "lat": 51.51,
+        "capital": true,
+        "note": "On the Thames; former hub of the British Empire, global financial centre."
+      }
     ],
     "Ireland": [
-      { "name": "Dublin", "lon": -6.27, "lat": 53.35, "capital": true, "note": "On the River Liffey; European tech-sector hub for many multinational HQs." }
+      {
+        "name": "Dublin",
+        "lon": -6.27,
+        "lat": 53.35,
+        "capital": true,
+        "note": "On the River Liffey; European tech-sector hub for many multinational HQs."
+      }
     ],
     "France": [
-      { "name": "Paris", "lon": 2.35, "lat": 48.86, "capital": true, "note": "On the Seine; seat of the EU alongside Brussels/Strasbourg in influence, not formally." }
+      {
+        "name": "Paris",
+        "lon": 2.35,
+        "lat": 48.86,
+        "capital": true,
+        "note": "On the Seine; seat of the EU alongside Brussels/Strasbourg in influence, not formally."
+      }
     ],
     "Spain": [
-      { "name": "Madrid", "lon": -3.7, "lat": 40.42, "capital": true, "note": "Geographic and highest-altitude capital in Western Europe, on the Meseta Central." },
-      { "name": "Barcelona", "lon": 2.17, "lat": 41.39, "capital": false, "note": "Catalonia's capital; major Mediterranean port with a strong regional identity." }
+      {
+        "name": "Madrid",
+        "lon": -3.7,
+        "lat": 40.42,
+        "capital": true,
+        "note": "Geographic and highest-altitude capital in Western Europe, on the Meseta Central."
+      },
+      {
+        "name": "Barcelona",
+        "lon": 2.17,
+        "lat": 41.39,
+        "capital": false,
+        "note": "Catalonia's capital; major Mediterranean port with a strong regional identity."
+      }
     ],
     "Portugal": [
-      { "name": "Lisbon", "lon": -9.14, "lat": 38.72, "capital": true, "note": "Atlantic-facing capital; launch point for the Age of Discovery voyages." }
+      {
+        "name": "Lisbon",
+        "lon": -9.14,
+        "lat": 38.72,
+        "capital": true,
+        "note": "Atlantic-facing capital; launch point for the Age of Discovery voyages."
+      }
     ],
     "Germany": [
-      { "name": "Berlin", "lon": 13.4, "lat": 52.52, "capital": true, "note": "Reunified in 1990 after Cold War division; the Wall's line still traces through the city." },
-      { "name": "Frankfurt", "lon": 8.68, "lat": 50.11, "capital": false, "note": "Financial capital — seat of the European Central Bank." }
+      {
+        "name": "Berlin",
+        "lon": 13.4,
+        "lat": 52.52,
+        "capital": true,
+        "note": "Reunified in 1990 after Cold War division; the Wall's line still traces through the city."
+      },
+      {
+        "name": "Frankfurt",
+        "lon": 8.68,
+        "lat": 50.11,
+        "capital": false,
+        "note": "Financial capital — seat of the European Central Bank."
+      }
     ],
     "Italy": [
-      { "name": "Rome", "lon": 12.5, "lat": 41.9, "capital": true, "note": "Encircles Vatican City, an independent state within the city." },
-      { "name": "Milan", "lon": 9.19, "lat": 45.46, "capital": false, "note": "Italy's financial and fashion capital, in the industrial Po Valley." }
+      {
+        "name": "Rome",
+        "lon": 12.5,
+        "lat": 41.9,
+        "capital": true,
+        "note": "Encircles Vatican City, an independent state within the city."
+      },
+      {
+        "name": "Milan",
+        "lon": 9.19,
+        "lat": 45.46,
+        "capital": false,
+        "note": "Italy's financial and fashion capital, in the industrial Po Valley."
+      }
     ],
     "Switzerland": [
-      { "name": "Bern", "lon": 7.45, "lat": 46.95, "capital": true, "note": "De facto capital ('federal city'); Switzerland has no constitutionally declared capital." }
+      {
+        "name": "Bern",
+        "lon": 7.45,
+        "lat": 46.95,
+        "capital": true,
+        "note": "De facto capital ('federal city'); Switzerland has no constitutionally declared capital."
+      }
     ],
     "Netherlands": [
-      { "name": "Amsterdam", "lon": 4.9, "lat": 52.37, "capital": true, "note": "Constitutional capital; the seat of government is actually The Hague." }
+      {
+        "name": "Amsterdam",
+        "lon": 4.9,
+        "lat": 52.37,
+        "capital": true,
+        "note": "Constitutional capital; the seat of government is actually The Hague."
+      }
     ],
     "Poland": [
-      { "name": "Warsaw", "lon": 21.02, "lat": 52.23, "capital": true, "note": "Rebuilt almost entirely after near-total WWII destruction; Old Town is UNESCO-listed." }
+      {
+        "name": "Warsaw",
+        "lon": 21.02,
+        "lat": 52.23,
+        "capital": true,
+        "note": "Rebuilt almost entirely after near-total WWII destruction; Old Town is UNESCO-listed."
+      }
     ],
     "Ukraine": [
-      { "name": "Kyiv", "lon": 30.52, "lat": 50.45, "capital": true, "note": "On the Dnieper River; one of the oldest cities in Eastern Europe (Kyivan Rus')." }
+      {
+        "name": "Kyiv",
+        "lon": 30.52,
+        "lat": 50.45,
+        "capital": true,
+        "note": "On the Dnieper River; one of the oldest cities in Eastern Europe (Kyivan Rus')."
+      }
     ],
     "Romania": [
-      { "name": "Bucharest", "lon": 26.1, "lat": 44.43, "capital": true, "note": "Once nicknamed 'Little Paris' for its early-20th-century Belle Époque architecture." }
+      {
+        "name": "Bucharest",
+        "lon": 26.1,
+        "lat": 44.43,
+        "capital": true,
+        "note": "Once nicknamed 'Little Paris' for its early-20th-century Belle Époque architecture."
+      }
     ],
     "Greece": [
-      { "name": "Athens", "lon": 23.73, "lat": 37.98, "capital": true, "note": "Cradle of Western democracy and philosophy; the Acropolis overlooks the city." }
+      {
+        "name": "Athens",
+        "lon": 23.73,
+        "lat": 37.98,
+        "capital": true,
+        "note": "Cradle of Western democracy and philosophy; the Acropolis overlooks the city."
+      }
     ],
     "Sweden": [
-      { "name": "Stockholm", "lon": 18.07, "lat": 59.33, "capital": true, "note": "Built across 14 islands on Lake Mälaren where it meets the Baltic Sea." }
+      {
+        "name": "Stockholm",
+        "lon": 18.07,
+        "lat": 59.33,
+        "capital": true,
+        "note": "Built across 14 islands on Lake Mälaren where it meets the Baltic Sea."
+      }
     ],
     "Norway": [
-      { "name": "Oslo", "lon": 10.75, "lat": 59.91, "capital": true, "note": "At the head of the Oslofjord; hosts the Nobel Peace Prize ceremony each year." }
+      {
+        "name": "Oslo",
+        "lon": 10.75,
+        "lat": 59.91,
+        "capital": true,
+        "note": "At the head of the Oslofjord; hosts the Nobel Peace Prize ceremony each year."
+      }
     ],
     "Russia (European)": [
-      { "name": "Moscow", "lon": 37.62, "lat": 55.75, "capital": true, "note": "European Russia's core — the country's landmass extends across Siberia deep into Asia." },
-      { "name": "St. Petersburg", "lon": 30.31, "lat": 59.94, "capital": false, "note": "Former imperial capital, built by Peter the Great on the Neva delta as a 'window to Europe'." }
+      {
+        "name": "Moscow",
+        "lon": 37.62,
+        "lat": 55.75,
+        "capital": true,
+        "note": "European Russia's core — the country's landmass extends across Siberia deep into Asia."
+      },
+      {
+        "name": "St. Petersburg",
+        "lon": 30.31,
+        "lat": 59.94,
+        "capital": false,
+        "note": "Former imperial capital, built by Peter the Great on the Neva delta as a 'window to Europe'."
+      }
     ]
   },
   "asia": {
     "Turkey": [
-      { "name": "Ankara", "lon": 32.85, "lat": 39.93, "capital": true, "note": "Interior Anatolian capital, chosen over Istanbul after the republic's founding (1923)." },
-      { "name": "Istanbul", "lon": 28.98, "lat": 41.01, "capital": false, "note": "Straddles Europe and Asia across the Bosphorus; former Byzantine/Ottoman capital." }
+      {
+        "name": "Ankara",
+        "lon": 32.85,
+        "lat": 39.93,
+        "capital": true,
+        "note": "Interior Anatolian capital, chosen over Istanbul after the republic's founding (1923)."
+      },
+      {
+        "name": "Istanbul",
+        "lon": 28.98,
+        "lat": 41.01,
+        "capital": false,
+        "note": "Straddles Europe and Asia across the Bosphorus; former Byzantine/Ottoman capital."
+      }
     ],
     "Saudi Arabia": [
-      { "name": "Riyadh", "lon": 46.68, "lat": 24.71, "capital": true, "note": "Interior Najd-plateau capital, seat of the ruling Al Saud dynasty." },
-      { "name": "Mecca", "lon": 39.83, "lat": 21.42, "capital": false, "note": "Islam's holiest city and the Hajj pilgrimage site — birthplace of the Prophet Muhammad." }
+      {
+        "name": "Riyadh",
+        "lon": 46.68,
+        "lat": 24.71,
+        "capital": true,
+        "note": "Interior Najd-plateau capital, seat of the ruling Al Saud dynasty."
+      },
+      {
+        "name": "Mecca",
+        "lon": 39.83,
+        "lat": 21.42,
+        "capital": false,
+        "note": "Islam's holiest city and the Hajj pilgrimage site — birthplace of the Prophet Muhammad."
+      }
     ],
     "Iraq": [
-      { "name": "Baghdad", "lon": 44.4, "lat": 33.34, "capital": true, "note": "On the Tigris; former seat of the medieval Abbasid Caliphate's House of Wisdom." }
+      {
+        "name": "Baghdad",
+        "lon": 44.4,
+        "lat": 33.34,
+        "capital": true,
+        "note": "On the Tigris; former seat of the medieval Abbasid Caliphate's House of Wisdom."
+      }
     ],
     "Iran": [
-      { "name": "Tehran", "lon": 51.42, "lat": 35.69, "capital": true, "note": "At the foot of the Alborz mountains; became capital under the Qajar dynasty (1795)." }
+      {
+        "name": "Tehran",
+        "lon": 51.42,
+        "lat": 35.69,
+        "capital": true,
+        "note": "At the foot of the Alborz mountains; became capital under the Qajar dynasty (1795)."
+      }
     ],
     "Afghanistan": [
-      { "name": "Kabul", "lon": 69.18, "lat": 34.56, "capital": true, "note": "High-altitude capital (~1,790 m) in a valley on the historic Silk Road route." }
+      {
+        "name": "Kabul",
+        "lon": 69.18,
+        "lat": 34.56,
+        "capital": true,
+        "note": "High-altitude capital (~1,790 m) in a valley on the historic Silk Road route."
+      }
     ],
     "Kazakhstan": [
-      { "name": "Astana", "lon": 71.43, "lat": 51.18, "capital": true, "note": "Purpose-planned capital since 1997, replacing Almaty; renamed several times since." }
+      {
+        "name": "Astana",
+        "lon": 71.43,
+        "lat": 51.18,
+        "capital": true,
+        "note": "Purpose-planned capital since 1997, replacing Almaty; renamed several times since."
+      }
     ],
     "Mongolia": [
-      { "name": "Ulaanbaatar", "lon": 106.92, "lat": 47.92, "capital": true, "note": "World's coldest capital city; historically a centre of nomadic pastoral trade." }
+      {
+        "name": "Ulaanbaatar",
+        "lon": 106.92,
+        "lat": 47.92,
+        "capital": true,
+        "note": "World's coldest capital city; historically a centre of nomadic pastoral trade."
+      }
     ],
     "China": [
-      { "name": "Beijing", "lon": 116.4, "lat": 39.9, "capital": true, "note": "Capital for most of the last 800 years; home to the Forbidden City." },
-      { "name": "Shanghai", "lon": 121.47, "lat": 31.23, "capital": false, "note": "Largest city; China's financial and shipping hub on the Yangtze delta." },
-      { "name": "Xi'an", "lon": 108.95, "lat": 34.27, "capital": false, "note": "Ancient imperial capital; eastern terminus of the Silk Road, home to the Terracotta Army." }
+      {
+        "name": "Beijing",
+        "lon": 116.4,
+        "lat": 39.9,
+        "capital": true,
+        "note": "Capital for most of the last 800 years; home to the Forbidden City."
+      },
+      {
+        "name": "Shanghai",
+        "lon": 121.47,
+        "lat": 31.23,
+        "capital": false,
+        "note": "Largest city; China's financial and shipping hub on the Yangtze delta."
+      },
+      {
+        "name": "Xi'an",
+        "lon": 108.95,
+        "lat": 34.27,
+        "capital": false,
+        "note": "Ancient imperial capital; eastern terminus of the Silk Road, home to the Terracotta Army."
+      }
     ],
     "Japan": [
-      { "name": "Tokyo", "lon": 139.69, "lat": 35.69, "capital": true, "note": "World's most populous metropolitan area; capital since 1868 (formerly Edo)." }
+      {
+        "name": "Tokyo",
+        "lon": 139.69,
+        "lat": 35.69,
+        "capital": true,
+        "note": "World's most populous metropolitan area; capital since 1868 (formerly Edo)."
+      }
     ],
     "North Korea": [
-      { "name": "Pyongyang", "lon": 125.75, "lat": 39.02, "capital": true, "note": "On the Taedong River; rebuilt as a showcase capital after Korean War destruction." }
+      {
+        "name": "Pyongyang",
+        "lon": 125.75,
+        "lat": 39.02,
+        "capital": true,
+        "note": "On the Taedong River; rebuilt as a showcase capital after Korean War destruction."
+      }
     ],
     "South Korea": [
-      { "name": "Seoul", "lon": 126.98, "lat": 37.57, "capital": true, "note": "On the Han River; one of the world's leading tech and manufacturing hubs." }
+      {
+        "name": "Seoul",
+        "lon": 126.98,
+        "lat": 37.57,
+        "capital": true,
+        "note": "On the Han River; one of the world's leading tech and manufacturing hubs."
+      }
     ],
     "Nepal": [
-      { "name": "Kathmandu", "lon": 85.32, "lat": 27.72, "capital": true, "note": "Himalayan valley capital; gateway to Everest expeditions." }
+      {
+        "name": "Kathmandu",
+        "lon": 85.32,
+        "lat": 27.72,
+        "capital": true,
+        "note": "Himalayan valley capital; gateway to Everest expeditions."
+      }
     ],
     "India": [
-      { "name": "New Delhi", "lon": 77.21, "lat": 28.61, "capital": true, "note": "Planned capital (1911) beside old Delhi; seat of Parliament and the Rashtrapati Bhavan." },
-      { "name": "Mumbai", "lon": 72.88, "lat": 19.08, "capital": false, "note": "Financial capital, on a natural harbour; home to the Bombay Stock Exchange." },
-      { "name": "Chennai", "lon": 80.27, "lat": 13.08, "capital": false, "note": "Major Bay of Bengal port and automotive manufacturing hub." }
+      {
+        "name": "New Delhi",
+        "lon": 77.21,
+        "lat": 28.61,
+        "capital": true,
+        "note": "Planned capital (1911) beside old Delhi; seat of Parliament and the Rashtrapati Bhavan."
+      },
+      {
+        "name": "Mumbai",
+        "lon": 72.88,
+        "lat": 19.08,
+        "capital": false,
+        "note": "Financial capital, on a natural harbour; home to the Bombay Stock Exchange."
+      },
+      {
+        "name": "Chennai",
+        "lon": 80.27,
+        "lat": 13.08,
+        "capital": false,
+        "note": "Major Bay of Bengal port and automotive manufacturing hub."
+      }
     ],
     "Pakistan": [
-      { "name": "Islamabad", "lon": 73.05, "lat": 33.68, "capital": true, "note": "Planned capital (1960s) built near Rawalpindi, at the foot of the Margalla Hills." },
-      { "name": "Karachi", "lon": 67.01, "lat": 24.86, "capital": false, "note": "Former capital; Pakistan's largest city and main Arabian Sea port." }
+      {
+        "name": "Islamabad",
+        "lon": 73.05,
+        "lat": 33.68,
+        "capital": true,
+        "note": "Planned capital (1960s) built near Rawalpindi, at the foot of the Margalla Hills."
+      },
+      {
+        "name": "Karachi",
+        "lon": 67.01,
+        "lat": 24.86,
+        "capital": false,
+        "note": "Former capital; Pakistan's largest city and main Arabian Sea port."
+      }
     ],
     "Bangladesh": [
-      { "name": "Dhaka", "lon": 90.41, "lat": 23.81, "capital": true, "note": "One of the world's most densely populated cities, on the Buriganga River." }
+      {
+        "name": "Dhaka",
+        "lon": 90.41,
+        "lat": 23.81,
+        "capital": true,
+        "note": "One of the world's most densely populated cities, on the Buriganga River."
+      }
     ],
     "Sri Lanka": [
-      { "name": "Colombo", "lon": 79.86, "lat": 6.93, "capital": false, "note": "Commercial capital and main port; the official capital is Sri Jayawardenepura Kotte nearby." }
+      {
+        "name": "Colombo",
+        "lon": 79.86,
+        "lat": 6.93,
+        "capital": false,
+        "note": "Commercial capital and main port; the official capital is Sri Jayawardenepura Kotte nearby."
+      }
     ],
     "Myanmar": [
-      { "name": "Naypyidaw", "lon": 96.13, "lat": 19.75, "capital": true, "note": "Purpose-built capital since 2005, replacing Yangon; sparsely populated by design." }
+      {
+        "name": "Naypyidaw",
+        "lon": 96.13,
+        "lat": 19.75,
+        "capital": true,
+        "note": "Purpose-built capital since 2005, replacing Yangon; sparsely populated by design."
+      }
     ],
     "Thailand": [
-      { "name": "Bangkok", "lon": 100.5, "lat": 13.75, "capital": true, "note": "On the Chao Phraya delta; one of the world's most-visited cities." }
+      {
+        "name": "Bangkok",
+        "lon": 100.5,
+        "lat": 13.75,
+        "capital": true,
+        "note": "On the Chao Phraya delta; one of the world's most-visited cities."
+      }
     ],
     "Vietnam": [
-      { "name": "Hanoi", "lon": 105.85, "lat": 21.03, "capital": true, "note": "Red River Delta capital with over a thousand years as Vietnam's political centre." },
-      { "name": "Ho Chi Minh City", "lon": 106.66, "lat": 10.82, "capital": false, "note": "Formerly Saigon; Vietnam's largest city and economic engine in the Mekong Delta region." }
+      {
+        "name": "Hanoi",
+        "lon": 105.85,
+        "lat": 21.03,
+        "capital": true,
+        "note": "Red River Delta capital with over a thousand years as Vietnam's political centre."
+      },
+      {
+        "name": "Ho Chi Minh City",
+        "lon": 106.66,
+        "lat": 10.82,
+        "capital": false,
+        "note": "Formerly Saigon; Vietnam's largest city and economic engine in the Mekong Delta region."
+      }
     ],
     "Indonesia": [
-      { "name": "Jakarta", "lon": 106.85, "lat": -6.21, "capital": false, "note": "Current seat of government on Java — sinking fast, prompting the move to Nusantara." },
-      { "name": "Nusantara", "lon": 116.8, "lat": -0.9, "capital": true, "note": "New purpose-built capital under construction on Borneo, replacing sinking, congested Jakarta." }
+      {
+        "name": "Jakarta",
+        "lon": 106.85,
+        "lat": -6.21,
+        "capital": false,
+        "note": "Current seat of government on Java — sinking fast, prompting the move to Nusantara."
+      },
+      {
+        "name": "Nusantara",
+        "lon": 116.8,
+        "lat": -0.9,
+        "capital": true,
+        "note": "New purpose-built capital under construction on Borneo, replacing sinking, congested Jakarta."
+      }
     ],
     "Philippines": [
-      { "name": "Manila", "lon": 120.98, "lat": 14.6, "capital": true, "note": "On Manila Bay; one of the most densely populated cities on Earth." }
+      {
+        "name": "Manila",
+        "lon": 120.98,
+        "lat": 14.6,
+        "capital": true,
+        "note": "On Manila Bay; one of the most densely populated cities on Earth."
+      }
     ]
   },
   "australia-oceania": {
     "Australia": [
-      { "name": "Canberra", "lon": 149.13, "lat": -35.28, "capital": true, "note": "Purpose-built compromise capital (1908), roughly midway between rivals Sydney and Melbourne." },
-      { "name": "Sydney", "lon": 151.21, "lat": -33.87, "capital": false, "note": "Largest city, on a natural harbour; site of the first British penal colony (1788)." },
-      { "name": "Melbourne", "lon": 144.96, "lat": -37.81, "capital": false, "note": "Cultural/sporting capital; was Australia's capital until Canberra was completed in 1927." }
+      {
+        "name": "Canberra",
+        "lon": 149.13,
+        "lat": -35.28,
+        "capital": true,
+        "note": "Purpose-built compromise capital (1908), roughly midway between rivals Sydney and Melbourne."
+      },
+      {
+        "name": "Sydney",
+        "lon": 151.21,
+        "lat": -33.87,
+        "capital": false,
+        "note": "Largest city, on a natural harbour; site of the first British penal colony (1788)."
+      },
+      {
+        "name": "Melbourne",
+        "lon": 144.96,
+        "lat": -37.81,
+        "capital": false,
+        "note": "Cultural/sporting capital; was Australia's capital until Canberra was completed in 1927."
+      }
     ],
     "New Zealand": [
-      { "name": "Wellington", "lon": 174.78, "lat": -41.29, "capital": true, "note": "World's southernmost national capital, on Cook Strait between the North and South Islands." },
-      { "name": "Auckland", "lon": 174.76, "lat": -36.85, "capital": false, "note": "Largest city, built across an active volcanic field on an isthmus between two harbours." }
+      {
+        "name": "Wellington",
+        "lon": 174.78,
+        "lat": -41.29,
+        "capital": true,
+        "note": "World's southernmost national capital, on Cook Strait between the North and South Islands."
+      },
+      {
+        "name": "Auckland",
+        "lon": 174.76,
+        "lat": -36.85,
+        "capital": false,
+        "note": "Largest city, built across an active volcanic field on an isthmus between two harbours."
+      }
     ],
     "Papua New Guinea": [
-      { "name": "Port Moresby", "lon": 147.18, "lat": -9.48, "capital": true, "note": "Coastal capital of one of the world's most linguistically diverse countries (800+ languages)." }
+      {
+        "name": "Port Moresby",
+        "lon": 147.18,
+        "lat": -9.48,
+        "capital": true,
+        "note": "Coastal capital of one of the world's most linguistically diverse countries (800+ languages)."
+      }
     ],
     "Fiji": [
-      { "name": "Suva", "lon": 178.44, "lat": -18.14, "capital": true, "note": "On Viti Levu; regional diplomatic hub for the South Pacific." }
+      {
+        "name": "Suva",
+        "lon": 178.44,
+        "lat": -18.14,
+        "capital": true,
+        "note": "On Viti Levu; regional diplomatic hub for the South Pacific."
+      }
     ]
   }
 }
