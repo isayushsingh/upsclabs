@@ -77,23 +77,40 @@ export const SLOTS: { id: SlotId; label: string }[] = [
   { id: "legacy", label: "Policy & Legacy" },
 ];
 
-export const SERIES: { id: SeriesId; label: string; color: string }[] = [
-  { id: "mysore", label: "Anglo-Mysore Wars", color: "#B7791F" },
-  { id: "maratha", label: "Anglo-Maratha Wars", color: "#D6457A" },
-  { id: "charter", label: "Charter Acts", color: "#2F7FE0" },
-  { id: "land", label: "Land settlements", color: "#5E9A12" },
-  { id: "sikh", label: "Anglo-Sikh Wars", color: "#DC3F3F" },
-  { id: "burmese", label: "Anglo-Burmese Wars", color: "#14946E" },
-  { id: "afghan", label: "Anglo-Afghan Wars", color: "#7C6FE0" },
-  { id: "councils", label: "Indian Councils Acts", color: "#0F7C8C" },
-  { id: "durbar", label: "Delhi Durbars", color: "#A0522D" },
-  { id: "rtc", label: "Round Table Conferences", color: "#4B5A73" },
+/** `ordinal`: the series' labels don't say "1st/2nd…" themselves, so the
+    chip appends "1 of 4". */
+export const SERIES: { id: SeriesId; label: string; ordinal?: boolean }[] = [
+  { id: "mysore", label: "Anglo-Mysore Wars" },
+  { id: "maratha", label: "Anglo-Maratha Wars" },
+  { id: "charter", label: "Charter Acts", ordinal: true },
+  { id: "land", label: "Land settlements", ordinal: true },
+  { id: "sikh", label: "Anglo-Sikh Wars" },
+  { id: "burmese", label: "Anglo-Burmese Wars" },
+  { id: "afghan", label: "Anglo-Afghan Wars" },
+  { id: "councils", label: "Indian Councils Acts", ordinal: true },
+  { id: "durbar", label: "Delhi Durbars" },
+  { id: "rtc", label: "Round Table Conferences" },
 ];
 
 export const SERIES_BY_ID = Object.fromEntries(SERIES.map((s) => [s.id, s])) as Record<
   SeriesId,
   (typeof SERIES)[number]
 >;
+
+export interface ChainStep {
+  g: Governor;
+  e: GGEvent;
+  /** first four-digit year in the label, e.g. "Charter Act (1813)" → "1813" */
+  year: string;
+}
+
+/** Every event in a series, in order, with the Governor-General it fell under. */
+export const seriesChain = (id: SeriesId): ChainStep[] =>
+  GOVERNORS.flatMap((g) =>
+    g.events
+      .filter((e) => e.series?.id === id)
+      .map((e) => ({ g, e, year: e.label.match(/\b(\d{4})\b/)?.[1] ?? "" }))
+  ).sort((a, b) => a.e.series!.n - b.e.series!.n);
 
 const s = (id: SeriesId, n: number) => ({ id, n });
 
