@@ -1,17 +1,20 @@
-/* Modern India Timeline (1857–1947) — one vertical column per year that
-   actually has an event, free-scrolling with a JS-driven settle-to-nearest-
-   year once motion stops (see scheduleIdleSnap in the component — CSS
-   scroll-snap kept fighting an active drag instead of finishing it), a
-   curated causal-link overlay, and a Learn ⇄ Revise toggle (same vocabulary
-   as the National Parks tool's Learn/Recall mode). One unified accent
-   colour now — this used to colour-code six "strands"; that's gone, a
-   card's colour no longer carries meaning. Tokens mirror the
-   ancient-india-timeline's scoped copies so this stays self-contained
+/* Modern India Timeline (1857–1947) — a vertical "anchor ladder": one rung
+   per year that has an event, a central spine, the British state's moves
+   on the left and the Indian responses on the right, grouped under the
+   five era headings. Tapping a milestone opens its detail in a sticky
+   panel on the right (a bottom sheet on phones), with its curated causes
+   and effects outlined on the ladder itself. Revise mode empties one era's
+   rungs into a shuffled tray in that same panel. Chip tint = strand (see
+   STRANDS in modernIndia.ts, keyed in the panel's legend). Tokens mirror
+   the ancient-india-timeline's scoped copies so this stays self-contained
    against the site's cream page. */
 .mit-root{
   --ink:#17170f; --ink-soft:#58564a; --stone-edge:#c7bfa4;
   --paper:#f2efe2; --paper-2:#eae5d2; --paper-3:#f7f4e9; --line:#ddd6bd;
-  --accent:#23268C; --bad:#8C2F39;
+  --accent:#23268C; --bad:#8C2F39; --cause:#23268C; --effect:#8C2F39;
+  --both:rgba(233,182,90,.15);
+  /* Spine geometry: the year sits left of the dot, the line runs through it. */
+  --spine-w:104px; --dot-x:80px;
   background:var(--paper); color:var(--ink);
   font-family:var(--font-inter),system-ui,sans-serif; min-height:100%;
   padding:34px clamp(16px,4vw,40px) 48px; box-sizing:border-box; max-width:1280px; margin:0 auto;
@@ -19,127 +22,152 @@
 .mit-root *,.mit-root *::before,.mit-root *::after{ box-sizing:border-box; }
 
 /* ── controls ── */
-.mit-controls{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin:26px 0 16px; }
+.mit-controls{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:26px 0 16px; }
 
 .mit-modebar{ display:flex; gap:2px; padding:3px; border:1px solid var(--stone-edge); border-radius:8px; background:var(--paper-2); flex:0 0 auto; }
 .mit-mode-btn{ font-family:var(--font-inter),sans-serif; font-size:12.5px; font-weight:600; padding:6px 14px; border:none; border-radius:6px; background:transparent; color:var(--ink-soft); cursor:pointer; }
 .mit-mode-btn.on{ background:#fff; color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,.12); }
 
 .mit-tier-toggle{ flex:0 0 auto; font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.04em; padding:6px 12px; border:1px solid var(--stone-edge); border-radius:6px; background:var(--paper-2); color:var(--ink); cursor:pointer; white-space:nowrap; }
-.mit-tier-toggle:hover{ background:#dcd6c6; }
+.mit-tier-toggle:hover:not(:disabled){ background:#dcd6c6; }
+.mit-tier-toggle:disabled{ opacity:.45; cursor:default; }
 
-/* Big, legible, unmistakably clickable — the primary way to move once you
-   notice dragging isn't obviously "doing" anything. */
-.mit-pager{ display:flex; align-items:center; gap:8px; flex:0 0 auto; }
-.mit-zbtn{ height:38px; padding:0 16px; border-radius:7px; border:1px solid var(--stone-edge); background:var(--paper-2); color:var(--ink); font-family:var(--font-inter),sans-serif; font-size:13px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-.mit-zbtn:hover:not(:disabled){ background:#dcd6c6; }
-.mit-zbtn:disabled{ opacity:.35; cursor:default; }
+.mit-eranav{ display:flex; flex-wrap:wrap; gap:6px; margin-left:auto; }
+.mit-eranav-btn{ font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.04em; padding:6px 11px; border:1px solid var(--line); border-radius:999px; background:var(--paper-3); color:var(--ink-soft); cursor:pointer; }
+.mit-eranav-btn:hover{ border-color:var(--stone-edge); color:var(--ink); background:#fff; }
 
-/* ── revise-mode bar: captured-years status + shuffled tray ──
-   Sits *below* the canvas — these are the cards that just came out of the
-   columns still visible right above, scrambled here to be put back. */
-.mit-revise-bar{ margin-top:14px; padding:12px 16px; border:1px solid var(--stone-edge); border-radius:8px; background:#fff; }
-.mit-revise-status{ display:flex; align-items:center; justify-content:space-between; gap:12px; font-family:var(--font-space-mono),monospace; font-size:11px; letter-spacing:.03em; color:var(--ink-soft); margin-bottom:10px; }
-.mit-tray{ display:flex; flex-wrap:wrap; gap:8px; }
-/* Staggered "drop in" on mount — these cards just fell out of the timeline
-   above into this tray; animation-delay is set per-card (see the component)
-   for a cascading, scrambled-down feel rather than all landing at once. */
-.mit-tray-card{ font-family:var(--font-inter),sans-serif; font-size:12.5px; padding:7px 12px; border:1.5px solid var(--accent); border-radius:6px; background:var(--paper-3); color:var(--ink); cursor:pointer; animation:mit-tray-drop .32s ease-out backwards; }
+/* ── two-column body: ladder + sticky side panel ── */
+.mit-body{ display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:22px; align-items:start; }
+
+/* ── the ladder ── */
+.mit-ladder{ background:var(--paper-3); border:1px solid var(--line); border-radius:14px; padding:18px 22px 26px; }
+.mit-ladder-head,
+.mit-rung{ display:grid; grid-template-columns:minmax(0,1fr) var(--spine-w) minmax(0,1fr); }
+.mit-ladder-head{ padding-bottom:4px; font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; }
+.mit-head-l{ text-align:right; padding-right:12px; color:#8C4A3B; }
+.mit-head-r{ padding-left:12px; color:var(--accent); }
+
+.mit-era{ transition:opacity .2s; }
+.mit-era.is-dimmed{ opacity:.38; }
+/* Clears the site's sticky header when an era is scrolled to. */
+.mit-era{ scroll-margin-top:96px; }
+.mit-era-head{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:center; gap:4px 10px; padding:22px 0 10px; margin-bottom:6px; border-bottom:1px dashed var(--stone-edge); text-align:center; }
+.mit-era-name{ margin:0; font-family:var(--font-fraunces),serif; font-weight:600; font-size:21px; }
+.mit-era-range{ font-family:var(--font-space-mono),monospace; font-size:11px; color:var(--ink-soft); }
+.mit-era-count{ font-size:12.5px; color:var(--ink-soft); }
+.mit-era.is-revising .mit-era-head{ border-bottom-color:var(--accent); }
+
+.mit-rungs{ list-style:none; margin:0; padding:0; }
+.mit-rung{ position:relative; align-items:center; min-height:46px; padding:5px 0; border-radius:8px; transition:background .15s; }
+/* A year where both sides of the spine moved — action and reaction land
+   on the same rung, which is exactly the pattern worth noticing. */
+.mit-rung.is-both{ background:var(--both); }
+
+.mit-rung-side{ display:flex; flex-wrap:wrap; gap:6px; min-width:0; }
+.mit-rung-l{ justify-content:flex-end; padding-right:12px; }
+.mit-rung-r{ justify-content:flex-start; padding-left:12px; }
+
+.mit-rung-spine{ position:relative; align-self:stretch; display:flex; flex-direction:column; justify-content:center; }
+/* The spine itself — drawn per rung, extended over the rung's padding so
+   consecutive rungs join into one unbroken line. */
+.mit-rung-spine::before{ content:""; position:absolute; top:-5px; bottom:-5px; left:var(--dot-x); width:2px; margin-left:-1px; background:var(--stone-edge); }
+.mit-rung-wrap:first-child > .mit-rung:first-child .mit-rung-spine::before{ top:50%; }
+.mit-rung-wrap:last-child > .mit-rung:last-child .mit-rung-spine::before{ bottom:50%; }
+.mit-rung-year{ width:calc(var(--dot-x) - 14px); text-align:right; font-family:var(--font-space-mono),monospace; font-size:12.5px; font-weight:700; color:var(--ink); }
+button.mit-rung-year{ appearance:none; border:0; background:transparent; padding:0; cursor:pointer; }
+.mit-rung-tag{ width:calc(var(--dot-x) - 14px); text-align:right; font-family:var(--font-space-mono),monospace; font-size:8.5px; letter-spacing:.08em; text-transform:uppercase; color:#9a6a1c; }
+.mit-rung-dot{ position:absolute; top:50%; left:var(--dot-x); width:11px; height:11px; border-radius:50%; transform:translate(-50%,-50%); background:#8f8670; box-shadow:0 0 0 3px var(--paper-3); }
+.mit-rung.is-both .mit-rung-dot{ background:#b9862f; }
+.mit-rung.is-anchor .mit-rung-dot{ width:15px; height:15px; background:var(--ink); }
+
+/* Folded quiet stretch — years with no visible event, named once instead
+   of an empty rung each. */
+.mit-fold{ min-height:30px; }
+.mit-fold .mit-rung-dot{ width:5px; height:5px; background:var(--stone-edge); box-shadow:none; }
+.mit-fold-text{ padding-left:12px; font-size:12px; font-style:italic; color:var(--ink-soft); opacity:.8; }
+
+/* ── milestone chips ── */
+.mit-chip{
+  max-width:100%; padding:6px 12px; border-radius:7px; cursor:pointer; text-align:left;
+  font-family:var(--font-inter),sans-serif; font-size:13.5px; line-height:1.3;
+  color:color-mix(in srgb, var(--chip) 72%, #000);
+  background:color-mix(in srgb, var(--chip) 11%, #fff);
+  border:1px solid color-mix(in srgb, var(--chip) 22%, transparent);
+  transition:box-shadow .15s, transform .15s;
+}
+.mit-chip:hover{ box-shadow:0 2px 8px rgba(0,0,0,.12); }
+/* Anchor = one of the watershed milestones (ANCHOR_IDS) — the solid rungs
+   the rest of the ladder is read against. */
+.mit-chip.is-anchor{ background:var(--ink); color:var(--paper); border-color:var(--ink); font-family:var(--font-fraunces),serif; font-size:16px; font-weight:500; padding:7px 14px; }
+.mit-chip.is-active{ outline:2px solid var(--ink); outline-offset:2px; }
+.mit-chip.is-cause{ outline:2px dashed var(--cause); outline-offset:2px; }
+.mit-chip.is-effect{ outline:2px dashed var(--effect); outline-offset:2px; }
+.mit-chip.is-placed{ cursor:default; animation:mit-pop .25s ease-out; }
+@keyframes mit-pop{ from{ transform:scale(.7); opacity:0; } to{ transform:scale(1); opacity:1; } }
+
+/* Revise-mode rung states */
+.mit-rung.is-target{ cursor:pointer; }
+.mit-rung.is-target:hover{ background:rgba(35,38,140,.08); }
+.mit-rung.is-target .mit-rung-year{ color:var(--accent); text-decoration:underline dotted; text-underline-offset:3px; }
+.mit-rung.is-wrong{ background:rgba(140,47,57,.16); }
+
+/* ── side panel ── */
+.mit-aside{ position:sticky; top:96px; display:flex; flex-direction:column; gap:12px; max-height:calc(100vh - 112px); overflow-y:auto; scrollbar-width:thin; }
+.mit-card{ position:relative; padding:18px 20px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+.mit-eyebrow{ font-family:var(--font-space-mono),monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); }
+.mit-card-title{ margin:6px 0 0; font-family:var(--font-fraunces),serif; font-weight:600; font-size:23px; line-height:1.2; }
+
+.mit-detail{ padding-right:40px; }
+.mit-detail-close{ position:absolute; top:10px; right:10px; width:28px; height:28px; border:none; background:transparent; font-size:20px; line-height:1; color:var(--ink-soft); cursor:pointer; }
+.mit-detail-close:hover{ color:var(--ink); }
+.mit-detail-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.mit-tag{ font-family:var(--font-space-mono),monospace; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; padding:2px 7px; border-radius:4px; color:color-mix(in srgb, var(--chip) 72%, #000); background:color-mix(in srgb, var(--chip) 13%, #fff); }
+.mit-tag-anchor{ background:var(--ink); color:var(--paper); }
+.mit-detail-text{ margin:10px 0 0; font-size:14px; line-height:1.55; color:var(--ink); }
+.mit-detail .mit-detail-text{ margin-right:-20px; }
+.mit-detail-group{ display:flex; flex-direction:column; gap:6px; margin:14px -20px 0 0; padding-top:12px; border-top:1px solid var(--line); }
+.mit-detail-label{ font-size:11.5px; color:var(--ink-soft); }
+.mit-label-cause{ color:var(--cause); }
+.mit-label-effect{ color:var(--effect); }
+.mit-detail-nolinks{ margin:14px 0 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
+
+.mit-mini{ display:flex; flex-direction:column; gap:1px; width:100%; padding:8px 12px; border:1px solid transparent; border-radius:8px; text-align:left; cursor:pointer; background:color-mix(in srgb, var(--chip) 10%, #fff); color:color-mix(in srgb, var(--chip) 72%, #000); font-family:var(--font-inter),sans-serif; }
+.mit-mini:hover{ border-color:color-mix(in srgb, var(--chip) 30%, transparent); }
+.mit-mini.is-cause{ border:1px dashed var(--cause); }
+.mit-mini.is-effect{ border:1px dashed var(--effect); }
+.mit-mini-title{ font-size:13.5px; font-weight:600; line-height:1.3; }
+.mit-mini-meta{ font-size:12px; opacity:.85; }
+
+.mit-rule{ padding:16px 20px; border-radius:14px; background:#f8ead7; }
+.mit-rule .mit-eyebrow{ color:#7a5a2a; }
+.mit-rule p{ margin:8px 0 0; font-size:13.5px; line-height:1.55; }
+.mit-legend{ list-style:none; margin:12px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px 12px; font-size:12px; color:var(--ink-soft); }
+.mit-legend li{ display:flex; align-items:center; gap:5px; }
+.mit-legend-dot{ width:9px; height:9px; border-radius:3px; }
+
+.mit-btn{ font-family:var(--font-inter),sans-serif; font-size:13.5px; font-weight:600; padding:10px 16px; border-radius:10px; border:1px solid var(--stone-edge); background:var(--paper-2); color:var(--ink); cursor:pointer; }
+.mit-btn:hover{ background:#dcd6c6; }
+.mit-btn-dark{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.mit-btn-dark:hover{ background:#2f2f25; }
+.mit-btn-ghost{ background:transparent; margin-top:14px; width:100%; }
+.mit-revise-cta{ width:100%; padding:13px 16px; }
+
+/* ── revise panel ── */
+.mit-revise-status{ margin:6px 0 0; font-family:var(--font-space-mono),monospace; font-size:11px; letter-spacing:.03em; color:var(--ink-soft); }
+.mit-revise .mit-hint{ margin:12px 0 10px; }
+.mit-tray{ display:flex; flex-wrap:wrap; gap:7px; max-height:calc(100vh - 380px); min-height:80px; overflow-y:auto; padding:2px; }
+/* Staggered "drop in" on mount — these cards just fell out of the era's
+   rungs into this tray; animation-delay is set per-card (see the
+   component) for a cascading, scrambled-down feel rather than all landing
+   at once. */
+.mit-tray-card{ font-family:var(--font-inter),sans-serif; font-size:12.5px; padding:7px 11px; border:1.5px solid var(--accent); border-radius:7px; background:var(--paper-3); color:var(--ink); cursor:pointer; text-align:left; animation:mit-tray-drop .32s ease-out backwards; }
 .mit-tray-card:hover{ background:#fff; }
 .mit-tray-card.is-selected{ background:var(--accent); color:#fff; box-shadow:0 2px 6px rgba(0,0,0,.2); }
 @keyframes mit-tray-drop{ from{ transform:translateY(-16px); opacity:0; } to{ transform:translateY(0); opacity:1; } }
-.mit-revise-done{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; font-size:13.5px; }
+.mit-revise-done p{ margin:14px 0 0; font-size:14px; }
+.mit-revise-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
 
-/* ── scroll canvas ──
-   Scrolling itself is 100% native/free here — no CSS scroll-snap, on
-   purpose. It fought an active drag (kept grabbing for the nearest boundary
-   mid-gesture instead of letting it finish). The settle-to-nearest-year
-   behaviour is JS-driven instead, only firing once scrolling has actually
-   stopped — see scheduleIdleSnap in the component. */
-.mit-scroll{
-  position:relative; overflow-x:auto; overflow-y:hidden; border:1px solid var(--line); border-radius:8px;
-  background:var(--paper-3); cursor:grab; user-select:none; -webkit-overflow-scrolling:touch;
-  scrollbar-width:thin;
-}
-.mit-scroll:active{ cursor:grabbing; }
-.mit-canvas{ position:relative; }
-
-/* One column per year that has an event — alternating background is the
-   cue for "this is a new year", since colour no longer marks strand. */
-.mit-col{ position:absolute; top:0; border-right:1px solid var(--line); transition:background .15s; }
-.mit-col.alt{ background:rgba(0,0,0,.035); }
-.mit-col-year{ position:absolute; left:10px; top:19px; font-family:var(--font-space-mono),monospace; font-size:15px; font-weight:700; color:var(--ink); }
-/* Pinned to the top of every era-starting column — a reserved strip (see
-   HEADER_HEIGHT in modernIndia.ts) that no card ever starts inside, so the
-   era name is always a clean header, never interleaved with the cards
-   beneath it. Text is allowed to overflow rightward across neighbouring
-   columns since one era name is wider than one year's column. */
-.mit-era-header{ position:absolute; top:0; left:10px; right:-600px; height:26px; padding-top:6px; overflow:visible; pointer-events:none; z-index:3; }
-.mit-era-label{ display:block; font-family:var(--font-fraunces),serif; font-style:italic; font-size:13.5px; color:var(--ink-soft); white-space:nowrap; }
-.mit-era-range{ font-family:var(--font-space-mono),monospace; font-size:9.5px; letter-spacing:.06em; color:var(--ink-soft); opacity:.55; margin-left:8px; }
-
-/* Revise-mode column states */
-.mit-col.is-target{ cursor:pointer; }
-.mit-col.is-target:hover{ background:rgba(35,38,140,.08); }
-.mit-col.is-wrong{ background:rgba(140,47,57,.16); }
-
-.mit-links{ position:absolute; top:0; left:0; pointer-events:none; overflow:visible; }
-.mit-link{ fill:none; stroke-width:1.6; }
-.mit-link-in{ stroke:#23268C; opacity:.7; }
-.mit-link-out{ stroke:#8C2F39; opacity:.7; }
-.mit-arrow-fill-in{ fill:#23268C; }
-.mit-arrow-fill-out{ fill:#8C2F39; }
-
-/* ── event cards ──
-   Every event is always its own element, always showing its title — never
-   merged into a cluster (a merged marker has no single correct (x, y) for a
-   causal-link arrow to land on) and never collapsed to a bare mark either.
-   No year on the card any more: it's already the header of the column it
-   sits in, so repeating it on every card was redundant and just ate into
-   the width available for the title. Cards from the same year stack inside
-   that year's column, each the same fixed height (see CARD_HEIGHT in
-   modernIndia.ts — the stacking math needs every card to agree on one
-   height, so the title wraps up to two lines rather than needing a wider
-   card or getting a one-line ellipsis truncation. */
-.mit-card{ position:absolute; transform:translate(-50%,-50%); border:1px solid var(--stone-edge); border-radius:5px; background:#fff; cursor:pointer; text-align:left; font-family:var(--font-inter),sans-serif; color:var(--ink); padding:6px 12px; height:44px; z-index:2; overflow:hidden; display:flex; align-items:center; }
-.mit-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--accent); border-radius:5px 0 0 5px; }
-.mit-card:hover{ box-shadow:0 3px 8px rgba(0,0,0,.16); z-index:5; }
-.mit-card.is-active{ box-shadow:0 0 0 2px var(--accent); z-index:6; }
-.mit-card.is-linked{ box-shadow:0 0 0 3px rgba(255, 0, 0, 0.3); z-index:5; }
-.mit-card.is-placed{ cursor:default; animation:mit-pop .25s ease-out; }
-@keyframes mit-pop{ from{ transform:translate(-50%,-50%) scale(.7); opacity:0; } to{ transform:translate(-50%,-50%) scale(1); opacity:1; } }
-
-/* Wraps up to 2 lines (CARD_HEIGHT is sized for exactly that); a title that
-   would still overflow past two lines clips with an ellipsis on the 2nd
-   line — display:-webkit-box + line-clamp is what makes an ellipsis work on
-   the *last* line of a wrapped block, plain overflow:hidden alone can't. */
-.mit-card-title{
-  font-size:14.5px; line-height:1.22; padding-left:6px;
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
-  overflow:hidden; text-overflow:ellipsis; white-space:normal;
-}
-
-/* ── minimap scrubber ── */
-.mit-minimap{ position:relative; height:30px; margin-top:8px; border:1px solid var(--line); border-radius:5px; background:var(--paper-2); cursor:pointer; overflow:hidden; touch-action:none; }
-.mit-mm-band{ position:absolute; top:0; bottom:0; border-right:1px solid var(--line); display:flex; align-items:center; justify-content:center; }
-.mit-mm-band:nth-child(odd){ background:rgba(0,0,0,.03); }
-.mit-mm-band span{ font-family:var(--font-space-mono),monospace; font-size:8.5px; color:var(--ink-soft); opacity:.65; }
-.mit-mm-view{ position:absolute; top:0; bottom:0; background:rgba(35,38,140,.14); border:1.5px solid #23268C; border-radius:3px; pointer-events:none; }
-
-/* ── detail panel / hint ── */
-.mit-panel{ position:relative; margin-top:16px; padding:16px 44px 16px 18px; border:1px solid var(--stone-edge); border-radius:8px; background:#fff; }
-.mit-panel-close{ position:absolute; top:10px; right:12px; width:26px; height:26px; border:none; background:transparent; font-size:18px; line-height:1; color:var(--ink-soft); cursor:pointer; }
-.mit-panel-close:hover{ color:var(--ink); }
-.mit-panel-year{ font-family:var(--font-space-mono),monospace; font-weight:700; font-size:13px; color:var(--ink-soft); }
-.mit-panel-title{ font-family:var(--font-fraunces),serif; font-weight:600; font-size:22px; margin:2px 0 0; }
-.mit-panel-text{ margin:8px 0 0; font-size:14.5px; line-height:1.55; max-width:100ch; }
-.mit-panel-links{ display:flex; flex-direction:column; gap:8px; margin-top:12px; padding-top:12px; border-top:1px solid var(--line); }
-.mit-panel-linkgroup{ display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
-.mit-panel-linklabel{ font-family:var(--font-space-mono),monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-right:2px; }
-.mit-panel-linkchip{ font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; background:var(--paper-3); color:var(--ink); cursor:pointer; }
-.mit-panel-linkchip:hover{ border-color:var(--stone-edge); background:#fff; }
-.mit-panel-nolinks{ margin:12px 0 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
-.mit-hint{ margin:1px 0px 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
+.mit-hint{ margin:0; font-size:12.5px; font-style:italic; color:var(--ink-soft); }
 
 .mit-foot{ margin-top:22px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--font-space-mono),monospace; font-size:10.5px; letter-spacing:.04em; color:var(--ink-soft); }
 
@@ -149,19 +177,43 @@
    SuggestionForm.css, imported by the component itself so it's reusable
    outside this tool (see components/orgs/OrgWorldMap.tsx). ── */
 
-/* Phones get a denser layout, not just smaller text — the component swaps
-   to Density:"compact" pixel constants below this same 640px breakpoint
-   (COLUMN_WIDTH/CARD_HEIGHT/etc. in modernIndia.ts), which is the part CSS
-   alone can't do since column/card positions are inline styles computed by
-   the layout engine. These rules are the other half: font sizes and
-   padding scaled down to fit the smaller boxes that JS is now producing,
-   so more years are visible at once on a first, mobile-first impression. */
+/* Below 900px the side panel stops being a column and becomes a bottom
+   sheet — only while there's something in it (an open milestone or a
+   revise round); the empty state and reading rule are desktop-only. */
+@media (max-width:900px){
+  .mit-body{ grid-template-columns:minmax(0,1fr); }
+  .mit-eranav{ margin-left:0; }
+  .mit-aside{ display:none; }
+  .mit-aside.is-open{
+    display:flex; position:fixed; z-index:60; left:0; right:0; bottom:0; top:auto;
+    max-height:58vh; padding:10px 12px calc(12px + env(safe-area-inset-bottom));
+    background:var(--paper); border-top:1px solid var(--stone-edge); border-radius:16px 16px 0 0;
+    box-shadow:0 -8px 30px rgba(23,23,15,.16);
+  }
+  .mit-aside.is-open .mit-rule,
+  .mit-aside.is-open .mit-revise-cta{ display:none; }
+  .mit-aside .mit-card{ border:0; padding:8px 8px 4px; background:transparent; }
+  .mit-detail{ padding-right:36px; }
+  .mit-tray{ max-height:30vh; }
+  /* Room to scroll the last rungs out from under the sheet. */
+  .mit-root.has-sheet{ padding-bottom:60vh; }
+}
+
 @media (max-width:640px){
-  .mit-card{ height:34px; padding:4px 8px; border-radius:4px; }
-  .mit-card::before{ width:3px; }
-  .mit-card-title{ font-size:10.5px; line-height:1.15; padding-left:3px; -webkit-line-clamp:3; }
-  .mit-col-year{ left:6px; top:11px; font-size:10.5px; }
-  .mit-era-header{ left:6px; height:18px; padding-top:2px; }
-  .mit-era-label{ font-size:9px; }
-  .mit-era-range{ font-size:7px; margin-left:4px; }
+  .mit-root{ --spine-w:62px; --dot-x:48px; }
+  .mit-ladder{ padding:10px 8px 18px; border-radius:10px; }
+  .mit-ladder-head{ font-size:9px; letter-spacing:.05em; }
+  .mit-head-l{ padding-right:6px; }
+  .mit-head-r{ padding-left:6px; }
+  .mit-era-name{ font-size:17px; }
+  .mit-rung{ min-height:38px; }
+  .mit-rung-l{ padding-right:6px; }
+  .mit-rung-r{ padding-left:6px; }
+  .mit-rung-side{ gap:4px; }
+  .mit-rung-year{ width:calc(var(--dot-x) - 10px); font-size:10.5px; }
+  .mit-rung-tag{ width:calc(var(--dot-x) - 10px); font-size:7.5px; }
+  .mit-chip{ font-size:11.5px; padding:4px 8px; border-radius:5px; }
+  .mit-chip.is-anchor{ font-size:13px; padding:5px 9px; }
+  .mit-fold-text{ font-size:10.5px; padding-left:6px; }
+  .mit-card-title{ font-size:20px; }
 }

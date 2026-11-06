@@ -11,7 +11,7 @@ const PATH = "/gs1/ancient-sites-map";
 
 // No sites are loaded yet (lib/ancient-sites/sites.json is an empty
 // skeleton) — keep this out of search results until real data is in,
-// same reasoning as world-map/budget-fiscal-pipeline while mid-build.
+// same reasoning as world-map while mid-build.
 export const metadata = pageMetadata({
   title: TITLE,
   description: DESCRIPTION,

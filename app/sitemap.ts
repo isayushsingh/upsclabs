@@ -30,8 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Each tool's /full-list page (its underlying data as a plain-text
   // reference — see ToolSummary) — same registry-driven derivation as
-  // toolRoutes above. A tool that's individually noindexed (world-map,
-  // budget-fiscal-pipeline — see their own page.tsx) sets noindex on its
+  // toolRoutes above. A tool that's individually noindexed (e.g. world-map
+  // — see its own page.tsx) sets noindex on its
   // full-list page too, so listing it here is harmless: that page's own
   // robots meta tag keeps it out of results regardless of sitemap presence.
   const toolReferenceRoutes: MetadataRoute.Sitemap = liveTools.map((t) => ({

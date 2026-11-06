@@ -9,6 +9,7 @@ const CARD_LABEL: Record<string, string> = {
   "ancient-india-timeline": "Ancient India",
   "national-parks": "Wildlife Map",
   "rivers-of-india": "Rivers Map",
+  "governors-general": "Governors-General",
 };
 
 // How many times the card list repeats in the track. The loop always scrolls

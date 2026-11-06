@@ -3,21 +3,21 @@
 > Free, interactive tools for UPSC Civil Services Exam preparation (India).
 > Each tool turns a syllabus topic that's normally studied from static
 > notes — dynastic history, protected areas, world geography, international
-> organizations, the union budget — into a map or timeline you can scrub,
+> organizations — into a map or timeline you can scrub,
 > explore, and actively recall from, instead of just reading.
 
 UPSC Labs is built for aspirants preparing for the UPSC Civil Services
 Preliminary and Main examinations (General Studies papers GS1–GS3), and for
 anyone else who wants a visual, interactive way to learn Indian history,
-geography, polity, international relations, and economy.
+geography, polity, and international relations.
 
 ## Tools
 
 - [Ancient India Dynastic Timeline](https://www.upsclabs.com/gs1/ancient-india-timeline): Scrub four millennia of ancient Indian dynasties on a map of South Asia — watch kingdoms rise, overlap, and fall, year by year. GS1 History.
 - [Modern India Timeline (1857–1947)](https://www.upsclabs.com/gs1/modern-india-timeline): 230 milestones of the Indian freedom struggle on a year-by-year timeline, with curated cause-and-effect links between events and an active-recall revision mode. GS1 History.
+- [Governors-General & Viceroys of India (1773–1947)](https://www.upsclabs.com/gs1/governors-general): Every Governor-General and Viceroy of British India on a proportional timeline, with each tenure's wars, acts, land settlements, education and press measures, social reforms, annexations, movements and signature policies sorted into the same eight slots, plus an event search to find who did what. GS1 History.
 - [Protected Areas & Wetlands Mapping](https://www.upsclabs.com/gs3/national-parks): Active-recall map of India's national parks, tiger reserves, and wetlands, with river and terrain layers and a Learn/Recall toggle. GS3 Environment.
 - [Interactive World Map](https://www.upsclabs.com/gs1/world-map): Active-recall map of the world by continent — capitals, cities, rivers, lakes, mountains, volcanoes, and other physical features, with a Learn/Recall toggle. GS1 Geography.
-- [Concepts of Budget](https://www.upsclabs.com/gs3/budget-fiscal-pipeline): Interactive Revenue/Capital budget classification via an animated balance sheet, plus a fiscal deficit calculator. GS3 Economy.
 - [International Organizations & Their Members](https://www.upsclabs.com/gs2/international-organizations): Pick an organization — G7, G20, OECD, GCC, BIMSTEC, and more — and see its member countries highlighted on a world map, with a Learn/Recall toggle. GS2 International Relations.
 
 ## Past Year Question (PYQ) breakdowns
