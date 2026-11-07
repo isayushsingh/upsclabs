@@ -946,3 +946,75 @@
   background: var(--volcano);
   border-radius: 2px;
 }
+
+/* ── dark theme ── same mapping as the national parks map: warm paper → the
+   shared dark palette, accents lightened, accent-filled buttons get dark text. */
+[data-theme="dark"] .wm-root {
+  --paper: var(--d-paper);
+  --panel: var(--d-paper-2);
+  --ink: var(--d-ink);
+  --stone: #8b8473;
+  --line: var(--d-line);
+  --terra: #e08b62;
+  --slate: #8fb0cf;
+  --capital: #e48c97;
+  --city: #8fb0cf;
+  --sea: #7aa6cf;
+  --lake: #6fa3d4;
+  --lagoon: #6fbaa8;
+  --peak: #c6a27b;
+  --volcano: #e2786a;
+  --desert: #ddb062;
+  --plateau: #c09a6d;
+  --grassland: #9cc36e;
+  --forest: #74b083;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .wm-pill { background: rgba(33, 31, 25, 0.9); color: var(--d-ink-soft); }
+[data-theme="dark"] .wm-pill:hover:not(:disabled) { background: var(--d-hover); }
+[data-theme="dark"] .wm-pill-on,
+[data-theme="dark"] .wm-pill-on:hover:not(:disabled) { color: var(--d-paper); background: var(--slate); }
+[data-theme="dark"] .wm-pill-tag { background: rgba(255, 255, 255, 0.1); }
+[data-theme="dark"] .wm-search-box,
+[data-theme="dark"] .wm-search-results,
+[data-theme="dark"] .wm-modecard { background: var(--d-glass); }
+[data-theme="dark"] .wm-search-result:hover { background: rgba(143, 176, 207, 0.12); }
+[data-theme="dark"] .wm-mode,
+[data-theme="dark"] .wm-lyr-cap,
+[data-theme="dark"] .wm-footnote { color: var(--d-ink-soft); }
+[data-theme="dark"] .wm-country { fill: #2a2721; }
+[data-theme="dark"] .wm-has-data:hover,
+[data-theme="dark"] .wm-active { fill: #3b372c; }
+[data-theme="dark"] .wm-countrylabel { fill: #a59d8b; }
+[data-theme="dark"] .wm-lb-reset { background: rgba(224, 139, 98, 0.14); }
+[data-theme="dark"] .wm-lb-reset:hover { background: rgba(224, 139, 98, 0.24); }
+[data-theme="dark"] .wm-chip { background: var(--d-surface); color: var(--d-ink-soft); }
+[data-theme="dark"] .wm-sw { background: #4a463a; }
+[data-theme="dark"] .wm-sw::after { background: var(--d-ink); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+[data-theme="dark"] .wm-chip-pol.on { color: #b3cbe2; border-color: rgba(143, 176, 207, 0.45); background: rgba(143, 176, 207, 0.13); }
+[data-theme="dark"] .wm-chip-riv.on { color: #a3c6ea; border-color: rgba(111, 163, 212, 0.45); background: rgba(111, 163, 212, 0.13); }
+[data-theme="dark"] .wm-chip-mtn.on,
+[data-theme="dark"] .wm-chip-plat.on { color: #dcc1a2; border-color: rgba(198, 162, 123, 0.45); background: rgba(198, 162, 123, 0.14); }
+[data-theme="dark"] .wm-chip-des.on { color: #ebcb8e; border-color: rgba(221, 176, 98, 0.5); background: rgba(221, 176, 98, 0.14); }
+[data-theme="dark"] .wm-chip-gra.on { color: #c0dd9c; border-color: rgba(156, 195, 110, 0.45); background: rgba(156, 195, 110, 0.13); }
+[data-theme="dark"] .wm-chip-for.on { color: #a6d3b1; border-color: rgba(116, 176, 131, 0.5); background: rgba(116, 176, 131, 0.14); }
+[data-theme="dark"] .wm-zoom:hover { background: var(--d-hover); }
+[data-theme="dark"] .wm-mrk,
+[data-theme="dark"] .wm-peak { stroke: var(--d-paper); }
+[data-theme="dark"] .wm-mrk-capital-dot { fill: var(--d-paper); }
+[data-theme="dark"] .wm-mrk-g:hover .wm-mrk { stroke: var(--d-ink); }
+[data-theme="dark"] .wm-bubble { fill: var(--d-surface); }
+[data-theme="dark"] .wm-bubble-g:hover .wm-bubble { fill: var(--d-hover); }
+[data-theme="dark"] .wm-lake,
+[data-theme="dark"] .wm-lake-waterfall { stroke: #a3c6ea; }
+[data-theme="dark"] .wm-lake-lagoon { stroke: #9fd6c6; }
+[data-theme="dark"] .wm-lakelabel { fill: #a3c6ea; }
+[data-theme="dark"] .wm-card { background: var(--d-surface); box-shadow: 0 6px 30px rgba(0, 0, 0, 0.55); }
+[data-theme="dark"] .wm-card-head { background: linear-gradient(180deg, #27251e, var(--d-surface)); }
+[data-theme="dark"] .wm-card-x { background: var(--d-surface); }
+[data-theme="dark"] .wm-card-x:hover { background: var(--d-hover); }
+[data-theme="dark"] .wm-card-dot,
+[data-theme="dark"] .wm-lg { border-color: var(--d-paper-3); }
+[data-theme="dark"] .wm-tag-cap { color: #f0aab2; background: rgba(228, 140, 151, 0.15); border-color: rgba(228, 140, 151, 0.5); }
+[data-theme="dark"] .wm-tag-city { color: #b3cbe2; background: rgba(143, 176, 207, 0.15); border-color: rgba(143, 176, 207, 0.5); }
+[data-theme="dark"] .wm-mode-on { color: var(--d-paper); }

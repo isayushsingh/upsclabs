@@ -10,11 +10,20 @@ export default function ToolPreview({
   accent: string;
   className?: string;
 }) {
+  // One copy per theme; CSS hides the one that doesn't match [data-theme].
+  const cls = `ul-preview${className ? " " + className : ""}`;
   return (
-    <span
-      className={`ul-preview${className ? " " + className : ""}`}
-      aria-hidden="true"
-      dangerouslySetInnerHTML={{ __html: previewSvg(kind, accent) }}
-    />
+    <>
+      <span
+        className={`${cls} ul-preview-light`}
+        aria-hidden="true"
+        dangerouslySetInnerHTML={{ __html: previewSvg(kind, accent, "light") }}
+      />
+      <span
+        className={`${cls} ul-preview-dark`}
+        aria-hidden="true"
+        dangerouslySetInnerHTML={{ __html: previewSvg(kind, accent, "dark") }}
+      />
+    </>
   );
 }

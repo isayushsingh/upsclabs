@@ -1201,3 +1201,84 @@
     align-items: flex-start;
   }
 }
+
+/* ── dark theme ──
+   Warm paper → shared dark palette; thematic accents lightened so they read
+   as text and strokes on dark. Accent-filled buttons swap their white text
+   for dark. IUCN status colours (inline, from the Red List scale) are left
+   as they are. */
+[data-theme="dark"] .np-root {
+  --paper: var(--d-paper);
+  --panel: var(--d-paper-2);
+  --ink: var(--d-ink);
+  --stone: #8b8473;
+  --line: var(--d-line);
+  --terra: #e08b62;
+  --forest: #7fb08f;
+  --saffron: #e2b259;
+  --slate: #8fb0cf;
+  --river: #78a6c6;
+  --wet: #6fa3d4;
+  --hill: #c6a27b;
+  --sanct: #9fc570;
+  --bio: #8cbd77;
+  --bio-mab: #e2786a;
+  --state: #2d2a22;
+  --state-hi: #3b372c;
+  --state-dim: #24221b;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .np-search-box,
+[data-theme="dark"] .np-modecard,
+[data-theme="dark"] .np-search-results,
+[data-theme="dark"] .np-quiz { background: var(--d-glass); }
+[data-theme="dark"] .np-toolkey,
+[data-theme="dark"] .np-iucnkey { background: rgba(33, 31, 25, 0.8); color: var(--d-ink-soft); }
+[data-theme="dark"] .np-maplegend { background: rgba(21, 20, 16, 0.88); color: var(--d-ink-soft); }
+[data-theme="dark"] .np-search-result:hover { background: rgba(127, 176, 143, 0.12); }
+[data-theme="dark"] .np-mode,
+[data-theme="dark"] .np-lyr-cap,
+[data-theme="dark"] .np-footnote { color: var(--d-ink-soft); }
+[data-theme="dark"] .np-statelabel { fill: #a59d8b; }
+[data-theme="dark"] .np-lb-reset { background: rgba(224, 139, 98, 0.14); }
+[data-theme="dark"] .np-lb-reset:hover { background: rgba(224, 139, 98, 0.24); }
+[data-theme="dark"] .np-chip { background: var(--d-surface); color: var(--d-ink-soft); }
+[data-theme="dark"] .np-sw { background: #4a463a; }
+[data-theme="dark"] .np-sw::after { background: var(--d-ink); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+[data-theme="dark"] .np-chip-np.on,
+[data-theme="dark"] .np-chip-spc.on { color: #a9d3b5; border-color: rgba(127, 176, 143, 0.45); background: rgba(127, 176, 143, 0.13); }
+[data-theme="dark"] .np-chip-riv.on { color: #a9c9e0; border-color: rgba(120, 166, 198, 0.45); background: rgba(120, 166, 198, 0.13); }
+[data-theme="dark"] .np-chip-tr.on { color: #ecc98a; border-color: rgba(226, 178, 89, 0.5); background: rgba(226, 178, 89, 0.14); }
+[data-theme="dark"] .np-chip-wet.on { color: #a3c6ea; border-color: rgba(111, 163, 212, 0.45); background: rgba(111, 163, 212, 0.14); }
+[data-theme="dark"] .np-chip-hill.on { color: #dcc1a2; border-color: rgba(198, 162, 123, 0.45); background: rgba(198, 162, 123, 0.14); }
+[data-theme="dark"] .np-chip-sanct.on { color: #c0dd9c; border-color: rgba(159, 197, 112, 0.45); background: rgba(159, 197, 112, 0.14); }
+[data-theme="dark"] .np-chip-bios.on { color: #b3d7a2; border-color: rgba(140, 189, 119, 0.45); background: rgba(140, 189, 119, 0.14); }
+[data-theme="dark"] .np-quiz-b.on { color: var(--d-paper); }
+[data-theme="dark"] .np-zoom:hover { background: var(--d-hover); }
+[data-theme="dark"] .np-lg,
+[data-theme="dark"] .np-card-dot { border-color: var(--d-paper-3); }
+[data-theme="dark"] .np-mrk,
+[data-theme="dark"] .np-mrk-ring { stroke: var(--d-paper); }
+[data-theme="dark"] .np-mrk-g:hover .np-mrk,
+[data-theme="dark"] .np-mrk-g:hover .np-mrk-ring { stroke: var(--d-ink); }
+[data-theme="dark"] .np-bubble { fill: var(--d-surface); }
+[data-theme="dark"] .np-bubble-g:hover .np-bubble { fill: var(--d-hover); }
+[data-theme="dark"] .np-wet { stroke: #a3c6ea; }
+[data-theme="dark"] .np-wetlabel { fill: #a3c6ea; }
+[data-theme="dark"] .np-sanct { stroke: #c0dd9c; }
+[data-theme="dark"] .np-sanctlabel { fill: #c0dd9c; }
+[data-theme="dark"] .np-card { background: var(--d-surface); box-shadow: 0 6px 30px rgba(0, 0, 0, 0.55); }
+[data-theme="dark"] .np-card-head { background: linear-gradient(180deg, #27251e, var(--d-surface)); }
+[data-theme="dark"] .np-card-x { background: var(--d-surface); }
+[data-theme="dark"] .np-card-x:hover { background: var(--d-hover); }
+[data-theme="dark"] .np-tag-np { color: #a9d3b5; background: rgba(127, 176, 143, 0.15); border-color: rgba(127, 176, 143, 0.5); }
+[data-theme="dark"] .np-tag-tr { color: #ecc98a; background: rgba(226, 178, 89, 0.16); border-color: rgba(226, 178, 89, 0.55); }
+[data-theme="dark"] .np-badge-whs { color: #a9c3dc; border-color: #6f8eab; background: #1e2a35; }
+[data-theme="dark"] .np-badge-bio { color: #a9d3b5; border-color: #6c9a7b; background: #1d2b22; }
+[data-theme="dark"] .np-badge-ram { color: #9fd0da; border-color: #5f9aa6; background: #1b2c2f; }
+[data-theme="dark"] .np-badge-ele { color: #ecc98a; border-color: #b08a3e; background: #2d2618; }
+[data-theme="dark"] .np-badge-iba { color: #d4b4e2; border-color: #9a72ae; background: #2a2030; }
+[data-theme="dark"] .np-species { background: var(--d-paper-2); }
+[data-theme="dark"] .np-sp { background: var(--d-surface); }
+[data-theme="dark"] .np-sp-name { color: #b3d3bd; }
+[data-theme="dark"] .np-mode-on { color: var(--d-paper); }

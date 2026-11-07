@@ -1053,3 +1053,71 @@ a.ul-cov-img:hover {
   color: var(--live);
   font-weight: 600;
 }
+
+/* ── header actions: theme toggle + CTA ── */
+.ul-header-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ul-theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper-3);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+.ul-theme-toggle:hover {
+  border-color: var(--stone-edge);
+  background: var(--paper-2);
+}
+.ul-theme-toggle:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.ul-theme-sun {
+  display: none;
+}
+[data-theme="dark"] .ul-theme-moon {
+  display: none;
+}
+[data-theme="dark"] .ul-theme-sun {
+  display: block;
+}
+
+/* ── dark theme overrides for the site shell (tokens: app/globals.css) ── */
+[data-theme="dark"] .ul-logo {
+  /* the mark is a dark-ink PNG; flip it to near-white */
+  filter: invert(1) brightness(0.92);
+}
+[data-theme="dark"] .ul-nav-pill-on,
+[data-theme="dark"] .ul-cov-pill {
+  /* filled pills keep white text, so they need a deep navy, not --live's text tint */
+  background: #3b3fb0;
+}
+[data-theme="dark"] .ul-news-msg.ok {
+  color: #9fc8a6;
+}
+[data-theme="dark"] .ul-news-msg.error {
+  color: #ef9a8c;
+}
+[data-theme="dark"] .ul-pyq-verdict.is-wrong {
+  background: color-mix(in srgb, #ef8a8c 16%, transparent);
+  color: #ef9a9c;
+}
+[data-theme="dark"] .ul-gridlines span,
+[data-theme="dark"] .ul-gridlines span:last-child {
+  border-color: color-mix(in srgb, var(--line) 45%, transparent);
+}
+/* ToolPreview renders one copy per theme; hide the other (never re-show,
+   so each copy keeps whatever display its context gives it). */
+:root:not([data-theme="dark"]) .ul-preview-dark,
+[data-theme="dark"] .ul-preview-light {
+  display: none !important;
+}

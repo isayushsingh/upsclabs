@@ -10,6 +10,7 @@ import Footer from "@/components/site/Footer";
 import ServiceWorkerRegistration from "@/components/site/ServiceWorkerRegistration";
 import FeatureAnnouncement from "@/components/site/FeatureAnnouncement";
 import VisitTracker from "@/components/site/VisitTracker";
+import { THEME_INIT_SCRIPT } from "@/components/site/ThemeToggle";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
@@ -96,7 +97,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f2efe2",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f2efe2" },
+    { media: "(prefers-color-scheme: dark)", color: "#151410" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -104,7 +108,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={`${fraunces.variable} ${inter.variable} ${spaceMono.variable} ${generalSans.variable}`}
+      // The theme script sets data-theme before React hydrates.
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body>
         {/* Faint vertical column rules behind the entire page (not just the
             hero) — position:fixed means it never needs to match document

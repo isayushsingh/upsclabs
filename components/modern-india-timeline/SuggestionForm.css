@@ -24,3 +24,15 @@
 .mit-suggest-msg{ margin:9px 0 0; font-size:12.5px; }
 .mit-suggest-msg.ok{ color:#3F6B4A; }
 .mit-suggest-msg.error{ color:var(--bad); }
+
+/* ── dark theme ── */
+[data-theme="dark"] .mit-suggest-textarea,
+[data-theme="dark"] .mit-suggest-row input {
+  background: var(--d-surface);
+}
+[data-theme="dark"] .mit-suggest-msg.ok {
+  color: #9fc8a6;
+}
+/* hosts pass a light --accent in dark mode (it doubles as text colour), so
+   darken it for the filled button that carries white text */
+[data-theme="dark"] .mit-suggest-row button{ background:color-mix(in srgb, var(--accent) 50%, #000); }

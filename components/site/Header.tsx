@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -27,9 +28,12 @@ export default function Header() {
           <Link href="/#syllabus">Syllabus</Link>
           <Link href="/#newsletter">Newsletter</Link>
         </nav>
-        <Link href="/#featured" className="ul-nav-cta">
-          Explore Tools <span aria-hidden="true">↗</span>
-        </Link>
+        <div className="ul-header-actions">
+          <ThemeToggle />
+          <Link href="/#featured" className="ul-nav-cta">
+            Explore Tools <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
       </div>
     </header>
   );

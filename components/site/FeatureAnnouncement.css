@@ -101,3 +101,7 @@
     transform: none;
   }
 }
+
+[data-theme="dark"] .fan-toast {
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+}

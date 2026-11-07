@@ -80,3 +80,7 @@
     margin-left: 76px;
   }
 }
+
+[data-theme="dark"] .ul-promo:hover {
+  box-shadow: 0 10px 28px -14px rgba(0, 0, 0, 0.6);
+}
