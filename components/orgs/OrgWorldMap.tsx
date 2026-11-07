@@ -539,7 +539,7 @@ export default function OrgWorldMap() {
       {selectedOrg && (
         <div className="io-orghead">
           <div>
-            <h2 style={{ color: selectedOrg.color }}>{selectedOrg.fullName}</h2>
+            <h2 style={{ color: selectedOrg.color, "--org": selectedOrg.color } as React.CSSProperties}>{selectedOrg.fullName}</h2>
             <p>
               {selectedOrg.blurb} Founded {selectedOrg.founded} ·{" "}
               {memberCount} member{memberCount === 1 ? "" : "s"}
@@ -724,7 +724,10 @@ export default function OrgWorldMap() {
             {selectedOrg &&
               (activeMembership ? (
                 <div className="io-card-body">
-                  <span className="io-card-tier" style={{ color: selectedOrg.color }}>
+                  <span
+                    className="io-card-tier"
+                    style={{ color: selectedOrg.color, "--org": selectedOrg.color } as React.CSSProperties}
+                  >
                     {TIER_LABEL[activeMembership.tier]}
                     {activeMembership.founding && " · Founding"}
                     {activeMembership.joined && !activeMembership.founding &&

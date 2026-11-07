@@ -95,3 +95,23 @@
   .ait-king-chip{ font-size:11px; padding:3px 8px; }
 }
 @media (prefers-reduced-motion:reduce){ .ait-region{ transition:none; } .ait-king-chip.is-cur{ animation:none; } }
+
+/* ── dark theme ── dynasty colours are mid-tones: fine as map fills, too dim
+   as text, so labels and the current-king chip lighten them. Those two set
+   their colour inline (light mode), hence !important here. */
+[data-theme="dark"] .ait-root{
+  --ink:var(--d-ink); --ink-soft:var(--d-ink-soft); --stone:var(--d-stone); --stone-edge:var(--d-stone-edge);
+  --paper:var(--d-paper); --paper-2:var(--d-paper-2); --line:var(--d-line); --border:#8d8773;
+}
+[data-theme="dark"] .ait-soon{ color:#d7b98f; border-color:#6b5a40; background:#2a2419; }
+[data-theme="dark"] .ait-step:hover{ background:var(--d-hover); }
+[data-theme="dark"] .ait-band.alt{ background:rgba(255,255,255,.025); }
+[data-theme="dark"] .ait-band.is-cur{ background:rgba(140,170,200,.18); }
+[data-theme="dark"] .ait-handle-knob{ box-shadow:0 1px 3px rgba(0,0,0,.6); }
+[data-theme="dark"] .ait-region{ stroke:rgba(0,0,0,.35); }
+[data-theme="dark"] .ait-label{ fill:color-mix(in srgb, var(--dyn) 50%, #fff) !important; }
+[data-theme="dark"] .ait-king-chip.is-cur{
+  color:color-mix(in srgb, var(--dyn) 45%, #fff) !important;
+  border-color:color-mix(in srgb, var(--dyn) 60%, #fff) !important;
+  background:color-mix(in srgb, var(--dyn) 25%, transparent) !important;
+}

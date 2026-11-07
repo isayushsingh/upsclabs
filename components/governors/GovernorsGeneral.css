@@ -206,3 +206,31 @@
   .gg-slot.is-empty .gg-slot-dash{ margin-top:0; }
   .gg-chip{ font-size:13px; padding:5px 10px; }
 }
+
+/* ── dark theme ── era colours stay as fills; anything that mixed them with
+   #000 for text mixes with #fff instead, and #fff surfaces become --d-surface. */
+[data-theme="dark"] .gg-root{
+  --ink:var(--d-ink); --ink-soft:var(--d-ink-soft); --stone-edge:var(--d-stone-edge);
+  --paper:var(--d-paper); --paper-2:var(--d-paper-2); --paper-3:var(--d-paper-3); --line:var(--d-line);
+}
+[data-theme="dark"] .gg-search-input,
+[data-theme="dark"] .gg-card,
+[data-theme="dark"] .gg-slot,
+[data-theme="dark"] .gg-chip.is-traced{ background:var(--d-surface); }
+[data-theme="dark"] .gg-slot.is-empty{ background:var(--paper-3); }
+[data-theme="dark"] .gg-search-input::placeholder{ color:#7f7a69; }
+[data-theme="dark"] .gg-search-results{ background:var(--d-surface); box-shadow:0 10px 30px rgba(0,0,0,.55); }
+[data-theme="dark"] .gg-search-who,
+[data-theme="dark"] .gg-track-name,
+[data-theme="dark"] .gg-eyebrow{ color:color-mix(in srgb, var(--era) 45%, #fff); }
+[data-theme="dark"] .gg-track-block.is-active{ box-shadow:inset 0 0 0 3px var(--ink), inset 0 0 0 5px var(--d-paper); }
+[data-theme="dark"] .gg-block{
+  background:color-mix(in srgb, var(--era) 22%, var(--d-surface));
+  color:color-mix(in srgb, var(--era) 40%, #fff);
+}
+[data-theme="dark"] .gg-block:hover{ background:color-mix(in srgb, var(--era) 32%, var(--d-surface)); }
+[data-theme="dark"] .gg-block.is-active{ background:var(--ink); border-color:var(--ink); color:var(--d-paper); box-shadow:0 3px 10px rgba(0,0,0,.5); }
+[data-theme="dark"] .gg-namesake{ border-color:#9c7430; background:#2a2316; color:#e6c88f; }
+[data-theme="dark"] .gg-namesake:hover{ background:#352c1b; }
+[data-theme="dark"] .gg-chain .gg-chain-step:hover{ background:var(--d-hover); }
+[data-theme="dark"] .gg-chain .gg-chain-step.is-here{ background:var(--ink); color:var(--d-paper); }

@@ -217,3 +217,47 @@ button.mit-rung-year{ appearance:none; border:0; background:transparent; padding
   .mit-fold-text{ font-size:10.5px; padding-left:6px; }
   .mit-card-title{ font-size:20px; }
 }
+
+/* ── dark theme ── tokens map onto the shared palette in app/globals.css;
+   strand-tinted chips lighten their text instead of darkening it. */
+[data-theme="dark"] .mit-root{
+  --ink:var(--d-ink); --ink-soft:var(--d-ink-soft); --stone-edge:var(--d-stone-edge);
+  --paper:var(--d-paper); --paper-2:var(--d-paper-2); --paper-3:var(--d-paper-3); --line:var(--d-line);
+  --accent:#a3a6ff; --bad:#ef9a9c; --cause:#a3a6ff; --effect:#ef9a9c;
+  --both:rgba(233,182,90,.11);
+}
+[data-theme="dark"] .mit-mode-btn.on{ background:var(--d-hover); box-shadow:0 1px 3px rgba(0,0,0,.5); }
+[data-theme="dark"] .mit-tier-toggle:hover:not(:disabled),
+[data-theme="dark"] .mit-eranav-btn:hover,
+[data-theme="dark"] .mit-btn:hover,
+[data-theme="dark"] .mit-tray-card:hover{ background:var(--d-hover); }
+[data-theme="dark"] .mit-head-l{ color:#e3a595; }
+[data-theme="dark"] .mit-rung-tag{ color:#dcb067; }
+[data-theme="dark"] .mit-rung-dot{ background:#7f7867; }
+[data-theme="dark"] .mit-chip{
+  color:color-mix(in srgb, var(--chip) 45%, #fff);
+  background:color-mix(in srgb, var(--chip) 22%, var(--d-surface));
+  border-color:color-mix(in srgb, var(--chip) 40%, transparent);
+}
+/* anchors are drawn in --ink / --paper, which already swap */
+[data-theme="dark"] .mit-chip.is-anchor{ color:var(--paper); background:var(--ink); border-color:var(--ink); }
+[data-theme="dark"] .mit-chip:hover{ box-shadow:0 2px 8px rgba(0,0,0,.5); }
+[data-theme="dark"] .mit-rung.is-target:hover{ background:rgba(163,166,255,.1); }
+[data-theme="dark"] .mit-rung.is-wrong{ background:rgba(239,154,156,.16); }
+[data-theme="dark"] .mit-card{ background:var(--d-surface); }
+[data-theme="dark"] .mit-tag{
+  color:color-mix(in srgb, var(--chip) 45%, #fff);
+  background:color-mix(in srgb, var(--chip) 24%, var(--d-surface));
+}
+[data-theme="dark"] .mit-tag-anchor{ background:var(--ink); color:var(--paper); }
+[data-theme="dark"] .mit-mini{
+  background:color-mix(in srgb, var(--chip) 18%, var(--d-surface));
+  color:color-mix(in srgb, var(--chip) 45%, #fff);
+}
+[data-theme="dark"] .mit-rule{ background:#2b2417; }
+[data-theme="dark"] .mit-rule .mit-eyebrow{ color:#dcb67b; }
+[data-theme="dark"] .mit-btn-dark:hover{ background:#d6d2c4; }
+[data-theme="dark"] .mit-tray-card.is-selected{ color:#15140f; box-shadow:0 2px 6px rgba(0,0,0,.5); }
+@media (max-width:900px){
+  [data-theme="dark"] .mit-aside.is-open{ box-shadow:0 -8px 30px rgba(0,0,0,.55); }
+}

@@ -291,7 +291,13 @@ export default function AncientIndiaTimeline() {
                         className={`ait-king-chip${isCur ? " is-cur" : ""}`}
                         style={
                           isCur
-                            ? { borderColor: d.fill, color: d.fill, background: withAlpha(d.fill, 0.13) }
+                            ? ({
+                                borderColor: d.fill,
+                                color: d.fill,
+                                background: withAlpha(d.fill, 0.13),
+                                // read by the dark theme, which lightens it
+                                "--dyn": d.fill,
+                              } as React.CSSProperties)
                             : undefined
                         }
                         onClick={() => setYear(k.start)}
@@ -358,7 +364,7 @@ export default function AncientIndiaTimeline() {
                   y={ly}
                   className="ait-label"
                   textAnchor={d.label.anchor}
-                  style={{ fill: d.fill }}
+                  style={{ fill: d.fill, "--dyn": d.fill } as React.CSSProperties}
                 >
                   <tspan x={lx}>{d.short || d.name}</tspan>
                   <tspan x={lx} dy="1.2em" className="ait-period">

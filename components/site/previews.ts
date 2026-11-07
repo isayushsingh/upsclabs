@@ -4,10 +4,19 @@ import type { PreviewKind } from "@/lib/tools";
 // Neutral tones come from the brand palette; `accent` is the tool's colour.
 // Extend by adding a new case keyed off PreviewKind.
 
-const STONE = "#d7d1c1";
-const EDGE = "#b3ab97";
-const PAPER = "#efeae0";
-const INK = "#5c5d52";
+// Neutral tones are placeholders, filled per theme in previewSvg() so the
+// same drawing works on the light and the dark page.
+const STONE = "__STONE__";
+const EDGE = "__EDGE__";
+const PAPER = "__PAPER__";
+const INK = "__INK__";
+
+const PALETTES = {
+  light: { __STONE__: "#d7d1c1", __EDGE__: "#b3ab97", __PAPER__: "#efeae0", __INK__: "#5c5d52" },
+  dark: { __STONE__: "#3d3a30", __EDGE__: "#5f5a4a", __PAPER__: "#26241d", __INK__: "#a9a491" },
+};
+
+export type PreviewTheme = keyof typeof PALETTES;
 
 const wrap = (inner: string) =>
   `<svg viewBox="0 0 120 84" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img">${inner}</svg>`;
@@ -101,6 +110,10 @@ const KINDS: Record<PreviewKind, (a: string) => string> = {
   scale,
 };
 
-export function previewSvg(kind: PreviewKind, accent: string): string {
-  return (KINDS[kind] || cards)(accent);
+export function previewSvg(kind: PreviewKind, accent: string, theme: PreviewTheme = "light"): string {
+  const palette = PALETTES[theme];
+  return (KINDS[kind] || cards)(accent).replace(
+    /__(STONE|EDGE|PAPER|INK)__/g,
+    (token) => palette[token as keyof typeof palette]
+  );
 }

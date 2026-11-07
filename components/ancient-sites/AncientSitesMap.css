@@ -776,3 +776,38 @@
     max-height: none;
   }
 }
+
+/* ── dark theme ── same mapping as the other maps. Category colours (site
+   markers, pills, tags) stay as they are: they're fills under white text. */
+[data-theme="dark"] .as-root {
+  --paper: var(--d-paper);
+  --panel: var(--d-paper-2);
+  --ink: var(--d-ink);
+  --ink-soft: var(--d-ink-soft);
+  --stone: #8b8473;
+  --line: var(--d-line);
+  --terra: #e08b62;
+  --slate: #8fb0cf;
+  --sea: #18242b;
+  --sea-line: #2c3c44;
+  --land: #2d2a22;
+  --land-hi: #3b372c;
+  --border-line: #7c6f59;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .as-search-box,
+[data-theme="dark"] .as-search-results,
+[data-theme="dark"] .as-modecard,
+[data-theme="dark"] .as-layerbox,
+[data-theme="dark"] .as-edict-key,
+[data-theme="dark"] .as-empty-hint p { background: var(--d-glass); }
+[data-theme="dark"] .as-search-result:hover { background: rgba(143, 176, 207, 0.12); }
+[data-theme="dark"] .as-mode { color: var(--d-ink-soft); }
+[data-theme="dark"] .as-pill { background: var(--d-surface); color: var(--d-ink-soft); }
+[data-theme="dark"] .as-pill.on { background: var(--pill-color); color: #fff; }
+[data-theme="dark"] .as-lb-reset { background: rgba(224, 139, 98, 0.14); }
+[data-theme="dark"] .as-lb-reset:hover { background: rgba(224, 139, 98, 0.24); }
+[data-theme="dark"] .as-kingdom-label-box { fill: color-mix(in srgb, #4a7c59 30%, var(--paper)); stroke: #7fb08f; }
+[data-theme="dark"] .as-kingdom-label-text { fill: #b3d3bd; }
+[data-theme="dark"] .as-card { background: rgba(33, 31, 25, 0.97); box-shadow: 0 6px 30px rgba(0, 0, 0, 0.55); }
+[data-theme="dark"] .as-mode-on { color: var(--d-paper); }

@@ -639,3 +639,50 @@
   --bad: #9a3f4a;
   margin-top: 20px;
 }
+
+/* ── dark theme ── tokens → shared dark palette. Org colours stay as map
+   fills; where they colour text (inline, light mode) they're lightened here,
+   hence !important. */
+[data-theme="dark"] .io-root {
+  --io-paper: var(--d-paper);
+  --io-panel: #2d2a22;
+  --io-ink: var(--d-ink);
+  --io-stone: #8b8473;
+  --io-line: #45412f;
+  --io-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .io-search input,
+[data-theme="dark"] .io-modecard,
+[data-theme="dark"] .io-pill,
+[data-theme="dark"] .io-revealall { background: rgba(33, 31, 25, 0.92); color: var(--d-ink-soft); }
+[data-theme="dark"] .io-search input { color: var(--d-ink); }
+[data-theme="dark"] .io-search input:focus { outline-color: #8fb2f0; }
+[data-theme="dark"] .io-search-results { background: var(--d-glass); }
+[data-theme="dark"] .io-search-result:hover { background: rgba(255, 255, 255, 0.06); }
+[data-theme="dark"] .io-mode,
+[data-theme="dark"] .io-tab,
+[data-theme="dark"] .io-orghead p,
+[data-theme="dark"] .io-continent-detail summary,
+[data-theme="dark"] .io-card-note { color: var(--d-ink-soft); }
+[data-theme="dark"] .io-tabs { background: rgba(33, 31, 25, 0.75); }
+[data-theme="dark"] .io-tab:hover { background: var(--d-hover); color: var(--d-ink); }
+[data-theme="dark"] .io-tab-on,
+[data-theme="dark"] .io-tab-on:hover,
+[data-theme="dark"] .io-pill-on,
+[data-theme="dark"] .io-pill-on:hover { color: var(--d-paper); }
+[data-theme="dark"] .io-pill:hover,
+[data-theme="dark"] .io-revealall:hover { background: var(--d-hover); }
+[data-theme="dark"] .io-pill-on,
+[data-theme="dark"] .io-pill-on:hover { background: var(--io-ink); }
+[data-theme="dark"] .io-ocean { fill: #18242b; }
+[data-theme="dark"] .io-zoom:hover { background: var(--d-hover); }
+[data-theme="dark"] .io-legend { background: rgba(21, 20, 16, 0.9); color: var(--d-ink-soft); }
+[data-theme="dark"] .io-card { background: var(--d-surface); }
+[data-theme="dark"] .io-orghead h2,
+[data-theme="dark"] .io-card-tier { color: color-mix(in srgb, var(--org) 50%, #fff) !important; }
+[data-theme="dark"] .io-suggest-scope { --accent: #8fb2f0; --bad: #ef9a9c; }
+@media (max-width: 700px) {
+  [data-theme="dark"] .io-legend-mobile { color: var(--d-ink-soft); }
+}
+[data-theme="dark"] .io-mode-learn.io-mode-on,
+[data-theme="dark"] .io-mode-recall.io-mode-on { color: #fff; }

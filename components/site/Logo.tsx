@@ -15,7 +15,7 @@ export default function Logo({
       alt=""
       width={452}
       height={461}
-      className={className}
+      className={`ul-logo${className ? ` ${className}` : ""}`}
       style={{ width: size, height: "auto" }}
       aria-hidden="true"
     />

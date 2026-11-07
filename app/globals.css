@@ -24,6 +24,45 @@
   color-scheme: light;
 }
 
+/* ── dark theme ──
+   Set by the inline script in app/layout.tsx (stored choice, else the OS
+   preference) before first paint, and flipped by ThemeToggle. Light mode
+   never reads anything in a [data-theme="dark"] block, so it stays exactly
+   as designed; every component's dark overrides live at the bottom of its
+   own stylesheet.
+
+   The --d-* helpers are the shared dark palette. Tools keep their own
+   scoped token copies (.mit-root, .np-root, …) and map those onto these in
+   their dark blocks, so the whole site reads as one dark theme. */
+[data-theme="dark"] {
+  --d-ink: #ece8da;
+  --d-ink-soft: #a9a491;
+  --d-paper: #151410;
+  --d-paper-2: #26241d;
+  --d-paper-3: #1b1a15;
+  --d-surface: #211f19; /* where light mode uses #fff cards */
+  --d-line: #37352c;
+  --d-stone: #3d3a30;
+  --d-stone-edge: #555142;
+  --d-glass: rgba(33, 31, 25, 0.95); /* floating map panels */
+  --d-hover: #2e2c24;
+
+  --ink: var(--d-ink);
+  --ink-soft: var(--d-ink-soft);
+  --stone: var(--d-stone);
+  --stone-edge: var(--d-stone-edge);
+  --paper: var(--d-paper);
+  --paper-2: var(--d-paper-2);
+  --paper-3: var(--d-paper-3);
+  --line: var(--d-line);
+  --live: #a5a8ff; /* text on dark; fills that sit behind white text override it */
+  --live-dark: #3b3fb0;
+  --building: #a9b97a;
+  --planned: #6f6a5c;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
 *,
 *::before,
 *::after {

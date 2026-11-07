@@ -86,3 +86,11 @@
   background: rgba(166, 96, 63, 0.1);
   border-color: var(--action, #a6603f);
 }
+
+[data-theme="dark"] .drm-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+[data-theme="dark"] .drm-card {
+  background: var(--d-surface);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
